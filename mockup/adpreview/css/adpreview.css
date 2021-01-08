@@ -1,0 +1,220 @@
+/* Global style */
+
+.try_ad {
+   background-color: #222;
+   border-radius: 20px;
+   color: white;
+   margin-top: 20px;
+   position: relative;
+   text-align: center;
+}
+.try_ad h1 {
+   font-size: 2rem;
+   padding: 10px;
+   color: white;
+   text-align: center;
+   border-top-left-radius: 20px;
+   border-top-right-radius: 20px;
+   border-bottom: 2px solid #3e3e3e;
+    background-color: #222;
+}
+.try_ad span {
+   font-size: 15px;
+}
+.try_ad .browse_ad {
+   margin-top: 10px;
+   display: inline-block;
+   border: 1px solid #ccc;
+   padding: 0 10px;
+   position: relative;
+   border-radius: 5px;
+   cursor: pointer;
+}
+
+.try_ad input {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: 130px;
+    width: 160px;
+    opacity: 0;
+    cursor: pointer;
+}
+.try_ad input:hover ~ .try_ad .browse_ad {
+background-color: red;
+}
+.try_ad .takess {
+   margin-top: 10px;
+   display: inline-block;
+   border: 1px solid #ccc;
+   padding: 0 10px;
+   position: relative;
+   margin-left: 20px;
+   cursor: pointer;
+   border-radius: 5px;
+}
+.takess img {
+   max-width: 30px;
+}
+.spec-des {
+   height: auto!important;
+}   
+
+/* Ad preview style */
+
+.adpreview_mobile_box {
+    width: 380px;
+    height: 812px;
+    position: relative;
+    left: 0;
+    right: 0;
+    margin: auto;
+    text-align: center;
+    overflow: hidden;
+}
+.adpreview_mobile_box img.mobile_frame {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    height: auto;
+}
+.web_box {
+    position: absolute;
+    width: 87%;
+    height: 86.6%;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: 47px;
+    z-index: 3;
+    scrollbar-width : thin;
+    scrollbar-color: dark;
+    border: 2px solid #333;
+    border-radius: 7px;
+}
+.web_box img {
+    max-width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+/* ==== Megabillboard ==== */
+
+#idnmegabillboard .web_box {
+   padding-top: 470px;
+   overflow-y: hidden;
+   overflow-x: hidden;
+}
+#idnmegabillboard .web_box:hover {
+   overflow-y: scroll;
+   overflow-x: hidden;
+}
+#idnmegabillboard .banner_ad {
+    width: 328px;
+    left: 0;
+    right: 0;
+    top: 6%;
+    margin: auto;
+    text-align: center;
+    background-color: black;
+    padding: 10px;
+    position: relative;
+    z-index: -1;
+}
+#idnmegabillboard .banner_ad img {
+    width: 300px;
+    height: 450px;
+}
+
+/* ==== Video in Banner 1 ==== */
+
+#videoinbanner1 .web_box {
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+#videoinbanner1 .banner_ad {
+    left: 0;
+    right: 0;
+    top: 324px;
+    margin: auto;
+    text-align: center;
+    background-color: black;
+    padding: 0;
+    position: relative;
+    z-index: 6;
+}
+#videoinbanner1 .banner_ad, #videoinbanner1 video {
+    width: 278px;
+    height: 232px;
+}
+
+@media (max-width: 480px) {
+    .try_ad input {
+        left: 0;
+        right: 0;
+        margin: auto;
+        top: 150px;
+    }
+    .try_ad .takess {
+        margin-left: 0;
+    }
+    .adpreview_mobile_box {
+        width: 310px;
+        height: 662px;
+    }
+    .web_box {
+
+        top: 40px;
+    }
+    #idnmegabillboard .banner_ad {
+        width: 270px;
+    }
+    #idnmegabillboard .banner_ad img {
+        width: 250px;
+        height: 375px;
+    }
+    #idnmegabillboard .web_box {
+        padding-top: 385px;
+        overflow-y: scroll;
+    }
+    #videoinbanner1 .banner_ad, #videoinbanner1 video {
+        width: 230px;
+        height: 192px;
+    }
+    #videoinbanner1 .banner_ad {
+        top: 260px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
