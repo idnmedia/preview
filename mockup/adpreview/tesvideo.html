@@ -11,6 +11,14 @@
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 	<link href="css/adpreview.css" rel="stylesheet">
+    
+    
+    
+    
+    
+
+    
+    
 
 </head>
 <body>
@@ -22,12 +30,11 @@
                     
                     <!-- AdPreview -->
                     
-					<div class="col-md-7 text-center animated fadeIn delay-1s">
+					<div id="tablecontainer" class="col-md-7 text-center animated fadeIn delay-1s">
 						<div id="videoinbanner1">
-                            <div id="capthis" style="display: inline-block;">
-                                <div class="adpreview_mobile_box">
+                            <div id="" class="takethis adpreview_mobile_box">
                                 <div class="web_box">
-                                    <img src="videoinbanner1.jpg">
+                                    <img src="web2.jpg">
                                 </div>
                                 <img class="mobile_frame" src="mobile.png">
                                 <div class="banner_ad">
@@ -39,8 +46,6 @@
                                     </div>
                                 </div>
                             </div>
-                            </div>
-                            
                         </div>
 					</div>
 					<div class="col-md-5 animated fadeIn delay-1sets">
@@ -61,7 +66,7 @@
                                     <li>Video Size : Max 5 MB</li>
                                 </ul>
                                 
-                                 
+                                
                                 
                                 <a class="preview animated bounceIn delay-2s" href="../../preview/mobile/idntimes/mega-billboard.html" target="_blank">Go To Sample Preview<i class="fa fa-arrow-right"></i></a>
 							</div>
@@ -75,9 +80,16 @@
 									<i class="fa fa-upload"></i> Browse Your Ad...
 								</div>
                                 <input type="file" id="uploadVideoFile" accept="video/*" width="100" />
-                                <div class="takess" onclick="downloadimage()">
-									<i class="fa fa-download"></i> <span>Download preview</span>
-								</div>
+                                
+                                
+                                
+                                
+                                
+                                
+                                 <button id="demo" class="downloadtable" onclick="downloadtable()"> Download Table</button>
+                                
+     
+                                
                                 
 							</div>
 						</div>
@@ -86,19 +98,66 @@
 			</div>
 		</div>
 	</section><!-- Bootstrap core JavaScript -->
+    <script src="js/adpreview.js"></script> 
 	<script src="https://ads.idntimes.com/page/assets/js/jquery.min.js">
 	</script> 
 	<script src="https://ads.idntimes.com/page/assets/js/bootstrap.bundle.min.js">
 	</script> 
-	<script src="js/domtoimage.js"></script> 
-	<script src="js/adpreview.js"></script> 
+ 
+
+        
+    <script src="js/FileSaver.js"></script>
+    
     
     <script>
-        setTimeout(function(){
-            document.getElementById("video").play();
-        }, 1000);
-    </script>
+            setTimeout(function(){
+                document.getElementById("video").play();
+            }, 1000);
+        </script>
+        <script>
 
+    function downloadtable() {
+
+        var node = document.getElementById('tablecontainer');
+
+        domtoimage.toPng(node)
+            .then(function (dataUrl) {
+                var img = new Image();
+                img.src = dataUrl;
+                downloadURI(dataUrl, "records.png")
+            })
+            .catch(function (error) {
+                console.error('oops, something went wrong!', error);
+            });
+        
+
+    }
+
+
+
+    function downloadURI(uri, name) {
+        var link = document.createElement("a");
+        link.download = name;
+        link.href = uri;
+        document.body.appendChild(link);
+        link.click();
+
+    }
+
+
+
+</script>
+    
+
+    
+<!--
+	<script src="js/canvas2image.js">
+	</script> 
+	<script src="js/html2canvas.min.js"></script> 
+	<script src="js/adpreview.js"></script> 
+-->
+    
+    
 	
 </body>
 </html>

@@ -1,14 +1,37 @@
-// fungsi untuk screenshot dan download image preview
+// fungsi untuk screenshot dan download image preview versi 1
 
 //document.querySelector('.takess').addEventListener('click', function() {
 //   html2canvas(document.querySelector('.takethis'), {
 //       onrendered: function(canvas) {
 ////                 document.body.appendChild(canvas);
-//         return Canvas2Image.saveAsGIF(canvas);
+//         return Canvas2Image.saveAsPNG(canvas);
 //       }
 //   });
 //});
 
+
+// fungsi untuk screenshot dan download image preview versi 2
+
+function downloadimage() {
+    var node = document.getElementById('capthis');
+    domtoimage.toPng(node)
+        .then(function (dataUrl) {
+        var img = new Image();
+        img.src = dataUrl;
+        downloadURI(dataUrl, "image.png")
+    })
+        .catch(function (error) {
+        console.error('oops, something went wrong!', error);
+    });    
+}
+
+function downloadURI(uri, name) {
+    var link = document.createElement("a");
+    link.download = name;
+    link.href = uri;
+    document.body.appendChild(link);
+    link.click();
+}
 
 
 // fungsi upload dan replace image statis, untuk banner standar
@@ -76,6 +99,7 @@ function UploadVideo(file) {
 				loaded = total;
 				console.log('File "' + file.name + '" uploaded successfully!');
 				$('#uploadVideoProgressBar').hide();
+				document.getElementById("video").play();
 			}
 		}, 250);
 	}
@@ -108,6 +132,15 @@ function PostChunk() {
 			loaded = total;
 			console.log('File "' + file.name + '" uploaded successfully!');
 			$('#uploadVideoProgressBar').hide();
+            document.getElementById("video").play();
 		}
 	});
 }
+
+
+
+
+
+
+
+

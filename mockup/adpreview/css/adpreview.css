@@ -1,5 +1,43 @@
 /* Global style */
 
+.spec-des .browse_box {
+    position: relative;
+    display: inline;
+    cursor: pointer;
+}
+.spec-des .browse_ad {
+    display: inline-block;
+    border: 2px solid #ed2028;
+    border-radius: 5px;
+    padding: 7px 10px;
+    color: #ed2028;
+    transition: all 0.5s ease;
+    margin: 5px;
+}
+.spec-des input {
+    position: absolute;
+    left: 0;
+    width: 155px;
+    height: 40px;
+    bottom: -10px;
+    opacity: 0;
+    cursor: pointer;
+}
+.browse_box:hover .browse_ad, .takess:hover {
+    color: white!important;
+    background-color: #ed2028;
+}
+.spec-des .takess {
+    display: inline-block;
+    border: 2px solid #ed2028;
+    border-radius: 5px;
+    padding: 7px 10px;
+    color: #ed2028;
+    transition: all 0.5s ease;
+    margin: 5px;
+    cursor: pointer;
+}
+
 .try_ad {
    background-color: #222;
    border-radius: 20px;
@@ -83,19 +121,18 @@ background-color: red;
 }
 .web_box {
     position: absolute;
-    width: 87%;
-    height: 86.6%;
+    width: 330px;
+    height: 717px;
     overflow-y: hidden;
     overflow-x: hidden;
     left: 0;
     right: 0;
     margin: auto;
-    top: 47px;
+    top: 22px;
     z-index: 3;
     scrollbar-width : thin;
     scrollbar-color: dark;
-    border: 2px solid #333;
-    border-radius: 7px;
+    border-radius: 14px;
 }
 .web_box img {
     max-width: 100%;
@@ -125,7 +162,7 @@ background-color: red;
     width: 328px;
     left: 0;
     right: 0;
-    top: 6%;
+    top: 20px;
     margin: auto;
     text-align: center;
     background-color: black;
@@ -147,7 +184,7 @@ background-color: red;
 #videoinbanner1 .banner_ad {
     left: 0;
     right: 0;
-    top: 324px;
+    top: 295px;
     margin: auto;
     text-align: center;
     background-color: black;
@@ -175,8 +212,7 @@ background-color: red;
         height: 662px;
     }
     .web_box {
-
-        top: 40px;
+        top: 18px;
     }
     #idnmegabillboard .banner_ad {
         width: 270px;
@@ -194,7 +230,7 @@ background-color: red;
         height: 192px;
     }
     #videoinbanner1 .banner_ad {
-        top: 260px;
+        top: 238px;
     }
 }
 
