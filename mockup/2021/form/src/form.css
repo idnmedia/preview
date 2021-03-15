@@ -34,48 +34,7 @@
 img.submit-btn {
     max-width: 120px;
 }
-#formadPopup {
-    display: none;
-}
-.formad-popup {
-    width: 320px;
-    height: 250px;
-    background-color: rgba(0, 0, 0, 0.6);
-    position: absolute;
-}
-.formad-popup h3 {
-    color: #3a9cd1;
-    font-size: 20px;
-    font-weight: bold;
-}
-.formad-popup p {
-    color: #4d4d4d;
-    font-size: 14px;
-}
-.formad-popup-container {
-    position: absolute;
-    width: 240px;
-    padding: 15px;
-    top: 50%;
-    transform: translateY(-50%);
-    margin: auto;
-    left: 0;
-    right: 0;
-    border-radius: 4px;
-}
-.formad-popup-btn {
-    position: relative;
-    display: inline-block;
-    color: white;
-    background-color: #3a9cd1;
-    padding: 5px 45px;
-    font-weight: bold;
-    left: 50%;
-    transform: translateX(-50%);
-    margin: 10px 0;
-    border-radius: 4px;
-    cursor: pointer;
-}
+
 .box-formad {
     border-radius: 4px;
     position: absolute;
@@ -101,7 +60,7 @@ img.submit-btn {
     border: 1px solid #ced4da;
     border-radius: 4px 4px;
     background-color: #F8F8F8;
-    margin-bottom: 16px;
+    margin-bottom: 12px;
     margin-top: 6px;
 }
 .formad-input-prepend {
@@ -131,7 +90,7 @@ img.submit-btn {
     padding-left: .75rem;
     outline: 0;
     background-color: #F8F8F8;
-    height: 22px;
+    height: 26px;
 }
 .formad-input.onFocus, .formad-input-group.hasValue .formad-input {
     color: #495057;
@@ -147,22 +106,4 @@ img.submit-btn {
     color: #000;
     background-color: #fff;
 }
-.formad-total {
-    background-color: #3a9cd1;
-    color: #fff;
-    padding: 16px 16px;
-    border-radius: 4px 4px;
-}
-.formad-total p {
-    font-weight: bold;
-    font-size: 14px;
-}
-.formad-total > div {
-    font-size: 24px;
-    font-weight: bold;
-    text-align: right;
-}
-.formad-total > div::before {
-    content: "Rp";
-    float: left;
-}
+
