@@ -1,0 +1,83 @@
+<html>
+    <body style="margin: 0">
+        
+        <head></head>
+        
+<!--         <link rel="stylesheet" href="form.css" />-->
+        <style>@import url("form.css");</style>
+        <div id="formad" class="formad-container">
+            <a href="https://buy.realme.com/id/goods/180" target="_blank" class="landingpage">
+                <img src="banner2.jpg">
+            </a>
+            <div class="box-formad">
+                
+                <form id="myForm">
+                    <div class="formad-input-group">    
+                        <div class="formad-input">
+                            <input type="text" name="Nama" id="latinTextBox" placeholder="Nama Lengkap" required>
+                        </div>
+                    </div>
+
+                    <div class="formad-input-group">
+                        <div class="formad-input"> 
+                            <input type="text" name="Nomor_Telepon" id="intTextBox" placeholder="Nomor Telepon" required>
+                        </div>
+                    </div>
+
+                    <div class="formad-input-group">
+                        <div class="formad-input"> 
+                            <input type="text" name="Email" id="" placeholder="E-mail" required>
+                        </div>
+                    </div>
+                    <input type="submit" id="subForm">
+                    <img src="button.png" class="submit-btn">
+                </form>
+                
+                
+            </div>
+            
+            <img src="banner.jpg" style="max-width: 300px; height: auto;" alt="">
+        </div>
+
+        <script type="text/javascript" src="https://ads.idntimes.com/ads-assets/internal/js/jquery-3.3.1.min.js"></script>
+        <script type="text/javascript" src="form.js"></script>
+        <script>
+            $("#subForm").click(function(e) {
+              var valid = this.form.checkValidity(); // for demonstration purposes only, will always b "true" here, in this case, since HTML5 validation will block this "click" event if form invalid (i.e. if "required" field "foo" is empty)
+              if (valid) {
+                event.preventDefault(); // stops the "normal" <form> request, so we can post using ajax instead, below
+                $.ajax({
+                  type: 'POST',
+                  url:'https://api.apispreadsheets.com/data/9269/', // a public, HTTP POST sandbox that returns the POST data
+                  data:$("#myForm").serializeArray(),
+                  success: function(data) {
+                    $(".landingpage").show();
+                  },
+                  error: function(data) {
+                    alert("Tes Gagal ")
+                  }
+                });
+              }
+            });
+        </script>
+        <script type="text/javascript">
+            if(top!=self){
+                window.frameElement.style = 'width: 300px; height: 300px;';
+            };
+        </script>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    </body>
+</html>
