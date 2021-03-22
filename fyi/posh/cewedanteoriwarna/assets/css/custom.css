@@ -259,10 +259,11 @@ body {
     font-size: 22px;
     line-height: 2.1rem;
     margin-bottom: 30px;
+    letter-spacing: .6px;
 }
 .sec4 h3, .sec5 h3, .sec6 h3, .sec7 h3, .sec10 h3, .sec11 h3 {
     font-family: 'BriceGX', sans-serif;
-    font-size: 65px;
+    font-size: 62px;
     line-height: 4.6rem;
     margin-bottom: 40px;
     font-weight: bold;
@@ -288,7 +289,7 @@ span.stretch {
 /* ===== Section 1 ==== */
 
 .sec1 .text-box {
-    max-width: 37%;
+    max-width: 35%;
     text-align: center;
     color: white;
     position: relative;
@@ -302,7 +303,7 @@ span.stretch {
 /* ===== Section 2 ==== */
 
 .sec2 .text-box {
-    max-width: 37%;
+    max-width: 31%;
     text-align: center;
     color: white;
     position: relative;
@@ -315,7 +316,7 @@ span.stretch {
 /* ===== Section 3 ==== */
 
 .sec3 .text-box {
-    max-width: 37%;
+    max-width: 27%;
     text-align: center;
     color: white;
     position: relative;
@@ -328,7 +329,7 @@ span.stretch {
 /* ===== Section 4 ==== */
 
 .sec4 .text-box {
-    max-width: 37%;
+    max-width: 32%;
     text-align: center;
     color: white;
     position: relative;
@@ -509,7 +510,7 @@ span.stretch {
     margin-bottom: 30px;
 }
 .sec11 .box {
-    padding: 50px;
+    padding: 65px;
 }
 .sec11 .isi {
     top: -100px;
@@ -570,7 +571,7 @@ span.stretch {
 }
 #slider1 .content-slider .desc {
     margin-top: 30px;
-    max-width: 35%;
+    max-width: 45%;
     left: 0;
     right: 0;
     margin-left: auto;
@@ -966,10 +967,18 @@ span.stretch {
     .sec1 p, .sec2 p, .sec3 p, .sec4 p, .sec5 p, .sec6 p, .sec7 p, .sec9 p, .sec10 p, .sec11 p, .sec12 p {
         font-size: 24px;
     }
+    .sec1 .text-box {
+        max-width: 32%;
+    }
+    .sec2 .text-box {
+        max-width: 29%;
+    }
     .sec4 .text-box {
         top: 100px;
     }
-    
+    .sec11 .box {
+        padding: 80px;
+    }
 }
 
 
@@ -982,8 +991,18 @@ span.stretch {
     .sec0, .sec1, .sec2, .sec3, .sec4, .sec5, .sec6, .sec7, .sec8, .sec9, .sec11, .sec12, .sec13, .sec14, .sec15, .sec16, .sec17, .sec18, .sec19, .sec20 {
         height: 809px!important;
     }
+    .sec1 .text-box {
+        max-width: 30%;
+    }
+    .sec2 .text-box {
+        max-width: 28%;
+    }
+    .sec3 .text-box {
+        max-width: 26%
+    }
     .sec4 .text-box {
         top: 100px;
+        max-width: 30%;
     }
     .sec5 {
         padding-top: 100px;
@@ -991,8 +1010,14 @@ span.stretch {
     .sec7 {
         padding-top: 60px;
     }
+    .sec7 .text-box {
+        max-width: 530px;
+    }
     .sec8 {
         padding-top: 120px;
+    }
+    .sec9 .text-box {
+        max-width: 520px;
     }
     .sec10 {
         height: 955px;
@@ -1000,8 +1025,14 @@ span.stretch {
     .sec11 {
         padding-top: 80px;
     }
+    .sec11 .box {
+        padding: 85px;
+    }
     .head-text-box {
         margin-bottom: 100px;
+    }
+    #slider1 .content-slider .desc {
+        max-width: 37%;
     }
     
 }
@@ -1120,7 +1151,7 @@ span.stretch {
         height: 100vh;
     }
     .sec1 .text-box, .sec2 .text-box, .sec3 .text-box, .sec4 .text-box {
-        max-width: 90%;
+        max-width: 91%;
     }
     .bg1 {
         background-image: url(../images/mobile/bg.jpg);
@@ -1168,7 +1199,7 @@ span.stretch {
         left: 0;
     }
     #slider1 .content-slider img {
-        max-width: 200px;
+        max-width: 240px;
         position: relative;
         top: 70px;
     }
@@ -1187,8 +1218,11 @@ span.stretch {
     #slider3 .content-slider img {
         max-width: 200px;
     }
+    .sec5 .ornamen {
+        right: -20px;
+    }
     .sec5 .ornamen img {
-        max-width: 100px;
+        max-width: 120px;
     }
     .sec6 h2 {
         font-size: 40px;
@@ -1198,6 +1232,9 @@ span.stretch {
     }
     .sec8 img {
         max-width: 100%;
+    }
+    .sec9 .text-box {
+        max-width: 90%;
     }
     .sec10 h3 {
         max-width: 100%;
@@ -1345,6 +1382,9 @@ span.stretch {
 @media only screen and (max-width: 361px) { 
     .sec1, .sec2, .sec3, .sec4, .sec5, .sec6, .sec7, .sec8, .sec9, .sec10, .sec11, .sec12, .sec13, .sec14, .sec15, .sec16, .sec17, .sec18, .sec19, .sec20 {
         height: 105vh;
+    }
+    .sec4 h3, .sec5 h3, .sec6 h3, .sec7 h3, .sec10 h3, .sec11 h3 {
+        line-height: 3.4rem;
     }
     
 
