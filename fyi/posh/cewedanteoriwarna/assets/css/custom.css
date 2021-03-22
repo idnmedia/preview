@@ -966,6 +966,9 @@ span.stretch {
     .sec1 p, .sec2 p, .sec3 p, .sec4 p, .sec5 p, .sec6 p, .sec7 p, .sec9 p, .sec10 p, .sec11 p, .sec12 p {
         font-size: 24px;
     }
+    .sec4 .text-box {
+        top: 100px;
+    }
     
 }
 
@@ -977,12 +980,30 @@ span.stretch {
     }
 
     .sec0, .sec1, .sec2, .sec3, .sec4, .sec5, .sec6, .sec7, .sec8, .sec9, .sec11, .sec12, .sec13, .sec14, .sec15, .sec16, .sec17, .sec18, .sec19, .sec20 {
-        height: 800px!important;
+        height: 809px!important;
+    }
+    .sec4 .text-box {
+        top: 100px;
+    }
+    .sec5 {
+        padding-top: 100px;
+    }
+    .sec7 {
+        padding-top: 60px;
+    }
+    .sec8 {
+        padding-top: 120px;
     }
     .sec10 {
         height: 955px;
     }
-
+    .sec11 {
+        padding-top: 80px;
+    }
+    .head-text-box {
+        margin-bottom: 100px;
+    }
+    
 }
 
 /* Responsive untuk MacBook Pro */
@@ -1004,6 +1025,15 @@ span.stretch {
     }
     .sec10 {
         height: 890px;
+    }
+    .sec8 {
+        padding-top: 120px;
+    }
+    .sec11 {
+        padding-top: 60px;
+    }
+    .sec11 h3 {
+        margin-bottom: 100px;
     }
 
 }
