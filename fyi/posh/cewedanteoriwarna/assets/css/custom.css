@@ -351,7 +351,7 @@ span.stretch {
 }
 .sec5 .ornamen {
     position: absolute;
-    bottom: 0;
+    bottom: 30px;
     right: 0;
     z-index: 1;
 }
@@ -942,13 +942,25 @@ span.stretch {
         height: 1120px;
     }
     #slider1 .content-slider img {
-        max-width: 450px;
+        max-width: 550px;
+    }
+    .sec4 .text-box {
+        top: 180px;
+    }
+    .sec5 {
+        padding-top: 120px;
     }
     .sec5 .ornamen img {
         max-width: 360px;
     }
+    .sec7 {
+        padding-top: 150px;
+    }
     .sec7 img {
         max-width: 350px;
+    }
+    .sec9 .text-box {
+        top: 260px;
     }
     
 }
@@ -975,6 +987,9 @@ span.stretch {
     }
     .sec4 .text-box {
         top: 100px;
+    }
+    .sec5 {
+        padding-top: 120px;
     }
     .sec11 .box {
         padding: 80px;
