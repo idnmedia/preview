@@ -1201,10 +1201,12 @@ span.stretch {
     }
     .sec4 h3, .sec5 h3, .sec6 h3, .sec7 h3, .sec10 h3, .sec11 h3 {
         font-size: 40px;
+        margin-bottom: 0px;
     }
     .sec1 p, .sec2 p, .sec3 p, .sec4 p, .sec5 p, .sec6 p, .sec7 p, .sec9 p, .sec10 p, .sec11 p, .sec12 p {
         font-size: 15px;
         line-height: 1.5rem;
+        margin-bottom: 20px;
     }
     .prevbtn, .nextbtn {
         width: 30px;
@@ -1230,6 +1232,9 @@ span.stretch {
     #slider2 h3 {
         top: 45vh;
     }
+    #slider3 .content-slider .desc {
+        max-width: 70%;
+    }
     #slider3 .content-slider img {
         max-width: 200px;
     }
@@ -1240,7 +1245,7 @@ span.stretch {
         max-width: 120px;
     }
     .sec6 h2 {
-        font-size: 40px;
+        font-size: 36px;
     }
     .sec7 img {
         max-width: 180px;
@@ -1267,6 +1272,7 @@ span.stretch {
     .sec11 .head-text-box {
         position: relative;
         top: -35px;
+        margin-bottom: 40px;
     }
     .sec12 .box {
         max-width: 90%;
