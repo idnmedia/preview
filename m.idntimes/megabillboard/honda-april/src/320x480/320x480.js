@@ -3,7 +3,7 @@
 var p; // shortcut to reference prototypes
 var lib={};var ss={};var img={};
 lib.ssMetadata = [
-		{name:"320x480_atlas_", frames: [[0,1446,320,480],[322,0,320,480],[322,482,320,480],[322,964,320,480],[0,0,320,480],[0,964,320,480],[0,482,320,480]]}
+		{name:"320x480_atlas_", frames: [[0,1446,320,480],[322,964,320,480],[322,0,320,480],[322,482,320,480],[0,0,320,480],[0,482,320,480],[0,964,320,480]]}
 ];
 
 
@@ -219,7 +219,7 @@ p.nominalBounds = new cjs.Rectangle(-160,-240,320,480);
 	this.instance = new lib.bg();
 	this.instance.parent = this;
 
-	this.timeline.addTween(cjs.Tween.get(this.instance).wait(85));
+	this.timeline.addTween(cjs.Tween.get(this.instance).wait(170));
 
 }).prototype = p = new cjs.MovieClip();
 
@@ -460,7 +460,7 @@ p.nominalBounds = new cjs.Rectangle(-160,-240,320,480);
 	this.bg.layerIndex = 6
 	this.bg.maskLayerName = 0
 
-	this.timeline.addTween(cjs.Tween.get(this.bg).to({_off:true},85).wait(85));
+	this.timeline.addTween(cjs.Tween.get(this.bg).wait(170));
 
 }).prototype = p = new cjs.MovieClip();
 p.nominalBounds = new cjs.Rectangle(160,240,160,240);
@@ -470,7 +470,7 @@ lib.properties = {
 	width: 320,
 	height: 480,
 	fps: 24,
-	color: "#FFFFFF",
+	color: "#000000",
 	opacity: 1.00,
 	manifest: [
 		{src:"images/320x480_atlas_.png", id:"320x480_atlas_"}
