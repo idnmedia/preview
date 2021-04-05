@@ -3,7 +3,7 @@
 var p; // shortcut to reference prototypes
 var lib={};var ss={};var img={};
 lib.ssMetadata = [
-		{name:"320x480_atlas_", frames: [[0,0,320,480],[0,1446,320,480],[0,482,320,480],[0,964,320,480],[322,0,320,480],[322,482,320,480],[322,964,320,480]]}
+		{name:"320x480_atlas_", frames: [[0,964,320,480],[322,964,320,480],[322,0,320,480],[0,1446,320,480],[322,482,320,480],[0,482,320,480],[0,0,320,480]]}
 ];
 
 
@@ -230,7 +230,7 @@ p.nominalBounds = new cjs.Rectangle(-160,-240,320,480);
 	// d1
 	this.instance = new lib.Tween9("synched",0);
 	this.instance.parent = this;
-	this.instance.setTransform(160.15,240.1,1.4845,1.4845,0,0,0,0.1,0.1);
+	this.instance.setTransform(160.2,240.15,1.8192,1.8192,0,0,0,0.1,0.1);
 	this.instance.alpha = 0;
 	this.instance._off = true;
 
@@ -251,7 +251,7 @@ p.nominalBounds = new cjs.Rectangle(-160,-240,320,480);
 	// c1
 	this.instance = new lib.Tween7("synched",0);
 	this.instance.parent = this;
-	this.instance.setTransform(160.2,240.15,1.433,1.433,0,0,0,0.2,0.1);
+	this.instance.setTransform(160.3,240.3,1.911,1.911,0,0,0,0.3,0.2);
 	this.instance.alpha = 0;
 	this.instance._off = true;
 
@@ -272,7 +272,7 @@ p.nominalBounds = new cjs.Rectangle(-160,-240,320,480);
 	// b1
 	this.instance = new lib.Tween5("synched",0);
 	this.instance.parent = this;
-	this.instance.setTransform(160.3,240.15,1.4552,1.4552,0,0,0,0.4,0.1);
+	this.instance.setTransform(160.3,240.35,1.8293,1.8293,0,0,0,0.4,0.2);
 	this.instance.alpha = 0;
 	this.instance._off = true;
 
@@ -498,7 +498,7 @@ p.nominalBounds = new cjs.Rectangle(-160,-240,320,480);
 	this.timeline.addTween(cjs.Tween.get(this.bg).wait(306));
 
 }).prototype = p = new cjs.MovieClip();
-p.nominalBounds = new cjs.Rectangle(82.5,123.7,315.1,472.59999999999997);
+p.nominalBounds = new cjs.Rectangle(14,21.3,451.6,677.3000000000001);
 // library properties:
 lib.properties = {
 	id: '01934EC0AA12544A8F2D7B6D4766A354',
