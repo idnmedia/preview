@@ -3,7 +3,7 @@
 var p; // shortcut to reference prototypes
 var lib={};var ss={};var img={};
 lib.ssMetadata = [
-		{name:"320x480_atlas_", frames: [[322,0,320,480],[644,0,320,480],[0,0,320,480],[322,1446,320,480],[0,1446,320,480],[644,1446,320,480],[322,964,320,480],[644,964,320,480],[0,964,320,480],[0,482,320,480],[322,482,320,480],[644,482,320,480]]}
+		{name:"320x480_atlas_", frames: [[644,964,320,480],[0,482,320,480],[322,1446,320,480],[644,1446,320,480],[0,1446,320,480],[322,482,320,480],[644,482,320,480],[0,964,320,480],[322,964,320,480],[0,0,320,480],[644,0,320,480],[322,0,320,480]]}
 ];
 
 
@@ -382,7 +382,7 @@ p.nominalBounds = new cjs.Rectangle(-160,-240,320,480);
 	this.instance = new lib.logo();
 	this.instance.parent = this;
 
-	this.timeline.addTween(cjs.Tween.get(this.instance).wait(225));
+	this.timeline.addTween(cjs.Tween.get(this.instance).wait(285));
 
 }).prototype = p = new cjs.MovieClip();
 
@@ -394,7 +394,7 @@ p.nominalBounds = new cjs.Rectangle(-160,-240,320,480);
 	this.instance = new lib.bg();
 	this.instance.parent = this;
 
-	this.timeline.addTween(cjs.Tween.get(this.instance).wait(225));
+	this.timeline.addTween(cjs.Tween.get(this.instance).wait(285));
 
 }).prototype = p = new cjs.MovieClip();
 
@@ -414,8 +414,8 @@ p.nominalBounds = new cjs.Rectangle(-160,-240,320,480);
 	this.instance_1.setTransform(160,240);
 	this.instance_1._off = true;
 
-	this.timeline.addTween(cjs.Tween.get(this.instance).wait(7).to({_off:false},0).to({_off:true,x:160,alpha:1},5,cjs.Ease.quintOut).wait(43));
-	this.timeline.addTween(cjs.Tween.get(this.instance_1).wait(7).to({_off:false},5,cjs.Ease.quintOut).wait(36).to({startPosition:0},0).to({x:475.15,alpha:0},6,cjs.Ease.quintIn).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this.instance).wait(7).to({_off:false},0).to({_off:true,x:160,alpha:1},7,cjs.Ease.quintOut).wait(57));
+	this.timeline.addTween(cjs.Tween.get(this.instance_1).wait(7).to({_off:false},7,cjs.Ease.quintOut).wait(48).to({startPosition:0},0).to({x:475.15,alpha:0},8,cjs.Ease.quadIn).wait(1));
 
 }).prototype = p = new cjs.MovieClip();
 
@@ -426,7 +426,7 @@ p.nominalBounds = new cjs.Rectangle(-160,-240,320,480);
 	// frame11
 	this.instance = new lib.Tween1("synched",0);
 	this.instance.parent = this;
-	this.instance.setTransform(460.45,240);
+	this.instance.setTransform(454.55,240);
 	this.instance.alpha = 0;
 	this.instance._off = true;
 
@@ -435,8 +435,8 @@ p.nominalBounds = new cjs.Rectangle(-160,-240,320,480);
 	this.instance_1.setTransform(160,240);
 	this.instance_1._off = true;
 
-	this.timeline.addTween(cjs.Tween.get(this.instance).wait(4).to({_off:false},0).to({_off:true,x:160,alpha:1},5,cjs.Ease.quintOut).wait(46));
-	this.timeline.addTween(cjs.Tween.get(this.instance_1).wait(4).to({_off:false},5,cjs.Ease.quintOut).wait(39).to({startPosition:0},0).to({x:-132.65,alpha:0},6,cjs.Ease.quintIn).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this.instance).wait(4).to({_off:false},0).to({_off:true,x:160,alpha:1},7,cjs.Ease.quintOut).wait(60));
+	this.timeline.addTween(cjs.Tween.get(this.instance_1).wait(4).to({_off:false},7,cjs.Ease.quintOut).wait(51).to({startPosition:0},0).to({x:-132.65,alpha:0},8,cjs.Ease.quadIn).wait(1));
 
 }).prototype = p = new cjs.MovieClip();
 
@@ -455,8 +455,8 @@ p.nominalBounds = new cjs.Rectangle(-160,-240,320,480);
 	this.instance_1.parent = this;
 	this.instance_1.setTransform(160,240);
 
-	this.timeline.addTween(cjs.Tween.get({}).to({state:[]}).to({state:[{t:this.instance}]},173).to({state:[{t:this.instance_1}]},6).wait(46));
-	this.timeline.addTween(cjs.Tween.get(this.instance).wait(173).to({_off:false},0).to({_off:true,y:240,alpha:1},6,cjs.Ease.quintOut).wait(46));
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[]}).to({state:[{t:this.instance}]},215).to({state:[{t:this.instance_1}]},8).wait(62));
+	this.timeline.addTween(cjs.Tween.get(this.instance).wait(215).to({_off:false},0).to({_off:true,y:240,alpha:1},8,cjs.Ease.quintOut).wait(62));
 
 }).prototype = p = new cjs.MovieClip();
 
@@ -475,8 +475,8 @@ p.nominalBounds = new cjs.Rectangle(-160,-240,320,480);
 	this.instance_1.parent = this;
 	this.instance_1.setTransform(160,240);
 
-	this.timeline.addTween(cjs.Tween.get({}).to({state:[]}).to({state:[{t:this.instance}]},167).to({state:[{t:this.instance_1}]},7).wait(51));
-	this.timeline.addTween(cjs.Tween.get(this.instance).wait(167).to({_off:false},0).to({_off:true,regX:0,scaleX:1,scaleY:1,x:160,y:240,alpha:1},7,cjs.Ease.quintOut).wait(51));
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[]}).to({state:[{t:this.instance}]},211).to({state:[{t:this.instance_1}]},8).wait(66));
+	this.timeline.addTween(cjs.Tween.get(this.instance).wait(211).to({_off:false},0).to({_off:true,regX:0,scaleX:1,scaleY:1,x:160,y:240,alpha:1},8,cjs.Ease.quintOut).wait(66));
 
 }).prototype = p = new cjs.MovieClip();
 
@@ -487,7 +487,7 @@ p.nominalBounds = new cjs.Rectangle(-160,-240,320,480);
 	// frame3text
 	this.instance = new lib.Tween11("synched",0);
 	this.instance.parent = this;
-	this.instance.setTransform(160,177.4);
+	this.instance.setTransform(160,96.2);
 	this.instance.alpha = 0;
 	this.instance._off = true;
 
@@ -496,8 +496,8 @@ p.nominalBounds = new cjs.Rectangle(-160,-240,320,480);
 	this.instance_1.setTransform(160,240);
 	this.instance_1._off = true;
 
-	this.timeline.addTween(cjs.Tween.get(this.instance).wait(109).to({_off:false},0).to({_off:true,y:240,alpha:1},5,cjs.Ease.quintOut).wait(56));
-	this.timeline.addTween(cjs.Tween.get(this.instance_1).wait(109).to({_off:false},5,cjs.Ease.quintOut).wait(50).to({startPosition:0},0).to({alpha:0},5,cjs.Ease.quintIn).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this.instance).wait(136).to({_off:false},0).to({_off:true,y:240,alpha:1},8,cjs.Ease.quintOut).wait(70));
+	this.timeline.addTween(cjs.Tween.get(this.instance_1).wait(136).to({_off:false},8,cjs.Ease.quintOut).wait(64).to({startPosition:0},0).to({alpha:0},5,cjs.Ease.quintIn).wait(1));
 
 }).prototype = p = new cjs.MovieClip();
 
@@ -517,8 +517,8 @@ p.nominalBounds = new cjs.Rectangle(-160,-240,320,480);
 	this.instance_1.setTransform(160,240);
 	this.instance_1._off = true;
 
-	this.timeline.addTween(cjs.Tween.get(this.instance).wait(114).to({_off:false},0).to({_off:true,y:240,alpha:1},5,cjs.Ease.quintOut).wait(51));
-	this.timeline.addTween(cjs.Tween.get(this.instance_1).wait(114).to({_off:false},5,cjs.Ease.quintOut).wait(45).to({startPosition:0},0).to({y:407.4,alpha:0},5,cjs.Ease.quintIn).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this.instance).wait(141).to({_off:false},0).to({_off:true,y:240,alpha:1},7,cjs.Ease.quintOut).wait(66));
+	this.timeline.addTween(cjs.Tween.get(this.instance_1).wait(141).to({_off:false},7,cjs.Ease.quintOut).wait(60).to({startPosition:0},0).to({y:407.4,alpha:0},5,cjs.Ease.quintIn).wait(1));
 
 }).prototype = p = new cjs.MovieClip();
 
@@ -538,8 +538,8 @@ p.nominalBounds = new cjs.Rectangle(-160,-240,320,480);
 	this.instance_1.setTransform(160,240);
 	this.instance_1._off = true;
 
-	this.timeline.addTween(cjs.Tween.get(this.instance).wait(114).to({_off:false},0).to({_off:true,scaleX:1,scaleY:1,y:240,alpha:1},5,cjs.Ease.quintOut).wait(51));
-	this.timeline.addTween(cjs.Tween.get(this.instance_1).wait(114).to({_off:false},5,cjs.Ease.quintOut).wait(45).to({startPosition:0},0).to({alpha:0},5,cjs.Ease.quintIn).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this.instance).wait(141).to({_off:false},0).to({_off:true,scaleX:1,scaleY:1,y:240,alpha:1},7,cjs.Ease.quintOut).wait(66));
+	this.timeline.addTween(cjs.Tween.get(this.instance_1).wait(141).to({_off:false},7,cjs.Ease.quintOut).wait(60).to({startPosition:0},0).to({alpha:0},5,cjs.Ease.quintIn).wait(1));
 
 }).prototype = p = new cjs.MovieClip();
 
@@ -559,8 +559,8 @@ p.nominalBounds = new cjs.Rectangle(-160,-240,320,480);
 	this.instance_1.setTransform(160,240);
 	this.instance_1._off = true;
 
-	this.timeline.addTween(cjs.Tween.get(this.instance).wait(57).to({_off:false},0).to({_off:true,alpha:1},7,cjs.Ease.quintOut).wait(49));
-	this.timeline.addTween(cjs.Tween.get(this.instance_1).wait(57).to({_off:false},7,cjs.Ease.quintOut).wait(41).to({startPosition:0},0).to({alpha:0},7).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this.instance).wait(74).to({_off:false},0).to({_off:true,alpha:1},7,cjs.Ease.quintOut).wait(60));
+	this.timeline.addTween(cjs.Tween.get(this.instance_1).wait(74).to({_off:false},7,cjs.Ease.quintOut).wait(52).to({startPosition:0},0).to({alpha:0},7).wait(1));
 
 }).prototype = p = new cjs.MovieClip();
 
@@ -580,8 +580,8 @@ p.nominalBounds = new cjs.Rectangle(-160,-240,320,480);
 	this.instance_1.setTransform(160,240);
 	this.instance_1._off = true;
 
-	this.timeline.addTween(cjs.Tween.get(this.instance).wait(52).to({_off:false},0).to({_off:true,alpha:1},7).wait(54));
-	this.timeline.addTween(cjs.Tween.get(this.instance_1).wait(52).to({_off:false},7).wait(46).to({startPosition:0},0).to({alpha:0},7).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this.instance).wait(69).to({_off:false},0).to({_off:true,alpha:1},7).wait(65));
+	this.timeline.addTween(cjs.Tween.get(this.instance_1).wait(69).to({_off:false},7).wait(57).to({startPosition:0},0).to({alpha:0},7).wait(1));
 
 }).prototype = p = new cjs.MovieClip();
 
@@ -600,8 +600,8 @@ p.nominalBounds = new cjs.Rectangle(-160,-240,320,480);
 	this.instance_1.parent = this;
 	this.instance_1.setTransform(160,240);
 
-	this.timeline.addTween(cjs.Tween.get({}).to({state:[]}).to({state:[{t:this.instance}]},59).to({state:[{t:this.instance_1}]},10).wait(156));
-	this.timeline.addTween(cjs.Tween.get(this.instance).wait(59).to({_off:false},0).to({_off:true,alpha:1},10).wait(156));
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[]}).to({state:[{t:this.instance}]},75).to({state:[{t:this.instance_1}]},10).wait(200));
+	this.timeline.addTween(cjs.Tween.get(this.instance).wait(75).to({_off:false},0).to({_off:true,alpha:1},10).wait(200));
 
 }).prototype = p = new cjs.MovieClip();
 
@@ -640,12 +640,12 @@ p.nominalBounds = new cjs.Rectangle(-160,-240,320,480);
 	});
 
 	// timeline functions:
-	this.frame_224 = function() {
+	this.frame_284 = function() {
 		this.___loopingOver___ = true;
 	}
 
 	// actions tween:
-	this.timeline.addTween(cjs.Tween.get(this).wait(224).call(this.frame_224).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this).wait(284).call(this.frame_284).wait(1));
 
 	// logo_obj_
 	this.logo = new lib.Scene_1_logo();
@@ -659,7 +659,7 @@ p.nominalBounds = new cjs.Rectangle(-160,-240,320,480);
 	this.logo.layerIndex = 0
 	this.logo.maskLayerName = 0
 
-	this.timeline.addTween(cjs.Tween.get(this.logo).wait(225));
+	this.timeline.addTween(cjs.Tween.get(this.logo).wait(285));
 
 	// dualogo_obj_
 	this.dualogo = new lib.Scene_1_dualogo();
@@ -672,7 +672,7 @@ p.nominalBounds = new cjs.Rectangle(-160,-240,320,480);
 	this.dualogo.layerIndex = 1
 	this.dualogo.maskLayerName = 0
 
-	this.timeline.addTween(cjs.Tween.get(this.dualogo).wait(225));
+	this.timeline.addTween(cjs.Tween.get(this.dualogo).wait(285));
 
 	// frame4today_obj_
 	this.frame4today = new lib.Scene_1_frame4today();
@@ -685,7 +685,7 @@ p.nominalBounds = new cjs.Rectangle(-160,-240,320,480);
 	this.frame4today.layerIndex = 2
 	this.frame4today.maskLayerName = 0
 
-	this.timeline.addTween(cjs.Tween.get(this.frame4today).wait(225));
+	this.timeline.addTween(cjs.Tween.get(this.frame4today).wait(285));
 
 	// frame4stream_obj_
 	this.frame4stream = new lib.Scene_1_frame4stream();
@@ -698,7 +698,7 @@ p.nominalBounds = new cjs.Rectangle(-160,-240,320,480);
 	this.frame4stream.layerIndex = 3
 	this.frame4stream.maskLayerName = 0
 
-	this.timeline.addTween(cjs.Tween.get(this.frame4stream).wait(225));
+	this.timeline.addTween(cjs.Tween.get(this.frame4stream).wait(285));
 
 	// frame3logo_obj_
 	this.frame3logo = new lib.Scene_1_frame3logo();
@@ -711,7 +711,7 @@ p.nominalBounds = new cjs.Rectangle(-160,-240,320,480);
 	this.frame3logo.layerIndex = 4
 	this.frame3logo.maskLayerName = 0
 
-	this.timeline.addTween(cjs.Tween.get(this.frame3logo).wait(169).to({_off:true},1).wait(55));
+	this.timeline.addTween(cjs.Tween.get(this.frame3logo).wait(213).to({_off:true},1).wait(71));
 
 	// frame3noah_obj_
 	this.frame3noah = new lib.Scene_1_frame3noah();
@@ -724,7 +724,7 @@ p.nominalBounds = new cjs.Rectangle(-160,-240,320,480);
 	this.frame3noah.layerIndex = 5
 	this.frame3noah.maskLayerName = 0
 
-	this.timeline.addTween(cjs.Tween.get(this.frame3noah).wait(169).to({_off:true},1).wait(55));
+	this.timeline.addTween(cjs.Tween.get(this.frame3noah).wait(213).to({_off:true},1).wait(71));
 
 	// frame3text_obj_
 	this.frame3text = new lib.Scene_1_frame3text();
@@ -737,7 +737,7 @@ p.nominalBounds = new cjs.Rectangle(-160,-240,320,480);
 	this.frame3text.layerIndex = 6
 	this.frame3text.maskLayerName = 0
 
-	this.timeline.addTween(cjs.Tween.get(this.frame3text).wait(169).to({_off:true},1).wait(55));
+	this.timeline.addTween(cjs.Tween.get(this.frame3text).wait(213).to({_off:true},1).wait(71));
 
 	// frame2text_obj_
 	this.frame2text = new lib.Scene_1_frame2text();
@@ -750,7 +750,7 @@ p.nominalBounds = new cjs.Rectangle(-160,-240,320,480);
 	this.frame2text.layerIndex = 7
 	this.frame2text.maskLayerName = 0
 
-	this.timeline.addTween(cjs.Tween.get(this.frame2text).wait(112).to({_off:true},1).wait(112));
+	this.timeline.addTween(cjs.Tween.get(this.frame2text).wait(140).to({_off:true},1).wait(144));
 
 	// frame2kopi_obj_
 	this.frame2kopi = new lib.Scene_1_frame2kopi();
@@ -763,7 +763,7 @@ p.nominalBounds = new cjs.Rectangle(-160,-240,320,480);
 	this.frame2kopi.layerIndex = 8
 	this.frame2kopi.maskLayerName = 0
 
-	this.timeline.addTween(cjs.Tween.get(this.frame2kopi).wait(112).to({_off:true},1).wait(112));
+	this.timeline.addTween(cjs.Tween.get(this.frame2kopi).wait(140).to({_off:true},1).wait(144));
 
 	// frame12_obj_
 	this.frame12 = new lib.Scene_1_frame12();
@@ -776,7 +776,7 @@ p.nominalBounds = new cjs.Rectangle(-160,-240,320,480);
 	this.frame12.layerIndex = 9
 	this.frame12.maskLayerName = 0
 
-	this.timeline.addTween(cjs.Tween.get(this.frame12).wait(54).to({_off:true},1).wait(170));
+	this.timeline.addTween(cjs.Tween.get(this.frame12).wait(70).to({_off:true},1).wait(214));
 
 	// frame11_obj_
 	this.frame11 = new lib.Scene_1_frame11();
@@ -789,7 +789,7 @@ p.nominalBounds = new cjs.Rectangle(-160,-240,320,480);
 	this.frame11.layerIndex = 10
 	this.frame11.maskLayerName = 0
 
-	this.timeline.addTween(cjs.Tween.get(this.frame11).wait(54).to({_off:true},1).wait(170));
+	this.timeline.addTween(cjs.Tween.get(this.frame11).wait(70).to({_off:true},1).wait(214));
 
 	// bg_obj_
 	this.bg = new lib.Scene_1_bg();
@@ -803,10 +803,10 @@ p.nominalBounds = new cjs.Rectangle(-160,-240,320,480);
 	this.bg.layerIndex = 11
 	this.bg.maskLayerName = 0
 
-	this.timeline.addTween(cjs.Tween.get(this.bg).wait(225));
+	this.timeline.addTween(cjs.Tween.get(this.bg).wait(285));
 
 }).prototype = p = new cjs.MovieClip();
-p.nominalBounds = new cjs.Rectangle(-144.4,177.4,779.6,653);
+p.nominalBounds = new cjs.Rectangle(-144.4,96.2,779.6,734.1999999999999);
 // library properties:
 lib.properties = {
 	id: 'F1D7E1B01E31A748A6E9625CA6EB3C05',
