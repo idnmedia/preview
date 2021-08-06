@@ -2104,7 +2104,7 @@ body {
 /* Iphone 6/7/8 Plus */
 @media (max-width: 420px) and (max-height: 740px) {
     .sec1, .sec2, .sec3, .sec4, .sec5 {
-        height: 100vh;
+        height: 105vh;
     }
     .sec2 img {
         max-width: 60%;
