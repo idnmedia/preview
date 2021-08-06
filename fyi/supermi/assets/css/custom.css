@@ -1828,6 +1828,10 @@ body {
         background-position: top center;
         background-size: cover!important;
     }
+    .sec1, .sec2, .sec3, .sec4, .sec5 {
+        height: 105vh;
+        padding-top: 10%;
+    }
     .cover {
         height: 100vh;
         background-position: center;
