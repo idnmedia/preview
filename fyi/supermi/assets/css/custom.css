@@ -2037,7 +2037,7 @@ body {
 /* galaxy note 9 */
 @media (max-width: 419px) and (max-height: 847px) {
     .sec1, .sec2, .sec3, .sec4, .sec5 {
-        height: 100vh;
+        height: 105vh;
     }
     .sec2 img {
         max-width: 70%;
@@ -2079,6 +2079,19 @@ body {
     }
     .sec4 .items__layer:nth-child(2) .items__item img {
         max-width: 170px;
+    }
+    .sec5 .text-box {
+        max-width: 80%;
+    }
+    .sec5 .image-box img {
+        max-width: 70%;
+    }
+    .sec5 a {
+        position: relative;
+        top: 45px;
+    }
+    .sec5 .items__layer:nth-child(2) .items__item {
+        top: 0;
     }
     
 }
