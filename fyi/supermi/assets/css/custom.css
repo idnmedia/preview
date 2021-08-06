@@ -302,7 +302,7 @@ body {
 }
 .search-box {
     position: relative;
-    top: 200px;
+    top: 100px;
     animation: 10s goup 4s steps(50, end) infinite;
 }
 .search-box img {
@@ -379,13 +379,13 @@ body {
 
 @keyframes goup {
     0%, 20% {
-        top: 200px;
+        top: 100px;
     }
     25%, 90% {
         top: 0;
     }
     95%, 100% {
-        top: 200px;
+        top: 100px;
     }
 
 }
@@ -534,6 +534,9 @@ body {
 .sec4 .detailinfo img {
     max-width: 250px;
 }
+.detailbtn img {
+    max-width: 60px;
+}
 .sec4 .detailbtn {
     background-color: #ee3e3f;
     width: 60px;
@@ -542,17 +545,14 @@ body {
     position: absolute;
     right: 400px;
     top: 400px;
-    color: white;
-    font-size: 55px;
-    line-height: 44px;
     text-align: center;
     cursor: pointer;
     box-shadow: 0 0 0 0 rgba(232, 76, 61, 0.7);
     box-shadow: 0 0 0 0 rgba(#5a99d4, .5);
     -webkit-animation: pulsing 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
-  -moz-animation: pulsing 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
-  -ms-animation: pulsing 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
-  animation: pulsing 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
+    -moz-animation: pulsing 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
+    -ms-animation: pulsing 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
+    animation: pulsing 1.25s infinite cubic-bezier(0.66, 0, 0, 1);
 }
 
 
@@ -596,10 +596,10 @@ body {
 .sec4 .white-header {
     background-color: white;
     position: absolute;
-    width: 80px;
-    height: 42px;
+    width: 773px;
+    height: 55px;
     top: 262px;
-    right: 47px;
+    right: 54px;
     z-index: 7;
     display: none;
 }
@@ -1260,8 +1260,9 @@ body {
     list-style: none;
 }
 .carousel-indicators li {
+    transition: 0.6s all ease-in-out;
     opacity: 1!important;
-    margin: 0 50px!important;
+    margin: 0 50px;
     display: inline-block;
     height: 20px;
     width: 20px;
@@ -1269,9 +1270,26 @@ body {
     border-radius: 50%;
     opacity: .5;
 }
-.carousel-indicators .active {
+.carousel-indicators li.active {
     background-color: #5EB6F1!important;
     opacity: 1;
+    width: 20px;
+    transition: 0.6s all ease-in-out;
+    animation: pindah .7s linear;
+    margin: 0 50px;
+}
+@keyframes pindah {
+    0% {
+        width: 20px;
+    }
+    50% {
+        width: 40px;
+        border-radius: 10px;
+    }
+    100% {
+        width: 20px;
+
+    }
 }
 .sect10 .carousel-indicators li {
     background-color: #0c0b3c!important;
@@ -1545,7 +1563,8 @@ body {
         max-width: 60%;
     }
     .sec4 .white-header {
-        width: 696px;
+        width: 677px;
+        right: 50px;
     }
     .sec4 .detailbtn {
         right: 320px;
@@ -1693,9 +1712,10 @@ body {
     .sec4 .detailbtn {
         width: 40px;
         height: 40px;
-        font-size: 34px;
-        line-height: 31px;
         right: 287px;
+    }
+    .detailbtn img {
+        max-width: 40px;
     }
     .sec4 .closedetail {
         top: 134px;
@@ -1939,8 +1959,9 @@ body {
         top: 67%;
         width: 40px;
         height: 40px;
-        font-size: 28px;
-        line-height: 31px;
+    }
+    .detailbtn img {
+        max-width: 40px;
     }
     .closedetail img {
         max-width: 40px;
@@ -1954,7 +1975,7 @@ body {
         right: 0;
         margin: auto;
         height: 350px;
-        padding: 20px;
+        padding: 60px 20px 20px 20px;
         overflow-y: scroll;
     }
     .info-box h4 {
@@ -2074,8 +2095,9 @@ body {
         top: 67%;
         width: 40px;
         height: 40px;
-        font-size: 28px;
-        line-height: 31px;
+    }
+    .detailbtn img {
+        max-width: 40px;
     }
     .sec4 .items__layer:nth-child(2) .items__item img {
         max-width: 170px;
@@ -2245,7 +2267,7 @@ body {
         height: 300px;
     }
     .sec4 .white-header {
-        top: 258px;
+        top: 257px;
     }
     .sec4 .closedetail {
         top: 236px;
