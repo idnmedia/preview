@@ -23,6 +23,8 @@ body {
 .kanan {
     
 }
+
+/*
 .cover1 {
     background-image: url(../images/cover/coverall.jpg);
     background-size: cover;
@@ -67,18 +69,13 @@ body {
 }
 
 
-.bg1 {
-    background-image: url(../images/bg1.jpg);
-    background-repeat: no-repeat;
-    background-position: top center;
-    background-size: cover;
-}
 .bg2 {
     background-image: url(../images/bg2.png);
     background-repeat: no-repeat;
     background-position: top center;
     background-size: cover;
 }
+*/
 
 /* parallax goyang ikutin cursor */
 /*
@@ -173,6 +170,7 @@ body {
 
 /* parallax goyang berlawanan cursor */
 
+/*
 #paraContainer {
     position: relative;
     height: 100vh;
@@ -256,12 +254,19 @@ body {
     height: 100%;
     width: 100%;
 }
+*/
 
 
 
 
 /* ===== General ==== */
 
+.bg1 {
+    background-image: url(../images/bg1.jpg);
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: cover;
+}
 
 .tengah {
     position: absolute;
@@ -1893,6 +1898,10 @@ body {
         top: 200px;
         left: -50px;
     }
+    .sec3 .tengah img {
+        max-width: 60%;
+        margin-top: -650px;
+    }
     .sec3 .items__layer:nth-child(1) .items__item img {
         max-width: 140px;
     }
@@ -2056,6 +2065,7 @@ body {
     }
     .sec3 .tengah img {
         max-width: 70%;
+        margin-top: 0;
     }
     .sec3 .tengah {
         top: 45%;
@@ -2133,6 +2143,7 @@ body {
     }
     .sec3 .tengah img {
         max-width: 60%;
+        margin-top: -150px;
     }
     .sec3 .items__layer:nth-child(1) .items__item {
         top: 230px;
