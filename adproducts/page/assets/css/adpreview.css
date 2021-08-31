@@ -319,9 +319,17 @@ background-color: red;
     right: 90px;
     top: 120px;  
 }
+#Medrec .banner_ad._fortune {
+    right: 64px;
+    top: 120px;  
+}
 #Medrec .banner_ad._popb {
     right: 98px;
     top: 183px;  
+}
+#Medrec .banner_ad._popm {
+    right: 93px;
+    top: 132px;  
 }
 #Medrec .banner_ad img {
     width: 115px;
@@ -483,6 +491,9 @@ background-color: red;
 #DMasthead .banner_ad._idntimes {
     top: 112px;
 }
+#DMasthead .banner_ad._fortune {
+    top: 86px;
+}
 #DMasthead .banner_ad._popb {
     top: 70px;
 }
@@ -500,8 +511,22 @@ background-color: red;
     top: 6.5px;
     left: 8px; 
 }
+#DMasthead ._fortune video {
+    width: 145px;
+    height: 82px;
+    position: absolute;
+    top: 6.5px;
+    left: 8px; 
+}
 #DMasthead ._popb video {
     width: 120px;
+    height: 82px;
+    position: absolute;
+    top: 6.5px;
+    left: 8px; 
+}
+#DMasthead ._popm video {
+    width: 135px;
     height: 82px;
     position: absolute;
     top: 6.5px;
@@ -526,16 +551,24 @@ background-color: red;
     right: 90px;
     top: 120px; 
 }
+#videoinbannerMRd .banner_ad._fortune {
+    right: 63px;
+    top: 120px; 
+}
 #videoinbannerMRd .banner_ad._popb {
     right: 98px;
     top: 184px; 
+}
+#videoinbannerMRd .banner_ad._popm {
+    right: 93px;
+    top: 132px;
 }
 #videoinbannerMRd .banner_ad, #videoinbannerMRd video {
     width: 115px;
     height: 96px;
 }
 
-
+  
 /* ========= Display Ad Mobile ========= */
 
 /* ==== Megabillboard ==== */
@@ -708,6 +741,28 @@ background-color: red;
     position: absolute;
     z-index: 6;
 }
+#leadexp .banner_ad._fortune {
+    left: 0;
+    right: 0;
+    top: 73px;
+    margin: auto;
+    text-align: center;
+    background-color: transparent;
+    padding: 0;
+    position: absolute;
+    z-index: 6;
+}
+#leadexp .banner_ad._popmama {
+    left: 0;
+    right: 0;
+    top: 90px;
+    margin: auto;
+    text-align: center;
+    background-color: transparent;
+    padding: 0;
+    position: absolute;
+    z-index: 6;
+}
 #leadexp img.site2 {
     padding-top: 320px;
 }
@@ -793,8 +848,14 @@ background-color: red;
 #MMasthead .banner_ad._idntimes {
     top: 140px;
 }
+#MMasthead .banner_ad._fortune {
+    top: 74px;
+}
 #MMasthead .banner_ad._popbela {
     top: 125px;
+}
+#MMasthead .banner_ad._popmama {
+    top: 81px;
 }
 
 
@@ -887,6 +948,29 @@ background-color: red;
 /* ==========  RESPONSIVE ========== */
 
 @media (max-width: 480px) {
+    #mastheadsticky {
+        width: 230px!important;
+    }
+    #MMasthead_sticky .banner_ad, #mastheadsticky .ms_big img {
+        width: 230px;
+        height: 230px;
+    }
+    #displayad2 {
+        position: absolute;
+    }
+    #mastheadsticky .ms_small, #mastheadsticky .ms_small img {
+        width: 230px!important;
+        height: 36px!important;
+    }
+    #MMasthead_sticky video {
+        width: 200px;
+        height: 115px;
+    }
+    
+    
+    
+    
+    
     .try_ad input {
         left: 0;
         right: 0;
@@ -1043,6 +1127,9 @@ background-color: red;
     #MMasthead .banner_ad._popbela {
         top: 100px;
     }
+    #MMasthead .banner_ad._popmama {
+        top: 65px;
+    }
     #videoinbannerMarticle .banner_ad, #videoinbannerMarticle video {
         width: 210px;
         height: 175px;
@@ -1083,14 +1170,29 @@ background-color: red;
         top: 4px;
         left: 5px;
     }
+    #DMasthead ._fortune video {
+        width: 70px;
+        height: auto;
+        top: 4px;
+        left: 5px;
+    }
     #DMasthead ._popb video {
         width: 65px;
         height: auto;
         top: 4px;
         left: 5px;
     }
+    #DMasthead ._popm video {
+        width: 60px;
+        height: auto;
+        top: 4px;
+        left: 5px;
+    }
     #DMasthead .banner_ad._idntimes {
         top: 55px;
+    }
+    #DMasthead .banner_ad._fortune {
+        top: 43px;
     }
     #DMasthead .banner_ad._popb {
         top: 35px;
@@ -1106,6 +1208,10 @@ background-color: red;
     #videoinbannerMRd .banner_ad._idntimes {
         right: 45px;
         top: 60px;
+    }
+    #videoinbannerMRd .banner_ad._fortune {
+        right: 32px;
+        top: 59px;
     }
     #videoinbannerMRd .banner_ad._popb {
         right: 49px;
@@ -1179,6 +1285,10 @@ background-color: red;
     }
     #Medrec .banner_ad._idntimes {
         right: 45px;
+        top: 59px;
+    }
+    #Medrec .banner_ad._fortune {
+        right: 32px;
         top: 59px;
     }
     #Medrec .banner_ad._popb {

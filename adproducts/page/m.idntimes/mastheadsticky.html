@@ -3,11 +3,12 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta name="description" content="">
-        <meta name="author" content="">
+        <meta name="description" content="IDN Times - Masthead Sticky">
+        <meta name="author" content="IDN Media, IDN Times">
+        
+        <meta name="robots" content="noindex">
 
-        <title>IDN Media Sales Product</title>
-
+        <title>Masthead Sticky - IDN Times | IDN Ads</title>
         <!-- Bootstrap core CSS -->
         <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
 
@@ -16,6 +17,48 @@
         <link href="../assets/css/adpreview.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
         <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+        
+        <!-- Begin comScore Tag -->
+        
+        <script>
+            var _comscore = _comscore || [];
+            _comscore.push({ c1: "2", c2: "20678181" });
+            (function() {
+                var s = document.createElement("script"), el = document.getElementsByTagName("script")[0]; s.async = true;
+                s.src = (document.location.protocol == "https:" ? "https://sb" : "http://b") + ".scorecardresearch.com/beacon.js";
+                el.parentNode.insertBefore(s, el);
+            })();
+        </script>
+        <noscript>
+            <img src="http://b.scorecardresearch.com/p?c1=2&c2=20678181&cv=2.0&cj=1" alt="Comscore Tracker" />
+        </noscript>
+        <!-- End comScore Tag --><!-- Start Alexa Certify Javascript -->
+        <script type="text/javascript">
+            _atrk_opts = { atrk_acct:"8EwHv1FYxz20cv", domain:"idntimes.com",dynamic: true};
+            (function() { var as = document.createElement('script'); as.type = 'text/javascript'; as.async = true; as.src = "https://certify-js.alexametrics.com/atrk.js"; var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(as, s); })();
+        </script>
+        <noscript><img src="https://certify.alexametrics.com/atrk.gif?account=8EwHv1FYxz20cv" style="display:none" height="1" width="1" alt="" /></noscript>
+        <!-- End Alexa Certify Javascript --><!-- Google Tag Manager -->
+        <script type="text/javascript">
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({
+                'event' : 'userInfo',
+                'userId': '0',
+                'interests': 'na',
+                'postSubmitted': '0',
+                'postApproved': '0'
+            });
+        </script><script>
+            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-P84KQM');
+        </script>
+        
+        
+        <!-- End Google Tag Manager -->
+        
     </head>
     
     <style>
@@ -199,8 +242,10 @@
             }, 1000);
         </script>
         
+        
+        
         <script>
-
+        if (screen && screen.width > 481) {
             $('#mastheadsticky').animate({'height':'60px'},"slow");
             $('.ms_big').animate({'height':'0px'},"slow");
             $('.ms_small').fadeIn('slow');
@@ -226,11 +271,39 @@
                 $('.ms_small').animate({'height':'0px'},"slow");
                 $('.ms_big').fadeIn('slow');
             }, 4000);
-
-            setTimeout(function(){
-              document.getElementById("video").play();
-            }, 5000);
+        }
         </script>
+
+        <script>
+        if (screen && screen.width < 481) {
+        $('#mastheadsticky').animate({'height':'60px'},"slow");
+            $('.ms_big').animate({'height':'0px'},"slow");
+            $('.ms_small').fadeIn('slow');
+
+            $('.ms_small').click(function() {
+                $('#mastheadsticky').animate({'height':'230px'},"slow");
+                document.getElementById("video").play();
+                $('.ms_small').animate({'height':'0px'},"slow");
+                $('.ms_big').fadeIn('slow');
+            });
+            $('.close_big').click(function() {
+                document.getElementById("video").pause();
+                $('#mastheadsticky').animate({'height':'60px'},"slow");
+                $('.ms_small').animate({'height':'45px'},"slow");
+                $('.ms_big').fadeOut('slow');
+            });
+            $(".close_ms").click(function () {
+                $("#mastheadsticky").css("display", "none");
+            });
+
+            setTimeout(function(){ 
+                $('#mastheadsticky').animate({'height':'230px'},"slow");
+                $('.ms_small').animate({'height':'0px'},"slow");
+                $('.ms_big').fadeIn('slow');
+            }, 4000);
+        }
+        </script>
+
         
     </body>
 </html>

@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /page/ 
+
+User-agent: Alexabot
+Disallow: /page/ 
