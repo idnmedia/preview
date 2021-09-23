@@ -3,7 +3,7 @@
 var p; // shortcut to reference prototypes
 var lib={};var ss={};var img={};
 lib.ssMetadata = [
-		{name:"index_atlas_", frames: [[242,0,240,1000],[484,0,240,1000],[726,0,240,1000],[0,0,240,1000]]}
+		{name:"index_atlas_", frames: [[484,0,240,1000],[242,0,240,1000],[726,0,240,1000],[0,0,240,1000]]}
 ];
 
 
