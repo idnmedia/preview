@@ -3,7 +3,7 @@
 var p; // shortcut to reference prototypes
 var lib={};var ss={};var img={};
 lib.ssMetadata = [
-		{name:"index_atlas_", frames: [[0,0,600,900]]}
+		{name:"index_atlas_", frames: [[0,0,640,960]]}
 ];
 
 
@@ -40,7 +40,7 @@ function getMCSymbolPrototype(symbol, nominalBounds, frameBounds) {
 	// Layer_1
 	this.instance = new lib._320x480();
 	this.instance.parent = this;
-	this.instance.setTransform(0,0,0.5333,0.5333);
+	this.instance.setTransform(0,0,0.5,0.5);
 
 	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
 
@@ -48,7 +48,7 @@ function getMCSymbolPrototype(symbol, nominalBounds, frameBounds) {
 
 
 // stage content:
-(lib.Untitled1 = function(mode,startPosition,loop) {
+(lib.Untitled2 = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
 	this.___GetDepth___ = function(obj) {
@@ -98,7 +98,7 @@ function getMCSymbolPrototype(symbol, nominalBounds, frameBounds) {
 p.nominalBounds = new cjs.Rectangle(160,240,160,240);
 // library properties:
 lib.properties = {
-	id: 'FB1DAFC766A9824C9EE0A69529BF7D17',
+	id: '65996E26EE405440A9D2FF23931184A6',
 	width: 320,
 	height: 480,
 	fps: 24,
@@ -143,7 +143,7 @@ an.bootstrapCallback=function(fnCallback) {
 };
 
 an.compositions = an.compositions || {};
-an.compositions['FB1DAFC766A9824C9EE0A69529BF7D17'] = {
+an.compositions['65996E26EE405440A9D2FF23931184A6'] = {
 	getStage: function() { return exportRoot.getStage(); },
 	getLibrary: function() { return lib; },
 	getSpriteSheet: function() { return ss; },
