@@ -3,7 +3,7 @@
 var p; // shortcut to reference prototypes
 var lib={};var ss={};var img={};
 lib.ssMetadata = [
-		{name:"320x480_atlas_", frames: [[0,482,320,480],[322,482,320,480],[0,964,320,480],[644,482,320,480],[0,0,320,480],[322,0,320,480],[644,0,320,480],[0,1446,320,480],[644,964,320,480],[322,964,320,480]]}
+		{name:"index_atlas_", frames: [[644,964,320,480],[0,1446,320,480],[322,964,320,480],[0,482,320,480],[644,482,320,480],[322,482,320,480],[0,964,320,480],[322,0,320,480],[644,0,320,480],[0,0,320,480]]}
 ];
 
 
@@ -12,70 +12,70 @@ lib.ssMetadata = [
 
 
 (lib.bg1 = function() {
-	this.initialize(ss["320x480_atlas_"]);
+	this.initialize(ss["index_atlas_"]);
 	this.gotoAndStop(0);
 }).prototype = p = new cjs.Sprite();
 
 
 
 (lib.bg2 = function() {
-	this.initialize(ss["320x480_atlas_"]);
+	this.initialize(ss["index_atlas_"]);
 	this.gotoAndStop(1);
 }).prototype = p = new cjs.Sprite();
 
 
 
 (lib.booknow = function() {
-	this.initialize(ss["320x480_atlas_"]);
+	this.initialize(ss["index_atlas_"]);
 	this.gotoAndStop(2);
 }).prototype = p = new cjs.Sprite();
 
 
 
 (lib.car1 = function() {
-	this.initialize(ss["320x480_atlas_"]);
+	this.initialize(ss["index_atlas_"]);
 	this.gotoAndStop(3);
 }).prototype = p = new cjs.Sprite();
 
 
 
 (lib.car2 = function() {
-	this.initialize(ss["320x480_atlas_"]);
+	this.initialize(ss["index_atlas_"]);
 	this.gotoAndStop(4);
 }).prototype = p = new cjs.Sprite();
 
 
 
 (lib.cityhatchback = function() {
-	this.initialize(ss["320x480_atlas_"]);
+	this.initialize(ss["index_atlas_"]);
 	this.gotoAndStop(5);
 }).prototype = p = new cjs.Sprite();
 
 
 
 (lib.elevate = function() {
-	this.initialize(ss["320x480_atlas_"]);
+	this.initialize(ss["index_atlas_"]);
 	this.gotoAndStop(6);
 }).prototype = p = new cjs.Sprite();
 
 
 
 (lib.logohonda = function() {
-	this.initialize(ss["320x480_atlas_"]);
+	this.initialize(ss["index_atlas_"]);
 	this.gotoAndStop(7);
 }).prototype = p = new cjs.Sprite();
 
 
 
 (lib.spec1 = function() {
-	this.initialize(ss["320x480_atlas_"]);
+	this.initialize(ss["index_atlas_"]);
 	this.gotoAndStop(8);
 }).prototype = p = new cjs.Sprite();
 
 
 
 (lib.spec2 = function() {
-	this.initialize(ss["320x480_atlas_"]);
+	this.initialize(ss["index_atlas_"]);
 	this.gotoAndStop(9);
 }).prototype = p = new cjs.Sprite();
 
@@ -451,7 +451,7 @@ p.nominalBounds = new cjs.Rectangle(-160,-240,320,480);
 	// car2
 	this.instance = new lib.Tween13("synched",0);
 	this.instance.parent = this;
-	this.instance.setTransform(-149.8,240);
+	this.instance.setTransform(480,240);
 	this.instance.alpha = 0;
 	this.instance._off = true;
 
@@ -698,7 +698,7 @@ p.nominalBounds = new cjs.Rectangle(-160,-240,320,480);
 	this.timeline.addTween(cjs.Tween.get(this.bg1).to({_off:true},78).wait(215));
 
 }).prototype = p = new cjs.MovieClip();
-p.nominalBounds = new cjs.Rectangle(-149.8,240,774.3,311.9);
+p.nominalBounds = new cjs.Rectangle(160,240,480,311.9);
 // library properties:
 lib.properties = {
 	id: '38D911621E7CB247B8868B196D21E4C6',
@@ -708,7 +708,7 @@ lib.properties = {
 	color: "#FFFFFF",
 	opacity: 1.00,
 	manifest: [
-		{src:"images/320x480_atlas_.png", id:"320x480_atlas_"}
+		{src:"images/index_atlas_.png", id:"index_atlas_"}
 	],
 	preloads: []
 };
