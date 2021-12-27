@@ -1203,9 +1203,6 @@ body {
 
 /* mobile general */
 @media only screen and (max-width: 481px) {
-    #homepage1 img {
-        height: 100vh;
-    }
     .bg1 {
         background-image: url(../images/bg-mobile.jpg);
         background-repeat: no-repeat;
@@ -1281,6 +1278,9 @@ body {
     .sec9 .text-box {
         max-width: 100%;
         top: 10%;
+    }
+    .sec10 {
+        padding-left: 15px!important;
     }
     .sec10 .text-box {
         max-width: 100%;
@@ -1373,25 +1373,56 @@ body {
 
 /* galaxy note 9 / iphone 11 pro */
 @media (max-width: 419px) and (max-height: 847px) and (min-height: 800px) {
-    .sec5 .text-box {
-        top: 200px;
+    .sec1, .sec2, .sec3, .sec4, .sec5, .sec7, .sec8, .sec9, .sec10, .sec11, .sec12, .sec13 {
+        height: 850px;
     }
     .sec1 h3, .sec5 h3, .sec6 h3, .sec7 h3, .sec8 h3, .sec9 h3, .sec10 h3 {
         font-size: 29px;
     }
+    .sec1 p, .sec2 p, .sec3 p, .sec4 p, .sec5 p, .sec7 p, .sec8 p, .sec9 p, .sec10 p {
+        font-size: 18px;
+    }
+    .sec6 {
+        400px;
+    }
+    .sec5 .text-box {
+        top: 200px;
+    }
+    
     .sec1 h4, .sec2 h4, .sec5 h4 {
         font-size: 20px;
+    }
+    .sec9 .text-box {
+        top: 0;
+    }
+    .sec10 .text-box {
+        top: 0;
+    }
+    .bg-slider3 h3 {
+        font-size: 27px;
+    }
+    .sec13 img {
+        max-width: 280px;
+    }
+    .sec13 h3, .sec13 a {
+        font-size: 24px;
     }
 }
 
 
 /* Iphone 6/7/8 Plus */
 @media (max-width: 420px) and (max-height: 740px) {
+    .sec1, .sec2, .sec3, .sec4, .sec5, .sec7, .sec8, .sec9, .sec10, .sec11, .sec12, .sec13 {
+        height: 740px;
+    }
+    .sec6 {
+        height: 350px;
+    }
     .sec1 h3, .sec5 h3, .sec6 h3, .sec7 h3, .sec8 h3, .sec9 h3, .sec10 h3 {
-        font-size: 26px;
+        font-size: 29px;
     }
     .sec1 h4, .sec2 h4, .sec5 h4 {
-        font-size: 20px;
+        font-size: 21px;
     }
     .sec1 p, .sec2 p, .sec3 p, .sec4 p, .sec5 p, .sec7 p, .sec8 p, .sec9 p, .sec10 p {
         font-size: 18px;
@@ -1409,10 +1440,20 @@ body {
         font-size: 14px;
     }
     .sec5 .img-box {
-        bottom: -70px;
+        bottom: 0;
     }
     .sec6 img {
-        top: 60px;
+        top: 0;
+    }
+    .sec8 .text-box, .sec9 .text-box, .sec10 .text-box {
+        top: 0;
+    }
+    .sec10 {
+        padding-left: 0;
+        padding-top: 7%;
+    }
+    .sec11 h2 {
+        font-size: 28px;
     }
     .sec13 img {
         max-width: 280px;
@@ -1424,16 +1465,31 @@ body {
         font-size: 24px;
     }
     .ornamen3 .ornamen-box img {
-        max-width: 200px;
+        max-width: 170px;
     }
 }
 
 
 /* Iphone 6/7/8 */
 @media (max-width: 380px) and (max-height: 668px) {
+    .sec1, .sec2, .sec3, .sec4, .sec5, .sec7, .sec8, .sec9, .sec10, .sec11, .sec12, .sec13 {
+        height: 670px;
+    }
+    .sec1 h4, .sec2 h4, .sec5 h4 {
+        font-size: 18px;
+    }
+    .sec1 p, .sec2 p, .sec3 p, .sec4 p, .sec5 p, .sec7 p, .sec8 p, .sec9 p, .sec10 p {
+        font-size: 16px;
+    }
+    .sec6 {
+        height: 320px;
+    }
     .sec1 img {
         max-width: 80%;
         margin-top: 50px;
+    }
+    .sec13 img {
+        max-width: 240px;
     }
 }
 
@@ -1468,6 +1524,12 @@ body {
 
 /* HP ukuran layar 5 inch */
 @media only screen and (max-width: 361px) { 
+    .sec1, .sec2, .sec3, .sec4, .sec5, .sec7, .sec8, .sec9, .sec10, .sec11, .sec12, .sec13 {
+        height: 650px;
+    }
+    .sec6 {
+        height: 310px;
+    }
     .sec1 h3, .sec5 h3, .sec6 h3, .sec7 h3, .sec8 h3, .sec9 h3, .sec10 h3 {
         font-size: 24px;
     }
