@@ -7,8 +7,8 @@
     src: url("../fonts/Carnas-Bold.otf") format("opentype");
 }
 @font-face {
-    font-family: Carnas-medium;
-    src: url("../fonts/Carnas-medium.otf") format("opentype");
+    font-family: Carnas-Medium;
+    src: url("../fonts/Carnas-Medium.otf") format("opentype");
 }
 
 body {
@@ -91,7 +91,7 @@ body {
 
 /* All h4 */
 .sec1 h4, .sec2 h4, .sec5 h4 {
-    font-size: 36px;
+    font-size: 30px;
     font-family: 'Carnas-Bold', sans-serif;
     letter-spacing: 1px;
     margin-bottom: 30px;
@@ -100,7 +100,7 @@ body {
 /* All p */
 .sec1 p, .sec2 p, .sec3 p, .sec4 p, .sec5 p, .sec7 p, .sec8 p, .sec9 p, .sec10 p {
     font-size: 25px;
-    font-family: 'Carnas-medium', sans-serif;
+    font-family: 'Carnas-Medium', sans-serif;
     letter-spacing: 1px;
 }
 
@@ -205,9 +205,13 @@ body {
 }
 .sec5 h4 {
     color: #662d91;
+    display: inline-block;
+    max-width: 702px;
 }
 .sec5 p {
     color: #662d91;
+    max-width: 672px;
+    display: inline-block;
 }
 .sec5 .img-box {
     position: absolute;
@@ -250,9 +254,13 @@ body {
 .sec7 h3 {
     color: #fff;
     filter: drop-shadow(0 0 1px #0171c9) drop-shadow(1px 1px 0 #0171c9)  drop-shadow(-1px 1px 0 #0171c9) drop-shadow(1px -1px 0 #0171c9) drop-shadow(-1px -1px 0 #0171c9);
+    display: inline-block;
+    max-width: 600px;
 }
 .sec7 p {
     color: #0171c9;
+    display: inline-block;
+    max-width: 780px;
 }
 
 
@@ -276,9 +284,13 @@ body {
 .sec8 h3 {
     color: #fff;
     filter: drop-shadow(0 0 1px #662d91) drop-shadow(1px 1px 0 #662d91)  drop-shadow(-1px 1px 0 #662d91) drop-shadow(1px -1px 0 #662d91) drop-shadow(-1px -1px 0 #662d91);
+    display: inline-block;
+    max-width: 500px;
 }
 .sec8 p {
     color: #662d91;
+    display: inline-block;
+    max-width: 643px;
 }
 
 
@@ -834,13 +846,13 @@ body {
         height: 969px;
     } 
     .sec1 h3, .sec5 h3, .sec6 h3, .sec7 h3, .sec8 h3, .sec9 h3, .sec10 h3 {
-        font-size: 62px;
+        font-size: 57px;
     }
     .sec1 h4, .sec2 h4, .sec5 h4 {
-        font-size: 40px;
+        font-size: 32px;
     }
     .sec1 p, .sec2 p, .sec3 p, .sec4 p, .sec5 p, .sec7 p, .sec8 p, .sec9 p, .sec10 p {
-        font-size: 30px;
+        font-size: 24px;
     }
     .sec1 img {
         max-width: 700px;
@@ -854,6 +866,12 @@ body {
     .sec4 .img-box2 img {
         max-width: 720px;
     }
+    .sec5 h4 {
+        max-width: 745px;
+    }
+    .sec7 p {
+        max-width: 767px;
+    }
     .sec8 .img-box img{
         max-width: 194px;
     }
@@ -861,7 +879,13 @@ body {
         bottom: 17%;
     }
     .sec9 .img-box img {
-        max-width: 580px;
+        max-width: 500px;
+    }
+    .sec9 p {
+        max-width: 700px;
+    }
+    .sec10 p {
+        max-width: 600px;
     }
     .sec10 .img-box img {
         max-width: 515px;
@@ -970,6 +994,12 @@ body {
     }
     .sec6 img {
         max-width: 64%;
+    }
+    .sec7 p {
+        max-width: 700px;
+    }
+    .sec8 p {
+        max-width: 560px;
     }
     .sec8 .img-box {
         bottom: 19%;
@@ -1217,7 +1247,7 @@ body {
     }
     /* All h3 */
     .sec1 h3, .sec5 h3, .sec6 h3, .sec7 h3, .sec8 h3, .sec9 h3, .sec10 h3 {
-        font-size: 36px;
+        font-size: 33px;
         font-family: 'GochiHand-Regular', sans-serif;
         margin-bottom: 30px;
     }
@@ -1271,13 +1301,16 @@ body {
         max-width: 100%;
         top: 8%;
     }
+    .sec7 h3 {
+        max-width: 87%;
+    }
     .sec8 .text-box{
         top: 8%;
         max-width: 100%;
     }
     .sec9 .text-box {
         max-width: 100%;
-        top: 10%;
+        top: 0;
     }
     .sec10 {
         padding-left: 15px!important;
@@ -1285,7 +1318,7 @@ body {
     .sec10 .text-box {
         max-width: 100%;
         bottom: 0;
-        top: 10%;
+        top: 0;
     }
     .sec11 {
         padding-top: 30%;
