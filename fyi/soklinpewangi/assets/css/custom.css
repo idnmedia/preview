@@ -365,6 +365,9 @@ body {
 
 
 /* --- Section 12 --- */
+.sec12 {
+    padding-top: 10%;
+}
 .bg-slider3 h3 {
     color: #fff;
     font-size: 48px;
@@ -418,9 +421,9 @@ body {
 	height: 100%;
     text-align: center;
 }
-#slider3 .content-slider .desc {
-    position: absolute;
-    bottom: 40px;
+#slider3 .desc {
+    position: relative;
+    bottom: 20px;
     left: 0;
     right: 0;
     margin: auto;
@@ -434,6 +437,8 @@ body {
 .sec12 .carousel-control-prev {
     left: 37%;
 }
+
+
 
 /* --- Section 13 --- */
 .sec13 {
@@ -621,6 +626,8 @@ body {
 
 /* -- SLIDER 3 -- */
 
+/*
+
 .bg-slider3 {
 	background: url(../images/slider/1.png) no-repeat top center;
 	-webkit-background-size: cover;
@@ -656,6 +663,7 @@ body {
 	     -o-background-size: cover;
 	        background-size: cover;
 }
+*/
 
 
 #slide1, #slide2, #slide3 {
@@ -1327,10 +1335,10 @@ body {
         font-size: 36px;
     }
     .sec12 .carousel-control-prev {
-        left: 20%;
+        left: 15%;
     }
     .sec12 .carousel-control-next {
-        right: 20%;
+        right: 15%;
     }
     .sec13 {
         padding-top: 30%;
@@ -1342,6 +1350,7 @@ body {
         top: 0;
         font-size: 32px;
         max-width: 90%;
+        margin-bottom: 50px;
     }
     #slider3 .content-slider .desc {
         max-width: 90%;
@@ -1353,6 +1362,10 @@ body {
     .carousel-item img {
         max-width: 320px;
     }
+    #slider3 .desc {
+        max-width: 100%;
+    }
+/*
     .bg-slider3 {
 	background: url(../images/mobile/1.png) no-repeat top center;
 	-webkit-background-size: cover;
@@ -1388,6 +1401,7 @@ body {
              -o-background-size: cover;
                 background-size: cover;
     }
+*/
 
     .ornamen1 .ornamen-box {
         margin-top: 0;

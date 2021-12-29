@@ -1,42 +1,42 @@
 //* slider 3
 
-$(document).ready(function(){
-    $(".bg-slider3").hide()
-    $(".bg-slider3:first-child").show();
-    
-    $(".prev3").click(function(){
-        slidePrev3();
-    })
-    
-    $(".next3").click(function(){
-        slideNext3();
-    })
-
-});
-
-function slidePrev3() {
-    if ($("#slider3 .active").index() == 0) {
-        slideTo3($("#slider3 .bg-slider3").length - 1);
-    }
-    else {
-        slideTo3($("#slider3 .active").index() - 1);
-    }
-}
-
-function slideNext3() {
-    if ($("#slider3 .active").index() == $("#slider3 .bg-slider3").length - 1) {
-        slideTo3(0);
-    }
-    else {
-        slideTo3($("#slider3 .active").index() + 1);
-    }
-}
-
-function slideTo3(slide) {
-    $("#slider3 .active").fadeOut().removeClass("active");
-    $("#slider3 .bg-slider3").eq(slide).fadeIn().addClass("active");
-}
-
+//$(document).ready(function(){
+//    $(".bg-slider3").hide()
+//    $(".bg-slider3:first-child").show();
+//    
+//    $(".prev3").click(function(){
+//        slidePrev3();
+//    })
+//    
+//    $(".next3").click(function(){
+//        slideNext3();
+//    })
+//
+//});
+//
+//function slidePrev3() {
+//    if ($("#slider3 .active").index() == 0) {
+//        slideTo3($("#slider3 .bg-slider3").length - 1);
+//    }
+//    else {
+//        slideTo3($("#slider3 .active").index() - 1);
+//    }
+//}
+//
+//function slideNext3() {
+//    if ($("#slider3 .active").index() == $("#slider3 .bg-slider3").length - 1) {
+//        slideTo3(0);
+//    }
+//    else {
+//        slideTo3($("#slider3 .active").index() + 1);
+//    }
+//}
+//
+//function slideTo3(slide) {
+//    $("#slider3 .active").fadeOut().removeClass("active");
+//    $("#slider3 .bg-slider3").eq(slide).fadeIn().addClass("active");
+//}
+//
 
 // JS Animasi falling sakura
 
@@ -219,3 +219,5 @@ function slideTo3(slide) {
 $(document).ready(function() {
     $('body').sakura();
 });
+
+
