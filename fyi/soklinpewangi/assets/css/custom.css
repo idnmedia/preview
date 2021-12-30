@@ -23,8 +23,53 @@ body {
     background-image: url(../images/bg1.jpg);
     background-repeat: no-repeat;
     background-position: top center;
+    background-size: cover;
 }
  
+
+[data-scroll] {
+	will-change: transform;
+}
+
+.content {
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	align-items: center;
+	counter-reset: figure; 
+}
+
+.item {
+	margin: 10px auto;
+	max-width: 100%;
+	position: relative;
+	will-change: transform;
+}
+
+.item__img-wrap {
+	--aspect-ratio: 1/1.5;
+/*	overflow: hidden;*/
+	width: 500px;
+	margin: 0 auto;
+	padding-bottom: calc(100% / (var(--aspect-ratio)));
+	max-width: calc(100% - 2rem);
+	will-change: transform;
+}
+
+
+
+.item__img {
+	--overflow: 40px;
+	height: calc(100% + (2 * var(--overflow)));
+	top: calc( -1 * var(--overflow));
+	width: 100%;
+	position: absolute;
+	background-image: var(--image);
+	background-size: cover;
+	background-position: 50% 0%;
+	will-change: transform;
+}
+
 
 
 
@@ -319,6 +364,7 @@ body {
 }
 .sec9 p {
     color: #055993;
+    display: inline-block;
 }
 
 /* --- Section 10 --- */
@@ -349,6 +395,7 @@ body {
 }
 .sec10 p {
     color: #662d91;
+    display: inline-block;
 }
 
 
@@ -905,7 +952,7 @@ body {
         font-size: 23px;
     }
     .sec13 img {
-        max-width: 550px;
+        max-width: 500px;
     }
     .sec13 h3 {
         font-size: 40px;
@@ -1365,44 +1412,6 @@ body {
     #slider3 .desc {
         max-width: 100%;
     }
-/*
-    .bg-slider3 {
-	background: url(../images/mobile/1.png) no-repeat top center;
-	-webkit-background-size: cover;
-	   -moz-background-size: cover;
-	     -o-background-size: cover;
-	        background-size: cover;
-    }
-    .bg-slider3:nth-child(2) {
-        background: url(../images/mobile/2.png) no-repeat top center;
-        -webkit-background-size: cover;
-           -moz-background-size: cover;
-             -o-background-size: cover;
-                background-size: cover;
-    }
-    .bg-slider3:nth-child(3) {
-        background: url(../images/mobile/3.png) no-repeat top center;
-        -webkit-background-size: cover;
-           -moz-background-size: cover;
-             -o-background-size: cover;
-                background-size: cover;
-    }
-    .bg-slider3:nth-child(4) {
-        background: url(../images/mobile/4.png) no-repeat top center;
-        -webkit-background-size: cover;
-           -moz-background-size: cover;
-             -o-background-size: cover;
-                background-size: cover;
-    }
-    .bg-slider3:nth-child(5) {
-        background: url(../images/mobile/5.png) no-repeat top center;
-        -webkit-background-size: cover;
-           -moz-background-size: cover;
-             -o-background-size: cover;
-                background-size: cover;
-    }
-*/
-
     .ornamen1 .ornamen-box {
         margin-top: 0;
     }
@@ -1418,7 +1427,7 @@ body {
     
 }
 
-/* galaxy note 9 / iphone 11 pro */
+/* galaxy note 9 / iphone 11 pro / Iphone 12 & 13 */
 @media (max-width: 419px) and (max-height: 847px) and (min-height: 800px) {
     .sec1, .sec2, .sec3, .sec4, .sec5, .sec7, .sec8, .sec9, .sec10, .sec11, .sec12, .sec13 {
         height: 850px;
@@ -1451,13 +1460,18 @@ body {
     .sec13 img {
         max-width: 280px;
     }
-    .sec13 h3, .sec13 a {
-        font-size: 24px;
+    .sec13 h3 {
+        font-size: 22px;
+        line-height: 38px;
+        letter-spacing: 2px;
+    }
+    .sec13 a {
+        font-size: 26px;
     }
 }
 
 
-/* Iphone 6/7/8 Plus */
+/* Iphone 6/7/8 Plus Nexus 6P */
 @media (max-width: 420px) and (max-height: 740px) {
     .sec1, .sec2, .sec3, .sec4, .sec5, .sec7, .sec8, .sec9, .sec10, .sec11, .sec12, .sec13 {
         height: 740px;
