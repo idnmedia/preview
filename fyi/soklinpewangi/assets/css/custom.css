@@ -713,7 +713,7 @@ body {
 */
 
 
-#slide1, #slide2, #slide3 {
+#slide1 {
     max-width: 800px;
     position: relative;
     left: 0;
@@ -721,7 +721,6 @@ body {
     margin: auto;
     text-align: center;
 }
-
 .carousel-item a {
     color: #000;
 }
@@ -733,7 +732,7 @@ body {
     max-width: 400px;
 }
 .carousel-item .desc {
-    max-width: 50%;
+    max-width: 60%;
     margin: auto;
     height: auto;
 }
@@ -748,46 +747,10 @@ body {
     border: 2px solid #fff;
     padding: 20px;
 }
-#slide1 .carousel-item .desc p {
-    font-family: 'Platform-Medium', sans-serif;
-    color: #fff;
-    font-size: 22px;
-}
-#slide2 .carousel-item .desc h3 {
-    font-family: 'Platform-Medium', sans-serif;
-    color: #000;
-    font-size: 26px;
-    margin-bottom: 20px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-}
-#slide2 .carousel-item .desc p {
-    font-family: 'Platform-Medium', sans-serif;
-    color: #000;
-    font-size: 22px;
-}
-#slide3 .carousel-item .desc {
-    max-width: 42%;
-}
-#slide3 .carousel-item .desc h3 {
-    font-family: 'Platform-Medium', sans-serif;
-    color: #fff;
-    font-size: 26px;
-    margin-bottom: 20px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-}
-#slide3 .carousel-item .desc p {
-    font-family: 'Platform-Regular', sans-serif;
-    color: #fff;
-    font-size: 22px;
-    letter-spacing: 1px;
-}
 .carousel-control-next, .carousel-control-prev {
     top: 50%;
     transform: translateY(-50%);
 }
-
 .carousel-indicators li {
     opacity: 1!important;
     margin: 0 10px!important;
@@ -806,14 +769,6 @@ body {
     display: block;
     background-size: cover;
 }
-/*
-.prevbtn:active {
-    background-image: url(../images/panah-kiri.png)!important;
-}
-.prevbtn:hover {
-    background-image: url(../images/panah-kiri-hover.png);
-}
-*/
 .nextbtn {
     background-image: url(../images/panah-kanan.png);
     width: 50px;
@@ -821,55 +776,6 @@ body {
     display: block;
     background-size: cover;
 }
-/*
-.nextbtn:active {
-    background-image: url(../images/panah-kanan.png)!important;
-}
-.nextbtn:hover {
-    background-image: url(../images/panah-kanan-hover.png);
-}
-*/
-
-
-
-#slide2 .prevbtn {
-    background-image: url(../images/panah-kiri-2.png);
-    width: 50px;
-    height: 52px;
-    display: block;
-    background-size: cover;
-}
-/*
-#slide2 .prevbtn:active {
-    background-image: url(../images/panah-kiri-2.png)!important;
-}
-#slide2 .prevbtn:hover {
-    background-image: url(../images/panah-kiri-2-hover.png);
-}
-*/
-#slide2 .nextbtn {
-    background-image: url(../images/panah-kanan-2.png);
-    width: 50px;
-    height: 52px;
-    display: block;
-    background-size: cover;
-}
-/*
-#slide2 .nextbtn:active {
-    background-image: url(../images/panah-kanan-2.png)!important;
-}
-#slide2 .nextbtn:hover {
-    background-image: url(../images/panah-kanan-2-hover.png);
-}
-*/
-/* On smaller screens, decrease text size */
-@media only screen and (max-width: 300px) {
-  .prev, .next,.text {font-size: 11px}
-}
-
-
-
-
 
 .desktop_{
     display: block;
@@ -882,6 +788,61 @@ body {
 
 
 /* ================== responsive ==================== */
+/* Responsive Layar desktop zoom out 80% dari layar 1366x768 */
+@media only screen and (min-width: 1701px) {
+    .bg1 {
+        background-size: cover!important;
+    }
+    .sec1, .sec2, .sec3, .sec4, .sec5, .sec6, .sec7, .sec8, .sec9, .sec10, .sec11, .sec12, .sec13 {
+        height: 1080px;
+    }
+    .sec1 h3, .sec5 h3, .sec6 h3, .sec7 h3, .sec8 h3, .sec9 h3, .sec10 h3 {
+        font-size: 75px;
+    }
+    .sec1 h4, .sec2 h4, .sec5 h4 {
+        font-size: 40px;
+    }
+    .sec1 p, .sec2 p, .sec3 p, .sec4 p, .sec5 p, .sec7 p, .sec8 p, .sec9 p, .sec10 p {
+        font-size: 28px;
+    }
+    .sec1 {
+        padding-top: 17%;
+    }
+    .sec1 img, .sec3 .img-box1 img, .sec3 .img-box2 img, .sec4 .img-box img, .sec4 .img-box2 img, .sec8 .img-box img, .sec9 .img-box img, .sec10 .img-box img, .carousel-item img, .sec13 img {
+        max-width: 100%;
+    }
+    .sec5 h4 {
+        max-width: 1000px;
+    }
+    .sec5 p, .sec7 p {
+        max-width: 900px;
+    }
+    .sec7 h3, .sec8 h3, .sec8 p {
+        max-width: 800px;
+    }
+    #slide1 {
+        max-width: 1200px;
+    }
+    #slide1 .carousel-item .desc h3 {
+        font-size: 24px;
+    }
+    .bg-slider3 p {
+        font-size: 24px;
+    }
+    .sec11 h2 {
+        font-size: 80px;
+    }
+    .bg-slider3 h3 {
+        font-size: 60px;
+    }
+    .sec13 h3 {
+        font-size: 38px;
+    }
+    .sec13 a {
+        font-size: 45px;
+    }
+}
+
 
 @media 
     only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 1600px), 
@@ -893,7 +854,7 @@ body {
 }
         
 /* Responsive Layar desktop zoom out 80% dari layar 1366x768 */
-@media only screen and (min-width: 1600px) {
+@media only screen and (min-width: 1600px) and (max-width: 1700px){
     .bg1 {
         background-size: cover!important;
     }
@@ -1256,32 +1217,13 @@ body {
         font-size: 16px;
     }
 
-    .sect10 .prevbtn:active {
-    background-image: url(../images/panah-kiri-hover.png)!important;
-    }
-    .sect10 .nextbtn:active {
-        background-image: url(../images/panah-kanan-hover.png)!important;
-    }
-    .prevbtn:active {
-        background-image: url(../images/panah-kiri-hover.png)!important;
-    }
-    .nextbtn:active {
-        background-image: url(../images/panah-kanan-hover.png)!important;
-    }
-    .sect10 .prevbtn:hover {
-        background-image: url(../images/panah-kiri-2.png)!important;
-    }
-    .sect10 .nextbtn:hover {
-        background-image: url(../images/panah-kanan-2.png)!important;
-    }
     .prevbtn:hover {
         background-image: url(../images/panah-kiri.png)!important;
     }
     .nextbtn:hover {
         background-image: url(../images/panah-kanan.png)!important;
     }
-    
-    
+      
     
 }
 
