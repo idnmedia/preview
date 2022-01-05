@@ -4350,7 +4350,7 @@ var defaultOptions = {
     kind: OptionKind.VIEWER
   },
   defaultUrl: {
-    value: 'pdfsrc/popmama-parenting-academy.pdf',
+    value: 'pdfsrc/popmama-parenting-academy-2021.pdf',
     kind: OptionKind.VIEWER
   },
   defaultZoomValue: {
