@@ -1,0 +1,122 @@
+================== Time Signal Desktop ==================
+<style>
+    @import url("https://ads.idntimes.com/ads-assets/internal/css/ramadhan2020/css-idntimes.css");
+    @import url("https://ads.idntimes.com/ads-assets/internal/css/ramadhan2020/wts-desktop.css?upv1");
+    .jadwal-box {
+        top: 10px;
+        right: 20px;
+    }
+</style>
+
+<div class="wts clearfix">
+    <a href="{landingpage}" target="_blank" class="landingpage"></a>
+    <div class="jadwal-box">
+        <div class="wts-city">
+            <select name="" class="wts-city-select"></select>
+        </div>
+        <div class="wts-time">
+            <div class="wts-day"></div>
+        </div>
+    </div>
+    <video controls autoplay muted playsinline preload="metadata" style="width: 300px; height: 168px; position: absolute; left: 20px; top: 66px; z-index: 1;">
+        <source src="https://ads.idntimes.com/ads-assets/client/aqua/april2020/video-tvc-aqua-compressed.mp4" type="video/mp4">
+    </video>
+
+    <img src="https://ads.idntimes.com/ads-assets/client/aqua/april2020/1080x300-tvc.gif">
+</div>
+
+<script src="https://ads.idntimes.com/ads-assets/internal/js/ramadhan2020/js-idntimes.js" type="text/javascript"></script>
+<script src="https://ads.idntimes.com/ads-assets/internal/js/ramadhan2020/js-jadwalsholat.js" type="text/javascript"></script>
+
+<script>
+    $(function() {
+        var currentDay = 1;
+        var dataCities = [];
+        $.each( cities, function( key, city ) {
+            dataCities.push({
+                'id': city.slug,
+                'text': city.name,
+            });
+        });
+        $('select.wts-city-select').select2({
+            data: dataCities,
+            placeholder: 'Select a city'
+        });
+
+        $('select.wts-city-select').on('select2:select', function (e) {
+            var val = $(this).val();
+            initSchedules(val, currentDay);
+        });
+        initSchedules(cities[0].slug, currentDay);
+    });
+</script>
+<script type="text/javascript">
+    if(top!=self){
+        window.frameElement.style = 'position: relative; width: 1080px; height: 300px; margin-bottom: 10px; left: 50%; transform: translateX(-50%)';
+    };
+</script>
+
+
+*
+*
+*
+*
+*
+
+
+================== Time Signal Mobile ==================
+
+<style>
+    @import url("https://ads.idntimes.com/ads-assets/internal/css/ramadhan2020/css-idntimes.css");
+    @import url("https://ads.idntimes.com/ads-assets/internal/css/ramadhan2020/wts-mobile.css");
+     .jadwal-box {
+         left: 31px;
+         top: 192px;
+     }
+</style>
+<div class="wts clearfix">
+    <a href="{landingpage}" target="_blank" class="landingpage"></a>
+    <div class="jadwal-box">
+        <div class="wts-city">
+            <select name="" class="wts-city-select"></select>
+        </div>
+        <div class="wts-time">
+            <div class="wts-day"></div>
+        </div>
+    </div>
+    <video controls autoplay muted playsinline preload="metadata" style="width: 224px; height: 126px; position: absolute; left: 48px; top: 56px; z-index: 1;">
+        <source src="https://ads.idntimes.com/ads-assets/client/aqua/april2020/video-tvc-aqua-compressed.mp4" type="video/mp4">
+    </video>
+    <img src="https://ads.idntimes.com/ads-assets/client/aqua/april2020/320x600-tvc.gif">
+</div>
+
+<script src="https://ads.idntimes.com/ads-assets/internal/js/ramadhan2020/js-idntimes.js" type="text/javascript"></script>
+<script src="https://ads.idntimes.com/ads-assets/internal/js/ramadhan2020/js-jadwalsholat.js" type="text/javascript"></script>
+
+<script>
+    $(function() {
+        var currentDay = 1;
+        var dataCities = [];
+        $.each( cities, function( key, city ) {
+            dataCities.push({
+                'id': city.slug,
+                'text': city.name,
+            });
+        });
+        $('select.wts-city-select').select2({
+            data: dataCities,
+            placeholder: 'Select a city'
+        });
+
+        $('select.wts-city-select').on('select2:select', function (e) {
+            var val = $(this).val();
+            initSchedules(val, currentDay);
+        });
+        initSchedules(cities[0].slug, currentDay);
+    });
+</script>
+<script type="text/javascript">
+    if(top!=self){
+        window.frameElement.style = 'width: 320px; height: 600px; margin-bottom: 10px; left: 50%; transform: translateX(-50%); position: relative;';
+    };
+</script>
