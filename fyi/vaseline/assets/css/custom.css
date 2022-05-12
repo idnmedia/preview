@@ -1330,6 +1330,10 @@ span.helveticabolditalic {
     .sec7 h4 {
         font-size: 22px;
     }
+    .sec8 .text-box, .sec9 .text-box {
+        max-width: 90%;
+        top: 200px;
+    }
     .sec14 p {
         font-size: 18px;
     }
@@ -1354,6 +1358,9 @@ span.helveticabolditalic {
     }
     #slide2 .carousel-item .desc p {
         font-size: 16px;
+    }
+    #slide3 p, .sec13 p {
+        padding: 10px 20px;
     }
     #slide4 .carousel-item img {
         max-height: 200px;
