@@ -443,6 +443,10 @@ span.helveticabolditalic {
     top: 80px;
     left: 110px;
 }
+.sec7 .image-box {
+    position: relative;
+    right: 80px;
+}
 .sec7 .image-box img {
     max-height: 680px;
 }
@@ -1379,6 +1383,9 @@ span.helveticabolditalic {
     .sec4 .text-box {
         max-width: 90%;
     }
+    .sec7 .image-box {
+        right: 0;
+    }
     .sec7 .text-box {
         left: 0;
         max-width: 100%;
@@ -1571,7 +1578,7 @@ span.helveticabolditalic {
         max-width: 220px;
     }
     #slide3 p, .sec13 p {
-        padding: 5px 10px;
+        padding: 5px 15px;
     }
     #slide1, #slide2 {
         width: 260px;
@@ -1624,6 +1631,9 @@ span.helveticabolditalic {
     #slide1 .carousel-indicators li, #slide2 .carousel-indicators li, #slide3 .carousel-indicators li, #slide4 .carousel-indicators li {
         width: 12px;
         height: 12px;
+    }
+    .sec14 p {
+        font-size: 16px;
     }
     
 }
