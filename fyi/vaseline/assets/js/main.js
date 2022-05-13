@@ -10889,14 +10889,14 @@ return ImagesLoaded;
 
         $('.site').imagesLoaded(function () {
             //AOS
-            var offset = 240;
+            var offset = 70;
             var winWidth = $(window).width();
-            if (winWidth < 768) {
-                offset = 0;
+            if (winWidth < 481) {
+                offset = 100;
             }
             AOS.init({
                 offset: offset,
-                duration: 500
+                duration: 300
             });
 
             //Parralax

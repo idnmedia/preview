@@ -20,7 +20,7 @@
 
 }
 body {
-    background-color: #1d4a23  !important;
+    background-color: #fff  !important;
 }
 
 .no-padding {
@@ -29,7 +29,7 @@ body {
 .cover1 {
     background-image: url(../images/cover/1.png);
     background-size: cover;
-    background-position: center center;
+    background-position: bottom center;
     height: 100vh
 }
 .cover2 {
@@ -47,7 +47,7 @@ body {
 .cover4 {
     background-image: url(../images/cover/4.png);
     background-size: cover;
-    background-position: top center;
+    background-position: center;
     height: 100vh
 }
 .cover5 {
@@ -304,6 +304,7 @@ span.helveticabolditalic {
 .sec2 .image-box1 {
     position: relative;
     top: 200px;
+    left: 55px;
 }
 .sec2 .image-box1 img {
     max-width: 600px;
@@ -320,7 +321,7 @@ span.helveticabolditalic {
     color: white;
     max-width: 67%;
     position: relative;
-    left: 0;
+    left: 55px;
     right: 0;
     margin-left: auto;
     margin: auto;
@@ -350,7 +351,7 @@ span.helveticabolditalic {
 }
 .sec3 .image-box {
     position: absolute;
-    bottom: 190px;
+    bottom: 220px;
     left: 0;
     right: 0;
     margin: auto;
@@ -373,10 +374,11 @@ span.helveticabolditalic {
 .sec4 .text-box {
     color: white;
     max-width: 900px;
-    position: absolute;
+    position: relative;
     left: 0;
     right: 0;
     margin: auto;
+    top: 250px;
 }
 .sec4 p {
     color: white;
@@ -438,8 +440,8 @@ span.helveticabolditalic {
     left: 0;
     right: 0;
     margin: auto;
-    top: 60px;
-    left: 100px;
+    top: 80px;
+    left: 110px;
 }
 .sec7 .image-box img {
     max-height: 680px;
@@ -456,6 +458,7 @@ span.helveticabolditalic {
 .sec8 .image-box {
     position: absolute;
     bottom: 70px;
+    left: 120px;
 }
 .sec8 .image-box img {
     max-width: 800px;
@@ -482,7 +485,7 @@ span.helveticabolditalic {
 }
 .sec9 .image-box {
     position: absolute;
-    right: 0;
+    right: 100px;
     bottom: 120px;
 } 
 .sec9 .image-box img {
@@ -502,6 +505,7 @@ span.helveticabolditalic {
 .sec10 .image-box {
     position: absolute;
     right: 0;
+    top: 120px;
 }
 .sec10 .image-box img {
     max-width: 380px;
@@ -541,6 +545,15 @@ span.helveticabolditalic {
     right: 0;
     margin: auto;
     font-size: 20px;
+}
+.sec12 p.info {
+    color: white;
+    left: 0;
+    right: 0;
+    margin: auto;
+    font-size: 20px;
+    position: relative;
+    top: 100px;
 }
 #slide3 p {
     font-family: 'Helvetica', sans-serif;
@@ -594,6 +607,7 @@ span.helveticabolditalic {
     left: 0;
     right: 0;
     margin: auto;
+    top: 120px;
 }
 .sec14 p {
     font-size: 30px;
@@ -734,6 +748,9 @@ span.helveticabolditalic {
 #slide3 .carousel-control-next, #slide4 .carousel-control-next {
     right: 130px;
 }
+#slide3 .carousel-item img {
+    max-width: 450px;
+}
 .carousel-control-next, .carousel-control-prev {
     top: 50%;
     transform: translateY(-50%);
@@ -795,6 +812,9 @@ span.helveticabolditalic {
 #slide3 .carousel-indicators .active {
     margin: 0 5px!important;
     background-color: #12609f!important;
+}
+#slide4 .carousel-item img {
+    max-width: 320px;
 }
 #slide4 .carousel-indicators li {
     opacity: 1!important;
@@ -912,7 +932,32 @@ span.helveticabolditalic {
     .sec1, .sec2, .sec3, .sec4, .sec5, .sec6, .sec7, .sec8, .sec9, .sec10, .sec11, .sec12, .sec13, .sec14, .sec15, .sec16, .sec17, .sec18, .sec19, .sec20 {
         height: 948px;
     }
-    
+    .sec8 .image-box {
+        bottom: 130px;
+    }
+    .sec8 .text-box {
+        top: 250px;
+        right: 300px;
+    }
+    .sec9 .image-box {
+        bottom: 160px;
+    }
+    .sec9 .text-box {
+        left: 200px;
+    }
+    .sec10 .image-box {
+        right: 30px;
+    }
+    .sec12 p.info {
+        top: 150px;
+    }
+    #slide1, #slide2 {
+        width: 800px;
+        height: 545px;
+    }
+    #slide1 .carousel-item img {
+        max-width: 700px;
+    }
 }
 
 /* Responsive Layar desktop zoom out 90% dari layar 1366x768 */
@@ -964,7 +1009,7 @@ span.helveticabolditalic {
         max-width: 330px;
     }
     .sec11 .image-box img {
-        max-width: 1100px;
+        max-width: 1150px;
     }
     .sec12 h2, .sec13 h2, .sec14 h2 {
         font-size: 40px;
@@ -1067,7 +1112,7 @@ span.helveticabolditalic {
         font-size: 18px;
     }
     #slide3 .carousel-item img {
-        max-width: 500px;
+        max-width: 440px;
     }
     #slide4 .carousel-item img {
         max-width: 300px;
@@ -1090,8 +1135,14 @@ span.helveticabolditalic {
     .sec8 .image-box img, .sec9 .image-box img {
         max-width: 660px;
     }
+    .sec9 .image-box {
+        right: 50px;
+    }
+    .sec10 .image-box {
+        right: 40px;
+    }
     .sec10 .image-box img {
-        max-width: 300px;
+        max-width: 260px;
     }
     .sec11 .image-box img {
         max-width: 1100px;
@@ -1109,8 +1160,8 @@ span.helveticabolditalic {
     .sec14 h2 {
         font-size: 36px;
     }
-    sec14  {
-        font-size: 26px;
+    .sec14 .text-box {
+        top: 80px;
     }
 }
 
@@ -1122,7 +1173,91 @@ span.helveticabolditalic {
     .sec1, .sec2, .sec3, .sec4, .sec5, .sec6, .sec7, .sec8, .sec9, .sec10, .sec11, .sec12, .sec13, .sec14, .sec15, .sec16, .sec17, .sec18, .sec19, .sec20 {
         height: 675px;
     }
-
+    .coverbreak {
+        margin-top: -120px;
+    }
+    .sec1 p, .sec2 p, .sec4 p, .sec8 p, .sec9 p, .sec10 p, .sec12 p.info {
+        font-size: 18px;
+        line-height: 26px;
+    }
+    .sec2 .image-box2 img {
+        max-width: 380px;
+    }
+    .sec2 .image-box1 img {
+        max-width: 480px;
+    }
+    .sec3 .image-box {
+        bottom: 185px;
+    }
+    .sec3 .image-box img {
+        max-width: 250px;
+    }
+    #slide1, #slide2 {
+        width: 500px;
+        height: 341px;
+    }
+    #slide1 .carousel-item img {
+        max-width: 320px;
+    }
+    .sec3 h3, .sec7 h4, .sec12 h2, .sec13 h2 {
+        font-size: 30px;
+    }
+    #slide1 .carousel-item .desc p {
+        font-size: 18px;
+    }
+    #slide2 .carousel-item img {
+        max-width: 450px;
+    }
+    .sec8 .image-box {
+        bottom: 90px;
+        left: 70px;
+    }
+    .sec9 .image-box {
+        right: 50px;
+        bottom: 100px;
+    }
+    .sec8 .image-box img, .sec9 .image-box img {
+        max-width: 520px;
+    }
+    .sec9 .text-box {
+        left: 40px;
+    }
+    .sec10 .image-box img {
+        max-width: 220px;
+    }
+    .sec10 .image-box {
+        right: 60px;
+    }
+    .sec11 .image-box img {
+        max-width: 900px;
+    }
+    #slide3 .carousel-item img {
+        max-width: 400px;
+    }
+    #slide3 p {
+        font-size: 17px;
+        padding: 10px 15px;
+    }
+    #slide4 .carousel-item img {
+        max-width: 260px;
+    }
+    .sec13 p {
+        font-size: 17px;
+    }
+    .sec14 p {
+        font-size: 18px;
+        margin-bottom: 60px;
+    }
+    .sec14 h2, .sec14 a {
+        font-size: 25px;
+    }
+    .sec14 span.customtext {
+        font-size: 40px;
+    }
+    .sec14 .text-box {
+        top: 60px;
+    }
+    
 }
 
 /* buat yang jail ngecilin browse */
@@ -1196,7 +1331,7 @@ span.helveticabolditalic {
         margin: auto;
     }
     .sec1, .sec2, .sec3, .sec4, .sec5, .sec6, .sec7, .sec8, .sec9, .sec10, .sec11, .sec12, .sec13, .sec14, .sec15, .sec16, .sec17, .sec18, .sec19, .sec20 {
-        height: 100vh;
+        height: 105vh;
     }
     .sec1 p, .sec2 p, .sec4 p, .sec8 p, .sec9 p, .sec10 p {
         font-size: 20px;
@@ -1207,6 +1342,9 @@ span.helveticabolditalic {
     }
     .sec1 .text-box, .sec2 .text-box {
         max-width: 90%;
+    }
+    .sec2 .text-box, .sec2 .image-box1 {
+        left: 0;
     }
     .sec1 span.customtext {
         font-size: 32px;
@@ -1272,6 +1410,7 @@ span.helveticabolditalic {
     }
     .sec14 .text-box {
         max-width: 100%;
+        top: 10px;
     }
     .sec14 p {
         font-size: 21px;
@@ -1312,7 +1451,7 @@ span.helveticabolditalic {
     
 }
 
-/* galaxy note 9 */
+/* galaxy note 9/Note FE */
 @media (max-width: 419px) and (max-height: 847px) {
     .sec1, .sec2, .sec3, .sec4, .sec5, .sec6, .sec7, .sec8, .sec9, .sec10, .sec11, .sec12, .sec13, .sec14, .sec15, .sec16, .sec17, .sec18, .sec19, .sec20 {
         height: 105vh;
@@ -1359,6 +1498,9 @@ span.helveticabolditalic {
     #slide2 .carousel-item .desc p {
         font-size: 16px;
     }
+    #slide3 .carousel-item img {
+        max-width: 300px;
+    }
     #slide3 p, .sec13 p {
         padding: 10px 20px;
     }
@@ -1372,13 +1514,12 @@ span.helveticabolditalic {
 }
 
 
-/* Note FE */
 
 
 /* Iphone 6/7/8 */
 @media (max-width: 380px) and (max-height: 668px) {
     .sec1, .sec2, .sec3, .sec4, .sec5, .sec6, .sec7, .sec8, .sec9, .sec10, .sec11, .sec12, .sec13, .sec14, .sec15, .sec16, .sec17, .sec18, .sec19, .sec20 {
-        height: 100vh;
+        height: 105vh;
     }
     .sec1 p, .sec2 p, .sec4 p, .sec8 p, .sec9 p, .sec10 p, .sec12 p {
         font-size: 16px;
@@ -1469,12 +1610,59 @@ span.helveticabolditalic {
     .sec1, .sec2, .sec3, .sec4, .sec5, .sec6, .sec7, .sec8, .sec9, .sec10, .sec11, .sec12, .sec13, .sec14, .sec15, .sec16, .sec17, .sec18, .sec19, .sec20 {
         height: 105vh;
     }
+    .sec1 p, .sec2 p, .sec4 p, .sec8 p, .sec9 p, .sec10 p, .sec12 p, .sec12 p.info {
+        font-size: 14px!important;
+        line-height: 21px;
+        letter-spacing: .1px;
+    }
+    .sec1 span.customtext {
+        font-size: 20px;
+    }
+    #slide3 .carousel-item img {
+        max-width: 250px;
+    }
+    #slide1 .carousel-indicators li, #slide2 .carousel-indicators li, #slide3 .carousel-indicators li, #slide4 .carousel-indicators li {
+        width: 12px;
+        height: 12px;
+    }
     
 }
 
 /* Iphone 5 */
 @media (max-width: 321px) {
 
+    .sec3 h3, .sec12 h2, .sec13 h2, .sec14 h2, .sec14 a {
+        font-size: 18px;
+    }
+    .sec4 .text-box {
+        max-width: 100%;
+    }
+    .sec8 .text-box, .sec9 .text-box {
+        max-width: 95%;
+        top: 140px
+    }
+    .sec10 .image-box {
+        top: 50px;
+    }
+    .sec10 .image-box img {
+        max-width: 120px;
+    }
+    #slide1, #slide2 {
+        width: 220px;
+        height: 150px;
+    }
+    #slide2 .carousel-item img {
+        max-width: 192px;
+    }
+    #slide3 .carousel-item img {
+        max-width: 200px;
+    }
+    .carousel-control-prev {
+        left: -30px;
+    }
+    .carousel-control-next {
+        right: -30px;
+    }
 }
 
 
