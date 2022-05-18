@@ -3,7 +3,7 @@
 var p; // shortcut to reference prototypes
 var lib={};var ss={};var img={};
 lib.ssMetadata = [
-		{name:"index_atlas_", frames: [[1610,482,320,480],[1288,1446,320,480],[322,964,320,480],[0,964,320,480],[322,1446,320,480],[322,482,320,480],[644,964,320,480],[644,1446,320,480],[0,482,320,480],[966,482,320,480],[1288,482,320,480],[0,1446,320,480],[966,964,320,480],[966,1446,320,480],[644,482,320,480],[1288,964,320,480],[1610,964,320,480],[0,0,320,480],[1610,1446,320,480],[644,0,320,480],[322,0,320,480],[966,0,320,480],[1288,0,320,480],[1610,0,320,480]]}
+		{name:"index_atlas_", frames: [[322,1446,320,480],[966,482,320,480],[966,1446,320,480],[1288,482,320,480],[322,964,320,480],[644,1446,320,480],[644,482,320,480],[1610,482,320,480],[644,964,320,480],[966,964,320,480],[1288,964,320,480],[1288,1446,320,480],[1610,1446,320,480],[1610,964,320,480],[322,0,320,480],[0,1446,320,480],[1288,0,320,480],[644,0,320,480],[966,0,320,480],[0,964,320,480],[1610,0,320,480],[322,482,320,480],[0,0,320,480],[0,482,320,480]]}
 ];
 
 
@@ -1083,8 +1083,8 @@ p.nominalBounds = new cjs.Rectangle(-160,-240,320,480);
 	this.instance_1.parent = this;
 	this.instance_1.setTransform(160,240);
 
-	this.timeline.addTween(cjs.Tween.get({}).to({state:[]}).to({state:[{t:this.instance}]},108).to({state:[{t:this.instance_1}]},14).wait(41));
-	this.timeline.addTween(cjs.Tween.get(this.instance).wait(108).to({_off:false},0).to({_off:true,alpha:1},14,cjs.Ease.quadOut).wait(41));
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[]}).to({state:[{t:this.instance}]},58).to({state:[{t:this.instance_1}]},14).wait(91));
+	this.timeline.addTween(cjs.Tween.get(this.instance).wait(58).to({_off:false},0).to({_off:true,alpha:1},14,cjs.Ease.quadOut).wait(91));
 
 }).prototype = p = new cjs.MovieClip();
 
@@ -1536,7 +1536,7 @@ p.nominalBounds = new cjs.Rectangle(-160,-240,320,480);
 	this.hondasens.layerIndex = 16
 	this.hondasens.maskLayerName = 0
 
-	this.timeline.addTween(cjs.Tween.get(this.hondasens).wait(122).to({_off:true},41).wait(269));
+	this.timeline.addTween(cjs.Tween.get(this.hondasens).wait(72).to({_off:true},91).wait(269));
 
 	// onestep_obj_
 	this.onestep = new lib.Scene_1_onestep();
