@@ -1,0 +1,66 @@
+<html>
+    <head></head>
+    <body style="margin: 0;">
+
+        
+<script src="https://ads.idntimes.com/ads-assets/internal/js/jquery-3.3.1.min.js" type="text/javascript"></script>
+<script>
+    const data = parent.document.getElementsByClassName('wrapper')[0]
+    data.style.backgroundColor = "white"
+    data.style.position = "relative"
+    data.style.zIndex = "9"  
+
+    if(top!=self){ window.frameElement.style = '-webkit-transition: all .5s linear 0s; -moz-transition: all .5s linear 0s;-ms-transition: all .5s linear 0s;-o-transition: all .5s linear 0s;transition: all .5s linear 0s; width: 100%; height: 500px; position: fixed; z-index: 0; background-color: black;'; }
+
+    var pushdownStart = function(){
+        $(window.parent.document.getElementById("poppapa-header")).css({'margin-top':'500px', 'position':'relative'});
+        $(window.parent.document.getElementById("div-gpt-ad-mega_billboard")).append('<div style="background-color: rgb(156, 128, 215); color: white; text-align: center; position: relative; display : block; top: 500px; font-weight: bold; padding: 2px; letter-spacing: .6px;">SCROLL UNTUK MELANJUTKAN MEMBACA</div>');
+        $(window.parent.document.getElementsByClassName("wrapper")).css('top', '0px');
+        $(window.parent.document.getElementsByClassName("navbar")).css('margin-bottom', '-10px');
+    };
+
+    $(document).ready(function(){
+        setTimeout(function(){ 
+            pushdownStart();
+        }, 2000);  
+    });
+
+    $(window.parent).scroll(function() {
+        if ($(window.parent).scrollTop() > 500) {
+            $(window.parent.document.getElementsByClassName("wrapper")).css('top', '520px');
+            $(window.parent.document.getElementById("poppapa-header")).css({'position':'fixed', 'margin-top':'0px'});
+
+        } else {
+            $(window.parent.document.getElementsByClassName("wrapper")).css('top', '0px');
+            $(window.parent.document.getElementById("poppapa-header")).css({'position':'relative', 'margin-top':'500px'});
+        }
+     });
+
+    var pushdownEnd = function(){
+        $('body').on({
+        'mousewheel': function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            }
+        });
+        $(window.parent).unbind('scroll');
+        $(window.parent.document.getElementById("div-gpt-ad-mega_billboard")).css('display', 'none');
+        $(window.parent.document.getElementById("poppapa-header")).css('margin-top', '0px');
+    }  
+</script>
+
+<div class="pushdown-container" style="position: fixed; text-align: center; width: 100%; background-color: black; padding-top: 10px;"> 
+    <div class="pushdown" style="position: relative; max-width: 320px; left: 0; right: 0; margin: auto;">
+        <!-- landing page -->
+        <a href="#" target="_blank" style="position: absolute; width: 320px; height: 480px; z-index: 2;"></a>
+        <!-- materi image cdn -->
+        <img src="https://ads.idntimes.com/ads-assets/client/aqua/320x480.jpg" width="320" height="480" alt="megabillboard">
+        <!-- materi html5 iframe -->
+<!--                <iframe src="" width="320" height="480" frameborder="0" scrolling="no"></iframe>-->      
+    </div>
+    <div class="close-btn" style="position: absolute; right: 5px; top: 5px;" onclick="pushdownEnd()">
+        <div style="background-color: #ed2028; color: white; font-size: 11px; font-weight: bold; letter-spacing: .6px; padding: 3px 5px; z-index: 999; cursor: pointer; z-index: 9;">TUTUP</div>
+    </div>
+</div>
+    </body>
+</html>

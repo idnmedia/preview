@@ -1,0 +1,191 @@
+.author .info .title {
+  color: #9c80d7 !important;
+}
+
+.navbar .navbar-nav {
+  margin-bottom: 0;
+}
+.navbar .navbar-nav>li>a.purple {
+  color: #9c80d7 !important;
+  line-height: normal;
+}
+.navbar .navbar-nav>li>a span.caret {
+  margin-top: 8px;
+}
+
+.parenting-status-level-2,
+.parenting-status-level-3,
+.parenting-status-value {
+  display: none;
+}
+
+.g-recaptcha>div {
+  margin: 0 auto;
+}
+
+.account-menu,
+.account-menu .account-submenu {
+  display: inline-block;
+}
+
+.account-menu {
+  width: 100%;
+}
+
+.account-menu .user-icon {
+  margin-left: 12px;
+  width: 46px;
+  vertical-align: top;
+}
+
+.account-menu .user-information {
+  margin-left: 20px;
+}
+
+.account-menu .user-information span a {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333333;
+}
+
+.account-menu .user-information span a:focus,
+.account-menu .user-information span a:hover {
+  text-decoration: none;
+  color: #9c80d7;
+}
+
+.account-menu .account-submenu .user-link {
+  margin: 8px 0 0 0;
+}
+
+.account-menu .account-submenu .user-link a {
+  margin: 0 20px 0 0;
+  font-size: 13px;
+}
+@media (max-width: 329px) {
+  .account-menu .account-submenu .user-link a {
+  margin-right: 10px;
+  }
+}
+
+.account-menu .account-submenu .user-email-subscription {
+  padding: 2px 10px;
+}
+
+.navbar-user {
+  float: right;
+}
+
+.navbar .navbar-header .navbar-user a,
+.navbar .navbar-header .navbar-user a:hover {
+  border: 1px solid #9c80d7;
+  display: block;
+  border-radius: 50%;
+  width: 25px;
+  text-align: center;
+  font-size: 12.6px;
+  line-height: 1.8;
+  margin-top: 14px;
+  margin-bottom: 14px;
+  margin-right: 9px;
+  background-color: #9c80d7;
+  color: #fff;
+}
+
+.pregnancy-duedate-page .sub-description {
+  letter-spacing: -0.2px;
+}
+
+.recent-tags .text {
+  font-size: 1em;
+}
+
+.recent-tag-items a {
+  border-radius: 13px;
+  font-size: 0.9em;
+  padding: 0 10px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+
+.float-banner {
+  display: none;
+  position: fixed;
+  bottom: 45px;
+  width: 100%;
+  z-index: 998;
+  text-align: center
+}
+
+.float-banner.home-banner {
+  bottom: 0px ;
+}
+
+.bottom-ads {
+  position: relative;
+  max-width: 100%;
+  max-height: 100px;
+  min-width: 300px;
+  min-height: 50px;
+  margin: 0
+}
+
+#close-float-banner {
+  position: absolute;
+  right: 0;
+  top: -16px;
+  border: none;
+  padding: 0 6px 0 0;
+  height: 16px;
+  /*background-color: #d41a68;*/
+  background-color: #9c80d7;
+  color: #fff;
+  font-size: 9pt
+}
+
+#close-float-banner i.fa.fa-times {
+  display: inline-block;
+  width: 20px;
+  height: 16px;
+  padding-top: 2px;
+  /*background: #a00d44*/
+  background: #6d5997;
+}
+
+.headline-article .headline-item .headline-media .headline-title {
+  text-shadow: 1px 1px 1px #000;
+}
+
+.tags__wrapper {
+  border: 0;
+  border-top: 1px solid #f2f2f2;
+  margin: 0;
+}
+
+#mainBannerPopup .close {
+  position: absolute;
+  top: -0.45em;
+  right: -0.2em;
+}
+
+.modal-timer .modal-content {
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+}
+
+.modal-timer .close {
+    position: absolute;
+    top: -.7em;
+    right: 0;
+    z-index: 1000;
+    font-size: 3em;
+    color: #9c80d7;
+    opacity: 1;
+}
+
+.modal-timer .close {
+    position: absolute;
+    top: -0.45em;
+    right: -0.2em;
+}
