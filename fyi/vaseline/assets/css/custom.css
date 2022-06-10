@@ -51,9 +51,9 @@ body {
     height: 100vh
 }
 .cover5 {
-    background-image: url(../images/cover/5.png);
+    background-image: url(../images/cover/logo.png);
     background-size: cover;
-    background-position: bottom center;
+    background-position: top center;
     height: 100vh
 }
 
@@ -268,7 +268,13 @@ span.helveticabolditalic {
     transform: translateY(-50%);
     width: 100%;
 }
-
+img.logo-client {
+    position: absolute;
+    z-index: 9;
+    right: 50px;
+    top: 50px;
+    max-width: 120px;
+}
 /* ===== Section 1 ==== */
 
 .sec1 .text-box {
@@ -1137,7 +1143,7 @@ span.helveticabolditalic {
         max-width: 550px;
     }
     .sec8 .image-box img, .sec9 .image-box img {
-        max-width: 660px;
+        max-width: 550px;
     }
     .sec9 .image-box {
         right: 50px;
@@ -1333,6 +1339,13 @@ span.helveticabolditalic {
         left: 0;
         right: 0;
         margin: auto;
+    }
+    img.logo-client {
+        position: absolute;
+        z-index: 9;
+        right: 20px;
+        top: 20px;
+        max-width: 70px;
     }
     .sec1, .sec2, .sec3, .sec4, .sec5, .sec6, .sec7, .sec8, .sec9, .sec10, .sec11, .sec12, .sec13, .sec14, .sec15, .sec16, .sec17, .sec18, .sec19, .sec20 {
         height: 105vh;
