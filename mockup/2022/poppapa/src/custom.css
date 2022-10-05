@@ -1,0 +1,200 @@
+.seo {
+  font-size: 1px;
+  text-indent: -20000px;
+  margin: 0;
+  padding: 0;
+}
+
+.no-margin-padding {
+  margin: 0;
+  padding: 0;
+}
+
+.title-head-section {
+  line-height: normal;
+}
+
+.search-container a {
+  color: #333;
+}
+
+.search-container a:hover,
+.search-container a:active {
+  color: #9c80d7;
+}
+
+.datepicker {
+  z-index: 1001 !important;
+}
+
+.youtube {
+  background-color: #000;
+  /*margin-bottom: 30px;*/
+  position: relative;
+  padding-top: 56.25%;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.youtube img {
+  width: 100%;
+  top: -16.82%;
+  left: 0;
+  opacity: 0.7;
+}
+
+.youtube .play-button {
+  width: 90px;
+  height: 60px;
+  background-color: #333;
+  box-shadow: 0 0 30px rgba( 0, 0, 0, 0.6);
+  z-index: 1;
+  opacity: 0.8;
+  border-radius: 6px;
+}
+
+.youtube .play-button:before {
+  content: "";
+  border-style: solid;
+  border-width: 15px 0 15px 26.0px;
+  border-color: transparent transparent transparent #fff;
+}
+
+.youtube img,
+.youtube .play-button {
+  cursor: pointer;
+}
+
+.youtube img,
+.youtube iframe,
+.youtube .play-button,
+.youtube .play-button:before {
+  position: absolute;
+}
+
+.youtube .play-button,
+.youtube .play-button:before {
+  top: 50%;
+  left: 50%;
+  transform: translate3d( -50%, -50%, 0);
+}
+
+.youtube iframe {
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+/* .btn-play {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  width: 100%;
+  text-align: center;
+  font-size: 80px;
+  color: hsla(0, 0%, 100%, .7);
+} */
+
+.recent-tags {
+  letter-spacing: -.2px;
+}
+.recent-tags .text {
+  margin: 14px 0 7px 0;
+  font-size: 1.2em;
+  color: #333;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.recent-tag-items a {
+  border-radius: 13px;
+  border: 1px solid #9c80d7;
+  color: #9c80d7;
+  font-size: 1em;
+  font-weight: 400;
+  padding: 0 20px;
+  display: inline-block;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  text-transform: capitalize;
+}
+.recent-tag-items a:hover {
+  background-color: #9c80d7;
+  color: #fff!important;
+}
+
+/* Loading-ads */
+.loading-ads{ position:relative;overflow:hidden;background:#eee;opacity:.9;margin:0px auto}
+/*.loading-ads::before{content:"";background:url("https://drive.google.com/file/d/1bmSwKsKKTVBcHwMNG0_1J4ukqghngR_k/view");background-size:20px 20px;background-repeat:no-repeat;width:20px;height:20px;position:absolute;top:50%;left:50%;transform :translate(-50%,-50%);z-index:-1}
+.loading-ads::after{content:"";background:url("https://drive.google.com/file/d/1Vf18HqqpzdNs3KwNxkO6v5wiVQELBwYc/view");background-size:100% 2px;background-repeat:no-repeat;height:2px;width:100%;position:absolute;left:0px;top:0px;z-index:-1}*/
+.loading-ads::before{content:"";background:url("../img/ad-icon.png");background-size:20px 20px;background-repeat:no-repeat;width:20px;height:20px;position:absolute;top:50%;left:50%;transform :translate(-50%,-50%);z-index:-1}
+.loading-ads::after{content:"";background:url("../img/ad-loading.gif");background-size:100% 2px;background-repeat:no-repeat;height:2px;width:100%;position:absolute;left:0px;top:0px;z-index:-1}
+
+.author .cover {
+  background-position: center 85% !important;
+}
+
+#mainBannerPopup .modal-content {
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+/* sponsored csc */
+.sponsored:before {
+  position: absolute;
+  left: 5px;
+  top: 5px;
+  display: block;
+  max-width: 100%;
+  z-index: 2;
+  width: 30px;
+  height: 30px;
+  background: url("../content/images/rebound-sponsor.svg") no-repeat;
+  background-size: cover;
+  content: '';
+}
+
+.sponsored-40:before {
+  width: 40px;
+  height: 40px;
+}
+
+/* Quiz Desktop */
+.quiz:after {
+  position: absolute;
+  right: 13px;
+  top: 0px;
+  display: block;
+  max-width: 100%;
+  z-index: 2;
+  width: 38px;
+  height: 50px;
+  background: url("../content/images/rebound-quiz.svg") no-repeat;
+  background-size: cover;
+  content: '';
+}
+
+/* /* Quiz List Mobile */
+.quiz-mobile:after {
+  right: 10px;
+  width: 26px;
+  height: 35px;
+}
+
+/* Quiz Headline Mobile */
+.quiz-mobile-big:after {
+  width: 40px;
+  height: 53px;
+}
+
+/*Quiz headline desktop*/
+.quiz-big:after {
+  width: 45px;
+  height: 60px;
+}
+
+.article-content {
+  min-height: 300px;
+}

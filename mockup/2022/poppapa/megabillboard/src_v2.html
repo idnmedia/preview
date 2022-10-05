@@ -48,15 +48,30 @@
         $(window.parent.document.getElementById("poppapa-header")).css('margin-top', '0px');
     }  
 </script>
+        
+<script type="text/javascript">
+    var trackerUrl = '';
+    var trackerIframe = '';
+    var typeFile = "[%TypeFile%]";
+    var file;
 
-<div class="pushdown-container" style="position: fixed; text-align: center; width: 100%; background-color: black; padding-top: 10px;"> 
-    <div class="pushdown" style="position: relative; max-width: 320px; left: 0; right: 0; margin: auto;">
+    if(typeFile == 'html') {
+        file="[%IframeURL%]";
+        var content = '<iframe src="'+file+'" width="320" height="480" frameborder="0" scrolling="no"></iframe>';
+    }
+    else {
+        file="[%ImgFile%]";
+        var content = '<img src="'+file+'" width="320" height="480" alt="megabillboard">';
+    }
+
+</script>
+
+<div style="position: fixed; text-align: center; width: 100%; background-color: black; padding-top: 10px;"> 
+    <div style="position: relative; max-width: 320px; left: 0; right: 0; margin: auto;">
         <!-- landing page -->
         <a href="#" target="_blank" style="position: absolute; width: 320px; height: 480px; z-index: 2;"></a>
-        <!-- materi image cdn -->
-        <img src="https://ads.idntimes.com/ads-assets/client/aqua/320x480.jpg" width="320" height="480" alt="megabillboard">
-        <!-- materi html5 iframe -->
-<!--                <iframe src="" width="320" height="480" frameborder="0" scrolling="no"></iframe>-->      
+        <!-- materi -->
+        <script>"+content+"</script>    
     </div>
     <div class="close-btn" style="position: absolute; right: 5px; top: 5px; background-color: #ed2028; color: white; font-size: 11px; font-weight: bold; letter-spacing: .6px; padding: 3px 5px; z-index: 3; cursor: pointer;" onclick="pushdownEnd()">TUTUP</div>
 </div>

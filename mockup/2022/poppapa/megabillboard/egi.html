@@ -1,8 +1,4 @@
-<html>
-    <head></head>
-    <body style="margin: 0;">
-
-        
+<!--NO_REFRESH--> 
 <script src="https://ads.idntimes.com/ads-assets/internal/js/jquery-3.3.1.min.js" type="text/javascript"></script>
 <script>
     const data = parent.document.getElementsByClassName('wrapper')[0]
@@ -14,7 +10,7 @@
 
     var pushdownStart = function(){
         $(window.parent.document.getElementById("poppapa-header")).css({'margin-top':'500px', 'position':'relative'});
-        $(window.parent.document.getElementById("div-gpt-ad-mega_billboard")).append('<div style="background-color: rgb(156, 128, 215); color: white; text-align: center; position: relative; display : block; top: 500px; font-weight: bold; padding: 2px; letter-spacing: .6px; font-size: 12px;">SCROLL UNTUK MELANJUTKAN MEMBACA</div>');
+        $(window.parent.document.getElementById("div-gpt-ad-mega_billboard")).append('<div style="background-color: #03045e; color: white; text-align: center; position: relative; display : block; top: 500px; font-weight: bold; padding: 2px; letter-spacing: .6px; font-size: 12px;">SCROLL UNTUK MELANJUTKAN MEMBACA</div>');
         $(window.parent.document.getElementsByClassName("wrapper")).css('top', '0px');
         $(window.parent.document.getElementsByClassName("navbar")).css('margin-bottom', '-10px');
     };
@@ -52,13 +48,11 @@
 <div class="pushdown-container" style="position: fixed; text-align: center; width: 100%; background-color: black; padding-top: 10px;"> 
     <div class="pushdown" style="position: relative; max-width: 320px; left: 0; right: 0; margin: auto;">
         <!-- landing page -->
-        <a href="#" target="_blank" style="position: absolute; width: 320px; height: 480px; z-index: 2;"></a>
+        <a href="%%CLICK_URL_UNESC%%[%ClickthroughURL%]" target="_blank" style="position: absolute; width: 320px; height: 480px; z-index: 2;"></a>
         <!-- materi image cdn -->
-        <img src="https://ads.idntimes.com/ads-assets/client/aqua/320x480.jpg" width="320" height="480" alt="megabillboard">
+        <img src="[%CDN%]" width="320" height="480" alt="megabillboard">
         <!-- materi html5 iframe -->
 <!--                <iframe src="" width="320" height="480" frameborder="0" scrolling="no"></iframe>-->      
     </div>
-    <div class="close-btn" style="position: absolute; right: 5px; top: 5px; background-color: #ed2028; color: white; font-size: 11px; font-weight: bold; letter-spacing: .6px; padding: 3px 5px; z-index: 3; cursor: pointer;" onclick="pushdownEnd()">TUTUP</div>
+    <div class="close-btn" style="position: absolute; right: 5px; top: 5px; background-color: #03045e; color: white; font-size: 11px; font-weight: bold; letter-spacing: .6px; padding: 3px 5px; z-index: 3; cursor: pointer;" onclick="pushdownEnd()">TUTUP</div>
 </div>
-    </body>
-</html>
