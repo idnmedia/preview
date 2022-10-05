@@ -1,0 +1,2066 @@
+<!DOCTYPE html>
+<html class="no-js" lang="id" itemscope itemtype="//schema.org/WebSite" />
+    
+    <head>
+        <script type="text/javascript">
+    
+    window.region    = getRegion();
+    window.continent = getContinent();
+    window.isAllowAddressByRegion = isAllowAddressByRegion();
+
+    function getRegion(){
+        var region = getCookie('region');
+
+        if(region === ""){
+            var Httpreq = new XMLHttpRequest(); 
+            Httpreq.open("GET","https://pro.ip-api.com/json/?key=tZjXsR6xtdknm7C&fields=region",false);
+            Httpreq.send(null);
+            region = JSON.parse(Httpreq.responseText).region;
+            createCookie('region', region);
+            return region;
+        }
+
+        return region;        
+    }
+
+    function getContinent(){
+        var continent = getCookie('continent');
+
+        if(continent === ""){
+            var Httpreq = new XMLHttpRequest(); 
+            Httpreq.open("GET","https://pro.ip-api.com/json/?key=tZjXsR6xtdknm7C&fields=continent",false);
+            Httpreq.send(null);
+            continent = JSON.parse(Httpreq.responseText).continent;
+            createCookie('continent', continent);
+            return continent;
+        }
+
+        return continent;
+    }
+
+    function isAllowAddressByRegion(){
+
+      
+               
+            
+            if(window.continent == 'Europe'){
+                return false;
+            }
+
+            if(window.region == 'CA'){
+                return false;
+            }
+
+               
+
+        return true;
+    }
+
+    function createCookie(cookieName, cookieValue)
+    {
+        var date = new Date();
+        date.setTime( date.getTime() + (5 * 60000) );
+
+        document.cookie = cookieName + "=" + cookieValue + "; expires=" + date.toGMTString();
+    }
+
+    function getCookie(cookieName)
+    {
+        var name = cookieName + "=";
+        var allCookieArray = document.cookie.split(';');
+        for(var i=0; i<allCookieArray.length; i++)
+        {
+            var temp = allCookieArray[i].trim();
+            if (temp.indexOf(name) == 0)
+                return temp.substring(name.length,temp.length);
+        }
+        return "";
+    }
+      
+</script>        
+        <meta charset="utf-8" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="theme-color" content="#ec2227" />
+<meta http-equiv="cleartype" content="on">
+<meta http-equiv="x-ua-compatible" content="ie=edge" />
+
+<meta name="author" content="IDN Times" />
+<meta name="csrftoken" content="" id="csrftoken" />
+<meta name="yandex-verification" content="ffc883ca21ef153a" />
+<!-- <meta name="apple-itunes-app" content="app-id=1035533846" />
+<meta name="google-play-app" content="app-id=com.idntimes.idntimes" /> -->
+<meta name="p:domain_verify" content="cb42fd23f2744a947ae4f0b581dab883"/>
+
+<meta name="csrf-token" content="1M8vmsvktIEW1LkI8gY0AUBF4b8uwmKMpBDzSjuZ">
+
+    <meta name="robots" content="index, follow" />
+    <meta name="googlebot-news" content="index, follow" />
+            <title itemprop="name">Berita Terbaru Seputar Piala Dunia 2018 | IDN Times</title>
+    <link rel="canonical" href="https://worldcup.idntimes.com" itemprop="url">
+    <meta name="author" content="IDN Times">
+    <meta name="description" content="Berita harian terbaru seputar piala dunia 2018 yang terdiri informasi pemain tim nasional langsung dari Rusia, skor terbaru, dan jadwal pertandingan world cup 2018." />
+    <link rel="image_src" type="image/png" href="https://worldcup.idntimes.com/assets/img/idntimes.png" />
+
+    <!-- iOS Apps -->
+    <meta name="apple-itunes-app" content="app-id=502838820">
+
+    <!-- Schema.org markup for Google+ -->
+    <meta itemprop="name" content="Berita Terbaru Seputar Piala Dunia 2018 | IDN Times" />
+    <meta itemprop="description" content="Berita harian terbaru seputar piala dunia 2018 yang terdiri informasi pemain tim nasional langsung dari Rusia, skor terbaru, dan jadwal pertandingan world cup 2018." />
+    <meta itemprop="image" content="https://worldcup.idntimes.com/assets/img/fb-cover-idntimes.jpg" />
+
+    <!-- Twitter Card data -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@idntimes" />
+    <meta name="twitter:title" content="Berita Terbaru Seputar Piala Dunia 2018 | IDN Times" />
+    <meta name="twitter:description" content="Berita harian terbaru seputar piala dunia 2018 yang terdiri informasi pemain tim nasional langsung dari Rusia, skor terbaru, dan jadwal pertandingan world cup 2018." />
+    <meta name="twitter:image" content="https://worldcup.idntimes.com/assets/img/fb-cover-idntimes.jpg" />
+
+    <!-- Open Graph data -->
+    <meta property="fb:app_id" content="382695658587663" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://worldcup.idntimes.com" />
+    <meta property="og:title" content="Berita Terbaru Seputar Piala Dunia 2018 | IDN Times" />
+    <meta property="og:image" content="https://worldcup.idntimes.com/assets/img/fb-cover-idntimes.jpg" />
+    <meta property="og:description" content="Berita harian terbaru seputar piala dunia 2018 yang terdiri informasi pemain tim nasional langsung dari Rusia, skor terbaru, dan jadwal pertandingan world cup 2018." />
+    <meta property="og:site_name" content="IDN Times" />
+    <meta property="og:image:width" content="600" />
+    <meta property="og:image:height" content="400" />
+    <meta property="og:image:alt" content="Berita Terbaru Seputar Piala Dunia 2018 | IDN Times" />
+
+        <link rel="manifest" href="/manifest.json" />
+    <!--
+    {/* upgrade http request to https if possible */}
+    {/* <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" /> */}
+-->
+<link rel="apple-touch-icon" href="https://worldcup.idntimes.com/assets/img/icons/touch-icon-ios_60.png" />
+<link rel="apple-touch-icon" sizes="76x76" href="https://worldcup.idntimes.com/assets/img/icons/touch-icon-ios_76.png" />
+<link rel="apple-touch-icon" sizes="120x120" href="https://worldcup.idntimes.com/assets/img/icons/touch-icon-ios_120.png" />
+<link rel="apple-touch-icon" sizes="152x152" href="https://worldcup.idntimes.com/assets/img/icons/touch-icon-ios_152.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="https://worldcup.idntimes.com/assets/img/icons/touch-icon-ios_180.png" />
+<link rel="apple-touch-startup-image" href="https://worldcup.idntimes.com/assets/img/icons/startup.png" />
+<link rel="android-touch-icon" type="image/png" href="https://worldcup.idntimes.com/assets/img/icons/new-icon.png" />
+<link rel="shortcut icon" type="image/png" sizes="196x196" href="https://worldcup.idntimes.com/assets/img/icons/touch-icon-android.png" />
+<link rel="shortcut icon" type="image/png" href="/favicon.png" />
+
+<link rel="stylesheet" href="https://worldcup.idntimes.com/assets/css/desktop.css?vdate=1664878597" />
+
+
+    <style>
+        .loading-ads{position:relative;overflow:hidden;background:#eee;opacity:.9;margin:0px auto}
+        .loading-ads::before{content:"";background:url("https://worldcup.idntimes.com/assets/img/ads/ad-icon.png");background-size:20px 20px;background-repeat:no-repeat;width:20px;height:20px;position:absolute;top:50%;left:50%;transform :translate(-50%,-50%);z-index:-1}
+        .loading-ads::after{content:"";background:url("https://worldcup.idntimes.com/assets/img/ads/ad-loading.gif");background-size:100% 2px;background-repeat:no-repeat;height:2px;width:100%;position:absolute;left:0px;top:0px;z-index:-1}
+
+		.blur-up {
+			-webkit-filter: blur(5px);
+			filter: blur(5px);
+			transition: filter 400ms, -webkit-filter 400ms;
+		}
+
+		.blur-up.lazyloaded {
+			-webkit-filter: blur(0);
+			filter: blur(0);
+		}
+	</style>
+        
+		    			<!-- START open warp pubmatic -->
+<script type="text/javascript">
+(function() {
+    var purl = window.location.href;
+    var url = '//ads.pubmatic.com/AdServer/js/pwt/156841/749';
+    var profileVersionId = '';
+    if(purl.indexOf('pwtv=')>0){
+        var regexp = /pwtv=(.*?)(&|$)/g;
+        var matches = regexp.exec(purl);
+        if(matches.length >= 2 && matches[1].length > 0){
+            profileVersionId = '/'+matches[1];
+        }
+    }
+    var wtads = document.createElement('script');
+    wtads.async = true;
+    wtads.type = 'text/javascript';
+    wtads.src = url+profileVersionId+'/pwt.js';
+    var node = document.getElementsByTagName('script')[0];
+    node.parentNode.insertBefore(wtads, node);
+})();
+</script>
+
+
+<script>	
+if(window.isAllowAddressByRegion){
+	document.write('<script src="https://ad.crwdcntrl.net/5/c=13396/pe=y/var=ccauds" type="text/javascript"><\/script>');
+}	
+</script>
+
+<script type="text/javascript">
+	function getLotameAudience(){
+	    var dartCC = "";
+	    if (typeof (ccauds) != 'undefined') {
+	        for (var cci = 0; cci < ccauds.Profile.Audiences.Audience.length; cci++) {
+	            if (cci > 0) dartCC += ",";
+	            dartCC += ccauds.Profile.Audiences.Audience[cci].abbr;
+	        }
+	    }
+	    return [dartCC];
+	}	
+</script>
+
+
+
+
+<script async src='https://securepubads.g.doubleclick.net/tag/js/gpt.js'></script>
+<script>
+    var googletag = googletag || {};
+    googletag.cmd = googletag.cmd || [];
+</script>
+<!-- END open warp pubmatic -->
+
+<script>
+googletag.cmd.push(function(){
+	googletag.defineSlot('/253109699/IDNTimesDesktop/Homepage', [[970,90],[970,250],[1000,250]], 'div-gpt-ad-leaderboard_top')
+			.setTargeting('pos', ['leaderboard_top'])
+			.addService(googletag.pubads());
+
+	googletag.defineSlot('/253109699/IDNTimesDesktop/Homepage', [[300,250],[300,600]], 'div-gpt-ad-rectangle')
+			.setTargeting('pos', ['rectangle'])
+			.addService(googletag.pubads());
+
+	googletag.defineSlot('/253109699/IDNTimesDesktop/Homepage', [[300,250],[300,600],[320,480]], 'div-gpt-ad-billboard_vertical')
+			.setTargeting('pos', ['billboard_vertical'])
+			.addService(googletag.pubads());
+
+	googletag.defineSlot('/253109699/IDNTimesDesktop/Homepage', [[728,90],[1,1]], 'div-gpt-ad-inarticle1')
+			.setTargeting('pos', ['InFeed1'])
+			.addService(googletag.pubads());
+
+	googletag.defineSlot('/253109699/IDNTimesDesktop/Homepage', [[728,90],[1,1]], 'div-gpt-ad-inarticle2')
+			.setTargeting('pos', ['InFeed2'])
+			.addService(googletag.pubads());
+
+	googletag.defineSlot('/253109699/IDNTimesDesktop/Homepage', [[728,90],[1,1]], 'div-gpt-ad-mid3')
+			.setTargeting('pos', ['InFeed3'])
+			.addService(googletag.pubads());
+
+    googletag.defineSlot('/253109699/IDNTimesDesktop/Homepage', [[300,700],[90,600],[160,600],[1,1]], 'div-gpt-ad-skin_left')
+            .setTargeting('pos', ['skin_left'])
+            .addService(googletag.pubads());
+
+    googletag.defineSlot('/253109699/IDNTimesDesktop/Homepage', [[300,700],[90,600],[160,600],[1,1]], 'div-gpt-ad-skin_right')
+            .setTargeting('pos', ['skin_right'])
+            .addService(googletag.pubads());
+
+	googletag.defineSlot('/253109699/IDNTimesDesktop/Homepage', [[1000,50],[728,90],[1,1]], 'div-gpt-ad-sticky_bottom')
+			.setTargeting('pos', ['sticky_bottom'])
+			.addService(googletag.pubads());
+
+    googletag.defineSlot('/253109699/IDNTimesDesktop/Homepage', [[1,1]], 'div-gpt-ad-custom1')
+            .setTargeting('pos', ['custom1'])
+            .addService(googletag.pubads());
+    
+    googletag.defineSlot('/253109699/IDNTimesDesktop/Homepage', [[1,1]], 'div-gpt-ad-custom2')
+            .setTargeting('pos', ['custom2'])
+            .addService(googletag.pubads());
+
+    googletag.defineOutOfPageSlot('/253109699/IDNTimesDesktop/Homepage', 'div-gpt-ad-oop1')
+        .setTargeting('pos', ['oop1'])
+        .addService(googletag.pubads());
+	
+	googletag.defineOutOfPageSlot('/253109699/IDNTimesDesktop/Interstitial', 
+		googletag.enums.OutOfPageFormat.INTERSTITIAL)
+		.addService(googletag.pubads());
+
+	googletag.pubads().enableSingleRequest();
+    googletag.pubads().collapseEmptyDivs();
+	googletag.pubads().setTargeting('page_type', ['category']);
+	if(window.isAllowAddressByRegion){
+		googletag.pubads().setTargeting('lotameAudience', getLotameAudience());
+	}
+
+	googletag.pubads().addEventListener('slotOnload', function (event) {
+		$("#"+event.slot.getSlotElementId()).removeClass("loading-ads");
+	});
+    googletag.pubads().addEventListener('slotRenderEnded', function(event){var slot_id = event.slot.getSlotElementId();
+		if (slot_id == 'div-gpt-ad-sticky_bottom'){if (!event.isEmpty){$('.bottom-sticky-ads').css({ 'display': 'block' });}}
+	});
+
+	googletag.enableServices();
+});
+</script>
+	
+        <script src="https://worldcup.idntimes.com/assets/js/vendor.js?vdate=1664878624"></script> 
+
+<script type="text/javascript">
+    var articleListUrl, nextArticleUrl;
+    var killAjax = false;
+    var baseUrl = "https://worldcup.idntimes.com";
+    var jscrollOptions = {
+        loadingHtml: '<center><i class="fa fa-2x fa-spin fa-spinner"></i></center>',
+        padding: 50,
+        refresh: true
+    };
+</script>
+
+<!-- Begin Insider -->
+<!-- <script async src="//idntimesid.api.useinsider.com/ins.js?id=10003098"></script> -->
+<!-- End Insider -->
+
+<!-- Begin comScore Tag -->
+<script>
+	var _comscore = _comscore || [];
+	_comscore.push({ c1: "2", c2: "20678181" });
+	(function() {
+		var s = document.createElement("script"), el = document.getElementsByTagName("script")[0]; s.async = true;
+		s.src = (document.location.protocol == "https:" ? "https://sb" : "http://b") + ".scorecardresearch.com/beacon.js";
+		el.parentNode.insertBefore(s, el);
+	})();
+</script>
+<noscript>
+	<img src="http://b.scorecardresearch.com/p?c1=2&c2=20678181&cv=2.0&cj=1" alt="Comscore Tracker" />
+</noscript>
+<!-- End comScore Tag -->
+
+<!-- Start Alexa Certify Javascript -->
+<script type="text/javascript">
+_atrk_opts = { atrk_acct:"8EwHv1FYxz20cv", domain:"idntimes.com",dynamic: true};
+(function() { var as = document.createElement('script'); as.type = 'text/javascript'; as.async = true; as.src = "https://certify-js.alexametrics.com/atrk.js"; var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(as, s); })();
+</script>
+<noscript><img src="https://certify.alexametrics.com/atrk.gif?account=8EwHv1FYxz20cv" style="display:none" height="1" width="1" alt="" /></noscript>
+<!-- End Alexa Certify Javascript -->
+
+<!-- Start Social Profile Link -->
+<script type="application/ld+json">
+{
+	"@context" : "https://schema.org",
+	"@type" : "Organization",
+	"name" : "IDN Times",
+	"url" : "https://www.idntimes.com",
+	"logo": "https://worldcup.idntimes.com/assets/img/logo.png",
+	"sameAs" : [
+		"https://www.facebook.com/idntimes",
+		"https://twitter.com/idntimes",
+		"https://plus.google.com/+IDNtimescom",
+		"https://www.instagram.com/idntimes/",
+		"https://www.youtube.com/channel/UCMcqmnF-uCBFzQ3NvmaELCg",
+		"https://www.linkedin.com/company/idntimes-com"
+	]
+}
+</script>
+<!-- End Social Profile Link -->
+
+
+
+<!-- START USER ID ANALYTICS -->
+
+<script type="text/javascript">
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+        'event' : 'userInfo',
+        'userId': '0',
+        'interests': 'na',
+        'postSubmitted': '0',
+        'postApproved': '0'
+    });
+</script>
+<!-- END USER ID ANALYTICS -->
+
+
+<!-- Page hiding snippet (recommended) -->
+    <style>.async-hide​ { ​opacity​: ​0​​!important​}</style>
+    <script>
+        (function(a,s,y,n,c,h,i,d,e){
+            s.className+=' '+y;
+            h.end=i=function(){
+                s.className=s.className.replace(RegExp(​' ?'​+y),​''​)
+            };
+            (a[n]=a[n]||[]).hide=h;
+            setTimeout(function(){i();h.end=null},c);
+        })
+        (​window​,​document​.documentElement,​'async-hide'​,​'dataLayer'​,​4000​,{​'GTM-P84KQM'​:true​});
+    </script>
+<!-- End of Page hiding snippet -->
+<!-- Google Tag Manager -->
+<!-- GTM tidak diinit saat ada diregion canada atau continent europe
+     Sesuai documentasi dari lotame https://docs.google.com/document/d/17jAPhn9TP5VFjsleJjlxApmNTeQqAj349jeUb44njs8/edit# kalo variable cc_ajax.js harus tidak muncul saat di region canada dan europe
+     variable cc_ajax.js muncul karena inisitor dari gtm.js 
+-->
+<script>
+    if(window.isAllowAddressByRegion){
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-P84KQM');
+    }
+</script>
+
+<!-- End Google Tag Manager -->
+
+
+<!-- Start Inspectlet -->
+<script type="text/javascript" id="inspectletjs">
+    window.__insp = window.__insp || [];
+    __insp.push(['wid', 100344008]);
+    (function() {
+        function ldinsp(){if(typeof window.__inspld != "undefined") return; window.__inspld = 1; var insp = document.createElement('script'); insp.type = 'text/javascript'; insp.async = true; insp.id = "inspsync"; insp.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://cdn.inspectlet.com/inspectlet.js'; var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(insp, x); };
+        setTimeout(ldinsp, 500); document.readyState != "complete" ? (window.attachEvent ? window.attachEvent('onload', ldinsp) : window.addEventListener('load', ldinsp, false)) : ldinsp();
+    })();
+</script>
+<!-- End Inspectlet -->
+
+<!-- Start FB Js SDK -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+	var js, fjs = d.getElementsByTagName(s)[0];
+	if (d.getElementById(id)) return;
+	js = d.createElement(s); js.id = id;
+	js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=382695658587663";
+	fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<!-- End FB Js SDK -->
+
+<!-- Start Facebook Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window,document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1697620290477743');
+fbq('track', 'PageView');
+fbq('track', 'ViewContent');
+</script>
+<noscript>
+<img height="1" width="1"
+src="https://www.facebook.com/tr?id=1697620290477743&ev=PageView
+&noscript=1"/>
+</noscript>
+<!-- End Facebook Pixel Code -->
+
+<!-- START open warp pubmatic -->
+<!-- <script type="text/javascript">
+(function() {
+    var purl = window.location.href;
+    var url = '//ads.pubmatic.com/AdServer/js/pwt/156841/749';
+    var profileVersionId = '';
+    if(purl.indexOf('pwtv=')>0){
+        var regexp = /pwtv=(.*?)(&|$)/g;
+        var matches = regexp.exec(purl);
+        if(matches.length >= 2 && matches[1].length > 0){
+            profileVersionId = '/'+matches[1];
+        }
+    }
+    var wtads = document.createElement('script');
+    wtads.async = true;
+    wtads.type = 'text/javascript';
+    wtads.src = url+profileVersionId+'/pwt.js';
+    var node = document.getElementsByTagName('script')[0];
+    node.parentNode.insertBefore(wtads, node);
+})();
+</script>
+
+<script async='async' src='https://www.googletagservices.com/tag/js/gpt.js'></script>
+<script>
+    var googletag = googletag || {};
+    googletag.cmd = googletag.cmd || [];
+</script> -->
+<!-- END open warp pubmatic -->
+
+<!-- START AMNET SCRIPT -->
+<script id='navegg' type="text/javascript">
+(function(n,v,g){o='Navegg';if(!n[o]){
+a=v.createElement('script');a.src=g;b=document.getElementsByTagName('script')[0];
+b.parentNode.insertBefore(a,b);n[o]=n[o]||function(parms){
+n[o].q=n[o].q||[];n[o].q.push([this, parms])};}})
+(window, document, 'https://tag.navdmp.com/universal.min.js');
+window.naveggReady = window.naveggReady||[];
+nvg50826 = new Navegg({
+acc: 50826
+});
+</script>
+<!-- END AMNET SCRIPT -->
+
+<!-- START CUSTOM ANALYTICS -->
+<script type="text/javascript">
+function callAnalytics(path, queryString) {
+    var gaPage = path;
+    var comscorePage = path.replace(/\//g, '-');
+
+    if (queryString) {
+        gaPage = gaPage + '?' + queryString;
+        comscorePage = comscorePage + '&' + queryString;
+    }
+
+            // google analytics
+
+        // comscore
+        (function() {
+            var s = document.createElement("script"), el = document.getElementsByTagName("script")[0]; s.async = true;
+            s.src = (document.location.protocol == "https:" ? "https://sb" : "http://b") + ".scorecardresearch.com/beacon.js";
+            el.parentNode.insertBefore(s, el);
+        })();
+        _comscore.push({ c1: "2", c2: "20678181" });
+
+        $.get('https://www.idntimes.com' + '/pv.xml?page=' + comscorePage);
+
+        // alexa
+        _atrk_opts = { atrk_acct:"8EwHv1FYxz20cv", domain:"idntimes.com",dynamic: true};
+        (function() { var as = document.createElement('script'); as.type = 'text/javascript'; as.async = true; as.src = "https://certify-js.alexametrics.com/atrk.js"; var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(as, s); })();
+    }
+</script>
+<!-- END CUSTOM ANALYTICS -->
+        
+        <!-- START GROUPM LEARNING TAG -->
+        
+                <!-- END GROUPM LEARNING TAG -->
+    </head>
+
+    <body id="idntimes-desktop" class="idntimes-desktop">
+		<!-- Google Tag Manager (noscript) -->
+		<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P84KQM"
+		height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+		<!-- End Google Tag Manager (noscript) -->
+
+                    
+							<div class="skin-ads skin-ads--left" style="position: fixed; top: 452px; /*top: 65%*/; transform: translateY(-50%); right: calc(50% + 555px); z-index: 21; text-align: center;">
+	
+</div>				<div class="skin-ads skin-ads--right" style="position: fixed; top: 452px; /*top: 65%*/; transform: translateY(-50%); left: calc(50% + 555px); z-index: 21; text-align: center;">
+	
+</div>			        
+        
+                    <header id="header" class="clearfix nav-up">
+    <div class="top-header border-bottom-gradient-grey clearfix">
+        <div class="wrapper">
+            <div class="container">
+                <div class="header-box1 clearfix">
+                    <div class="header-logo">
+                        <a href="https://www.idntimes.com">
+                            <img src="https://worldcup.idntimes.com/assets/img/idntimes.png" alt="IDN Times">
+                        </a>
+                    </div>
+                    <ul class="primary-submenu pull-right">
+                        <li><a href='#search-modal' data-toggle="modal" class="header-icon icon-grey btn-search"><i
+                                    class="idn-mini-icon idn-search"></i></a></li>
+                                                    <li>
+                                <a href="https://community.idntimes.com/login" class="btn join-btn">Gabung di IDN Times</a>
+                            </li>
+                                            </ul>
+                </div>
+
+                <div class="header-box2 clearfix">
+    <nav class="header-navbar" role="navigation">
+        <ul class="navigation">
+                        <li
+                class="">
+                <a href="https://www.idntimes.com/quiz">Quiz <img src="https://worldcup.idntimes.com/assets/img/icons/ribbon_quiz.png" srcset="https://worldcup.idntimes.com/assets/img/icons/ribbon_quiz.svg" alt="Icon New" /></a>
+            </li>
+            <li class=" ">
+                <a href="https://www.idntimes.com/news">News</a>
+            </li>
+            <li class="">
+                <a href="https://www.idntimes.com/business">Business</a>
+            </li>
+            <li class="">
+                <a href="https://www.idntimes.com/sport">Sport</a>
+            </li>
+            
+            <li class=" ">
+                <a href="https://www.idntimes.com/tech">Tech</a>
+            </li>
+            <li class=" ">
+                <a href="https://www.idntimes.com/hype">Hype</a>
+            </li>
+            <li class=" ">
+                <a href="https://www.idntimes.com/korea">Korea</a>
+            </li>
+            <li class=" ">
+                <a href="https://www.idntimes.com/life">Life</a>
+            </li>
+            <li class="">
+                <a href="https://www.idntimes.com/health">Health</a>
+            </li>
+            
+            <li class="">
+                <a
+                    href="https://community.idntimes.com">
+                    Community
+                </a>
+            </li>
+            <li class="dropdown-menu-list-header">
+                <a href="#" tabindex="-1" class="dropdown-icon-corner">Regional &nbsp;<i
+                        class="fa fa-caret-down"></i></a>
+                <div class="dropdown-submenu-header">
+                    <div class="submenu-box clearfix">
+                        <p class="title-submenu">Regional</p>
+                                                <ul class="dropdown-menu-regional clearfix">
+                                                            <li class="">
+                                    <a href="https://www.idntimes.com">IDN Times</a>
+                                </li>
+                                                            <li class="">
+                                    <a href="https://jabar.idntimes.com">Jawa Barat</a>
+                                </li>
+                                                            <li class="">
+                                    <a href="https://banten.idntimes.com">Banten</a>
+                                </li>
+                                                            <li class="">
+                                    <a href="https://jateng.idntimes.com">Jawa Tengah</a>
+                                </li>
+                                                            <li class="">
+                                    <a href="https://jogja.idntimes.com">Jogja</a>
+                                </li>
+                                                            <li class="">
+                                    <a href="https://jatim.idntimes.com">Jawa Timur</a>
+                                </li>
+                                                            <li class="">
+                                    <a href="https://bali.idntimes.com">Bali</a>
+                                </li>
+                                                            <li class="">
+                                    <a href="https://sumut.idntimes.com">Sumatera Utara</a>
+                                </li>
+                                                            <li class="">
+                                    <a href="https://sulsel.idntimes.com">Sulawesi Selatan</a>
+                                </li>
+                                                            <li class="">
+                                    <a href="https://kaltim.idntimes.com">Kalimantan Timur</a>
+                                </li>
+                                                            <li class="">
+                                    <a href="https://sumsel.idntimes.com">Sumatera Selatan</a>
+                                </li>
+                                                            <li class="">
+                                    <a href="https://lampung.idntimes.com">Lampung</a>
+                                </li>
+                                                            <li class="">
+                                    <a href="https://ntb.idntimes.com">NTB</a>
+                                </li>
+                                                    </ul>
+                    </div>
+                </div>
+            </li>
+                        <li
+                class="dropdown-menu-list-header
+                                    ">
+                <a href="#" tabindex="-1" class="dropdown-icon-corner">
+                    Lainnya &nbsp;<i class="fa fa-caret-down"></i>
+                </a>
+                <div class="dropdown-submenu-header dropdown-submenu-more">
+                    <div class="submenu-box clearfix">
+                        <div class="col-xs-3 dropdown-menu-cat">
+                            <p class="title-submenu">Kategori</p>
+                            <ul>
+                                <li 
+                                    class=" ">
+                                    <a href="https://tanyajawab.idntimes.com">Tanya Jawab</a>
+                                </li>
+                                <li
+                                    class=" ">
+                                    <a href="https://www.idntimes.com/automotive">Automotive</a>
+                                </li>
+                                <li
+                                    class="">
+                                    <a href="https://www.idntimes.com/science">Science</a>
+                                </li>
+                                <li
+                                    class="">
+                                    <a href="https://www.idntimes.com/men">Men</a>
+                                </li>
+                                <li
+                                    class="">
+                                    <a href="https://www.idntimes.com/food">Food</a>
+                                </li>
+                                <li
+                                    class="">
+                                    <a href="https://www.idntimes.com/opinion">Opinion</a>
+                                </li>
+                                <li
+                                    class="">
+                                    <a href="https://www.idntimes.com/fiction">Fiction</a>
+                                </li>
+                                <li
+                                    class="">
+                                    <a href="https://www.idntimes.com/index">Index</a>
+                                </li>
+                                <li
+                                    class="">
+                                    <a href="https://www.idntimes.com/travel">Travel</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-xs-3 dropdown-menu-campaign">
+                            <p class="title-submenu">Event</p>
+                            <ul>
+                                                                    <li class="">
+                                        <a href="https://promo.idntimes.com">Promo</a>
+                                    </li>
+                                                                    <li class="">
+                                        <a href="https://1000aspirasiindonesiamuda.idntimes.com">#1000ASPIRASIINDONESIAMUDA</a>
+                                    </li>
+                                                                    <li class="">
+                                        <a href="https://adaptasibukanhalangan.idntimes.com">#AdaptasiBukanHalangan</a>
+                                    </li>
+                                                                    <li class="">
+                                        <a href="https://akuperempuan.idntimes.com">#AKUPEREMPUAN</a>
+                                    </li>
+                                                                    <li class="">
+                                        <a href="https://indonesiapastibisa.idntimes.com">#INDONESIAPASTIBISA</a>
+                                    </li>
+                                                                    <li class="">
+                                        <a href="https://kitaidn.idntimes.com">#KITAIDN</a>
+                                    </li>
+                                                                    <li class="">
+                                        <a href="https://antipuasakuota.idntimes.com">#ANTIPUASAKUOTA</a>
+                                    </li>
+                                                                    <li class="">
+                                        <a href="https://liputankhusus.idntimes.com">#LIPUTANKHUSUS</a>
+                                    </li>
+                                                            </ul>
+                        </div>
+                        <div class="col-xs-6 dropdown-menu-channels">
+                            <p class="title-submenu">Channels</p>
+                                                        <ul>
+                                                                    <li class="channels">
+                                        <a href="https://click.idn.media/VKUf/ies2k7k7" target="_blank">
+                                            <img
+                                                src="https://worldcup.idntimes.com/assets/img/channel/logo-idn.png"
+                                                alt="IDN">
+                                        </a>
+                                    </li>
+                                                                    <li class="channels">
+                                        <a href="https://www.popbela.com" target="_blank">
+                                            <img
+                                                src="https://worldcup.idntimes.com/assets/img/logo/popbela.png"
+                                                alt="Popbela">
+                                        </a>
+                                    </li>
+                                                                    <li class="channels">
+                                        <a href="https://www.popmama.com" target="_blank">
+                                            <img
+                                                src="https://worldcup.idntimes.com/assets/img/logo/popmama.png"
+                                                alt="Popmama">
+                                        </a>
+                                    </li>
+                                                                    <li class="channels">
+                                        <a href="https://bit.ly/downloadyummyidntimesfood" target="_blank">
+                                            <img
+                                                src="https://worldcup.idntimes.com/assets/img/logo/yummy.png"
+                                                alt="Yummy">
+                                        </a>
+                                    </li>
+                                                                    <li class="channels">
+                                        <a href="https://ggwp.id" target="_blank">
+                                            <img
+                                                src="https://worldcup.idntimes.com/assets/img/channel/logo-ggwp.png"
+                                                alt="GGWP">
+                                        </a>
+                                    </li>
+                                                                    <li class="channels">
+                                        <a href="https://www.fortuneidn.com" target="_blank">
+                                            <img
+                                                src="https://worldcup.idntimes.com/assets/img/logo/fortuneidn.png"
+                                                alt="Fortune Indonesia">
+                                        </a>
+                                    </li>
+                                                                    <li class="channels">
+                                        <a href="https://duniaku.idntimes.com" target="_blank">
+                                            <img
+                                                src="https://worldcup.idntimes.com/assets/img/channel/logo-duniaku.png"
+                                                alt="Duniaku">
+                                        </a>
+                                    </li>
+                                                                    <li class="channels">
+                                        <a href="https://soundscape.idntimes.com" target="_blank">
+                                            <img
+                                                src="https://worldcup.idntimes.com/assets/img/channel/logo-soundscape.png"
+                                                alt="IDN Soundscape">
+                                        </a>
+                                    </li>
+                                                                    <li class="channels">
+                                        <a href="https://ads.idntimes.com" target="_blank">
+                                            <img
+                                                src="https://worldcup.idntimes.com/assets/img/channel/logo-idnads.png"
+                                                alt="IDNAds">
+                                        </a>
+                                    </li>
+                                                                    <li class="channels">
+                                        <a href="https://www.idncreatornetwork.com" target="_blank">
+                                            <img
+                                                src="https://worldcup.idntimes.com/assets/img/logo/idn-creator-network.png"
+                                                alt="IDN Creator Network">
+                                        </a>
+                                    </li>
+                                                                    <li class="channels">
+                                        <a href="https://research.idntimes.com" target="_blank">
+                                            <img
+                                                src="https://worldcup.idntimes.com/assets/img/channel/logo-research.png"
+                                                alt="IDN Research Institute">
+                                        </a>
+                                    </li>
+                                                                    <li class="channels">
+                                        <a href="https://fyi.idntimes.com" target="_blank">
+                                            <img
+                                                src="https://worldcup.idntimes.com/assets/img/channel/menu-fyi.svg"
+                                                alt="FYI">
+                                        </a>
+                                    </li>
+                                                                    <li class="channels">
+                                        <a href="https://beautyfest.popbela.com" target="_blank">
+                                            <img
+                                                src="https://worldcup.idntimes.com/assets/img/channel/logo-beautyfest.png"
+                                                alt="Beautyfest Asia">
+                                        </a>
+                                    </li>
+                                                                    <li class="channels">
+                                        <a href="https://ims.idntimes.com" target="_blank">
+                                            <img
+                                                src="https://worldcup.idntimes.com/assets/img/channel/logo-ims.png"
+                                                alt="Indonesia Millennial Summit">
+                                        </a>
+                                    </li>
+                                                            </ul>
+                        </div>
+                    </div>
+                    <div class="download-box">
+                        <p>DOWNLOAD IDN APP SEKARANG!</p>
+                        <a href="https://click.idn.media/VKUf/ies2k7k7" target="_Blank">
+                            <img src="https://worldcup.idntimes.com/assets/img/icons/app-download.png" alt="Icon Play Store" />
+                        </a>
+                        <a href="https://click.idn.media/VKUf/ies2k7k7" target="_Blank">
+                            <img src="https://worldcup.idntimes.com/assets/img/icons/itunes-download.png" alt="Icon Itunes" />
+                        </a>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </nav>
+</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bottom-header clearfix">
+        <div class="wrapper">
+            <div class="container divide-table">
+                <div class="box-running">
+                    <a class="whats-hot">Trending</a>
+                    <div class="running-text">
+                        <div class="running-text-wrapper">
+                            <ul class="running-text-list">
+                                                                                                            <li><a href="https://fyi.idntimes.com/corona">Virus Corona: Semua yang Perlu Kamu Tahu</a></li>
+                                                                                                                                                <li><a href="https://www.idntimes.com/sport/soccer/sandy-firdaus/8-potret-malang-yang-marah-pasca-tragedi-kanjuruhan">8 Potret Malang yang Marah Pasca Tragedi Kanjuruhan</a></li>
+                                                                                                                                                <li><a href="https://www.idntimes.com/hype/entertainment/alaya-vrida/bella-shofie-semangat-umrah-saat-hamil-anak-kedua">Lagi Hamil, 10 Potret Bella Shofie Tetap Semangat Jalani Ibadah Umrah</a></li>
+                                                                                                                                                <li><a href="https://www.idntimes.com/hype/entertainment/aulia-supintou-1/liburan-geng-anya-geraldine-dan-valerie-thomas-di-bali">10 Momen Liburan Anya Geraldine, Valerie Thomas dan Gengnya di Bali</a></li>
+                                                                                                                                                <li><a href="https://www.idntimes.com/hype/entertainment/nanda-yuanita/peran-jaeden-martell-di-film-dan-series-c1c2">10 Peran Jaeden Martell di Film dan Series, Spesialis Tokoh Introvert!</a></li>
+                                                                                                </ul>
+                        </div>
+                        <div class="pull-right running-text-control">
+                            <a href="#" class="arrow-slider arrow-left"><i class="fa fa-chevron-left" aria-hidden="true"></i></a>
+                            <a href="#" class="arrow-slider arrow-right"><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                                    <div id='div-gpt-ad-custom1'>
+                        <script>
+                            googletag.cmd.push(function() { googletag.display('div-gpt-ad-custom1'); });
+                        </script>
+                    </div>
+
+                    <div id='div-gpt-ad-custom2'>
+                        <script>
+                            googletag.cmd.push(function() { googletag.display('div-gpt-ad-custom2'); });
+                        </script>
+                    </div>
+                
+                
+                <div id='div-gpt-ad-oop1' style="height:0;">
+                    <script>
+                        googletag.cmd.push(function() { googletag.display('div-gpt-ad-oop1'); });
+                    </script>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+        
+        <div class=" wrapper   general-content-wrapper  ">
+            <div class=" container  wrapper-content">
+                
+
+                <div class="leaderboard-ads" style="margin: 0 auto 20px; text-align: center;">
+    
+    
+    
+                    <!-- background change ads -->
+        
+                    <iframe src="src2.html" width="970" height="250" frameborder="0" scrolling="no"></iframe>
+    
+    
+    
+
+                </div>
+                
+                
+                
+                
+                
+<div class="top-page category top-page-listing divide-table">
+    <h1 class="divide-table-cell page-title page-title-worldcup">WORLD CUP 2018</h1>
+    <ul class="divide-table-cell nav-category">
+        <li class="divide-table-cell active">
+            <a href="https://worldcup.idntimes.com">NEWS</a>
+        </li>
+        <li class="divide-table-cell ">
+            <a href="https://worldcup.idntimes.com/rusiana">RUSIANA</a>
+        </li>
+        <li class="divide-table-cell ">
+            <a href="https://worldcup.idntimes.com/score">SCORE</a>
+        </li>
+        <li class="divide-table-cell ">
+            <a href="https://worldcup.idntimes.com/schedule">SCHEDULE</a>
+        </li>
+    </ul>
+</div>
+
+<section id="main-banner">
+    <img src="https://worldcup.idntimes.com/assets/img/worldcup/asset-header-worldcup-desktop-1.jpg" class="img-responsive">
+    <h2>REFERENSI PIALA DUNIA 2018 UNTUK MILLENNIALS & GEN Z</h2>
+</section>
+
+<div id="home-content" class="home-content general-content clearfix">
+    <div class="left-content">
+        <section class="latest-post clearfix">
+    <h3 class="section-title"><span>NEWS</span></h3>
+    <div class="main-latest clearfix">
+                    
+            
+            <div class="box-latest box-list ">
+                <a href="https://www.idntimes.com/sport/soccer/brahm-1/aksi-mogok-pemain-kanada-jelang-piala-dunia-2022-exp-c1c2" title="5 Fakta Aksi Mogok Pemain Timnas Kanada Jelang Piala Dunia 2022" class="box-panel">
+                    <div class="image-latest box-image">
+                        <img class="large-thumbnail" src="https://cdn.idntimes.com/content-images/community/2022/06/fq34ouivcaepoeg-4b05e1ad11e871221e4135e0f2a9a211-88f8c18f189ca446368f2e3d3b2f601c_420x280.jpeg" alt="5 Fakta Aksi Mogok Pemain Timnas Kanada Jelang Piala Dunia 2022">
+                    </div>
+                </a>
+                <div class="description-latest box-description">
+                    <time class="date" datetime="2022-06-08">
+						8 Juni 2022 
+					</time>
+                    <span class="category">
+                         | <a href="https://www.idntimes.com/sport">Sport</a>                    </span>
+                    <a href="https://www.idntimes.com/sport/soccer/brahm-1/aksi-mogok-pemain-kanada-jelang-piala-dunia-2022-exp-c1c2" title="5 Fakta Aksi Mogok Pemain Timnas Kanada Jelang Piala Dunia 2022">
+                        <h2 class="title-text">5 Fakta Aksi Mogok Pemain Timnas Kanada Jelang Piala Dunia 2022</h2>
+                    </a>
+                </div>
+            </div>
+                                
+            
+            <div class="box-latest box-list ">
+                <a href="https://www.idntimes.com/sport/soccer/peter-eduard/pemain-yang-mungkin-lakoni-piala-dunia-terakhir-c1c2" title="10 Pemain Bintang yang Mungkin Lakoni Piala Dunia Terakhir pada 2022" class="box-panel">
+                    <div class="image-latest box-image">
+                        <img class="large-thumbnail" src="https://cdn.idntimes.com/content-images/community/2022/04/cover-378069e24805a3d85723f702e8b6857a-d0540285fde473a284c03bd24b59f437_420x280.jpg" alt="10 Pemain Bintang yang Mungkin Lakoni Piala Dunia Terakhir pada 2022">
+                    </div>
+                </a>
+                <div class="description-latest box-description">
+                    <time class="date" datetime="2022-04-19">
+						19 April 2022 
+					</time>
+                    <span class="category">
+                         | <a href="https://www.idntimes.com/sport">Sport</a>                    </span>
+                    <a href="https://www.idntimes.com/sport/soccer/peter-eduard/pemain-yang-mungkin-lakoni-piala-dunia-terakhir-c1c2" title="10 Pemain Bintang yang Mungkin Lakoni Piala Dunia Terakhir pada 2022">
+                        <h2 class="title-text">10 Pemain Bintang yang Mungkin Lakoni Piala Dunia Terakhir pada 2022</h2>
+                    </a>
+                </div>
+            </div>
+                                </div>
+
+    <div class="in-feed-ads content-ads">
+    <div id='div-gpt-ad-inarticle1' class="loading-ads" data-spotx_embed_element_id="div-gpt-ad-inarticle1" style="width:728px;max-width:100%;margin:0px auto;">
+        <script>
+            googletag.cmd.push(function() { googletag.display('div-gpt-ad-inarticle1'); });
+        </script>
+    </div>
+</div>
+    <div class="list-latest sub-latest clearfix">
+                    
+            
+                                        
+            
+                                        
+            
+                        <div class="box-latest box-list ">
+                <a href="https://www.idntimes.com/sport/soccer/genady-althaf-jauhar/pemain-dengan-caps-terbanyak-di-piala-dunia-c1c2-1" title="11 Pemain dengan Caps Terbanyak di Piala Dunia" class="box-panel">
+                    <div class="image-latest box-image">
+                        <img class="medium-thumbnail" src="https://cdn.idntimes.com/content-images/community/2022/04/436381-gallery-0c5f19ffbba67f3505808dead38a52aa-88c8933c9f404bd5ee6c6ba010226b99_300x200.jpg" alt="11 Pemain dengan Caps Terbanyak di Piala Dunia">
+                    </div>
+                </a>
+                <div class="description-latest box-description">
+                    <time class="date" datetime="2022-04-04">
+						4 April 2022 
+					</time>
+                    <span class="category">
+                         | <a href="https://www.idntimes.com/sport">Sport</a>                    </span>
+                    <a href="https://www.idntimes.com/sport/soccer/genady-althaf-jauhar/pemain-dengan-caps-terbanyak-di-piala-dunia-c1c2-1" title="11 Pemain dengan Caps Terbanyak di Piala Dunia">
+                        <h2 class="title-text">11 Pemain dengan Caps Terbanyak di Piala Dunia</h2>
+                    </a>
+                </div>
+            </div>
+
+                                
+            
+                        <div class="box-latest box-list ">
+                <a href="https://www.idntimes.com/sport/soccer/anoraga-ilafi/catatan-menarik-grup-c-piala-dunia-2022-qatar-c1c2" title="5 Catatan Menarik Grup C Piala Dunia 2022 Qatar" class="box-panel">
+                    <div class="image-latest box-image">
+                        <img class="medium-thumbnail" src="https://cdn.idntimes.com/content-images/community/2021/07/1625955792-478477-1625970209-noticia-normal-recorte1-9946d2b64b240dd1850c8719f35d2ca8-9d0eada8d07bca787ac0ed7c268fa351_300x200.jpg" alt="5 Catatan Menarik Grup C Piala Dunia 2022 Qatar">
+                    </div>
+                </a>
+                <div class="description-latest box-description">
+                    <time class="date" datetime="2022-04-03">
+						3 April 2022 
+					</time>
+                    <span class="category">
+                         | <a href="https://www.idntimes.com/sport">Sport</a>                    </span>
+                    <a href="https://www.idntimes.com/sport/soccer/anoraga-ilafi/catatan-menarik-grup-c-piala-dunia-2022-qatar-c1c2" title="5 Catatan Menarik Grup C Piala Dunia 2022 Qatar">
+                        <h2 class="title-text">5 Catatan Menarik Grup C Piala Dunia 2022 Qatar</h2>
+                    </a>
+                </div>
+            </div>
+
+                                
+            
+                        <div class="box-latest box-list ">
+                <a href="https://www.idntimes.com/sport/soccer/peter-eduard/pemain-top-italia-belum-pernah-bermain-di-piala-dunia-c1c2" title="5 Pemain Top Italia yang Belum Pernah Bermain di Piala Dunia" class="box-panel">
+                    <div class="image-latest box-image">
+                        <img class="medium-thumbnail" src="https://cdn.idntimes.com/content-images/community/2022/03/cover-378069e24805a3d85723f702e8b6857a-82f77746444bbd5e455ecad002c5587d_300x200.jpg" alt="5 Pemain Top Italia yang Belum Pernah Bermain di Piala Dunia">
+                    </div>
+                </a>
+                <div class="description-latest box-description">
+                    <time class="date" datetime="2022-04-02">
+						2 April 2022 
+					</time>
+                    <span class="category">
+                         | <a href="https://www.idntimes.com/sport">Sport</a>                    </span>
+                    <a href="https://www.idntimes.com/sport/soccer/peter-eduard/pemain-top-italia-belum-pernah-bermain-di-piala-dunia-c1c2" title="5 Pemain Top Italia yang Belum Pernah Bermain di Piala Dunia">
+                        <h2 class="title-text">5 Pemain Top Italia yang Belum Pernah Bermain di Piala Dunia</h2>
+                    </a>
+                </div>
+            </div>
+
+                                
+            
+                        <div class="box-latest box-list ">
+                <a href="https://www.idntimes.com/news/indonesia/umayati-khasanah/guinness-rekor-baru-piala-dunia-c1c2" title="Piala Dunia 2018, Guinness World Records Catat Sejumlah Rekor Baru" class="box-panel">
+                    <div class="image-latest box-image">
+                        <img class="medium-thumbnail" src="https://cdn.idntimes.com/content-images/community/2018/07/b112a56a7b69e0103c45e0a1b4fedf29_300x200.jpg" alt="Piala Dunia 2018, Guinness World Records Catat Sejumlah Rekor Baru">
+                    </div>
+                </a>
+                <div class="description-latest box-description">
+                    <time class="date" datetime="2018-07-22">
+						22 Juli 2018 
+					</time>
+                    <span class="category">
+                         | <a href="https://www.idntimes.com/news">News</a>                    </span>
+                    <a href="https://www.idntimes.com/news/indonesia/umayati-khasanah/guinness-rekor-baru-piala-dunia-c1c2" title="Piala Dunia 2018, Guinness World Records Catat Sejumlah Rekor Baru">
+                        <h2 class="title-text">Piala Dunia 2018, Guinness World Records Catat Sejumlah Rekor Baru</h2>
+                    </a>
+                </div>
+            </div>
+
+                                
+            
+                        <div class="box-latest box-list ">
+                <a href="https://www.idntimes.com/sport/soccer/christ-bastian-waruwu/diusir-kroasia-medali-perak-c1c2" title="Diusir Dari Piala Dunia 2018, Pemain Kroasia Ini Tolak Medali Perak" class="box-panel">
+                    <div class="image-latest box-image">
+                        <img class="medium-thumbnail" src="https://cdn.idntimes.com/content-images/community/2018/07/63ab773a332774fbe9b101f65fe82597_300x200.JPG" alt="Diusir Dari Piala Dunia 2018, Pemain Kroasia Ini Tolak Medali Perak">
+                    </div>
+                </a>
+                <div class="description-latest box-description">
+                    <time class="date" datetime="2018-07-21">
+						21 Juli 2018 
+					</time>
+                    <span class="category">
+                         | <a href="https://www.idntimes.com/sport">Sport</a>                    </span>
+                    <a href="https://www.idntimes.com/sport/soccer/christ-bastian-waruwu/diusir-kroasia-medali-perak-c1c2" title="Diusir Dari Piala Dunia 2018, Pemain Kroasia Ini Tolak Medali Perak">
+                        <h2 class="title-text">Diusir Dari Piala Dunia 2018, Pemain Kroasia Ini Tolak Medali Perak</h2>
+                    </a>
+                </div>
+            </div>
+
+                                
+            
+                        <div class="box-latest box-list ">
+                <a href="https://www.idntimes.com/sport/soccer/yakobus-david-lay-se/petugas-pussy-riot-sanksi-c1c2" title="Petugas Lapangan yang Biarkan Pussy Riot Masuk Lapangan Dikenai Sanksi" class="box-panel">
+                    <div class="image-latest box-image">
+                        <img class="medium-thumbnail" src="https://cdn.idntimes.com/content-images/community/2018/07/41ffdc432ef148356f48b98fe643ec20_300x200.jpg" alt="Petugas Lapangan yang Biarkan Pussy Riot Masuk Lapangan Dikenai Sanksi">
+                    </div>
+                </a>
+                <div class="description-latest box-description">
+                    <time class="date" datetime="2018-07-21">
+						21 Juli 2018 
+					</time>
+                    <span class="category">
+                         | <a href="https://www.idntimes.com/sport">Sport</a>                    </span>
+                    <a href="https://www.idntimes.com/sport/soccer/yakobus-david-lay-se/petugas-pussy-riot-sanksi-c1c2" title="Petugas Lapangan yang Biarkan Pussy Riot Masuk Lapangan Dikenai Sanksi">
+                        <h2 class="title-text">Petugas Lapangan yang Biarkan Pussy Riot Masuk Lapangan Dikenai Sanksi</h2>
+                    </a>
+                </div>
+            </div>
+
+                            <div class="in-feed-ads content-ads">
+    <div id='div-gpt-ad-inarticle2' class="loading-ads" data-spotx_embed_element_id="div-gpt-ad-inarticle2" style="width:728px;max-width:100%;margin:0px auto;">
+        <script>
+            googletag.cmd.push(function() { googletag.display('div-gpt-ad-inarticle2'); });
+        </script>
+    </div>
+</div>                                
+            
+                        <div class="box-latest box-list ">
+                <a href="https://www.idntimes.com/sport/soccer/achmad-hidayat-alsair/persiapan-qatar-piala-dunia-2022-c1c2" title="Mengintip Persiapan Qatar Sang Tuan Rumah Piala Dunia 2022" class="box-panel">
+                    <div class="image-latest box-image">
+                        <img class="medium-thumbnail" src="https://cdn.idntimes.com/content-images/community/2018/07/79e26cd98d07f0ffff97144748b922e8_300x200.jpg" alt="Mengintip Persiapan Qatar Sang Tuan Rumah Piala Dunia 2022">
+                    </div>
+                </a>
+                <div class="description-latest box-description">
+                    <time class="date" datetime="2018-07-21">
+						21 Juli 2018 
+					</time>
+                    <span class="category">
+                         | <a href="https://www.idntimes.com/sport">Sport</a>                    </span>
+                    <a href="https://www.idntimes.com/sport/soccer/achmad-hidayat-alsair/persiapan-qatar-piala-dunia-2022-c1c2" title="Mengintip Persiapan Qatar Sang Tuan Rumah Piala Dunia 2022">
+                        <h2 class="title-text">Mengintip Persiapan Qatar Sang Tuan Rumah Piala Dunia 2022</h2>
+                    </a>
+                </div>
+            </div>
+
+                                
+            
+                        <div class="box-latest box-list ">
+                <a href="https://www.idntimes.com/sport/soccer/ibnu-ramdhani-tanzilan/pemain-finalis-piala-dunia-durasi-main-terlama-c1c2" title="4 Pemain Finalis Piala Dunia 2018 Ini Punya Durasi Bermain Terlama" class="box-panel">
+                    <div class="image-latest box-image">
+                        <img class="medium-thumbnail" src="https://cdn.idntimes.com/content-images/community/2018/07/56a42b6f3c27fd95f688e12b5f273eea_300x200.jpg" alt="4 Pemain Finalis Piala Dunia 2018 Ini Punya Durasi Bermain Terlama">
+                    </div>
+                </a>
+                <div class="description-latest box-description">
+                    <time class="date" datetime="2018-07-20">
+						20 Juli 2018 
+					</time>
+                    <span class="category">
+                         | <a href="https://www.idntimes.com/sport">Sport</a>                    </span>
+                    <a href="https://www.idntimes.com/sport/soccer/ibnu-ramdhani-tanzilan/pemain-finalis-piala-dunia-durasi-main-terlama-c1c2" title="4 Pemain Finalis Piala Dunia 2018 Ini Punya Durasi Bermain Terlama">
+                        <h2 class="title-text">4 Pemain Finalis Piala Dunia 2018 Ini Punya Durasi Bermain Terlama</h2>
+                    </a>
+                </div>
+            </div>
+
+                                
+            
+                        <div class="box-latest box-list ">
+                <a href="https://www.idntimes.com/sport/soccer/christ-bastian-waruwu/presenter-ucapkan-afrika-juara-dunia-c1c2" title="Sebut Afrika Juara Piala Dunia, Presenter Ini Dikritik Dubes Prancis" class="box-panel">
+                    <div class="image-latest box-image">
+                        <img class="medium-thumbnail" src="https://cdn.idntimes.com/content-images/community/2018/07/789325fef21658a266aab386c8707c76_300x200.JPG" alt="Sebut Afrika Juara Piala Dunia, Presenter Ini Dikritik Dubes Prancis">
+                    </div>
+                </a>
+                <div class="description-latest box-description">
+                    <time class="date" datetime="2018-07-20">
+						20 Juli 2018 
+					</time>
+                    <span class="category">
+                         | <a href="https://www.idntimes.com/sport">Sport</a>                    </span>
+                    <a href="https://www.idntimes.com/sport/soccer/christ-bastian-waruwu/presenter-ucapkan-afrika-juara-dunia-c1c2" title="Sebut Afrika Juara Piala Dunia, Presenter Ini Dikritik Dubes Prancis">
+                        <h2 class="title-text">Sebut Afrika Juara Piala Dunia, Presenter Ini Dikritik Dubes Prancis</h2>
+                    </a>
+                </div>
+            </div>
+
+                                
+            
+                        <div class="box-latest box-list ">
+                <a href="https://www.idntimes.com/sport/soccer/achmad-hidayat-alsair/10-foto-final-piala-dunia-paling-diingat-c1c2" title="Emosi Bercampur Aduk, Inilah 10 Foto Final Piala Dunia Paling Diingat" class="box-panel">
+                    <div class="image-latest box-image">
+                        <img class="medium-thumbnail" src="https://cdn.idntimes.com/content-images/community/2018/07/13b45b26bf8a6888ff1ab31111d39bd0_300x200.jpg" alt="Emosi Bercampur Aduk, Inilah 10 Foto Final Piala Dunia Paling Diingat">
+                    </div>
+                </a>
+                <div class="description-latest box-description">
+                    <time class="date" datetime="2018-07-20">
+						20 Juli 2018 
+					</time>
+                    <span class="category">
+                         | <a href="https://www.idntimes.com/sport">Sport</a>                    </span>
+                    <a href="https://www.idntimes.com/sport/soccer/achmad-hidayat-alsair/10-foto-final-piala-dunia-paling-diingat-c1c2" title="Emosi Bercampur Aduk, Inilah 10 Foto Final Piala Dunia Paling Diingat">
+                        <h2 class="title-text">Emosi Bercampur Aduk, Inilah 10 Foto Final Piala Dunia Paling Diingat</h2>
+                    </a>
+                </div>
+            </div>
+
+                                
+            
+                        <div class="box-latest box-list ">
+                <a href="https://www.idntimes.com/sport/soccer/achmad-hidayat-alsair/selebrasi-populer-ini-ternyata-lahir-di-piala-dunia-c1c2" title="5 Selebrasi Populer Ini Ternyata Lahir di Piala Dunia, Sudah Tahu?" class="box-panel">
+                    <div class="image-latest box-image">
+                        <img class="medium-thumbnail" src="https://cdn.idntimes.com/content-images/community/2018/07/064e306aa99071ff18b1f16816eb8fb6_300x200.jpg" alt="5 Selebrasi Populer Ini Ternyata Lahir di Piala Dunia, Sudah Tahu?">
+                    </div>
+                </a>
+                <div class="description-latest box-description">
+                    <time class="date" datetime="2018-07-20">
+						20 Juli 2018 
+					</time>
+                    <span class="category">
+                         | <a href="https://www.idntimes.com/sport">Sport</a>                    </span>
+                    <a href="https://www.idntimes.com/sport/soccer/achmad-hidayat-alsair/selebrasi-populer-ini-ternyata-lahir-di-piala-dunia-c1c2" title="5 Selebrasi Populer Ini Ternyata Lahir di Piala Dunia, Sudah Tahu?">
+                        <h2 class="title-text">5 Selebrasi Populer Ini Ternyata Lahir di Piala Dunia, Sudah Tahu?</h2>
+                    </a>
+                </div>
+            </div>
+
+                                
+            
+                        <div class="box-latest box-list ">
+                <a href="https://www.idntimes.com/sport/soccer/brahm-1/luka-modric-undang-anak-difabel-dalam-perayaan-timnas-kroasia-c1c2" title="Luka Modric Undang Anak Difabel dalamPerayaan Timnas Kroasia" class="box-panel">
+                    <div class="image-latest box-image">
+                        <img class="medium-thumbnail" src="https://cdn.idntimes.com/content-images/post/20180716/15bb482296a0b47b1e71c4b7482be160_300x200.jpg" alt="Luka Modric Undang Anak Difabel dalamPerayaan Timnas Kroasia">
+                    </div>
+                </a>
+                <div class="description-latest box-description">
+                    <time class="date" datetime="2018-07-20">
+						20 Juli 2018 
+					</time>
+                    <span class="category">
+                         | <a href="https://www.idntimes.com/sport">Sport</a>                    </span>
+                    <a href="https://www.idntimes.com/sport/soccer/brahm-1/luka-modric-undang-anak-difabel-dalam-perayaan-timnas-kroasia-c1c2" title="Luka Modric Undang Anak Difabel dalamPerayaan Timnas Kroasia">
+                        <h2 class="title-text">Luka Modric Undang Anak Difabel dalamPerayaan Timnas Kroasia</h2>
+                    </a>
+                </div>
+            </div>
+
+                            <div class="in-feed-ads content-ads">
+    <div id='div-gpt-ad-mid3' class="loading-ads" data-spotx_embed_element_id="div-gpt-ad-mid3" style="width:728px;max-width:100%;margin:0px auto;">
+        <script>
+            googletag.cmd.push(function() { googletag.display('div-gpt-ad-mid3'); });
+        </script>
+    </div>
+</div>                                
+            
+                        <div class="box-latest box-list ">
+                <a href="https://www.idntimes.com/sport/soccer/achmad-hidayat-alsair/laga-piala-dunia-paling-seru-c1c2" title="Penuh Drama, Inilah Tiga Laga Final Piala Dunia Paling Seru" class="box-panel">
+                    <div class="image-latest box-image">
+                        <img class="medium-thumbnail" src="https://cdn.idntimes.com/content-images/community/2018/07/4afc3f97a46f550959652954de8a73f7_300x200.jpg" alt="Penuh Drama, Inilah Tiga Laga Final Piala Dunia Paling Seru">
+                    </div>
+                </a>
+                <div class="description-latest box-description">
+                    <time class="date" datetime="2018-07-19">
+						19 Juli 2018 
+					</time>
+                    <span class="category">
+                         | <a href="https://www.idntimes.com/sport">Sport</a>                    </span>
+                    <a href="https://www.idntimes.com/sport/soccer/achmad-hidayat-alsair/laga-piala-dunia-paling-seru-c1c2" title="Penuh Drama, Inilah Tiga Laga Final Piala Dunia Paling Seru">
+                        <h2 class="title-text">Penuh Drama, Inilah Tiga Laga Final Piala Dunia Paling Seru</h2>
+                    </a>
+                </div>
+            </div>
+
+                                
+            
+                        <div class="box-latest box-list ">
+                <a href="https://www.idntimes.com/sport/soccer/annisa-rizki-purwani/foto-kepulangan-timnas-kroasia-disambut-c1c2" title="Gak Kalah Seru dari Perancis, Kepulangan Timnas Kroasia Disambut Heboh" class="box-panel">
+                    <div class="image-latest box-image">
+                        <img class="medium-thumbnail" src="https://cdn.idntimes.com/content-images/community/2018/07/e8ab860d32b16a7a1b753445abed80df_300x200.jpg" alt="Gak Kalah Seru dari Perancis, Kepulangan Timnas Kroasia Disambut Heboh">
+                    </div>
+                </a>
+                <div class="description-latest box-description">
+                    <time class="date" datetime="2018-07-19">
+						19 Juli 2018 
+					</time>
+                    <span class="category">
+                         | <a href="https://www.idntimes.com/sport">Sport</a>                    </span>
+                    <a href="https://www.idntimes.com/sport/soccer/annisa-rizki-purwani/foto-kepulangan-timnas-kroasia-disambut-c1c2" title="Gak Kalah Seru dari Perancis, Kepulangan Timnas Kroasia Disambut Heboh">
+                        <h2 class="title-text">Gak Kalah Seru dari Perancis, Kepulangan Timnas Kroasia Disambut Heboh</h2>
+                    </a>
+                </div>
+            </div>
+
+                                
+            
+                        <div class="box-latest box-list ">
+                <a href="https://www.idntimes.com/sport/soccer/achmad-hidayat-alsair/foto-kemenangan-prancis-piala-dunia-2018-c1c2" title="FOTO: &quot;Vive Les Blues!&quot; Ketika Seluruh Prancis Berpesta Selama 24 Jam" class="box-panel">
+                    <div class="image-latest box-image">
+                        <img class="medium-thumbnail" src="https://cdn.idntimes.com/content-images/community/2018/07/4db89cc3a0175f84d8258a65ac07f3f4_300x200.jpg" alt="FOTO: &quot;Vive Les Blues!&quot; Ketika Seluruh Prancis Berpesta Selama 24 Jam">
+                    </div>
+                </a>
+                <div class="description-latest box-description">
+                    <time class="date" datetime="2018-07-19">
+						19 Juli 2018 
+					</time>
+                    <span class="category">
+                         | <a href="https://www.idntimes.com/sport">Sport</a>                    </span>
+                    <a href="https://www.idntimes.com/sport/soccer/achmad-hidayat-alsair/foto-kemenangan-prancis-piala-dunia-2018-c1c2" title="FOTO: &quot;Vive Les Blues!&quot; Ketika Seluruh Prancis Berpesta Selama 24 Jam">
+                        <h2 class="title-text">FOTO: &quot;Vive Les Blues!&quot; Ketika Seluruh Prancis Berpesta Selama 24 Jam</h2>
+                    </a>
+                </div>
+            </div>
+
+                                
+            
+                        <div class="box-latest box-list ">
+                <a href="https://www.idntimes.com/sport/soccer/ganjar-firmansyah/peran-la-liga-spanyol-di-piala-dunia-2018-c1c2" title="Prancis Juara Piala Dunia 2018 Tak Lepas Dari Peran La Liga Spanyol" class="box-panel">
+                    <div class="image-latest box-image">
+                        <img class="medium-thumbnail" src="https://cdn.idntimes.com/content-images/community/2018/07/f797a54e33716bd35d7ed2919465b385_300x200.jpg" alt="Prancis Juara Piala Dunia 2018 Tak Lepas Dari Peran La Liga Spanyol">
+                    </div>
+                </a>
+                <div class="description-latest box-description">
+                    <time class="date" datetime="2018-07-19">
+						19 Juli 2018 
+					</time>
+                    <span class="category">
+                         | <a href="https://www.idntimes.com/sport">Sport</a>                    </span>
+                    <a href="https://www.idntimes.com/sport/soccer/ganjar-firmansyah/peran-la-liga-spanyol-di-piala-dunia-2018-c1c2" title="Prancis Juara Piala Dunia 2018 Tak Lepas Dari Peran La Liga Spanyol">
+                        <h2 class="title-text">Prancis Juara Piala Dunia 2018 Tak Lepas Dari Peran La Liga Spanyol</h2>
+                    </a>
+                </div>
+            </div>
+
+                    
+        <div class="text-center">
+            <a href="https://www.idntimes.com/ajax/campaign/world-cup?page=2">Next</a>
+        </div>
+    </div>
+</section>
+    </div>
+    <div class="right-content sidebar-content ">
+        <div class="sidebar-ads">
+	<div id='div-gpt-ad-rectangle' class="loading-ads" data-spotx_embed_element_id="div-gpt-ad-rectangle">
+        <script>
+            googletag.cmd.push(function() { googletag.display('div-gpt-ad-rectangle'); });
+        </script>
+    </div>
+</div><div class="sidebar-menu">
+	<ul class="sidebar-menu-list">
+		<li><a href="https://www.idntimes.com/about-us">ABOUT US</a></li>
+		
+		<li><a href="https://www.idn.media/career#hire" target="_blank">CAREER</a></li>
+		<li><a href="https://www.idntimes.com/kebijakan-privasi">PRIVACY & POLICY</a></li>
+		<li><a href="https://www.idntimes.com/pedoman-media-siber">PEDOMAN MEDIA SIBER</a></li>
+		<li><a href="https://www.idntimes.com/hubungi-kami">CONTACT US</a></li>
+	</ul>
+	<div class="sidebar-menu-bottom">
+		<div class="sidebar-social">
+			FOLLOW US:
+			<a href="https://www.facebook.com/idntimes" title="FACEBOOK" class="social-icon" target="_blank"><i class="fab fa-facebook-square" aria-hidden="true"></i></a>
+			<a href="https://www.instagram.com/idntimes" title="INSTAGRAM" class="social-icon" target="_blank"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i></a>
+            <a href="https://www.youtube.com/channel/UCMcqmnF-uCBFzQ3NvmaELCg" title="YOUTUBE" class="social-icon" target="_blank"><i class="fab fa-fw fa-youtube" aria-hidden="true"></i></a>
+            <a href="https://twitter.com/idntimes" title="TWITTER" class="social-icon" target="_blank"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+		</div>
+		<div class="sidebar-footer">
+			© 2022 IDN Media | All Rights Reserved<br>
+			"The Voice of Millennials and Gen Z"
+			<h5><strong>#DIVERSITYISBEAUTIFUL</strong></h5>
+		</div>
+	</div>
+</div>
+
+<br>
+<div class="sidebar-ads">
+	<div id="survey-betav5" class="survey-betav5">
+        <a href="https://Bit.ly/HelloIDNTimes" target="_blank">
+            <img class="media-object" src="https://worldcup.idntimes.com/assets/img/survey-banner.jpg" alt="Survey Idn Times" width="100%" height="100%">
+        </a>
+    </div>
+</div><div class="sidebar-ads stickThis">
+	<div id='div-gpt-ad-billboard_vertical' class="loading-ads" data-spotx_embed_element_id="div-gpt-ad-billboard_vertical">
+        <script>
+            googletag.cmd.push(function() { googletag.display('div-gpt-ad-billboard_vertical'); });
+        </script>
+    </div>
+</div>
+
+    </div>
+</div>
+
+            </div>
+        </div>
+
+                    <footer class="static-footer">
+    <div class="container">
+        <ul class="static-footer__ul">
+                        <li>
+                <a href="https://www.idntimes.com/about-us">
+                    About Us
+                </a>
+            </li>
+                        <li>
+                <a href="https://www.idn.media/career#hire">
+                    Career
+                </a>
+            </li>
+                        <li>
+                <a href="https://www.idntimes.com/kebijakan-privasi">
+                    Privacy Policy
+                </a>
+            </li>
+                        <li>
+                <a href="https://www.idntimes.com/pedoman-media-siber">
+                    Pedoman Media Siber
+                </a>
+            </li>
+                        <li>
+                <a href="https://www.idntimes.com/hubungi-kami">
+                    Contact Us
+                </a>
+            </li>
+                    </ul>
+        <div class="static-footer__copyright row" style="margin-top: 20px; margin-bottom: 30px;">
+            <div class="col-xs-4 text-left">
+                &copy; 2022 IDN Media | All Rights Reserved
+            </div>
+            <div class="col-xs-4 text-center">
+                "The Voice of Millennials and Gen Z"
+            </div>
+            <div id="follow" class="col-xs-4 text-right">
+                <span class="follow-us">FOLLOW US:</span>
+                <a href="https://www.facebook.com/idntimes" target="_blank" data-title="facebook"><i class="fab fa-facebook-f fa-space"></i></a>
+                <a href="https://www.instagram.com/idntimes" target="_blank" data-title="instagram"><i class="fab fa-fw fa-instagram fa-space"></i></a>
+                <a href="https://www.youtube.com/channel/UCMcqmnF-uCBFzQ3NvmaELCg" target="_blank" data-title="youtube"><i class="fab fa-fw fa-youtube fa-space"></i></a>
+                <a href="https://twitter.com/idntimes" target="_blank" data-title="twitter"><i class="fab fa-twitter fa-space"></i></a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<a href="#header" class="scrollToTop"><i class="fa fa-angle-up" aria-hidden="true"></i></a>
+
+
+<div class="modal search-modal fade" id="search-modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Apa yang kamu cari?</h4>
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-search" aria-hidden="true"></i></span>
+                    <input type="search" class="form-control" id="search-input" placeholder="Cari sesuatu..." >
+                    <span class="input-group-btn sr-only">
+                        <button class="btn btn-default" type="button" id="search-button">Search Now</button>
+                    </span>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="search-content">
+
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="article active"><a href="#article" aria-controls="article" role="tab" data-toggle="tab">Artikel</a></li>
+                        <li role="presentation" class="qna"><a href="#qna" aria-controls="qna" role="tab" data-toggle="tab">Tanya Jawab</a></li>
+                        <li role="presentation" class="member"><a href="#member" aria-controls="member" role="tab" data-toggle="tab">Member</a></li>
+                        <li role="presentation" class="tags"><a href="#tags" aria-controls="tags" role="tab" data-toggle="tab">Tags</a></li>
+                    </ul>
+
+                    <div id="search-list" style="display: none;"></div>
+                    <div id="search-recommendation">
+
+                        <!-- Tab panes -->
+                        <div class="tab-content">
+                            <div role="tabpanel" class="tab-pane article active" id="article">
+                                <div>
+    <div class="recomendation-title">Rekomendasi Artikel</div>
+            <ul>
+                            <li class="box-latest box-list">
+    <a href="https://www.idntimes.com/fiction/poetry/lena-latipah/puisi-perihal-kasih-c1c2?q=" title="[PUISI] Perihal Kasih" class="box-panel clearfix">
+        <div class="image-latest box-image">
+            <img src="https://cdn.idntimes.com/content-images/community/2022/09/pexels-pixabay-269583-5111f4a1bc0517350c6a1db087dcfa64-cd11d4371c312191c2247078b69a8b18_600x400.jpg" class="medium-thumbnail lazyloaded" alt="[PUISI] Perihal Kasih"  data-src="https://cdn.idntimes.com/content-images/community/2022/09/pexels-pixabay-269583-5111f4a1bc0517350c6a1db087dcfa64-cd11d4371c312191c2247078b69a8b18_600x400.jpg" onError="this.onerror=null;this.src='https://worldcup.idntimes.com/assets/img/errors/asset-img-broken.png';">
+        </div>
+    </a>
+    <div class="description-latest box-description">
+        <div class="date-cat">
+            <span class="category">Poetry</span> | <time class="date" datetime="">05 Oct 2022</time>
+        </div>
+        <a href="https://www.idntimes.com/fiction/poetry/lena-latipah/puisi-perihal-kasih-c1c2?q=" title="[PUISI] Perihal Kasih">
+            <h2 class="title-text">[PUISI] Perihal Kasih</h2>
+        </a>
+    </div>
+</li>                            <li class="box-latest box-list">
+    <a href="https://www.idntimes.com/news/indonesia/muhammad-ilman-nafian-2/andika-perkasa-ungkap-cara-jokowi-tentukan-panglima-tni-baru?q=" title="Andika Perkasa Ungkap Cara Jokowi Tentukan Panglima TNI Baru" class="box-panel clearfix">
+        <div class="image-latest box-image">
+            <img src="https://cdn.idntimes.com/content-images/post/20211106/img-20211106-wa0017-776ac6a75b515970da0a2678045a61ce_600x400.jpg" class="medium-thumbnail lazyloaded" alt="Andika Perkasa Ungkap Cara Jokowi Tentukan Panglima TNI Baru"  data-src="https://cdn.idntimes.com/content-images/post/20211106/img-20211106-wa0017-776ac6a75b515970da0a2678045a61ce_600x400.jpg" onError="this.onerror=null;this.src='https://worldcup.idntimes.com/assets/img/errors/asset-img-broken.png';">
+        </div>
+    </a>
+    <div class="description-latest box-description">
+        <div class="date-cat">
+            <span class="category">Indonesia</span> | <time class="date" datetime="">05 Oct 2022</time>
+        </div>
+        <a href="https://www.idntimes.com/news/indonesia/muhammad-ilman-nafian-2/andika-perkasa-ungkap-cara-jokowi-tentukan-panglima-tni-baru?q=" title="Andika Perkasa Ungkap Cara Jokowi Tentukan Panglima TNI Baru">
+            <h2 class="title-text">Andika Perkasa Ungkap Cara Jokowi Tentukan Panglima TNI Baru</h2>
+        </a>
+    </div>
+</li>                            <li class="box-latest box-list">
+    <a href="https://www.idntimes.com/life/women/porcelain/sheet-mask-kandungan-lemon-c1c2?q=" title="5 Sheet Mask Kandungan Lemon untuk Hempaskan Kulit Kusam" class="box-panel clearfix">
+        <div class="image-latest box-image">
+            <img src="https://cdn.idntimes.com/content-images/community/2022/10/pexels-sora-shimazaki-5938649-22afb496a1ffa70a18672600dbb4f730-06a2d7cccadbe88a622d81f5163f258d_600x400.jpg" class="medium-thumbnail lazyloaded" alt="5 Sheet Mask Kandungan Lemon untuk Hempaskan Kulit Kusam"  data-src="https://cdn.idntimes.com/content-images/community/2022/10/pexels-sora-shimazaki-5938649-22afb496a1ffa70a18672600dbb4f730-06a2d7cccadbe88a622d81f5163f258d_600x400.jpg" onError="this.onerror=null;this.src='https://worldcup.idntimes.com/assets/img/errors/asset-img-broken.png';">
+        </div>
+    </a>
+    <div class="description-latest box-description">
+        <div class="date-cat">
+            <span class="category">Women</span> | <time class="date" datetime="">05 Oct 2022</time>
+        </div>
+        <a href="https://www.idntimes.com/life/women/porcelain/sheet-mask-kandungan-lemon-c1c2?q=" title="5 Sheet Mask Kandungan Lemon untuk Hempaskan Kulit Kusam">
+            <h2 class="title-text">5 Sheet Mask Kandungan Lemon untuk Hempaskan Kulit Kusam</h2>
+        </a>
+    </div>
+</li>                            <li class="box-latest box-list">
+    <a href="https://www.idntimes.com/health/medical/alfonsus-adi-putra-2/vaksinasi-kurang-ampuh-turunkan-risiko-long-covid?q=" title="Vaksinasi Kurang Ampuh Turunkan Risiko Long COVID? Ini Faktanya!" class="box-panel clearfix">
+        <div class="image-latest box-image">
+            <img src="https://cdn.idntimes.com/content-images/post/20220223/whatsapp-image-2022-02-23-at-12208-pm-dacae365ed6a6075c5c33f947f43754e_600x400.jpeg" class="medium-thumbnail lazyloaded" alt="Vaksinasi Kurang Ampuh Turunkan Risiko Long COVID? Ini Faktanya!"  data-src="https://cdn.idntimes.com/content-images/post/20220223/whatsapp-image-2022-02-23-at-12208-pm-dacae365ed6a6075c5c33f947f43754e_600x400.jpeg" onError="this.onerror=null;this.src='https://worldcup.idntimes.com/assets/img/errors/asset-img-broken.png';">
+        </div>
+    </a>
+    <div class="description-latest box-description">
+        <div class="date-cat">
+            <span class="category">Medical</span> | <time class="date" datetime="">05 Oct 2022</time>
+        </div>
+        <a href="https://www.idntimes.com/health/medical/alfonsus-adi-putra-2/vaksinasi-kurang-ampuh-turunkan-risiko-long-covid?q=" title="Vaksinasi Kurang Ampuh Turunkan Risiko Long COVID? Ini Faktanya!">
+            <h2 class="title-text">Vaksinasi Kurang Ampuh Turunkan Risiko Long COVID? Ini Faktanya!</h2>
+        </a>
+    </div>
+</li>                            <li class="box-latest box-list">
+    <a href="https://www.idntimes.com/sport/soccer/christopher-rudolf/pemain-gabung-stuttgart-c1c2?q=" title="5 Pemain Bergabung ke VfB Stuttgart pada Musim Panas 2022" class="box-panel clearfix">
+        <div class="image-latest box-image">
+            <img src="https://cdn.idntimes.com/content-images/community/2022/10/20220802-luca-pfeiffer-7-00000-frz-752x423-e47c9faf9662fa558d3b341178061e00-a396bdf972e2bcd41d805d2bfd27bfa8_600x400.jpg" class="medium-thumbnail lazyloaded" alt="5 Pemain Bergabung ke VfB Stuttgart pada Musim Panas 2022"  data-src="https://cdn.idntimes.com/content-images/community/2022/10/20220802-luca-pfeiffer-7-00000-frz-752x423-e47c9faf9662fa558d3b341178061e00-a396bdf972e2bcd41d805d2bfd27bfa8_600x400.jpg" onError="this.onerror=null;this.src='https://worldcup.idntimes.com/assets/img/errors/asset-img-broken.png';">
+        </div>
+    </a>
+    <div class="description-latest box-description">
+        <div class="date-cat">
+            <span class="category">Soccer</span> | <time class="date" datetime="">05 Oct 2022</time>
+        </div>
+        <a href="https://www.idntimes.com/sport/soccer/christopher-rudolf/pemain-gabung-stuttgart-c1c2?q=" title="5 Pemain Bergabung ke VfB Stuttgart pada Musim Panas 2022">
+            <h2 class="title-text">5 Pemain Bergabung ke VfB Stuttgart pada Musim Panas 2022</h2>
+        </a>
+    </div>
+</li>                    </ul>
+        
+    </div>                            </div>
+                            <div role="tabpanel" class="tab-pane qna" id="qna">
+                                <div>
+    <div class="recomendation-title">Rekomendasi Tanya Jawab</div>
+            <ul class="search-member-list search-qna-list">
+                            <li>
+    <div class="media">
+        <div class="media-left">
+            <a href="https://tanyajawab.idntimes.com/oshin-shinrayya/QNbJpV4YlM4O4KG?q=" class="img-box">
+                <img class="media-object lazyload" src="https://worldcup.idntimes.com/assets/img/placeholder-sq.png" data-src="https://cdn.idntimes.com/content-images/avatar/oshin-shinrayya_100x100.jpeg?v=d41d8cd98f00b204e9800998ecf8427e" alt="QNbJpV4YlM4O4KG">
+            </a>
+        </div>
+        <div class="media-body">
+            <small class="grey-text">Ditanyakan pada 04 Oct 2022 | 23.23</small>
+            <a href="https://tanyajawab.idntimes.com/oshin-shinrayya/QNbJpV4YlM4O4KG?q=">
+                <h2 class="bold-text">Saya sudah apload foto profil tapi tidak muncul, bagaimana ini</h2>
+            </a>
+            <div class="actions-qna clearfix">
+                <ul class="tag choosen-category clearfix">
+                                            <li><a href="#">Poetry</a></li>
+                                    </ul>
+            </div>
+        </div>
+    </div>
+</li>                            <li>
+    <div class="media">
+        <div class="media-left">
+            <a href="https://tanyajawab.idntimes.com/oshin-shinrayya/lTeWPxtk9WXImI1?q=" class="img-box">
+                <img class="media-object lazyload" src="https://worldcup.idntimes.com/assets/img/placeholder-sq.png" data-src="https://cdn.idntimes.com/content-images/avatar/oshin-shinrayya_100x100.jpeg?v=d41d8cd98f00b204e9800998ecf8427e" alt="lTeWPxtk9WXImI1">
+            </a>
+        </div>
+        <div class="media-body">
+            <small class="grey-text">Ditanyakan pada 04 Oct 2022 | 23.20</small>
+            <a href="https://tanyajawab.idntimes.com/oshin-shinrayya/lTeWPxtk9WXImI1?q=">
+                <h2 class="bold-text">Kok tulisan saya kepending</h2>
+            </a>
+            <div class="actions-qna clearfix">
+                <ul class="tag choosen-category clearfix">
+                                            <li><a href="#">Poetry</a></li>
+                                    </ul>
+            </div>
+        </div>
+    </div>
+</li>                            <li>
+    <div class="media">
+        <div class="media-left">
+            <a href="https://tanyajawab.idntimes.com/anidda-vera/O1PlQphHjd6aONN?q=" class="img-box">
+                <img class="media-object lazyload" src="https://worldcup.idntimes.com/assets/img/placeholder-sq.png" data-src="https://cdn.idntimes.com/content-images/avatar/anidda-vera_100x100.png?v=d41d8cd98f00b204e9800998ecf8427e" alt="O1PlQphHjd6aONN">
+            </a>
+        </div>
+        <div class="media-body">
+            <small class="grey-text">Ditanyakan pada 04 Oct 2022 | 19.53</small>
+            <a href="https://tanyajawab.idntimes.com/anidda-vera/O1PlQphHjd6aONN?q=">
+                <h2 class="bold-text">Kenapa ya kalo PMS jadi cepet ngantukan banget?</h2>
+            </a>
+            <div class="actions-qna clearfix">
+                <ul class="tag choosen-category clearfix">
+                                            <li><a href="#">Fun Fact</a></li>
+                                            <li><a href="#">Women</a></li>
+                                            <li><a href="#">Ladies</a></li>
+                                    </ul>
+            </div>
+        </div>
+    </div>
+</li>                            <li>
+    <div class="media">
+        <div class="media-left">
+            <a href="https://tanyajawab.idntimes.com/dkd-1664883805-ojl/VO0tYoqPcyHSqYt?q=" class="img-box">
+                <img class="media-object lazyload" src="https://worldcup.idntimes.com/assets/img/placeholder-sq.png" data-src="https://cdn.idntimes.com/content-images/avatar/default.png" alt="VO0tYoqPcyHSqYt">
+            </a>
+        </div>
+        <div class="media-body">
+            <small class="grey-text">Ditanyakan pada 04 Oct 2022 | 18.50</small>
+            <a href="https://tanyajawab.idntimes.com/dkd-1664883805-ojl/VO0tYoqPcyHSqYt?q=">
+                <h2 class="bold-text">Bagaimana saya mendapat sasaran pembaca untuk genre tulisan saya?</h2>
+            </a>
+            <div class="actions-qna clearfix">
+                <ul class="tag choosen-category clearfix">
+                                            <li><a href="#">Indonesia</a></li>
+                                    </ul>
+            </div>
+        </div>
+    </div>
+</li>                            <li>
+    <div class="media">
+        <div class="media-left">
+            <a href="https://tanyajawab.idntimes.com/anidda-vera/mgHpE47Q8bpPOHt?q=" class="img-box">
+                <img class="media-object lazyload" src="https://worldcup.idntimes.com/assets/img/placeholder-sq.png" data-src="https://cdn.idntimes.com/content-images/avatar/anidda-vera_100x100.png?v=d41d8cd98f00b204e9800998ecf8427e" alt="mgHpE47Q8bpPOHt">
+            </a>
+        </div>
+        <div class="media-body">
+            <small class="grey-text">Ditanyakan pada 04 Oct 2022 | 17.42</small>
+            <a href="https://tanyajawab.idntimes.com/anidda-vera/mgHpE47Q8bpPOHt?q=">
+                <h2 class="bold-text">Cara bikin quiz gimana ya?</h2>
+            </a>
+            <div class="actions-qna clearfix">
+                <ul class="tag choosen-category clearfix">
+                                            <li><a href="#">Tips</a></li>
+                                            <li><a href="#">Experiment</a></li>
+                                    </ul>
+            </div>
+        </div>
+    </div>
+</li>                    </ul>
+        
+    </div>                            </div>
+                            <div role="tabpanel" class="tab-pane member" id="member">
+                                <div>
+    <div class="recomendation-title">Rekomendasi Member</div>
+        
+    </div>                            </div>
+                            <div role="tabpanel" class="tab-pane tags" id="tags">
+                                <div>
+    <div class="recomendation-title">Rekomendasi Tags</div>
+            <ul class="search-tags-list">
+                            <li class="box-latest box-list">
+    
+    
+    <a href="https://www.idntimes.com/tag/uang?q=">uang</a>
+</li>                            <li class="box-latest box-list">
+    
+    
+    <a href="https://www.idntimes.com/tag/ekonomi-indonesia?q=">ekonomi indonesia</a>
+</li>                            <li class="box-latest box-list">
+    
+    
+    <a href="https://www.idntimes.com/tag/kamus-idn-times?q=">kamus idn times</a>
+</li>                            <li class="box-latest box-list">
+    
+    
+    <a href="https://www.idntimes.com/tag/lagu-daerah-1?q=">Lagu Daerah</a>
+</li>                            <li class="box-latest box-list">
+    
+    
+    <a href="https://www.idntimes.com/tag/uang-panas?q=">Uang Panas</a>
+</li>                    </ul>
+        
+    </div>                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<div class="modal fade adult-content" id="adult-content">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-body">
+				<div class="content-adult ">
+					<div class="content-adult-image">
+						<img src="https://worldcup.idntimes.com/assets/img/desktop/adult-content.jpg" alt="IDNTIMES">
+					</div>
+					<div class="content-adult-description">
+						<h3 class="red">Oops!</h3>
+						<p>kamu sudah cukup umur belum ?</p>
+					</div>
+					<ul class="content-adult-share divide-table">
+						<li class="divide-table-cell"><a href="https://www.idntimes.com" title="IDNTIMES" class="btn btn-small btn-default">Belum</a></li>
+						<li class="divide-table-cell"><a href="#" data-dismiss="modal" title="IDNTIMES" class="btn btn-small btn-primary">Udah dong</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+<script type="text/javascript" src="/plugins/lazysizes.min.js"></script>
+<script type="text/javascript" src="https://worldcup.idntimes.com/assets/js/lib/purify.min.js"></script>
+<script type="text/javascript" src="https://worldcup.idntimes.com/assets/js/desktop.js?vdate=1664878623"></script>
+<script type="text/javascript">
+	if (navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') == -1) {
+		document.write('<link rel="stylesheet" href="https://worldcup.idntimes.com/assets/css/safari.css?vdate=1664878614" />');
+	}
+</script>
+
+
+
+        
+        <script>
+        function notify(message, type, autohide, delay, duration) {
+            var div = $('<div />', {
+                'class' : 'notice' + (type ? ' '+type : ''),
+                text    :  message || ''
+            }),
+                close = $('<div />', {
+                    'class' : 'close-container',
+                    click   : remove.bind(div.stop(true, true), 0, duration),
+                    html    : $('<i />', {
+                        'class' : 'fas fa-check'
+                    })
+            });
+            
+            $('#notification-container').show().append(div.fadeIn(duration||0));
+            if (autohide) remove(div, delay, duration);
+        }
+
+        function remove(div, delay, duration) {
+            div.delay(delay||0).fadeOut(duration || 0, function() {
+                $(this).remove();
+            });
+        }
+        </script>
+
+                <script>
+	$('.sidebar-social').on('click', 'a', function(){
+        var title = $(this).attr('title');
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+            'event': 'generalEvent',
+            'eventCategory': 'follow',
+            'eventAction': 'sidebar',
+            'eventLabel': title.toLowerCase(),
+        });
+    });
+</script>
+    <script>
+        $('.header-campaign').on('click', function() {
+            var menu = $(this.children).text();
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({
+                'event': 'generalEvent',
+                'eventCategory': 'navigation',
+                'eventAction': 'main menu click',
+                'eventLabel': menu.toLowerCase(),
+            });
+        });
+        $('ul.navigation').on('click', 'li.main-menu', function() {
+            var menu = $(this.children).text();
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({
+                'event': 'generalEvent',
+                'eventCategory': 'navigation',
+                'eventAction': 'main menu click',
+                'eventLabel': menu.toLowerCase(),
+            });
+        });
+        $('#dropdown-submenu-regional').on('click', 'li', function() {
+            var menu = $(this.children).text();
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({
+                'event': 'generalEvent',
+                'eventCategory': 'navigation',
+                'eventAction': 'regional menu click',
+                'eventLabel': 'regional ' + menu.toLowerCase(),
+            });
+        });
+        $('.dropdown-submenu-more').on('click', 'li', function() {
+            var menu = $(this.children).text();
+            if ($(this).hasClass('channels')) {
+                menu = $(this.children).children().attr('alt');
+            }
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({
+                'event': 'generalEvent',
+                'eventCategory': 'navigation',
+                'eventAction': 'more categories menu click',
+                'eventLabel': 'more categories ' + menu.toLowerCase(),
+            });
+        });
+
+    </script>
+    <script type="text/javascript">
+        (function() {
+            var pa = document.createElement('script'); pa.type = 'text/javascript'; pa.charset = "utf-8"; pa.async = true;
+            pa.src = window.location.protocol + "//api.popin.cc/searchbox/idntimes_crawler.js";
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(pa, s);
+        })();
+    </script>
+    <script>
+        $('#follow').on('click', 'a', function(){
+            var title = $(this).attr('data-title');
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({
+                'event': 'generalEvent',
+                'eventCategory': 'follow',
+                'eventAction': 'footer',
+                'eventLabel': title,
+            });
+        });
+    </script>
+    <script>
+        $(document).on('click', '#search-list', function(){
+            // var articleList = $(this).find('a.box-panel');
+            var articleList = $(this).find('#article-result.tab-pane.active a');
+            var articleTitle = $(articleList).attr('title');
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({
+                'event': 'generalEvent',
+                'eventCategory': 'search',
+                'eventAction': 'suggested search query selected click',
+                'eventLabel': articleTitle,
+            });
+        });
+    </script>
+            <script type="text/javascript">
+        var div = $('.stickThis').offset().top;
+        var div_tmp = div;
+        
+        $(document).scroll(function() {
+            var scroll_top = $(window).scrollTop();
+            var window_height = $(window).outerHeight();
+            var div = $('.stickThis').offset().top;
+            var div_parent_top = $('.right-content').offset().top + $('.right-content').outerHeight();
+            
+            if(div_tmp < div && div < div_parent_top) {
+                div_tmp = div;
+            }
+
+            if (scroll_top >= div) {
+                $('.stickThis').addClass('stick');
+            } else {
+                $('.stickThis').removeClass('stick');
+            }
+
+            if (scroll_top < div_tmp) {
+                $('.stickThis').removeClass('stick');
+            }
+
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            // infinite scroll
+            $('.list-latest').jscroll(jscrollOptions);
+        });
+    </script>
+    <script type="text/javascript">
+    $(function() {
+        
+        $("#search-modal").on('show.bs.modal',function(e){
+            $('#search-input').val('');
+            $("#search-list").html('').hide();
+            $('#search-recommendation').show();
+            $('#search-input').focus();
+            $(".search-content .nav-tabs li").removeClass("active");
+            $(".search-content .nav-tabs li.article").addClass("active");
+            $('#search-recommendation .tab-pane').removeClass('active');
+            $('#search-recommendation .tab-pane.article').addClass('active');
+        });
+
+        $(document).on('shown.bs.tab', "#search-modal #search-list a[data-toggle=tab]", function (e) {
+            // console.log('shown.bs.tab');
+            if ($("#search-modal .modal-content").outerHeight() < $(window).height() && $('#search-list .tab-pane.active').find('.result-empty').length < 1) {
+                // console.log('call ajax ajaxMoreSearchResult()');
+                ajaxMoreSearchResult();
+            }
+        });
+
+        // infinite scroll
+        $("#search-input").keyup(function(event) {
+            if (event.keyCode === 13) {
+                $("#search-button").click();
+            }
+        });
+
+        var ajaxKill = false;
+
+        $(document).on('click', "#search-button", function (e) {
+            e.preventDefault();
+            var $searchBtn = $(this);
+            var $searchInput = $('#search-input');
+            var keyword = $searchInput.val().trim();
+
+            var type = $('.search-content .nav-tabs li.active').find('a').attr('aria-controls');
+
+            if (keyword !== "") {
+                if (ajaxKill === false) {
+                    ajaxKill = true;
+                    $("#search-recommendation").hide();
+                    $("#search-list").html('<div class="text-center loader" style="padding: 20px 0 0;"><img src="https://worldcup.idntimes.com/assets/img/loader.gif" width="50" /></div>').show();
+                    // $('.search-text')
+                    //     .html('Tunggu Sebentar... <div class="bubblingG"><span id="bubblingG_1"></span><span id="bubblingG_2"></span><span id="bubblingG_3"></span></div>')
+                    //     .show();
+                    $searchBtn.prop('disabled', true);
+                    $searchInput.prop('disabled', true);
+
+                    dataLayer.push({
+                        'event' : 'search',
+                        'keyword' : keyword.toLowerCase()
+                    });
+
+                    $.ajax({
+                        url: "https://worldcup.idntimes.com/search",
+                        type: "GET",
+                        data: {
+                            keyword: keyword,
+                            type: 'all',
+                            page: 1
+                        }
+                    })
+                    .done(function(data) {
+                        if (data !== '') {
+                            $('#search-list').html(data).show();
+                            $('#search-input').val(keyword);
+                            $("#search-recommendation").hide();
+                            $('#search-list').find('#'+type).addClass('active');
+                        } else {
+                            $("#search-list").html('Hmm..Kami tak bisa menemukan<br>apa yang kamu cari. Coba topik lain, yuk').show();
+                        }
+                        ajaxKill = false;
+                        $searchBtn.prop('disabled', false);
+                        $searchInput.prop('disabled', false);
+                    })
+                    .fail(function(jqXHR, textStatus) {
+                        ajaxKill = false;
+                        $searchBtn.prop('disabled', false);
+                        $searchInput.prop('disabled', false);
+                    });
+                }
+            } else {
+                alert('Masukkan kata kunci!');
+            }
+        });
+
+        $('#search-modal').on("scroll", function() {
+            // console.log($(this).scrollTop());
+            // console.log($(this).innerHeight());
+            // console.log(this.scrollHeight);
+            // console.log(this.scrollTop);
+            // console.log(this.clientHeight);
+            // console.log(this.clientHeight + 1);
+            // console.log('=========');
+            // this.scrollHeight - this.scrollTop === this.clientHeight
+            // if ($(this).scrollTop() + $(this).innerHeight() >= this.scrollHeight) {
+            if (this.scrollHeight - this.scrollTop <= this.clientHeight + 1) {
+                // alert('reached bottom');
+                ajaxMoreSearchResult();
+            }
+        });
+
+        var ajaxMoreSearchResult = function() {
+            var $searchBtn = $('#search-button');
+            var $searchInput = $('#search-input');
+            var $searchContainer = $('#search-list');
+            var keyword = $searchInput.val().trim();
+            if (ajaxKill === false && keyword != "" && $searchContainer.is(':visible')) {
+                ajaxKill = true;
+                $("#search-recommendation").hide();
+                $searchContainer.append('<div class="text-center loader" style="padding: 20px 0 0;"><img src="https://worldcup.idntimes.com/assets/img/loader.gif" width="50" /></div>');
+                $searchBtn.prop('disabled', true);
+                $searchInput.prop('disabled', true);
+
+                var type = $('.search-content .nav-tabs li.active').find('a').attr('aria-controls');
+                var page = parseInt($('#search-list .tab-pane.active').attr('data-page'));
+                var nextPage = page + 1;
+
+                var content = '';
+                if(type == 'article') {
+                    content = '#article';
+                } else if(type == 'qna') {
+                    content = '#qna';
+                } else if(type == 'user') {
+                    content = '#member';
+                } else if(type == 'tag') {
+                    content = '#tags';
+                }
+
+                if (page != "-1") {
+                    $.ajax({
+                        url: "https://worldcup.idntimes.com/search",
+                        type: "GET",
+                        data: {
+                            keyword: keyword,
+                            type: type,
+                            page: nextPage
+                        }
+                    })
+                    .done(function(data) {
+                        $('#search-list .loader').remove();
+                        if (data !== '') {
+                            $(content + ' ul:first').append(data).show();
+                            $(content).attr('data-page', nextPage);
+                        } else {
+                            $(content).append('<p class="text-center" style="margin: 1.5rem 0;">&ndash; <em>telah mencapai batas akhir</em> &ndash;</p>').show();
+                            $(content).attr('data-page', "-1");
+                        }
+                        ajaxKill = false;
+                        $searchBtn.prop('disabled', false);
+                        $searchInput.prop('disabled', false);
+                    })
+                    .fail(function(jqXHR, textStatus) {
+                        $('#search-list .loader').remove();
+                        ajaxKill = false;
+                        $searchBtn.prop('disabled', false);
+                        $searchInput.prop('disabled', false);
+                    });
+                } else {
+                    $('#search-list .loader').remove();
+                    ajaxKill = false;
+                    $searchBtn.prop('disabled', false);
+                    $searchInput.prop('disabled', false);
+                }
+            }
+        };
+
+        
+        
+    });
+    </script>
+
+        
+        
+		
+
+			<script>
+        if(window.isAllowAddressByRegion){
+            dataLayer.push({
+                'event' : 'total_site_traffic',
+                'lotameDomain' : 'worldcup.idntimes.com',
+            });
+        }
+	</script>
+    </body>
+</html>
