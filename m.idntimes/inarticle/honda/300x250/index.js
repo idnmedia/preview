@@ -3,7 +3,8 @@
 var p; // shortcut to reference prototypes
 var lib={};var ss={};var img={};
 lib.ssMetadata = [
-		{name:"index_atlas_", frames: [[804,1677,400,334],[1606,336,400,334],[1608,672,400,334],[402,1674,400,334],[1204,669,400,334],[804,1005,400,334],[804,1341,400,334],[0,0,800,667],[1206,1005,400,334],[1206,1341,400,334],[1206,1677,400,334],[0,669,800,667],[0,1338,400,334],[0,1674,400,334],[402,1338,400,334],[802,669,400,334],[1604,0,400,334],[1608,1344,400,334],[1608,1008,400,334],[802,0,800,667]]}
+		{name:"index_atlas_", frames: [[802,1677,400,334],[802,1341,400,334],[1604,0,400,334],[1604,336,400,334],[1204,1008,400,334],[802,669,400,334],[1606,1008,400,334],[0,0,800,667],[1204,672,400,334],[802,1005,400,334],[1606,672,400,334],[802,0,800,667],[1606,1344,400,334],[1204,1680,400,334],[1606,1680,400,334],[0,1338,800,667],[1204,1344,400,334],[0,669,800,667]]},
+		{name:"index_atlas_2", frames: [[0,336,400,334],[0,0,400,334]]}
 ];
 
 
@@ -117,36 +118,36 @@ lib.ssMetadata = [
 
 
 (lib.isi52 = function() {
-	this.initialize(ss["index_atlas_"]);
-	this.gotoAndStop(15);
+	this.initialize(ss["index_atlas_2"]);
+	this.gotoAndStop(0);
 }).prototype = p = new cjs.Sprite();
 
 
 
 (lib.isi6 = function() {
 	this.initialize(ss["index_atlas_"]);
-	this.gotoAndStop(16);
+	this.gotoAndStop(15);
 }).prototype = p = new cjs.Sprite();
 
 
 
 (lib.isi71 = function() {
 	this.initialize(ss["index_atlas_"]);
-	this.gotoAndStop(17);
+	this.gotoAndStop(16);
 }).prototype = p = new cjs.Sprite();
 
 
 
 (lib.isi72 = function() {
-	this.initialize(ss["index_atlas_"]);
-	this.gotoAndStop(18);
+	this.initialize(ss["index_atlas_2"]);
+	this.gotoAndStop(1);
 }).prototype = p = new cjs.Sprite();
 
 
 
 (lib.logo = function() {
 	this.initialize(ss["index_atlas_"]);
-	this.gotoAndStop(19);
+	this.gotoAndStop(17);
 }).prototype = p = new cjs.Sprite();
 
 
@@ -274,7 +275,7 @@ p.nominalBounds = new cjs.Rectangle(-200,-166.7,400,333.5);
 	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
 
 }).prototype = p = new cjs.MovieClip();
-p.nominalBounds = new cjs.Rectangle(-200,-167,400,334);
+p.nominalBounds = new cjs.Rectangle(-200,-167,800,667);
 
 
 (lib.Tween29 = function(mode,startPosition,loop) {
@@ -288,7 +289,7 @@ p.nominalBounds = new cjs.Rectangle(-200,-167,400,334);
 	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
 
 }).prototype = p = new cjs.MovieClip();
-p.nominalBounds = new cjs.Rectangle(-200,-167,400,334);
+p.nominalBounds = new cjs.Rectangle(-200,-167,800,667);
 
 
 (lib.Tween28 = function(mode,startPosition,loop) {
@@ -838,15 +839,15 @@ p.nominalBounds = new cjs.Rectangle(-200,-167,400,334);
 	// isi6
 	this.instance = new lib.Tween29("synched",0);
 	this.instance.parent = this;
-	this.instance.setTransform(-66.1,125);
+	this.instance.setTransform(-237.9,41.5,0.5,0.5);
 	this.instance._off = true;
 
 	this.instance_1 = new lib.Tween30("synched",0);
 	this.instance_1.parent = this;
-	this.instance_1.setTransform(150,125);
+	this.instance_1.setTransform(50,41.75,0.5,0.5);
 
 	this.timeline.addTween(cjs.Tween.get({}).to({state:[]}).to({state:[{t:this.instance}]},216).to({state:[{t:this.instance_1}]},6).wait(38));
-	this.timeline.addTween(cjs.Tween.get(this.instance).wait(216).to({_off:false},0).to({_off:true,x:150},6).wait(38));
+	this.timeline.addTween(cjs.Tween.get(this.instance).wait(216).to({_off:false},0).to({_off:true,x:50,y:41.75},6).wait(38));
 
 }).prototype = p = new cjs.MovieClip();
 
@@ -1378,7 +1379,7 @@ p.nominalBounds = new cjs.Rectangle(-200,-167,400,334);
 	this.timeline.addTween(cjs.Tween.get(this.bg1).wait(44).to({_off:true},1).wait(318));
 
 }).prototype = p = new cjs.MovieClip();
-p.nominalBounds = new cjs.Rectangle(-116.1,41,484.5,281.2);
+p.nominalBounds = new cjs.Rectangle(-187.9,41,556.3,281.2);
 // library properties:
 lib.properties = {
 	id: 'AC6AE21C97769E47A8030AC3D803ACC8',
@@ -1388,7 +1389,8 @@ lib.properties = {
 	color: "#FFFFFF",
 	opacity: 1.00,
 	manifest: [
-		{src:"images/index_atlas_.png", id:"index_atlas_"}
+		{src:"images/index_atlas_.png", id:"index_atlas_"},
+		{src:"images/index_atlas_2.png", id:"index_atlas_2"}
 	],
 	preloads: []
 };
