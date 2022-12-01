@@ -3,10 +3,10 @@
 var p; // shortcut to reference prototypes
 var lib={};var ss={};var img={};
 lib.ssMetadata = [
-		{name:"index_atlas_", frames: [[802,0,800,667],[0,0,800,667],[0,669,800,667],[0,1338,800,667],[802,669,800,667],[802,1338,800,667]]},
-		{name:"index_atlas_2", frames: [[0,1338,800,667],[802,669,800,667],[802,1338,800,667],[802,0,800,667],[0,0,800,667],[0,669,800,667]]},
-		{name:"index_atlas_3", frames: [[0,1338,800,667],[0,0,800,667],[802,1338,800,667],[802,0,800,667],[0,669,800,667],[802,669,800,667]]},
-		{name:"index_atlas_4", frames: [[0,1338,68,57],[0,669,800,667],[0,0,800,667]]}
+		{name:"index_atlas_", frames: [[0,669,800,667],[802,669,800,667],[0,1338,800,667],[802,0,800,667],[802,1338,800,667],[0,0,800,667]]},
+		{name:"index_atlas_2", frames: [[0,0,800,667],[0,1338,800,667],[802,669,800,667],[802,1338,800,667],[802,0,800,667],[0,669,800,667]]},
+		{name:"index_atlas_3", frames: [[802,669,800,667],[802,1338,800,667],[0,1338,800,667],[802,0,800,667],[0,669,800,667],[0,0,800,667]]},
+		{name:"index_atlas_4", frames: [[0,669,800,667],[0,1338,68,57],[0,0,800,667]]}
 ];
 
 
@@ -15,50 +15,50 @@ lib.ssMetadata = [
 
 
 (lib.end = function() {
-	this.initialize(ss["index_atlas_"]);
+	this.initialize(ss["index_atlas_4"]);
 	this.gotoAndStop(0);
 }).prototype = p = new cjs.Sprite();
 
 
 
 (lib.logo = function() {
-	this.initialize(ss["index_atlas_"]);
-	this.gotoAndStop(1);
+	this.initialize(ss["index_atlas_3"]);
+	this.gotoAndStop(0);
 }).prototype = p = new cjs.Sprite();
 
 
 
 (lib.rectangle = function() {
 	this.initialize(ss["index_atlas_4"]);
-	this.gotoAndStop(0);
+	this.gotoAndStop(1);
 }).prototype = p = new cjs.Sprite();
 
 
 
 (lib.slide1logo = function() {
-	this.initialize(ss["index_atlas_4"]);
+	this.initialize(ss["index_atlas_3"]);
 	this.gotoAndStop(1);
 }).prototype = p = new cjs.Sprite();
 
 
 
 (lib.slide1bg = function() {
-	this.initialize(ss["index_atlas_2"]);
-	this.gotoAndStop(0);
+	this.initialize(ss["index_atlas_4"]);
+	this.gotoAndStop(2);
 }).prototype = p = new cjs.Sprite();
 
 
 
 (lib.slide1ww = function() {
 	this.initialize(ss["index_atlas_3"]);
-	this.gotoAndStop(0);
+	this.gotoAndStop(2);
 }).prototype = p = new cjs.Sprite();
 
 
 
 (lib.slide2bg = function() {
-	this.initialize(ss["index_atlas_3"]);
-	this.gotoAndStop(1);
+	this.initialize(ss["index_atlas_2"]);
+	this.gotoAndStop(0);
 }).prototype = p = new cjs.Sprite();
 
 
@@ -71,91 +71,91 @@ lib.ssMetadata = [
 
 
 (lib.slide3bg = function() {
-	this.initialize(ss["index_atlas_2"]);
-	this.gotoAndStop(2);
+	this.initialize(ss["index_atlas_3"]);
+	this.gotoAndStop(3);
 }).prototype = p = new cjs.Sprite();
 
 
 
 (lib.slide3text = function() {
-	this.initialize(ss["index_atlas_3"]);
+	this.initialize(ss["index_atlas_2"]);
 	this.gotoAndStop(2);
 }).prototype = p = new cjs.Sprite();
 
 
 
 (lib.slide4bg1 = function() {
-	this.initialize(ss["index_atlas_"]);
-	this.gotoAndStop(2);
+	this.initialize(ss["index_atlas_3"]);
+	this.gotoAndStop(4);
 }).prototype = p = new cjs.Sprite();
 
 
 
 (lib.slide4bg2 = function() {
-	this.initialize(ss["index_atlas_3"]);
+	this.initialize(ss["index_atlas_2"]);
 	this.gotoAndStop(3);
 }).prototype = p = new cjs.Sprite();
 
 
 
 (lib.slide4text = function() {
-	this.initialize(ss["index_atlas_3"]);
-	this.gotoAndStop(4);
+	this.initialize(ss["index_atlas_"]);
+	this.gotoAndStop(0);
 }).prototype = p = new cjs.Sprite();
 
 
 
 (lib.slide5bg = function() {
-	this.initialize(ss["index_atlas_"]);
-	this.gotoAndStop(3);
-}).prototype = p = new cjs.Sprite();
-
-
-
-(lib.slide5light = function() {
 	this.initialize(ss["index_atlas_2"]);
-	this.gotoAndStop(3);
-}).prototype = p = new cjs.Sprite();
-
-
-
-(lib.slide5text = function() {
-	this.initialize(ss["index_atlas_"]);
 	this.gotoAndStop(4);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.slide6bg = function() {
+(lib.slide5light = function() {
 	this.initialize(ss["index_atlas_"]);
+	this.gotoAndStop(1);
+}).prototype = p = new cjs.Sprite();
+
+
+
+(lib.slide5text = function() {
+	this.initialize(ss["index_atlas_2"]);
+	this.gotoAndStop(5);
+}).prototype = p = new cjs.Sprite();
+
+
+
+(lib.slide6bg = function() {
+	this.initialize(ss["index_atlas_3"]);
 	this.gotoAndStop(5);
 }).prototype = p = new cjs.Sprite();
 
 
 
 (lib.slide6sensing = function() {
-	this.initialize(ss["index_atlas_2"]);
-	this.gotoAndStop(4);
-}).prototype = p = new cjs.Sprite();
-
-
-
-(lib.slide6text = function() {
-	this.initialize(ss["index_atlas_2"]);
-	this.gotoAndStop(5);
-}).prototype = p = new cjs.Sprite();
-
-
-
-(lib.slide7bg = function() {
-	this.initialize(ss["index_atlas_4"]);
+	this.initialize(ss["index_atlas_"]);
 	this.gotoAndStop(2);
 }).prototype = p = new cjs.Sprite();
 
 
 
+(lib.slide6text = function() {
+	this.initialize(ss["index_atlas_"]);
+	this.gotoAndStop(3);
+}).prototype = p = new cjs.Sprite();
+
+
+
+(lib.slide7bg = function() {
+	this.initialize(ss["index_atlas_"]);
+	this.gotoAndStop(4);
+}).prototype = p = new cjs.Sprite();
+
+
+
 (lib.slide7ntm = function() {
-	this.initialize(ss["index_atlas_3"]);
+	this.initialize(ss["index_atlas_"]);
 	this.gotoAndStop(5);
 }).prototype = p = new cjs.Sprite();
 
