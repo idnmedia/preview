@@ -1,0 +1,34 @@
+<html>
+    <head>
+        
+    </head>
+    <body style="margin: 0;">
+
+        <a href="https://primafreshmart.com/?utm_source=IDN&utm_medium=Regular-Banner&utm_campaign=Crispy-bubble&utm_term=44949&utm_content=44949" target="_blank">
+            <img src="320x480.jpg" style="position: relative; z-index: 2; top: 0; width: 100%;" height="auto">  
+        </a>
+        <div id="fixed" style="z-index: 3">
+            <img src="header.png" style="width: 100%;">
+        </div>
+        <div id="bg" style="position: relative; top: 0;">
+            <img src="bg.jpg" style="width: 100%;">
+        </div>
+        
+        <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+        <script>
+            var elementPosition = $('#fixed').offset();
+
+            $(window).scroll(function(){
+                    if($(window).scrollTop() > elementPosition.top){
+                          $('#fixed').css('position','fixed').css('top','0');
+                        $('#bg').css('top','110px');
+                    } else {
+                        $('#fixed').css('position','relative');
+                        $('#bg').css('top','0px');
+                    }    
+            });
+        </script>
+    </body>
+    
+    
+</html>
