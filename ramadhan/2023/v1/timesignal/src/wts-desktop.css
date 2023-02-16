@@ -1,0 +1,224 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap');
+.clearfix{
+    clear: both;
+}
+.clearfix:before, .clearfix:after{
+    content: "";
+    clear: both;
+    display: table;
+}
+#clock {
+    position: absolute;
+    right: 0;
+    top: 20px;
+    color: #3CB480;
+    font-size: 19px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    background-color: white;
+    padding-right: 20px;
+    
+}
+.wts-container {
+    position: absolute;
+    display: block;
+    width: 700px;
+    height: 140px;
+    bottom: 0;
+}
+.wts-container .item {
+    font-size: 20px;
+    color: #be7351;
+    line-height: 21px;
+}
+.wts-imsak {
+    position: absolute;
+    left: 13px;
+    bottom: 10px;
+}
+.wts-subuh {
+    position: absolute;
+    left: 113px;
+    bottom: 35px;
+}
+.wts-dzuhur {
+    position: absolute;
+    left: 230px;
+    bottom: 47px;
+}
+.wts-ashar {
+    position: absolute;
+    right: 313px;
+    bottom: 47px;
+}
+.wts-maghrib {
+    position: absolute;
+    right: 28%;
+    bottom: 35px;
+}
+.wts-isya {
+    position: absolute;
+    right: 92px;
+    bottom: 10px;
+}
+
+.the-day {
+    max-width: 200px;
+    font-size: 18px;
+    position: relative;
+    left: 50%;
+    top: 26px;
+}
+
+
+.jadwal-box {
+    width: 700px;
+    text-align: center;
+    position: absolute;
+    right: 15px;
+    z-index: 9;
+    bottom: 15px;
+}
+.wts {
+    position: relative;
+    display: block;
+    width: 970px;
+    height: 250px;
+    margin-bottom: 15px;
+    font-family: 'Katibeh', cursive;
+}    
+.wts a.landingpage {
+    position: absolute;
+    width: 970px;
+    height: 250px;
+}
+.wts-city {
+    position: relative;
+    margin-bottom: 10px!important;
+    display: none;
+}
+.wts-city-prepend {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    z-index: 1;
+}
+.wts-city-prepend img {
+    vertical-align: middle;
+}
+.wts-city .select2-container {
+    display: block;
+    width: 260px!important;
+    position: absolute;
+    min-width: 0;
+    margin-bottom: 0;
+    outline: 0;
+    background-color: transparent;
+    border-radius: 4px 4px;
+    box-shadow: 0px 3px 16px rgba(119, 119, 119, 0.16);
+    left: 55px;
+    top: 36px;
+    z-index: 9;
+}
+.wts-city .select2-container .select2-selection--single {
+    border: 0!important;
+    color: #fff!important;
+    height: 35px!important;
+    background-color: #3CB480!important;
+    border-radius: 15px!important;
+    width: 100%;
+}
+.wts-city .select2-selection__rendered {
+    font-size: 20px!important;
+    line-height: 17px;
+}
+.wts-city-select-dropdown {
+    font-family: 'Roboto', sans-serif;
+}
+.wts-time {
+    background-color: transparent;
+    border-radius: 4px 4px;
+    height: 180px;
+    overflow: hidden;
+}
+.wts-day {
+    bottom: 0;
+    height: 180px;
+    position: relative;
+}
+.wts-day span {
+    display: block;
+    font-weight: bold;
+    font-family: 'Katibeh', cursive;
+    color: #3CB480;
+    font-size: 24px;
+    font-weight: bold;
+}
+.wts-day span.waktusholat {
+    display: block;
+    font-weight: bold;
+    font-family: 'Katibeh', cursive;
+    color: #2f8e60;
+    font-size: 25px;
+    letter-spacing: .8px;
+    font-weight: bold;
+}
+
+.wts-day .slick-slide {
+    font-size: 14px!important;
+    font-weight: bold;
+    color: #000;
+    text-align: center;
+}
+.wts-day .slick-prev:before {
+    content: "\276E";
+    color: #3CB480;
+}
+.wts-day .slick-next:before {
+    content: "\276F";
+    color: #3CB480;
+}
+.wts-day .slick-next {
+    right: 18%;
+    z-index: 2;
+    top: 44px;
+/*
+    background-color: #028b43;
+    border-radius: 20px;
+    width: 25px;
+    height: 25px;
+*/
+}
+.wts-day .slick-prev {
+    left: 48%;
+    z-index: 2;
+    top: 44px;
+}
+.wts-day .slick-next:hover:before, .wts-day .slick-prev:hover:before {
+    color: #fff;
+}
+.wts-time dl {
+    padding: 10px 15px;
+    margin: 0;
+}
+.wts-time dt{
+    float: left;
+    font-size: 14px!important;
+    font-weight: normal;
+    color: #000;
+}
+.wts-time dd{
+    padding-left: 65px;
+    text-align: right;
+    font-size: 14px;
+    color: #777;
+    padding-bottom: 10px!important;
+}
+.wts-time dd:last-child{
+    padding-bottom: 0;
+}
+.select2-container--bootstrap .select2-results__option {
+    font-size: 14px!important;
+    font-family: 'Roboto', sans-serif;
+}

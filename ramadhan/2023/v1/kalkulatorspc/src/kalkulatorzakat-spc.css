@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+.kz-container {
+    width: 334px;
+    height: 500px;
+    background-color: white;
+    overflow: hidden;
+    border: 2px solid #eee;
+}
+.kz-container a img {
+    width: 334px;
+    height: 500px;
+    position: absolute; 
+    -webkit-animation: fadein 1.5s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 1.5s; /* Firefox < 16 */
+        -ms-animation: fadein 1.5s; /* Internet Explorer */
+         -o-animation: fadein 1.5s; /* Opera < 12.1 */
+            animation: fadein 1.5s;
+} 
+.kz-box {
+    color: black;
+    font-family: 'Roboto', sans-serif;
+    z-index: 1;
+    position: relative;
+    width: 280px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: 155px;
+    -webkit-animation: fadein 1s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 1s; /* Firefox < 16 */
+        -ms-animation: fadein 1s; /* Internet Explorer */
+         -o-animation: fadein 1s; /* Opera < 12.1 */
+            animation: fadein 1s;
+}
+.kz-box h6, .m-kz-box h6 {
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+.kz-box p, .m-kz-box p {
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 30px;
+}
+.haul {
+    margin-top: 12px;
+    font-size: 16px;
+    display: flex;
+    justify-content: space-between;
+    font-weight: 700;
+}
+.haul.notes {
+    font-size: 11px;
+    margin-top: 0;
+    font-weight: 200;
+    font-style: italic;
+}
+
+
+/* --- Mobile --- */
+
+.m-kz-container {
+    width: 320px;
+    height: 500px;
+    background-color: white;
+    overflow: hidden;
+    border: 2px solid #eee;
+}
+.m-kz-container a img {
+    width: 320px;
+    height: 500px;
+    position: absolute; 
+    -webkit-animation: fadein 1.5s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 1.5s; /* Firefox < 16 */
+        -ms-animation: fadein 1.5s; /* Internet Explorer */
+         -o-animation: fadein 1.5s; /* Opera < 12.1 */
+            animation: fadein 1.5s;
+}
+.m-kz-box {
+    color: black;
+    font-family: 'Roboto', sans-serif;
+    z-index: 1;
+    position: relative;
+    width: 280px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: 155px;
+    -webkit-animation: fadein 1s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 1s; /* Firefox < 16 */
+        -ms-animation: fadein 1s; /* Internet Explorer */
+         -o-animation: fadein 1s; /* Opera < 12.1 */
+            animation: fadein 1s;
+}
+
+
+
+/* --- Anim --- */
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Opera < 12.1 */
+@-o-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Countdown Menuju Waktu Berbuka Puasa</title>
+  </head>
+  <body>
+    <h1>Countdown Menuju Waktu Berbuka Puasa</h1>
+    <p>Waktu berbuka puasa akan tiba pada:</p>
+    <div id="countdown"></div>
+    <script>
+      // Membuat data waktu berbuka puasa dalam format JSON
+const waktuBukaPuasa = [
+  {
+    "tanggal": "2023-04-14",
+    "waktu": "18:31:00"
+  },
+  {
+    "tanggal": "2023-04-15",
+    "waktu": "18:31:00"
+  },
+  // Tambahkan data waktu berbuka puasa untuk hari-hari berikutnya
+  // ...
+];
+
+// Mendapatkan elemen HTML yang menampilkan countdown
+const countdownElem = document.getElementById("countdown");
+
+// Loop melalui data waktu berbuka puasa
+for (let i = 0; i < waktuBukaPuasa.length; i++) {
+  const bukaPuasa = new Date(waktuBukaPuasa[i].tanggal + " " + waktuBukaPuasa[i].waktu);
+
+  // Memeriksa apakah waktu saat ini sudah melewati waktu berbuka puasa
+  if (Date.now() > bukaPuasa) {
+    continue;
+  }
+
+  // Menghitung selisih waktu antara waktu saat ini dan waktu berbuka puasa
+  const selisih = bukaPuasa - Date.now();
+
+  // Mengubah selisih waktu menjadi milidetik
+  const selisihMs = selisih.getTime();
+
+  // Menampilkan popup setelah selisih waktu yang ditentukan
+  setTimeout(() => {
+    alert("Waktu berbuka puasa tiba!");
+  }, selisihMs);
+
+  // Menambahkan countdown menuju waktu berbuka puasa
+  setInterval(() => {
+    const sisa = bukaPuasa - Date.now();
+    const detik = Math.floor(sisa / 1000) % 60;
+    const menit = Math.floor(sisa / (1000 * 60)) % 60;
+    const jam = Math.floor(sisa / (1000 * 60 * 60)) % 24;
+
+    countdownElem.textContent = `${jam.toString().padStart(2, '0')}:${menit.toString().padStart(2, '0')}:${detik.toString().padStart(2, '0')}`;
+
+    if (sisa < 0) {
+      countdownElem.textContent = "00:00:00";
+      clearInterval(countdownInterval);
+    }
+  }, 1000);
+
+  // Keluar dari loop karena waktu berbuka puasa untuk hari ini sudah ditentukan
+  break;
+}
+
+      </script>
+  </body>
+</html>
