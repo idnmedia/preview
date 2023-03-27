@@ -27,6 +27,7 @@
             width: 300px;
             height: 600px;
             overflow: hidden;
+            background-image: url("BG_300x600.png");
         }
 
         .content {
@@ -198,7 +199,6 @@
             const t1 = new TimelineMax({ paused: true, reversed: true });
             const t2 = new TimelineLite({ paused: true, reversed: true });
             const t3 = new TimelineLite({ paused: true, reversed: true });
-            t1.play();
             var pos = 0;
 
             t1.to(ponselSatu, 0.8, {
