@@ -31,46 +31,51 @@
     bottom: 0;
 }
 .wts-container .item {
-    font-size: 18px;
+    font-size: 12px;
+    text-transform: uppercase;
     color: #f0cb61;
     line-height: 18px;
 }
 .wts-imsak {
     position: absolute;
     left: 13px;
-    bottom: 22px;
+    bottom: 18px;
 }
 .wts-subuh {
     position: absolute;
     left: 85px;
-    bottom: 22px;
+    bottom: 18px;
 }
 .wts-dzuhur {
     position: absolute;
     left: 161px;
-    bottom: 22px;
+    bottom: 18px;
 }
 .wts-ashar {
     position: absolute;
     left: 237px;
-    bottom: 22px;
+    bottom: 18px;
 }
 .wts-maghrib {
     position: absolute;
     left: 309px;
-    bottom: 22px;
+    bottom: 18px;
 }
 .wts-isya {
     position: absolute;
     right: 33px;
-    bottom: 22px;
+    bottom: 18px;
 }
 
 .the-day {
     max-width: 200px;
     position: relative;
     left: 224px;
-    top: 6px;
+    top: 14px;
+    font-family: 'Montserrat', cursive;
+    color: #fff;
+    font-size: 12px;
+    text-transform: uppercase;
 }
 
 
@@ -88,7 +93,7 @@
     width: 970px;
     height: 250px;
     margin-bottom: 15px;
-    font-family: 'Katibeh', cursive;
+    font-family: 'Montserrat', cursive;
 }    
 .wts a.landingpage {
     position: absolute;
@@ -127,16 +132,19 @@
     border: 0!important;
     color: #fff!important;
     height: 30px!important;
-    background-color: #037b7a !important;
+    background-color: #027b7b !important;
     border-radius: 20px!important;
     width: 100%;
 }
 .select2-container--bootstrap .select2-selection--single .select2-selection__rendered {
     color: white!important;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
 .select2-container--bootstrap .select2-results > .select2-results__options {
     max-height: 80px!important;
+}
+.select2-container--bootstrap .select2-selection--single .select2-selection__arrow b {
+    border-color: #fff transparent transparent;
 }
 .wts-city .select2-selection__rendered {
     font-size: 14px!important;
@@ -157,18 +165,13 @@
 }
 .wts-day span {
     display: block;
-    font-weight: bold;
-    font-family: 'Katibeh', cursive;
-    color: #037b7a;
-    font-size: 20px;
-    font-weight: bold;
 }
 .wts-day span.waktusholat {
     display: block;
     font-weight: bold;
-    font-family: 'Katibeh', cursive;
+    font-family: 'Montserrat', cursive;
     color: #fff;
-    font-size: 21px;
+    font-size: 15px;
     letter-spacing: .8px;
     font-weight: bold;
 }
@@ -181,11 +184,11 @@
 }
 .wts-day .slick-prev:before {
     content: "\276E";
-    color: #037b7a;
+    color: #fff;
 }
 .wts-day .slick-next:before {
     content: "\276F";
-    color: #037b7a;;
+    color: #fff;;
 }
 .wts-day .slick-next {
     right: 30px;

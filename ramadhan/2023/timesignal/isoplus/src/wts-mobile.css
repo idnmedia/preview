@@ -28,39 +28,40 @@
 .wts-container .item {
     border-radius: 10px;
     width: 70px;
-    font-size: 17px;
+    font-size: 13px;
+    text-transform: uppercase;
     color: #0c6994;
-    line-height: 13px;
+    line-height: 16px;
 }
 .wts-imsak {
     position: absolute;
-    left: 30px;
-    bottom: 63px;
+    left: 13px;
+    bottom: 48px;
 }
 .wts-subuh {
     position: absolute;
     left: 104px;
-    bottom: 63px;
+    bottom: 48px;
 }
 .wts-dzuhur {
     position: absolute;
-    right: 32px;
-    bottom: 63px;
+    right: 14px;
+    bottom: 48px;
 }
 .wts-ashar {
     position: absolute;
-    left: 28px;
-    bottom: 16px;
+    left: 13px;
+    bottom: 0px;
 }
 .wts-maghrib {
     position: absolute;
     left: 105px;
-    bottom: 16px;
+    bottom: 0px;
 }
 .wts-isya {
     position: absolute;
-    right: 31px;
-    bottom: 16px;
+    right: 16px;
+    bottom: 0px;
 }
 .wts {
     position: relative;
@@ -68,15 +69,15 @@
     width: 320px;
     height: 320px;
     margin-bottom: 15px;
-    font-family: 'Katibeh', sans-serif;
+    font-family: 'Montserrat', sans-serif;
 } 
 .the-day {
     max-width: 136px;
-    font-size: 18px;
     position: relative;
     left: 142px;
-    top: 6px;
-    font-size: 17px;
+    top: 12px;
+    font-size: 11px;
+    text-transform: uppercase;
 }
 .wts a.landingpage {
     position: absolute;
@@ -135,8 +136,8 @@
 }
 .wts-day span.waktusholat {
     color: #108dc7;
-    font-family: 'Katibeh', sans-serif;
-    font-size: 21px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
 }
 .wts-day .slick-slide {
     font-size: 14px!important;
