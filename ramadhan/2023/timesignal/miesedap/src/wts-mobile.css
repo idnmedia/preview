@@ -75,7 +75,7 @@
     max-width: 136px;
     position: relative;
     left: 142px;
-    top: 12px;
+    top: 11px;
     font-size: 11px;
     text-transform: uppercase;
 }
@@ -154,12 +154,12 @@
     color: #fff;
 }
 .wts-day .slick-next {
-    right: -4px;
+    right: -7px;
     z-index: 2;
     top: 20px;
 }
 .wts-day .slick-prev {
-    left: 135px;
+    left: 134px;
     z-index: 2;
     top: 20px;
 }
