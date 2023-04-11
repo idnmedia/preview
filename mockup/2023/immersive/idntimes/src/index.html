@@ -1,0 +1,159 @@
+<html>
+    <a href="#" target="_blank">
+        <img src="970x250.png" alt="leaderboard">
+    </a>
+<!--
+    <script>
+        const data = parent.document.getElementsByTagName('body')[0]
+        data.style.backgroundImage = "url('https://ads.idntimes.com/ads-assets/client/aqua/bg.jpg')"
+        data.style.backgroundAttachment = "fixed"
+        data.style.backgroundSize = "100%"
+        data.style.backgroundRepeat = "no-repeat"
+        
+        const data2 = parent.document.getElementsByClassName('headline')[0]
+        data2.style.backgroundColor = "white"
+    </script>
+-->
+    
+    
+    
+    
+    <script>
+        function myFunction(x) {
+        if (x.matches) { // layar kecil
+            const data = parent.document.getElementsByTagName('body')[0]
+            data.style.backgroundImage = "url('src/bg-kecil.jpg')"
+            data.style.backgroundAttachment = "fixed"
+            data.style.backgroundSize = "100%"
+            data.style.backgroundRepeat = "no-repeat"
+
+            const data2 = parent.document.getElementsByClassName('wrapper-headline')[0]
+            data2.style.backgroundColor = "red"
+            data2.style.paddingTop = "10px"
+            data2.style.paddingLeft = "10px"
+            data2.style.paddingRight = "10px"
+
+            const data3 = parent.document.getElementsByClassName('main-headline')[0]
+            data3.style.width = "614px"
+
+            const data4 = parent.document.getElementsByClassName('side-headline')[0]
+            data4.style.width = "432px"
+
+            const data5 = parent.document.getElementsByClassName('wrapper-trending')[0]
+            data5.style.backgroundColor = "red"
+            data5.style.paddingLeft = "10px"
+            data5.style.paddingRight = "10px"
+
+            const data6 = parent.document.getElementsByClassName('left-content')[0]
+            data6.style.backgroundColor = "red"
+            data6.style.paddingLeft = "10px"
+            data6.style.paddingRight = "10px"
+            
+            const data6r = parent.document.getElementsByClassName('sidebar-menu')[0]
+            data6r.style.backgroundColor = "blue"
+              
+            const data7 = parent.document.querySelectorAll('.main-latest > .box-list');
+            for (let i = 0; i < data7.length; i++) {
+              data7[i].style.width = '365px';
+            }
+            const data8 = parent.document.querySelectorAll('.main-latest > .box-latest > a > .image-latest');
+            for (let i = 0; i < data8.length; i++) {
+              data8[i].style.width = '365px';
+            }
+            const data9 = parent.document.querySelectorAll('.sub-latest > .box-latest > .description-latest');
+            for (let i = 0; i < data9.length; i++) {
+              data9[i].style.width = '520px';
+            }
+            const data10 = parent.document.querySelectorAll('.more-category-list > li');
+            for (let i = 0; i < data10.length; i++) {
+              data10[i].style.width = '110px';
+              data10[i].style.height = '110px';
+            }
+
+
+
+
+              
+              
+            // layar besar
+        } else {
+            const data = parent.document.getElementsByTagName('body')[0]
+            data.style.backgroundImage = "url('src/bg-besar.jpg')"
+            data.style.backgroundAttachment = "fixed"
+            data.style.backgroundSize = "100%"
+            data.style.backgroundRepeat = "repeat"
+
+            const data2 = parent.document.getElementsByClassName('wrapper-headline')[0]
+            data2.style.backgroundColor = "blue"
+            data2.style.paddingTop = "10px"
+            data2.style.paddingLeft = "10px"
+            data2.style.paddingRight = "10px"
+
+            const data3 = parent.document.getElementsByClassName('main-headline')[0]
+            data3.style.width = "614px"
+
+            const data4 = parent.document.getElementsByClassName('side-headline')[0]
+            data4.style.width = "432px"
+
+            const data5 = parent.document.getElementsByClassName('wrapper-trending')[0]
+            data5.style.backgroundColor = "blue"
+            data5.style.paddingLeft = "10px"
+            data5.style.paddingRight = "10px"
+
+            const data6 = parent.document.getElementsByClassName('left-content')[0]
+            data6.style.backgroundColor = "blue"
+            data6.style.paddingLeft = "10px"
+            data6.style.paddingRight = "10px"
+            
+            const data6r = parent.document.getElementsByClassName('sidebar-menu')[0]
+            data6r.style.backgroundColor = "blue"
+
+            const data7 = parent.document.querySelectorAll('.main-latest > .box-list');
+            for (let i = 0; i < data7.length; i++) {
+              data7[i].style.width = '365px';
+            }
+            const data8 = parent.document.querySelectorAll('.main-latest > .box-latest > a > .image-latest');
+            for (let i = 0; i < data8.length; i++) {
+              data8[i].style.width = '365px';
+            }
+            const data9 = parent.document.querySelectorAll('.sub-latest > .box-latest > .description-latest');
+            for (let i = 0; i < data9.length; i++) {
+              data9[i].style.width = '520px';
+            }
+            const data10 = parent.document.querySelectorAll('.more-category-list > li');
+            for (let i = 0; i < data10.length; i++) {
+              data10[i].style.width = '110px';
+              data10[i].style.height = '110px';
+            }
+
+
+
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+          }
+        }
+
+        var x = window.parent.matchMedia("(max-width: 1367px)")
+        myFunction(x) // Call listener function at run time
+        x.addListener(myFunction) // Attach listener function on state changes 
+    </script>
+    
+    
+</html>
+
