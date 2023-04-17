@@ -1,4 +1,4 @@
-if(top!=self){ window.frameElement.style = '-webkit-transition: all .5s linear 0s; -moz-transition: all .5s linear 0s;-ms-transition: all .5s linear 0s;-o-transition: all .5s linear 0s;transition: all .5s linear 0s; margin:auto;'; }
+if(top!=self){ window.frameElement.style = '-webkit-transition: all .5s linear 0s; -moz-transition: all .5s linear 0s;-ms-transition: all .5s linear 0s;-o-transition: all .5s linear 0s;transition: all .5s linear 0s; margin:auto; width: 320px;'; }
 $('#leaderboard_expand').animate({'height':'400px'},"slow");
 
 if(top!=self){ window.frameElement.style.height = '400px'; }
