@@ -39,10 +39,29 @@
     <div style="height: 250px; width: 300px; position: relative; display: block">
         <a href="https://tinyurl.com/yummylp" target="_blank" style="position: absolute; width: 300px; height: 250px;"></a>
 
-        <iframe width="300" height="170" src="https://tinyurl.com/yummyembed" frameborder="0" scrolling="no" webkitAllowFullScreen="true"  allowfullscreen="true" style="position: absolute; width: 300px; height: 170px; left: 0px; top: 0px; z-index: 1;"></iframe>
+        <iframe id="iframe-video" width="300" height="170" src="https://tinyurl.com/yummyembed" frameborder="0" scrolling="no" webkitAllowFullScreen="true"  allowfullscreen="true" style="position: absolute; width: 300px; height: 170px; left: 0px; top: 0px; z-index: 1;"></iframe>
+        
+
 
         <img src="banner/300x250.jpg" alt="leaderboard" style="max-width: 300px; max-height: 250px;">
     </div>
+    <script>
+        // Cari elemen iframe video
+        var iframeVideo = document.getElementById('iframe-video');
+
+        // Tambahkan event listener untuk klik pada elemen
+        iframeVideo.addEventListener('click', function() {
+          // Cek apakah browser Safari
+          if (navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') == -1) {
+            // Panggil metode requestFullscreen pada elemen video
+            iframeVideo.contentWindow.document.documentElement.webkitRequestFullscreen();
+          } else {
+            // Panggil metode requestFullscreen pada elemen video
+            iframeVideo.contentWindow.document.documentElement.requestFullscreen();
+          }
+        });
+
+    </script>
 </center>
 </div>
         </section>
