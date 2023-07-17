@@ -1,34 +1,81 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
     <head>
-        
+        <title itemprop="name">Preview Fortune IDN</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
     </head>
-    <body style="margin: 0;">
-
-        <a href="https://primafreshmart.com/?utm_source=IDN&utm_medium=Regular-Banner&utm_campaign=Crispy-bubble&utm_term=45008&utm_content=45008" target="_blank">
-            <img src="320x480.jpg" style="position: relative; z-index: 2; top: 0; width: 100%;" height="auto">  
-        </a>
-        <div id="fixed" style="z-index: 3">
-            <img src="header.png" style="width: 100%;">
-        </div>
-        <div id="bg" style="position: relative; top: 0;">
-            <img src="bg.jpg" style="width: 100%;">
-        </div>
+    
+    <style>
+        *, ::before, ::after {
+          box-sizing: border-box;
+        }
+        .container, .container-fluid{
+          --bs-gutter-x: 1.5rem;
+          --bs-gutter-y: 0;
+          width: 100%;
+          margin-right: auto;
+          margin-left: auto;
+            text-align: center;
+        }
+        .img-fluid {
+          max-width: 100%;
+          height: auto;
+        }
+        header {
+            position: sticky;
+            top: 0;
+            text-align: center;
+            left: 0;
+            right: 0;
+            margin: auto;
+        }
+        .bodytop {
+            margin-top: 0px;
+            text-align: center;
+        }
+        .ads {
+            text-align: center;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+    
+    
+    <body style="position: relative; margin: 0;">
         
-        <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
-        <script>
-            var elementPosition = $('#fixed').offset();
-
-            $(window).scroll(function(){
-                    if($(window).scrollTop() > elementPosition.top){
-                          $('#fixed').css('position','fixed').css('top','0');
-                        $('#bg').css('top','110px');
-                    } else {
-                        $('#fixed').css('position','relative');
-                        $('#bg').css('top','0px');
-                    }    
-            });
-        </script>
+        <section>
+            <div class="container-fluid ads">
+                <a href="#" target="_blank">
+                    <img src="320x480.jpg" width="320" height="480">
+                        
+                </a>
+            </div>
+        </section>
+        
+        <section>
+            <div class="container-fluid">
+                <img src="web/scroll.png" class="img-fluid">
+            </div>
+        </section>
+        
+        <header>
+            <div class="container-fluid">
+                <img src="web/header.png" class="img-fluid">
+            </div>
+        </header>
+    
+        
+        <section>
+            <div class="container-fluid bodytop">
+                <img src="web/body1.png" class="img-fluid">
+            </div>
+        </section>
+        
+        
+        
+       
     </body>
-    
-    
 </html>
