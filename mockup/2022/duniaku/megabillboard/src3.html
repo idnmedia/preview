@@ -1,0 +1,58 @@
+<!--NO_REFRESH-->
+<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+<script>
+    const data = parent.document.getElementsByClassName('wrap')[0]
+    data.style.backgroundColor = "white"
+
+    if(top!=self){ window.frameElement.style = '-webkit-transition: all .5s linear 0s; -moz-transition: all .5s linear 0s;-ms-transition: all .5s linear 0s;-o-transition: all .5s linear 0s;transition: all .5s linear 0s; width: 100%; height: 500px; position: fixed; z-index: 0; background-color: black; top: 0;'; }
+
+    var pushdownStart = function(){
+        $(window.parent.document.getElementsByClassName("content")).css({'padding-top':'0px'});
+        $(window.parent.document.getElementsByClassName("wrap")).css({'margin-top':'500px', 'position':'relative'});
+        $(window.parent.document.getElementsByClassName("header")).css({'margin-top':'0px', 'position':'relative'});
+        $(window.parent.document.getElementsByClassName("header-filler")).css({'padding-top':'0px'});
+        $(window.parent.document.getElementById("div-gpt-ad-mega-billboard")).append('<div style="background-color: rgb(249, 33, 41); color: white; text-align: center; position: relative; display : block; top: 500px; font-weight: bold; padding: 2px; letter-spacing: .6px; font-size: 12px;">SCROLL UNTUK MELANJUTKAN MEMBACA</div>');
+    };
+
+    $(document).ready(function(){
+        setTimeout(function(){ 
+            pushdownStart();
+        }, 2000);  
+    });
+
+    $(window.parent).scroll(function() {
+        if ($(window.parent).scrollTop() > 500) {
+            $(window.parent.document.getElementsByClassName("header")).css({'position':'fixed', 'margin-top':'0px'});
+            $(window.parent.document.getElementsByClassName("content")).css({'padding-top':'70px'});
+        } else {
+            $(window.parent.document.getElementsByClassName("header")).css({'position':'relative', 'margin-top':'0px'});
+            $(window.parent.document.getElementsByClassName("content")).css({'padding-top':'0px'});
+        }
+     });
+
+    var pushdownEnd = function(){
+        $('body').on({
+        'mousewheel': function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            }
+        });
+        $(window.parent).unbind('scroll');
+        $(window.parent.document.getElementById("div-gpt-ad-mega-billboard")).css('display', 'none');
+        $(window.parent.document.getElementsByClassName("wrap")).css({'margin-top':'0px', 'padding-top':'20px'});
+        $(window.parent.document.getElementById("main")).css('padding-top', '40px');
+        $(window.parent.document.getElementsByClassName("header")).css({'margin-top':'0', 'position':'fixed'});
+    }  
+</script>
+
+<div class="pushdown-container" style="position: fixed; text-align: center; width: 100%; background-color: black; padding-top: 10px; left: 0; right: 0; margin: auto;"> 
+    <div class="pushdown" style="position: relative; max-width: 320px; left: 0; right: 0; margin: auto;">
+        <!-- landing page -->
+        <a href="[%LandingPage%]" target="_blank" style="position: absolute; width: 320px; height: 480px; z-index: 2;"></a>
+        <!-- materi -->
+        <img src="320x480.jpg" style="max-width: 320px; height: 480px;" alt="megabillboard">  
+        <!-- tracker -->
+
+    </div>
+    <div class="close-btn" style="position: absolute; right: 5px; top: 5px; background-color: #ed2028; color: white; font-size: 11px; font-weight: bold; letter-spacing: .6px; padding: 3px 5px; z-index: 3; cursor: pointer; font-family: Open Sans,sans-serif;" onclick="pushdownEnd()">TUTUP</div>
+</div>
