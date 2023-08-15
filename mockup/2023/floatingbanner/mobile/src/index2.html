@@ -27,7 +27,7 @@
               if (counter === 0) {
                 clearInterval(countdownInterval);
                 $countdown.remove(); // hapus countdown
-                var $closeBtn = $('<div class="close_btn" onclick="document.getElementById(\'floatingbanner\').style.display = \'none\';" style="position: absolute; z-index: 999; top: -22px; right: 0px; background-color: #ff0506; font-size: 12px; font-weight: bold; color: white; padding: 2px 7px; cursor: pointer;">TUTUP</div>');
+                var $closeBtn = $('<div class="close_btn" onclick="$(\'#floatingbanner\').animate({ left: \'-500px\' }, \'slow\', function() { setTimeout(function() { $(\'#floatingbanner\').remove(); }, 1500); });" style="position: absolute; z-index: 999; top: -22px; right: 0px; background-color: #ff0506; font-size: 12px; font-weight: bold; color: white; padding: 2px 7px; cursor: pointer;">TUTUP</div>');
                 $floatingBanner.append($closeBtn);
               }
             }, 100);
@@ -45,7 +45,7 @@
   var scriptCode = `
   $(document).ready(function() {
     var $floatingBanner = $('#floatingbanner');
-    var scrollThreshold = 400;
+    var scrollThreshold = 800;
 
     $(window).scroll(function() {
       var scrollPosition = $(this).scrollTop();
@@ -62,7 +62,7 @@
   });
   `;
 
-  var parentElement = window.parent.document.getElementsByTagName('main')[0];
+  var parentElement = window.parent.document.getElementsByTagName('body')[0];
   if (parentElement) {
     var scriptElement = window.parent.document.createElement('script');
     scriptElement.innerHTML = scriptCode;
