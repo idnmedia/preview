@@ -2,13 +2,13 @@
     <head></head>
     <body style="margin: 0">
         
-          
-        
+    <!-- versi 16:9 -->      
+    <!-- template dengan button close tanpa jquery, khusus untuk website pakai react seperti popbela -->    
         
 <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
 <script>
   var FloatingAds = function() {
-    var $floatingBanner = $('<div id="floatingbanner" style="position: fixed; background-color: black; width: 300px; height: 400px; left: -400px; bottom: 15px; z-index: 999; -webkit-transition: all 1s linear 0s; -moz-transition: all 1s linear 0s;-ms-transition: all 1s linear 0s;-o-transition: all 1s linear 0s;transition: all 1s linear 0s; box-shadow: 1px 1px 10px #ccc; border-radius: 10px;"><a href="https://tinyurl.com/jkt48lp" target="_blank"><img src="src/300x80.jpeg" style="max-width: 300px; height: 80px; position: absolute; bottom: 0; left: 0; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;"></a><iframe width="300" height="320" src="https://tinyurl.com/jkt48embed" frameborder="0" scrolling="no" allowfullscreen="true" style="position: absolute; width: 300px; height: 320px; left: 0px; top: 0px; z-index: 1; border-top-right-radius: 10px; border-top-left-radius: 10px;"></iframe></div>');
+    var $floatingBanner = $('<div id="floatingbanner" style="position: fixed; background-color: black; width: 400px; height: 300px; left: -410px; bottom: 15px; z-index: 999; -webkit-transition: all 1s linear 0s; -moz-transition: all 1s linear 0s;-ms-transition: all 1s linear 0s;-o-transition: all 1s linear 0s;transition: all 1s linear 0s; box-shadow: 1px 1px 10px #ccc; border-radius: 10px;"><a href="https://tinyurl.com/jkt48lp" target="_blank"><img src="src/400x75.jpeg" style="max-width: 400px; height: 75px; position: absolute; bottom: 0; left: 0; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;"></a><iframe width="400" height="225" src="https://tinyurl.com/jkt48embed" frameborder="0" scrolling="no" allowfullscreen="true" style="position: absolute; width: 400px; height: 225px; left: 0px; top: 0px; z-index: 1; border-top-right-radius: 10px; border-top-left-radius: 10px;"></iframe></div>');
 
     $(window.parent.document.getElementsByTagName("body")).append($floatingBanner);
 
@@ -29,7 +29,7 @@
           if (counter === 0) {
             clearInterval(countdownInterval);
             $countdown.remove(); // hapus countdown
-            var $closeBtn = $('<div class="close_btn" onclick="$(\'#floatingbanner\').animate({ left: \'-500px\' }, \'fast\', function() { setTimeout(function() { $(\'#floatingbanner\').remove(); }, 1000); });" style="position: absolute; z-index: 999; top: -28px; right: 0px; background-color: #ff0506; font-size: 14px; font-weight: bold; color: white; cursor: pointer; width: 25px; height: 25px; display: flex; align-items: center; justify-content: center; border-radius: 50%;;">X</div>');
+            var $closeBtn = $('<div class="close_btn" onclick="closeFloating()" style="position: absolute; z-index: 999; top: -28px; right: 0px; background-color: #ff0506; font-size: 14px; font-weight: bold; color: white; cursor: pointer; width: 25px; height: 25px; display: flex; align-items: center; justify-content: center; border-radius: 50%;;">X</div>');
             $floatingBanner.append($closeBtn);
           }
         }, 1000);
@@ -38,7 +38,32 @@
   };
 
   FloatingAds();
-</script>      
+</script>  
+        
+<script>
+  // Dalam iframe (dokumen anak):
+  var scriptCode = `
+  function closeFloating() {
+  var floatingBanner = document.getElementById("floatingbanner");
+  if (floatingBanner) {
+    
+    floatingBanner.style.transition = "left 1s ease-in"; 
+    floatingBanner.style.left = "-500px";
+
+    setTimeout(function() {
+      floatingBanner.remove();
+    }, 1300);
+  }
+}
+  `;
+
+  var parentElement = window.parent.document.getElementsByTagName('body')[0];
+  if (parentElement) {
+    var scriptElement = window.parent.document.createElement('script');
+    scriptElement.innerHTML = scriptCode;
+    parentElement.appendChild(scriptElement);
+  }
+</script>     
         
     </body>
 </html>
