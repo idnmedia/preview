@@ -1,0 +1,68 @@
+<html>
+    <body style="margin: 0;">
+        
+    <!-- versi 16:9 -->      
+    <!-- template dengan button close tanpa jquery, khusus untuk website pakai react seperti popbela -->       
+        
+<script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+<script>
+  var FloatingAds = function() {
+    var $floatingBanner = $('<div id="floatingbanner" style="position: fixed; background-color: black; width: 250px; height: 187px; left: -260px; bottom: 90px; z-index: 999; -webkit-transition: all .5s linear 0s; -moz-transition: all .5s linear 0s;-ms-transition: all .5s linear 0s;-o-transition: all .5s linear 0s;transition: all .5s linear 0s; box-shadow: 1px 1px 10px #ccc; border-radius: 8px;"><a href="https://tinyurl.com/idntimeslp" target="_blank"><img src="400x75-kamis.jpeg" style="max-width: 250px; height: 47px; position: absolute; bottom: 0; left: 0; border-bottom-right-radius: 8px; border-bottom-left-radius: 8px;"></a><iframe width="250" height="140" src="https://tinyurl.com/idntimesembed" frameborder="0" scrolling="no" allowfullscreen="true" style="position: absolute; width: 250px; height: 140px; left: 0px; top: 0px; z-index: 1; border-top-left-radius: 8px; border-top-right-radius: 8px;"></iframe></div>');
+
+    $(window.parent.document.getElementsByTagName("body")).append($floatingBanner);
+
+    var counter = 5; // countdown
+    var $countdown = $('<div class="countdown" style="position: absolute; z-index: 999; top: -27px; right: 0; font-size: 14px; color: white; background-color: #b2b2b2; width: 25px; height: 25px; display: flex; align-items: center; justify-content: center; border-radius: 50%; cursor: pointer;">' + counter + '</div>');
+    $floatingBanner.append($countdown);
+
+    var countdownInterval;
+
+    setTimeout(function() {
+      $floatingBanner.animate({
+        left: '5px' // Change left position 
+      }, 500, function() {
+        // Animation complete
+        countdownInterval = setInterval(function() {
+          counter--;
+          $countdown.text(counter);
+          if (counter === 0) {
+            clearInterval(countdownInterval);
+            $countdown.remove(); // hapus countdown
+            var $closeBtn = $('<div class="close_btn" onclick="closeFloating()" style="position: absolute; z-index: 999; top: -28px; right: 0px; background-color: #ff0506; font-size: 14px; font-weight: bold; color: white; cursor: pointer; width: 25px; height: 25px; display: flex; align-items: center; justify-content: center; border-radius: 50%;;">X</div>');
+            $floatingBanner.append($closeBtn);
+          }
+        }, 1000);
+      });
+    }, 5000); // muncul setelah ..
+  };
+
+  FloatingAds();
+</script>
+
+<script>
+  // script untuk close button(x) 
+  var scriptCode = `
+  function closeFloating() {
+  var floatingBanner = document.getElementById("floatingbanner");
+  if (floatingBanner) {
+
+    floatingBanner.style.transition = "left 1s ease-in"; 
+    floatingBanner.style.left = "-500px";
+
+    setTimeout(function() {
+      floatingBanner.remove();
+    }, 1300);
+  }
+}
+  `;
+
+  var parentElement = window.parent.document.getElementsByTagName('body')[0];
+  if (parentElement) {
+    var scriptElement = window.parent.document.createElement('script');
+    scriptElement.innerHTML = scriptCode;
+    parentElement.appendChild(scriptElement);
+  }
+</script>
+
+    </body>
+</html>
