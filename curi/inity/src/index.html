@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Spin Lite Creative</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="formatStyle.css" />
+   
+    <script type="text/javascript" src="https://media.innity.net/lib/TweenMax.min.js?version=1.20.2"></script>
+    <script type="text/javascript" src="Draggable.min.js"></script>
+    <script type="text/javascript" src="ThrowPropsPlugin.min.js"></script>
+    <script type="text/javascript" src="MobilePlatform.js"></script>
+    <script type="text/javascript" src="MobileEngage.js"></script>
+    <script type="text/javascript" src="CoreEngine.js"></script>
+    <script type="text/javascript" src="Spin.js"></script>
+    <script type="text/javascript" src="track.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+    <style>
+      body {
+        overflow: hidden;
+      }
+
+      .sector1 {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0%;
+        top: 0%;
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      .sector2 {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0%;
+        top: 0%;
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      .sector3 {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0%;
+        top: 0%;
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      .sector4 {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0%;
+        top: 0%;
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      #cta {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0%;
+        top: 0%;
+        opacity: 0;
+        pointer-events: none;
+        transform-origin: 50% 38%;
+        -webkit-transform-origin: 50% 38%;
+        animation: loop_cta 0.5s ease infinite;
+        -webkit-animation: loop_cta 0.5s ease infinite;
+      }
+
+      @keyframes loop_cta {
+        0% {
+          transform: scale(1);
+        }
+
+        50% {
+          transform: scale(0.8);
+        }
+
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      @-webkit-keyframes loop_cta {
+        0% {
+          -webkit-transform: scale(1);
+        }
+
+        50% {
+          -webkit-transform: scale(0.8);
+        }
+
+        100% {
+          -webkit-transform: scale(1);
+        }
+      }
+
+      .product {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0%;
+        top: 0%;
+        -webkit-transform: scale(0.5);
+        transform: scale(0.5);
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      .logo {
+        position: absolute;
+        width: 100%;
+        height: auto;
+        left: 0%;
+        top: 0%;
+        pointer-events: none;
+      }
+
+      .logo>img {
+        width: 100%;
+        backface-visibility: hidden;
+      }
+
+      
+	.loop_cta {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                left: 0;
+                top: 0;
+                opacity: 1;
+                animation: loop_cta 1.5s ease infinite;
+                -webkit-animation: loop_cta 1.5s ease infinite;
+            }
+
+            @-webkit-keyframes loop_cta {
+            0% {-webkit-transform: rotate(0);transform: rotate(0);}
+            50% {-webkit-transform: rotate(4deg);transform: rotate(4deg);}
+            100% {-webkit-transform: rotate(0deg);transform: rotate(0deg);}
+            }
+
+            @keyframes loop_cta {
+            0% {-webkit-transform: rotate(0);transform: rotate(0);}
+            50% {-webkit-transform: rotate(4deg);transform: rotate(4deg);}
+            100% {-webkit-transform: rotate(0deg);transform: rotate(0deg);}
+            }
+		
+		.auto-spin-edu {
+        position: absolute;
+        width: 100% !important;
+        left: 0%;
+        top: 0%;
+      }
+
+      .after-spin-looping {
+        -webkit-animation: spinning-slomo 10s linear infinite;
+        animation: spinning-slomo 10s linear infinite;
+      }
+
+      @-webkit-keyframes spinning-slomo {
+        0% {
+          -webkit-transform: rotate(0deg);
+        }
+
+        100% {
+          -webkit-transform: rotate(-360deg);
+        }
+      }
+
+      @keyframes spinning-slomo {
+        0% {
+          -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+        }
+
+        100% {
+          -webkit-transform: rotate(-360deg);
+          transform: rotate(-360deg);
+        }
+      }
+		#cta{
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                left: 0%;
+                top: -0.6%;
+                opacity: 1;
+                -webkit-animation: ctaAnim 0.8s linear infinite;
+                animation: ctaAnim 0.8s linear infinite;
+            }
+
+            @-webkit-keyframes ctaAnim {
+                0% {transform: translateX(0);}
+                50% {transform: translateX(+3px);}
+                100% {transform: translateX(0);}
+            }
+
+            @keyframes ctaAnim {
+                0% {-webkit-transform: translateX(0);}
+                50% {-webkit-transform: translateX(+3px);}
+                100% {-webkit-transform: translateX(0);}
+            }
+    </style>
+  <script type="text/javascript" src="innity.js"></script>
+<script type="text/javascript" src="html5.config_340348.js"></script>
+</head>
+  <body>
+    <div id="apps-ad">
+      <div id="ios-workaround"></div>
+      <div id="ad-invitation">
+        <div class="floating-content">
+          <img src="logo.png" class="logo floating-on-top" alt="" />
+          
+			<img id="cta" src="cta.png" class="floating-on-top" alt="" />
+			<img class="loop_cta"  src="spinnow.png"/>
+        </div>
+        <div id="invitation-content">
+          <img class="invitation-spin-img" src="4pies.png" alt="Invitation Creative" />
+          <img id="sector1" src="1.png" class="sector1" />
+          <img id="sector2" src="2.png" class="sector2" />
+          <img id="sector3" src="3.png" class="sector3" />
+          <img id="sector4" src="4.png" class="sector4" />
+          <img id="top" src="top.png" class="product" />
+          <img id="right" src="right.png" class="product" />
+          <img id="bottom" src="bottom.png" class="product" />
+          <img id="left" src="left.png" class="product">
+          <img class="auto-spin-edu" src="nav.png" />
+		
+		  
+        </div>
+      </div>
+      <script>
+        var materials = [];
+      </script>
+    </div>
+  </body>
+</html>
