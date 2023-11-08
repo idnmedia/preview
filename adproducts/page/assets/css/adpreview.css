@@ -1,5 +1,5 @@
 /* Global style */
-
+ 
 .takethis {
     position: relative;
 }
@@ -82,17 +82,21 @@
 
 .browse_box:hover .browse_ad {
     color: white!important;
-    background-color: #ed2028!important;
+    background-color: #333!important;
 }
 
 
 #bg-image .takess:hover {
     color: white!important;
-    background-color: #ed2028!important;
+    background-color: #333!important;
 }
 #popbela-style .takess:hover {
     color: white!important;
-    background-color: #d41968!important;
+    background-color: #333!important;
+}
+#yummy-style .takess:hover {
+    color: white!important;
+    background-color: #333!important;
 }
 
 .try_ad {
@@ -137,7 +141,7 @@
     cursor: pointer;
 }
 .try_ad input:hover ~ .try_ad .browse_ad {
-background-color: red;
+background-color: #333;
 }
 .try_ad .takess {
    margin-top: 10px;
@@ -499,6 +503,9 @@ background-color: red;
 }
 #DMasthead .banner_ad._popm {
     top: 92px;
+}
+#DMasthead .banner_ad._yummy {
+    top: 59px;
 }
 #DMasthead .banner_ad img {
     width: 370px;

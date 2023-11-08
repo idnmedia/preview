@@ -31,6 +31,14 @@
 #sidebar-wrapper .sidebar-nav li .nakwa li a {
     position: relative;
 }
+
+#sidebar-wrapper .sidebar-nav li .nakpat {
+  background-color: white;
+}
+#sidebar-wrapper .sidebar-nav li .nakpat li a {
+  padding-left: 55px;
+  border-bottom: 1px solid #d8d8d8;
+}
 .pad20 {
     padding: 20px;
 }

@@ -1,4 +1,4 @@
-// js accordion
+// js accordion 
 
 $('.toggle').click(function(e) {
     e.preventDefault();
