@@ -1097,29 +1097,7 @@ h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
 				
 			</div>
 		</div>
-		<div class="read-next">
-			<div class="box">
-				<button class="close-next"><span aria-hidden="true">×</span></button>
-				<div class="link-box">
-					<p>baca juga</p><a class="btn-baca-juga" href="https://www.idntimes.com/hype/humor/ayesha-bachri/kerja-sama-tim-ini-bikin-kerja-berat-jadi-enteng">8 Potret Kocak Kerja Sama Tim Ini Bikin Kerja Berat Jadi Ent...</a>
-				</div>
-				<div class="img"><img alt="8 Potret Kocak Kerja Sama Tim Ini Bikin Kerja Berat Jadi Enteng" src="https://cdn.idntimes.com/content-images/post/20230714/foto-cover-45ff605eb7f4eea78c701af532177c2b.jpg?width=600&amp;height=400"></div>
-			</div>
-		</div>
-		<div class="read-next" id="card-read-next" style="width: 100%">
-			<div class="box" id="skeleton-read-next" style="flex-grow: 1; justify-content: space-between;">
-				<div class="box" style="justify-content: space-between; width: 100%;">
-					<button class="close-next" style="z-index: 100"><span aria-hidden="true">×</span></button>
-					<div class="link-box" style="flex-grow: 1;">
-						<p><span class="skeleton-box" style="width: 30%;"></span></p>
-						<p class="btn-baca-juga"><span class="skeleton-box" style="width: 95%;"></span> <span class="skeleton-box" style="width: 80%;"></span></p>
-					</div>
-					<div class="img">
-						<span class="skeleton-box" style="width: 100px; height: 100px"></span>
-					</div>
-				</div>
-			</div>
-		</div>
+		
 		<article class="article content-insights" data-io-article-url="https://www.idntimes.com/business/finance/vadhia-lidyana-1/ocbc-nisp-cetak-laba-bersih-rp33-triliun-sepanjang?q=ocbc">
 			<header class="article__header" id="article-header">
 				<div class="breadcrumb">
@@ -1844,52 +1822,8 @@ h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
 	           });
 	       });
 	</script> 
-	<script>
-	   $( document ).ready(function() {
-	       getPopularNews();
-	   });
-	   function getPopularNews() {
-	       $.ajax({
-	           url: "https://www.idntimes.com/ajax/popular-news",
-	           type: "GET",
-	           dataType: "json",
-	           complete: function(data) {
-	               if (data.responseText === '<span><\/span>') {
-	                   stopload = true;
-	                   $('#skeleton-read-next').hide();
-	                   return false;
-	               }
-	               $('#skeleton-read-next').hide();
-	               $('#card-read-next').append(data.responseText);
-	               $('#read-next-box').appear();
-	               initJsPopular();
-	               return true;
-	           }
-	       });
-	       
-	       function initJsPopular() {
-	           $("#close-next-popular.close-next").click(function() {
-	               $('.read-next').hide('slow');
-	           });
-	       }
-	   }
-	</script> 
-	<script>
-	       $(document).ready(function() {
-	           $(window).scroll(function() {
-	               if ($(window).scrollTop() > 500 && $(window).scrollTop() < $('.latest__cards').position().top) {
-	                   $('.read-next').addClass('active');
-	                   $('.read-next').removeClass('down-important');
-	               } else if ($(window).scrollTop() > $('.latest__cards').position().top) {
-	                   $('.read-next').removeClass('active');
-	                   $('.read-next').addClass('down-important');
-	               } else {
-	                   $('.read-next').removeClass('active');
-	                   $('.read-next').addClass('down-important');
-	               }
-	           });
-	       });
-	</script> 
+	
+	 
 	<script>
 	   $( document ).ready(function() {
 	       getLatestArticles();
