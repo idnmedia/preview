@@ -3,8 +3,8 @@
 var p; // shortcut to reference prototypes
 var lib={};var ss={};var img={};
 lib.ssMetadata = [
-		{name:"index_atlas_", frames: [[0,1644,1092,135],[0,1507,1092,135],[0,1781,1092,135],[0,685,1092,135],[0,822,1092,135],[0,959,1092,135],[0,1096,1092,135],[0,548,1092,135],[0,1233,1092,135],[0,1370,1092,135],[0,137,1092,135],[0,0,1092,135],[0,274,1092,135],[0,411,1092,135]]},
-		{name:"index_atlas_2", frames: [[0,0,1092,135],[0,137,1092,135],[0,274,1092,135],[0,411,1092,135],[0,548,1092,135],[0,685,1092,135],[0,822,1092,135]]}
+		{name:"index_atlas_", frames: [[0,1096,1092,135],[0,1233,1092,135],[0,1370,1092,135],[0,1781,1092,135],[0,1507,1092,135],[0,1644,1092,135],[0,959,1092,135],[0,685,1092,135],[0,274,1092,135],[0,548,1092,135],[0,411,1092,135],[0,137,1092,135],[0,822,1092,135],[0,0,1092,135]]},
+		{name:"index_atlas_2", frames: [[0,685,1092,135],[0,137,1092,135],[0,274,1092,135],[0,0,1092,135],[0,411,1092,135],[0,548,1092,135],[0,822,1092,135]]}
 ];
 
 
@@ -27,15 +27,15 @@ lib.ssMetadata = [
 
 
 (lib._1tagline = function() {
-	this.initialize(ss["index_atlas_"]);
-	this.gotoAndStop(2);
+	this.initialize(ss["index_atlas_2"]);
+	this.gotoAndStop(0);
 }).prototype = p = new cjs.Sprite();
 
 
 
 (lib._1text = function() {
-	this.initialize(ss["index_atlas_2"]);
-	this.gotoAndStop(0);
+	this.initialize(ss["index_atlas_"]);
+	this.gotoAndStop(2);
 }).prototype = p = new cjs.Sprite();
 
 
@@ -69,85 +69,85 @@ lib.ssMetadata = [
 
 
 (lib._3text = function() {
-	this.initialize(ss["index_atlas_"]);
-	this.gotoAndStop(5);
-}).prototype = p = new cjs.Sprite();
-
-
-
-(lib._4bg = function() {
-	this.initialize(ss["index_atlas_"]);
-	this.gotoAndStop(6);
-}).prototype = p = new cjs.Sprite();
-
-
-
-(lib._4text = function() {
-	this.initialize(ss["index_atlas_"]);
-	this.gotoAndStop(7);
-}).prototype = p = new cjs.Sprite();
-
-
-
-(lib._5bg = function() {
-	this.initialize(ss["index_atlas_"]);
-	this.gotoAndStop(8);
-}).prototype = p = new cjs.Sprite();
-
-
-
-(lib._5text = function() {
-	this.initialize(ss["index_atlas_"]);
-	this.gotoAndStop(9);
-}).prototype = p = new cjs.Sprite();
-
-
-
-(lib._5text2 = function() {
-	this.initialize(ss["index_atlas_"]);
-	this.gotoAndStop(10);
-}).prototype = p = new cjs.Sprite();
-
-
-
-(lib._6bg = function() {
-	this.initialize(ss["index_atlas_"]);
-	this.gotoAndStop(11);
-}).prototype = p = new cjs.Sprite();
-
-
-
-(lib._6free = function() {
-	this.initialize(ss["index_atlas_"]);
-	this.gotoAndStop(12);
-}).prototype = p = new cjs.Sprite();
-
-
-
-(lib._6image = function() {
 	this.initialize(ss["index_atlas_2"]);
 	this.gotoAndStop(3);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib._6periode = function() {
+(lib._4bg = function() {
+	this.initialize(ss["index_atlas_"]);
+	this.gotoAndStop(5);
+}).prototype = p = new cjs.Sprite();
+
+
+
+(lib._4text = function() {
 	this.initialize(ss["index_atlas_2"]);
 	this.gotoAndStop(4);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib._7bg = function() {
+(lib._5bg = function() {
 	this.initialize(ss["index_atlas_2"]);
 	this.gotoAndStop(5);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib._7text = function() {
+(lib._5text = function() {
+	this.initialize(ss["index_atlas_"]);
+	this.gotoAndStop(6);
+}).prototype = p = new cjs.Sprite();
+
+
+
+(lib._5text2 = function() {
 	this.initialize(ss["index_atlas_2"]);
 	this.gotoAndStop(6);
+}).prototype = p = new cjs.Sprite();
+
+
+
+(lib._6bg = function() {
+	this.initialize(ss["index_atlas_"]);
+	this.gotoAndStop(7);
+}).prototype = p = new cjs.Sprite();
+
+
+
+(lib._6free = function() {
+	this.initialize(ss["index_atlas_"]);
+	this.gotoAndStop(8);
+}).prototype = p = new cjs.Sprite();
+
+
+
+(lib._6image = function() {
+	this.initialize(ss["index_atlas_"]);
+	this.gotoAndStop(9);
+}).prototype = p = new cjs.Sprite();
+
+
+
+(lib._6periode = function() {
+	this.initialize(ss["index_atlas_"]);
+	this.gotoAndStop(10);
+}).prototype = p = new cjs.Sprite();
+
+
+
+(lib._7bg = function() {
+	this.initialize(ss["index_atlas_"]);
+	this.gotoAndStop(11);
+}).prototype = p = new cjs.Sprite();
+
+
+
+(lib._7text = function() {
+	this.initialize(ss["index_atlas_"]);
+	this.gotoAndStop(12);
 }).prototype = p = new cjs.Sprite();
 
 

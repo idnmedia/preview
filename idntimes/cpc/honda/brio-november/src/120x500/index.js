@@ -3,7 +3,7 @@
 var p; // shortcut to reference prototypes
 var lib={};var ss={};var img={};
 lib.ssMetadata = [
-		{name:"index_atlas_", frames: [[1274,0,180,750],[1456,0,180,750],[1274,752,180,750],[0,752,180,750],[0,0,180,750],[1456,752,180,750],[1638,0,180,750],[1092,752,180,750],[364,752,180,750],[182,752,180,750],[1092,0,180,750],[910,752,180,750],[728,0,180,750],[546,0,180,750],[546,752,180,750],[910,0,180,750],[182,0,180,750],[728,752,180,750],[364,0,180,750]]}
+		{name:"index_atlas_", frames: [[364,752,180,750],[728,0,180,750],[546,0,180,750],[728,752,180,750],[546,752,180,750],[910,0,180,750],[182,752,180,750],[1274,0,180,750],[182,0,180,750],[910,752,180,750],[364,0,180,750],[1456,0,180,750],[0,752,180,750],[1092,752,180,750],[1638,0,180,750],[1092,0,180,750],[1820,0,180,750],[0,0,180,750],[1274,752,180,750],[1456,752,523,178]]}
 ];
 
 
@@ -142,6 +142,41 @@ lib.ssMetadata = [
 	this.gotoAndStop(18);
 }).prototype = p = new cjs.Sprite();
 
+
+
+(lib.OrangeCar = function() {
+	this.initialize(ss["index_atlas_"]);
+	this.gotoAndStop(19);
+}).prototype = p = new cjs.Sprite();
+
+
+
+(lib.Tween41 = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
+
+	// Layer_1
+	this.instance = new lib.OrangeCar();
+	this.instance.parent = this;
+	this.instance.setTransform(-160.85,-54.75,0.6152,0.6152);
+
+	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
+
+}).prototype = p = new cjs.MovieClip();
+p.nominalBounds = new cjs.Rectangle(-160.8,-54.7,321.70000000000005,109.5);
+
+
+(lib.Tween40 = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
+
+	// Layer_1
+	this.instance = new lib.OrangeCar();
+	this.instance.parent = this;
+	this.instance.setTransform(-160.85,-54.75,0.6152,0.6152);
+
+	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
+
+}).prototype = p = new cjs.MovieClip();
+p.nominalBounds = new cjs.Rectangle(-160.8,-54.7,321.70000000000005,109.5);
 
 
 (lib.Tween39 = function(mode,startPosition,loop) {
@@ -905,6 +940,25 @@ p.nominalBounds = new cjs.Rectangle(-160,-240,120,500);
 }).prototype = p = new cjs.MovieClip();
 
 
+(lib.Scene_1_car = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
+
+	// car
+	this.instance = new lib.Tween40("synched",0);
+	this.instance.parent = this;
+	this.instance.setTransform(180.15,248.75);
+	this.instance._off = true;
+
+	this.instance_1 = new lib.Tween41("synched",0);
+	this.instance_1.parent = this;
+	this.instance_1.setTransform(-46.3,248.75);
+
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[]}).to({state:[{t:this.instance}]},193).to({state:[{t:this.instance_1}]},52).wait(115));
+	this.timeline.addTween(cjs.Tween.get(this.instance).wait(193).to({_off:false},0).to({_off:true,x:-46.3},52).wait(115));
+
+}).prototype = p = new cjs.MovieClip();
+
+
 (lib.Scene_1_bg_5 = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
@@ -1183,6 +1237,19 @@ p.nominalBounds = new cjs.Rectangle(-160,-240,120,500);
 
 	this.timeline.addTween(cjs.Tween.get(this.hl_1).wait(207).to({_off:true},39).wait(114));
 
+	// car_obj_
+	this.car = new lib.Scene_1_car();
+	this.car.name = "car";
+	this.car.parent = this;
+	this.car.depth = 0;
+	this.car.isAttachedToCamera = 0
+	this.car.isAttachedToMask = 0
+	this.car.layerDepth = 0
+	this.car.layerIndex = 9
+	this.car.maskLayerName = 0
+
+	this.timeline.addTween(cjs.Tween.get(this.car).wait(360));
+
 	// bg_obj_
 	this.bg_2 = new lib.Scene_1_bg_2();
 	this.bg_2.name = "bg_2";
@@ -1191,7 +1258,7 @@ p.nominalBounds = new cjs.Rectangle(-160,-240,120,500);
 	this.bg_2.isAttachedToCamera = 0
 	this.bg_2.isAttachedToMask = 0
 	this.bg_2.layerDepth = 0
-	this.bg_2.layerIndex = 9
+	this.bg_2.layerIndex = 10
 	this.bg_2.maskLayerName = 0
 
 	this.timeline.addTween(cjs.Tween.get(this.bg_2).wait(196).to({_off:true},50).wait(114));
@@ -1204,7 +1271,7 @@ p.nominalBounds = new cjs.Rectangle(-160,-240,120,500);
 	this.hl_2.isAttachedToCamera = 0
 	this.hl_2.isAttachedToMask = 0
 	this.hl_2.layerDepth = 0
-	this.hl_2.layerIndex = 10
+	this.hl_2.layerIndex = 11
 	this.hl_2.maskLayerName = 0
 
 	this.timeline.addTween(cjs.Tween.get(this.hl_2).wait(158).to({_off:true},42).wait(160));
@@ -1217,7 +1284,7 @@ p.nominalBounds = new cjs.Rectangle(-160,-240,120,500);
 	this.bg_3.isAttachedToCamera = 0
 	this.bg_3.isAttachedToMask = 0
 	this.bg_3.layerDepth = 0
-	this.bg_3.layerIndex = 11
+	this.bg_3.layerIndex = 12
 	this.bg_3.maskLayerName = 0
 
 	this.timeline.addTween(cjs.Tween.get(this.bg_3).wait(148).to({_off:true},52).wait(160));
@@ -1230,7 +1297,7 @@ p.nominalBounds = new cjs.Rectangle(-160,-240,120,500);
 	this.hl_3.isAttachedToCamera = 0
 	this.hl_3.isAttachedToMask = 0
 	this.hl_3.layerDepth = 0
-	this.hl_3.layerIndex = 12
+	this.hl_3.layerIndex = 13
 	this.hl_3.maskLayerName = 0
 
 	this.timeline.addTween(cjs.Tween.get(this.hl_3).wait(112).to({_off:true},38).wait(210));
@@ -1243,7 +1310,7 @@ p.nominalBounds = new cjs.Rectangle(-160,-240,120,500);
 	this.fiturtext.isAttachedToCamera = 0
 	this.fiturtext.isAttachedToMask = 0
 	this.fiturtext.layerDepth = 0
-	this.fiturtext.layerIndex = 13
+	this.fiturtext.layerIndex = 14
 	this.fiturtext.maskLayerName = 0
 
 	this.timeline.addTween(cjs.Tween.get(this.fiturtext).wait(109).to({_off:true},41).wait(210));
@@ -1256,7 +1323,7 @@ p.nominalBounds = new cjs.Rectangle(-160,-240,120,500);
 	this.bg_4.isAttachedToCamera = 0
 	this.bg_4.isAttachedToMask = 0
 	this.bg_4.layerDepth = 0
-	this.bg_4.layerIndex = 14
+	this.bg_4.layerIndex = 15
 	this.bg_4.maskLayerName = 0
 
 	this.timeline.addTween(cjs.Tween.get(this.bg_4).wait(99).to({_off:true},51).wait(210));
@@ -1269,7 +1336,7 @@ p.nominalBounds = new cjs.Rectangle(-160,-240,120,500);
 	this.hl_4.isAttachedToCamera = 0
 	this.hl_4.isAttachedToMask = 0
 	this.hl_4.layerDepth = 0
-	this.hl_4.layerIndex = 15
+	this.hl_4.layerIndex = 16
 	this.hl_4.maskLayerName = 0
 
 	this.timeline.addTween(cjs.Tween.get(this.hl_4).wait(63).to({_off:true},38).wait(259));
@@ -1282,7 +1349,7 @@ p.nominalBounds = new cjs.Rectangle(-160,-240,120,500);
 	this.bg_5.isAttachedToCamera = 0
 	this.bg_5.isAttachedToMask = 0
 	this.bg_5.layerDepth = 0
-	this.bg_5.layerIndex = 16
+	this.bg_5.layerIndex = 17
 	this.bg_5.maskLayerName = 0
 
 	this.timeline.addTween(cjs.Tween.get(this.bg_5).wait(52).to({_off:true},49).wait(259));
@@ -1295,7 +1362,7 @@ p.nominalBounds = new cjs.Rectangle(-160,-240,120,500);
 	this.hl_5.isAttachedToCamera = 0
 	this.hl_5.isAttachedToMask = 0
 	this.hl_5.layerDepth = 0
-	this.hl_5.layerIndex = 17
+	this.hl_5.layerIndex = 18
 	this.hl_5.maskLayerName = 0
 
 	this.timeline.addTween(cjs.Tween.get(this.hl_5).wait(16).to({_off:true},39).wait(305));
@@ -1309,13 +1376,13 @@ p.nominalBounds = new cjs.Rectangle(-160,-240,120,500);
 	this.bg_6.isAttachedToCamera = 0
 	this.bg_6.isAttachedToMask = 0
 	this.bg_6.layerDepth = 0
-	this.bg_6.layerIndex = 18
+	this.bg_6.layerIndex = 19
 	this.bg_6.maskLayerName = 0
 
 	this.timeline.addTween(cjs.Tween.get(this.bg_6).wait(47).to({_off:true},8).wait(305));
 
 }).prototype = p = new cjs.MovieClip();
-p.nominalBounds = new cjs.Rectangle(-60,-12.8,345.1,795.9);
+p.nominalBounds = new cjs.Rectangle(-147.1,-12.8,488.20000000000005,795.9);
 // library properties:
 lib.properties = {
 	id: 'E4DB16B475640F41B3B0933041D4AE09',
