@@ -1,0 +1,104 @@
+
+@-webkit-keyframes animation{from{opacity:0; -webkit-transform:scale(1.2) rotateX(45deg);transform:scale(1.2) rotateX(45deg);} to{ }}
+
+@-webkit-keyframes animation2{from{opacity:0; -webkit-transform:scale(1.2) rotateX(45deg);transform:scale(1.2) rotateX(45deg);} to{ }}
+
+
+.slider-container {
+    position: relative;
+    background-color: black;
+    height: 320px;
+    width: 100%;
+}
+.slider{
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-animation:animation ease 1s;
+    animation-delay:.8s;
+    animation-fill-mode:backwards;
+    height:250px;
+    width:300px;
+    position: relative;
+    perspective:1000px;
+    transition:ease-in-out .2s;
+}
+/*.slider:active{ -webkit-transform:rotateZ(10deg);}*/
+
+
+.slide img { text-align:center;width:300px; height:250px; -webkit-user-drag:none;user-drag:none;-moz-user-drag:none; border-radius:2px; box-shadow: 2px 1px 10px #000; }
+
+
+.slide{
+    -webkit-user-select:none;
+    user-select:none;
+    -moz-user-select:none;
+    position:absolute;
+    height:300px;
+    width:250px;
+    -webkit-transform-style:preserve-3d;
+    transform-style:preserve-3d;
+    -moz-transform-style:preserve-3d;
+    text-align:center;
+    box-sizing:border-box;    
+}
+.transition {
+     -webkit-transition: cubic-bezier(0,1.95,.49,.73) .4s ;
+   -moz-transition: cubic-bezier(0,1.95,.49,.73) .4s ;
+      transition: cubic-bezier(0,1.95,.49,.73) .4s ;
+}
+
+
+
+
+/* anim swipe */
+
+/* Standard syntax */
+@keyframes swipe {
+
+
+    0% {
+        left: -60px;
+    }
+    20% {
+        left: -60px;
+    }
+    40% {
+        left: 60px;
+    }
+    60% {
+        left: 60px;
+    }
+    80% {
+        left: 60px;
+    }
+    100% {
+        left: -60px;
+    }
+
+
+
+}
+
+.guide-anim {
+    animation: swipe 2s infinite; /* IE 10+, Fx 29+ */
+    animation-timing-function: linear;
+
+}
+img.guide-anim {
+    position: absolute;
+    max-width: 35px;
+    opacity: .6;
+    z-index: 9;
+    bottom: 40px;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+
+
+
