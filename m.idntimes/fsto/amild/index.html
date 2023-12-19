@@ -211,13 +211,28 @@
 	</script>
 	<link href="https://www.idntimes.com/assets/css/mobile.css" rel="stylesheet">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,600;0,700;1,600&display=swap');
         @font-face {
           font-family: Poppins-Bold;
-          src: url(https://www.idntimes.com/assets/fonts/Poppins-Bold.ttf);
+          src: url(fonts/Poppins-Bold.ttf);
         }
-        .categories-nav__link {
-            font-family: 'Poppins', sans-serif;
-            font-weight: bold;
+        @font-face {
+            font-family: "Font Awesome 5 Free";
+            font-style: normal;
+            font-weight: 900;
+            font-display: block;
+            src: url(fonts/fa/fa-solid-900.eot);
+            src: url(fonts/fa/fa-solid-900.eot?#iefix) format("embedded-opentype"), url(fonts/fa/fa-solid-900.woff2) format("woff2"), url(fonts/fa/fa-solid-900.woff) format("woff"), url(fonts/fa/fa-solid-900.ttf) format("truetype"), url(fonts/fa/fa-solid-900.svg#fontawesome) format("svg")
+        }
+        .fa, .fas {
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900
+        }
+        .idn-mini-icon.idn-search {
+          background: url("https://www.idntimes.com/assets/img/icons/search-b.png") no-repeat;
+        }
+        .idn-mini-icon.idn-user {
+          background: url("https://www.idntimes.com/assets/img/icons/profile-b.png") no-repeat;
         }
     </style>
 	<style>
