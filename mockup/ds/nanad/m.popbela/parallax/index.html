@@ -1,0 +1,109 @@
+<html>
+<head>
+    <title>Popbela</title>
+    <link type="image/x-icon" rel="shortcut icon" href="web/fav.png">
+    <meta name="description" content="Preview" itemprop="description" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            background-color: white;
+        }
+
+        body {
+            margin: 0;
+            background-color: white;
+            text-align: center;
+            overflow-x: hidden; /* Added to hide horizontal overflow */
+        }
+        .header img, .body1 img, .body2 img {
+            max-width: 100%; /* Adjusted for responsiveness */
+            height: auto;
+            overflow-x: hidden;
+        }
+        img {
+            max-width: 100%;
+        }
+        .header {
+            position: fixed;
+            top: 0;
+            z-index: 99;
+            left: 0;
+            right: 0;
+            margin: auto;
+        }
+        .banner {
+            position: relative;
+            display: flex;
+            justify-content: center;  
+            left: 0;
+            right: 0;
+            margin: auto;
+        }
+        .infeed {
+            margin-top: 20px;
+            background-color: #ecedee;
+            padding: 10px;
+            height: 350px;
+        }
+        .parallax_luar {
+            width: 100%;
+            height: 350px;
+            position: relative;
+            float: left;
+            margin-bottom: 10px;
+            z-index: 1;
+        }
+        .parallaxA_abs {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            clip: rect(auto,auto,auto,auto);
+        }
+        .parallaxA_fix {
+            max-width: 480px;
+            height: 100%;
+            position: fixed;
+            top: 0px;
+            left: 0;
+            right: 0;
+            margin: auto;
+            padding: 0 10px;
+        }
+        .parallaxA_fix img {
+            width: 100%;
+            height: auto;
+        } 
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="web/header.jpg">
+    </div>
+
+    <div class="body1" style="margin-top: 100px">
+        <img src="web/body1.jpg">
+    </div>
+    
+    <div class="banner infeed">
+        <div class="parallax_luar">
+            <div class="parallaxA_abs">
+                <div class="parallaxA_fix">
+                    <a href="#" target="_blank">
+                        <img src="sumur/640x1280.jpg">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="body2">
+        <img src="web/body2.jpg">
+    </div>
+
+</body>
+</html>
