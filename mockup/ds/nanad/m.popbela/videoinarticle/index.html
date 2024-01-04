@@ -1,0 +1,75 @@
+<html>
+<head>
+    <title>Popbela</title>
+    <link type="image/x-icon" rel="shortcut icon" href="web/fav.png">
+    <meta name="description" content="Preview" itemprop="description" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            background-color: white;
+        }
+
+        body {
+            margin: 0;
+            background-color: white;
+            text-align: center;
+            overflow-x: hidden; /* Added to hide horizontal overflow */
+        }
+        .header img, .body1 img, .body2 img {
+            max-width: 100%; /* Adjusted for responsiveness */
+            height: auto;
+            overflow-x: hidden;
+        }
+        img {
+            max-width: 100%;
+        }
+        .header {
+            position: fixed;
+            top: 0;
+            z-index: 99;
+            left: 0;
+            right: 0;
+            margin: auto;
+        }
+        .banner {
+            position: relative;
+            display: flex;
+            justify-content: center;  
+            left: 0;
+            right: 0;
+            margin: auto;
+        }
+        .infeed {
+            margin-top: 20px;
+            background-color: #ecedee;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="web/header.jpg">
+    </div>
+
+    <div class="body1">
+        <img src="web/body1.jpg">
+    </div>
+    
+    <div class="banner infeed">
+         <div style="position: relative; width: 300px; height: 250px;">                  
+            <span style="position: absolute; font-size: 13px; z-index: 2; color: white; background-color: black; right: 0; bottom: 46px; padding: 0 8px; opacity: .5;">Selengkapnya</span>
+            <video id="videoInBanner" autoplay loop controls muted playsinline preload="metadata" style="width: 300px; height: 250px; position: absolute; z-index: 1; background-color: black; left: 0; right: 0; margin: auto;">
+                <source src="sumur/video-rexona-popbela.mp4" type="video/mp4">
+            </video>   
+        </div> 
+    </div>
+    
+    <div class="body2">
+        <img src="web/body2.jpg">
+    </div>
+
+</body>
+</html>
