@@ -1,0 +1,54 @@
+<html>
+    <head>
+        
+    </head>
+    <body style="margin: 0;">
+
+        
+        
+<div id="StickyBottomAd" style="height: 0px; overflow: hidden; position: fixed; bottom: 0;">
+    <div class="BannerAd" style="display: none;">
+        <a href="https://ad.doubleclick.net/ddm/trackclk/N2224295.3073439IDNTIMES/B31558878.388171871;dc_trk_aid=579498858;dc_trk_cid=210166271;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;tfua=;ltd=;dc_tdv=1" style="position: absolute; z-index: 9; width: 320px; height: 100px;"></a>
+        <iframe src="320x100/index.html" width="320" height="100" frameborder="0" scrolling="no" style="margin-top: 30px;"></iframe>
+        <IMG SRC="https://ad.doubleclick.net/ddm/trackimp/N2224295.3073439IDNTIMES/B31558878.388171871;dc_trk_aid=579498858;dc_trk_cid=210166271;ord=[timestamp];dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;tfua=;gdpr=${GDPR};gdpr_consent=${GDPR_CONSENT_755};ltd=;dc_tdv=1?" attributionsrc BORDER="0" HEIGHT="1" WIDTH="1" ALT="Advertisement"></IMG>
+        <div class="close_ad" style="position: absolute; z-index: 9; top: 0; right: 0; display: block; cursor: pointer;">
+            <img src="https://ads.idntimes.com/cdn/button/close-black-white.png" style="max-width: 27px; cursor: pointer;" alt="">
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+<script type="text/javascript">
+
+if (top != self) {
+    window.frameElement.style.cssText = '-webkit-transition: all .5s linear 0s; -moz-transition: all .5s linear 0s; -ms-transition: all .5s linear 0s; -o-transition: all .5s linear 0s; transition: all .5s linear 0s; height: 130px; position: absolute; bottom: 0; left: 0; right: 0; margin: auto;';
+}
+
+$(document).ready(function () {
+    $('#StickyBottomAd').animate({ 'height': '0px' }, 'fast');
+    $('.BannerAd').animate({ 'height': '0px' }, 'fast');
+
+    $(".close_ad").click(function () {
+        $("#StickyBottomAd").css("display", "none");
+        const data = parent.document.getElementsByClassName('bottom-sticky-ads__wrapper')[0];
+        data.style.minHeight = "0px";
+        data.style.height = "0px";
+    });
+
+    setTimeout(function () {
+        if (top != self) {
+            window.frameElement.style.height = '130px';
+        }
+        $('#StickyBottomAd').animate({ 'height': '130px' }, 'slow');
+        $('.BannerAd').fadeIn('slow');
+        const data = parent.document.getElementsByClassName('bottom-sticky-ads__wrapper')[0];
+        data.style.backgroundColor = "white";
+        data.style.maxHeight = "100px";
+        data.style.height = "100px";
+        data.style.maxWidth = "100%";
+    }, 100);
+});       
+</script>
+
+    </body>
+</html>
