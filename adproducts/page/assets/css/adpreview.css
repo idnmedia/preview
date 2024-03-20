@@ -1,5 +1,10 @@
 /* Global style */
  
+.nempel {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
 .takethis {
     position: relative;
 }
@@ -161,6 +166,14 @@ background-color: #333;
 }   
 
 /* ======== Ad preview style ======== */
+
+/* ==== RMB Desktop ==== */
+#rmb-mockup video {
+    position: relative;
+    max-width: 332px;
+    height: auto;
+    top: 20px;
+}
 
 #capthis {
     display: inline-block;
@@ -371,6 +384,55 @@ background-color: #333;
 
 /* ==== In Article All Desktop ==== */
 
+#Dinarticle .web_box {
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+#Dinarticle .banner_ad {
+    margin: auto;
+    text-align: center;
+    background-color: transparent;
+    padding: 0;
+    position: absolute;
+    z-index: 6;
+}
+#Dinarticle .banner_ad._duniaku {
+    top: 206px;
+    left: 159px
+}
+#Dinarticle .banner_ad._duniaku img {
+    width: 269px;
+    height: 34px;
+}
+
+#Dinarticle .banner_ad._ggwp1 {
+    top: 82px;
+    left: 159px
+}
+#Dinarticle .banner_ad._ggwp2 {
+    top: 190px;
+    left: 159px
+}
+#Dinarticle .banner_ad._ggwp1 img, #Dinarticle .banner_ad._ggwp2 img {
+    width: 269px;
+    height: 34px;
+}
+
+#Dinarticle .banner_ad._fortune {
+    top: 155px;
+    left: 181px;
+}
+#Dinarticle .banner_ad._fortune img {
+    width: 108px;
+    height: 90px;
+}
+
+
+
+
+
+
+
 #Dinarticle_idn .web_box {
     overflow-y: hidden;
     overflow-x: hidden;
@@ -410,8 +472,38 @@ background-color: #333;
 }
 
 
-/* ==== Skinad Desktop IDN ==== */
+/* ==== Skinad Desktop All Style ==== */
 
+#Dskinad .web_box {
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+#Dskinad .banner_ad_L, #Dskinad .banner_ad_R {
+    margin: auto;
+    text-align: center;
+    background-color: transparent;
+    padding: 0;
+    position: absolute;
+    z-index: 6;
+}
+
+/* Skinad Duniaku */
+#Dskinad .banner_ad_L._duniaku {
+    left: 57px;
+    top: 100px;
+}
+#Dskinad .banner_ad_R._duniaku {
+    right: 57px;
+    top: 100px;
+}
+#Dskinad .banner_ad_L._duniaku img, #Dskinad .banner_ad_R._duniaku img {
+    width: 46px;
+    height: 191px;
+}
+
+
+
+/* ==== Skinad Desktop IDN ==== */
 #DSkinad_idn .web_box {
     overflow-y: hidden;
     overflow-x: hidden;
@@ -473,6 +565,38 @@ background-color: #333;
     height: 192px;
 }
 
+/* ==== Skinad Desktop Popmama ==== */
+
+#DSkinad_popm .web_box {
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+#DSkinad_popm .banner_ad_L {
+    left: 26px;
+    top: 83px;
+    margin: auto;
+    text-align: center;
+    background-color: transparent;
+    padding: 0;
+    position: absolute;
+    z-index: 6;
+}
+#DSkinad_popm .banner_ad_R {
+    right: 26px;
+    top: 83px;
+    margin: auto;
+    text-align: center;
+    background-color: transparent;
+    padding: 0;
+    position: absolute;
+    z-index: 6;
+}
+#DSkinad_popm .banner_ad_L img, #DSkinad_popm .banner_ad_R img {
+    width: 50px;
+    height: 203px;
+}
+
+
 
 /* ==== Masthead Desktop IDN ==== */
 
@@ -507,11 +631,21 @@ background-color: #333;
 #DMasthead .banner_ad._yummy {
     top: 59px;
 }
+#DMasthead .banner_ad._duniaku {
+    top: 113px;
+}
+#DMasthead .banner_ad._ggwp {
+    top: 70px;
+}
+#DMasthead .banner_ad._ggwp img {
+    width: 349px;
+    height: 90px;
+}
 #DMasthead .banner_ad img {
     width: 370px;
     height: 95px;
 }
-#DMasthead ._idntimes video {
+#DMasthead ._idntimes video, #DMasthead ._duniaku video {
     width: 145px;
     height: 82px;
     position: absolute;
@@ -539,6 +673,13 @@ background-color: #333;
     top: 6.5px;
     left: 8px; 
 }
+#DMasthead ._ggwp video {
+    width: 135px;
+    height: 82px;
+    position: absolute;
+    top: 5px;
+    left: 19px; 
+}
 
 
 /* ==== Video in Medium Rectangle ==== */
@@ -555,7 +696,7 @@ background-color: #333;
     z-index: 6;
 }
 #videoinbannerMRd .banner_ad._idntimes {
-    right: 90px;
+    right: 91px;
     top: 120px; 
 }
 #videoinbannerMRd .banner_ad._fortune {
@@ -582,7 +723,7 @@ background-color: #333;
 
 #idnmegabillboard .web_box {
    padding-top: 470px;
-   overflow-y: hidden;
+   overflow-y: scroll;
    overflow-x: hidden;
 }
 #idnmegabillboard .web_box:hover {
@@ -604,7 +745,7 @@ background-color: #333;
 #idnmegabillboard .banner_ad img {
     width: 300px;
     height: 450px;
-}
+} 
 
 
 /* ==== Parallax ==== */
@@ -663,6 +804,30 @@ background-color: #333;
     height: 450px;
 }
 
+/* ==== Parallax General ==== */
+
+#Parallax .web_box {
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+#Parallax .banner_ad {
+    left: 0;
+    right: 0;
+    margin: auto;
+    text-align: center;
+    background-color: transparent;
+    padding: 0;
+    position: relative;
+    z-index: 6;
+}
+#Parallax .banner_ad img {
+    width: 282px;
+    height: 423px;
+}
+#Parallax .banner_ad._ggwp {
+    top: 167px;
+}
+
 
 /* ==== In Article All Mobile ==== */
 
@@ -684,6 +849,10 @@ background-color: #333;
 #Minarticle .banner_ad img {
     width: 275px;
     height: 230px;
+}
+
+#Minarticle .banner_ad._ggwp {
+    top: 326px;
 }
 
 
@@ -736,6 +905,7 @@ background-color: #333;
 #leadexp .web_box {
     overflow-y: hidden;
     overflow-x: hidden;
+    background-color: white;
 }
 #leadexp .banner_ad {
     left: 0;
@@ -749,26 +919,16 @@ background-color: #333;
     z-index: 6;
 }
 #leadexp .banner_ad._fortune {
-    left: 0;
-    right: 0;
-    top: 73px;
-    margin: auto;
-    text-align: center;
-    background-color: transparent;
-    padding: 0;
-    position: absolute;
-    z-index: 6;
+    top: 137px;
 }
 #leadexp .banner_ad._popmama {
-    left: 0;
-    right: 0;
     top: 90px;
-    margin: auto;
-    text-align: center;
-    background-color: transparent;
-    padding: 0;
-    position: absolute;
-    z-index: 6;
+}
+#leadexp .banner_ad._duniaku {
+    top: 150px;
+}
+#leadexp .banner_ad._ggwp {
+    top: 127px;
 }
 #leadexp img.site2 {
     padding-top: 320px;
@@ -779,6 +939,13 @@ background-color: #333;
 #Mbottomsticky .web_box {
     overflow-y: hidden;
     overflow-x: hidden;
+}
+#Mbottomsticky .close_button {
+    position: absolute;
+    z-index: 9;
+    max-width: 25px;
+    bottom: 113px;
+    right: 43px;
 }
 #Mbottomsticky .banner_ad {
     left: 0;
@@ -791,11 +958,11 @@ background-color: #333;
     position: absolute;
     z-index: 6;
     width: 290px;
-    height: 45px;
+    height: 91px;
 }
 #Mbottomsticky .banner_ad img {
     width: 290px;
-    height: 45px;
+    height: 91px;
 }
 
 
@@ -853,7 +1020,7 @@ background-color: #333;
     margin: auto;   
 }
 #MMasthead .banner_ad._idntimes {
-    top: 140px;
+    top: 145px;
 }
 #MMasthead .banner_ad._fortune {
     top: 74px;
@@ -863,6 +1030,12 @@ background-color: #333;
 }
 #MMasthead .banner_ad._popmama {
     top: 81px;
+}
+#MMasthead .banner_ad._duniaku {
+    top: 159px;
+}
+#MMasthead .banner_ad._ggwp {
+    top: 113px;
 }
 
 
@@ -955,6 +1128,13 @@ background-color: #333;
 /* ==========  RESPONSIVE ========== */
 
 @media (max-width: 480px) {
+    /* ==== RMB Mobile ==== */
+    #rmb-mockup video {
+        position: relative;
+        max-width: 254px;
+        height: auto;
+        top: 14px;
+    }
     #mastheadsticky {
         width: 230px!important;
     }
@@ -973,11 +1153,6 @@ background-color: #333;
         width: 200px;
         height: 115px;
     }
-    
-    
-    
-    
-    
     .try_ad input {
         left: 0;
         right: 0;
@@ -1035,6 +1210,21 @@ background-color: #333;
     }
     #leadexp .banner_ad {
         top: 110px;
+    }
+    #leadexp .banner_ad._popbela {
+        top: 104px;
+    }
+    #leadexp .banner_ad._popmama {
+        top: 72px;
+    }
+    #leadexp .banner_ad._fortune {
+        top: 66px;
+    }
+    #leadexp .banner_ad._duniaku {
+        top: 120px;
+    }
+    #leadexp .banner_ad._ggwp {
+        top: 102px;
     }
     #leadexp img.site2 {
         padding-top: 250px;
@@ -1137,6 +1327,9 @@ background-color: #333;
     #MMasthead .banner_ad._popmama {
         top: 65px;
     }
+    #MMasthead .banner_ad._duniaku {
+        top: 122px;
+    }
     #videoinbannerMarticle .banner_ad, #videoinbannerMarticle video {
         width: 210px;
         height: 175px;
@@ -1160,7 +1353,24 @@ background-color: #333;
     }
     
     
+    
+    
+    
     /* === Responsive Desktop === */
+    
+    /* Inarticle desktop versi general */
+    
+    #Dinarticle .banner_ad._fortune {
+        top: 76px;
+        left: 90px;
+    }
+    #Dinarticle .banner_ad._fortune img {
+        width: 53px;
+        height: 44px;
+    }
+    
+    
+    /* Masthad desktop */
     
     #DMasthead .banner_ad {
         width: 180px;
@@ -1171,7 +1381,7 @@ background-color: #333;
         width: 180px;
         height: 46px;
     }
-    #DMasthead ._idntimes video {
+    #DMasthead ._idntimes video  {
         width: 65px;
         height: auto;
         top: 4px;
@@ -1195,6 +1405,18 @@ background-color: #333;
         top: 4px;
         left: 5px;
     }
+    #DMasthead ._idntimes video  {
+        width: 65px;
+        height: auto;
+        top: 4px;
+        left: 5px;
+    }
+    #DMasthead ._duniaku video  {
+        width: 70px;
+        height: auto;
+        top: 3px;
+        left: 3px;
+    }
     #DMasthead .banner_ad._idntimes {
         top: 55px;
     }
@@ -1206,6 +1428,12 @@ background-color: #333;
     }
     #DMasthead .banner_ad._popm {
         top: 46px;
+    }
+    #DMasthead .banner_ad._duniaku {
+        top: 57px;
+    }
+    #DMasthead .banner_ad._ggwp {
+        top: 57px;
     }
     
     #videoinbannerMRd .banner_ad, #videoinbannerMRd video {
@@ -1305,13 +1533,276 @@ background-color: #333;
 }
 
 
+#DSkinad_duniaku .banner_ad_L {
+    left: 30px;
+    top: 50px;
+    margin: auto;
+    text-align: center;
+    background-color: transparent;
+    padding: 0;
+    position: absolute;
+    z-index: 6;
+}
+#DSkinad_duniaku .banner_ad_R {
+    right: 52px;
+    top: 50px;
+    margin: auto;
+    text-align: center;
+    background-color: transparent;
+    padding: 0;
+    position: absolute;
+    z-index: 6;
+}
+#DSkinad_duniaku .banner_ad_L img, #DSkinad_duniaku .banner_ad_R img {
+    width: 22px;
+    height: 92px;
+}
 
 
+/* ==== Yummt App ==== */
 
 
+#YummyApp .web_box, #YummyWeb .web_box {
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+/* Lederboard */
+#YummyApp.leaderboard .banner_ad {
+    left: 1px;
+    right: 0;
+    top: 310px;
+    margin: auto;
+    text-align: center;
+    background-color: transparent;
+    padding: 0;
+    position: relative;
+    z-index: 6;
+}
+
+/* sticky */
+#YummyApp.sticky .banner_ad {
+    left: 1px;
+    right: 0;
+    bottom: 62px;
+    margin: auto;
+    text-align: center;
+    background-color: transparent;
+    padding: 0;
+    position: absolute;
+    z-index: 6;
+}
+
+#YummyApp.leaderboard .banner_ad img, #YummyApp.sticky .banner_ad img {
+    width: 300px;
+    height: 48px;
+}
+
+/* middle 1 */
+#YummyApp.middle1 .banner_ad {
+    left: 1px;
+    right: 0;
+    top: 394px;
+    margin: auto;
+    text-align: center;
+    background-color: transparent;
+    padding: 0;
+    position: absolute;
+    z-index: 6;
+}
+#YummyApp.middle1 .banner_ad img {
+    width: 300px;
+    height: 96px;
+}
+
+/* middle 2 */
+#YummyApp.middle1 .banner_ad {
+    left: 1px;
+    right: 0;
+    top: 300px;
+    margin: auto;
+    text-align: center;
+    background-color: transparent;
+    padding: 0;
+    position: absolute;
+    z-index: 6;
+}
+#YummyApp.middle1 .banner_ad img {
+    width: 260px;
+    height: 217px;
+}
+
+/* ==== Yummt Web ==== */
+
+/* mobile leaderboard */
+#YummyWeb.M-leaderboard .banner_ad {
+    left: 1px;
+    right: 0;
+    top: 123px;
+    margin: auto;
+    text-align: center;
+    background-color: transparent;
+    padding: 0;
+    position: absolute;
+    z-index: 6;
+}
+#YummyWeb.M-leaderboard .banner_ad img {
+    width: 270px;
+    height: 227px;
+}
 
 
+/* mobile infeed */
+#YummyWeb.M-infeed .banner_ad {
+    left: 1px;
+    right: 0;
+    top: 234px;
+    margin: auto;
+    text-align: center;
+    background-color: transparent;
+    padding: 0;
+    position: absolute;
+    z-index: 6;
+}
+#YummyWeb.M-infeed .banner_ad img {
+    width: 270px;
+    height: 227px;
+}
 
+/* mobile stickybottom */
+#YummyWeb.M-stickybottom .banner_ad {
+    left: 1px;
+    right: 0;
+    bottom: 23px;
+    margin: auto;
+    text-align: center;
+    background-color: transparent;
+    padding: 0;
+    position: absolute;
+    z-index: 6;
+}
+#YummyWeb.M-stickybottom .banner_ad img {
+    width: 270px;
+    height: 84px;
+}
+
+/* mobile inarticle */
+#YummyWeb.M-inarticle .banner_ad {
+    left: 1px;
+    right: 0;
+    top: 274px;
+    margin: auto;
+    text-align: center;
+    background-color: transparent;
+    padding: 0;
+    position: absolute;
+    z-index: 6;
+}
+#YummyWeb.M-inarticle .banner_ad img {
+    width: 270px;
+    height: 227px;
+}
+
+/* leaderboard */
+#YummyWeb.D-leaderboard .banner_ad {
+    position: absolute;
+    z-index: 9;
+    text-align: center;
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: 60px;
+}
+#YummyWeb.D-leaderboard .banner_ad img {
+    width: 370px;
+    height: 95px;
+}
+
+
+/* stickybottom desktop */
+#YummyWeb.D-stickybottom .banner_ad {
+    position: absolute;
+    z-index: 9;
+    text-align: center;
+    left: 0;
+    right: 0;
+    margin: auto;
+    bottom: 100px;
+}
+#YummyWeb.D-stickybottom .banner_ad img {
+    width: 280px;
+    height: 35px;
+}
+
+/* infeed desktop */
+#YummyWeb.D-infeed .banner_ad {
+    position: absolute;
+    z-index: 9;
+    text-align: center;
+    left: 0;
+    right: 0;
+    margin: auto;
+    bottom: 262px;
+}
+#YummyWeb.D-infeed .banner_ad img {
+    width: 280px;
+    height: 35px;
+}
+
+/* in article desktop */
+#YummyWeb.D-inarticle .banner_ad {
+    position: absolute;
+    z-index: 9;
+    text-align: center;
+    left: 87px;
+    bottom: 258px;
+}
+#YummyWeb.D-inarticle .banner_ad img {
+    width: 267px;
+    height: 33px;
+}
+
+
+/* MR desktop */
+#YummyWeb.D-mediumrectangle .banner_ad {
+    position: absolute;
+    z-index: 9;
+    right: 62px;
+    margin: auto;
+    top: 119px;
+}
+#YummyWeb.D-mediumrectangle .banner_ad img {
+    width: 126px;
+    height: 105px;
+}
+
+
+/* ==== Skinad Desktop yummy ==== */
+
+#YummyWeb .banner_ad_L {
+    left: 35px;
+    top: 66px;
+    margin: auto;
+    text-align: center;
+    background-color: transparent;
+    padding: 0;
+    position: absolute;
+    z-index: 6;
+}
+#YummyWeb .banner_ad_R {
+    right: 33px;
+    top: 66px;
+    margin: auto;
+    text-align: center;
+    background-color: transparent;
+    padding: 0;
+    position: absolute;
+    z-index: 6;
+}
+#YummyWeb .banner_ad_L img, #YummyWeb .banner_ad_R img {
+    width: 46px;
+    height: 220px;
+}
 
 
 

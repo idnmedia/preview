@@ -564,7 +564,7 @@ th, td {
 }
 
 #page-content-wrapper .mobile2-ss img {
-  max-width: 400px;
+  max-width: 320px;
 }
 
 #page-content-wrapper .spec-des {
@@ -599,6 +599,9 @@ th, td {
 }
 #yummy-style #page-content-wrapper .spec-des h1, #yummy-style #page-content-wrapper .spec-des h2 {
     background-color: #f59523;
+}
+#fortune-style #page-content-wrapper .spec-des h1, #yummy-style #page-content-wrapper .spec-des h2 {
+    background-color: #000;
 }
 /*
 #page-content-wrapper .spec-des h1::after {
@@ -672,7 +675,7 @@ th, td {
   margin-right: 0;
 }
 
-#bg-image::before, #popbela-style::before, #popmama-style::before, #yummy-style::before {
+#bg-image::before, #popbela-style::before, #popmama-style::before, #yummy-style::before, #fortune-style::before {
   content: "";
   display: block;
   position: fixed;
@@ -686,7 +689,7 @@ th, td {
   background-size: cover;
 }
 
-#bg-image .spec-des, #popbela-style .spec-des, #popmama-style .spec-des, #yummy-style .spec-des {
+#bg-image .spec-des, #popbela-style .spec-des, #popmama-style .spec-des, #yummy-style .spec-des, #fortune-style .spec-des {
   background-color: #fff;
   -webkit-box-shadow: 0 0 6px rgba(0, 0, 0, 0.15);
           box-shadow: 0 0 6px rgba(0, 0, 0, 0.15);
@@ -738,6 +741,17 @@ th, td {
 
 #yummy-style .spec-des a.preview:hover {
   background-color: #ffb343;
+  color: #fff;
+}
+
+#fortune-style .spec-des a.preview {
+  background-color: transparent;
+  color: #000;
+  border: 2px solid #000;
+}
+
+#fortune-style .spec-des a.preview:hover {
+  background-color: #000;
   color: #fff;
 }
 

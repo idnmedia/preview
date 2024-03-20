@@ -1,4 +1,23 @@
-
+.mockup-pdf object {
+    height: 800px;
+}
+.spec-types p{
+    font-weight: normal;
+    margin-left: 20px;
+}
+.spec-types h4{
+    margin-top: 15px;
+}
+#page-content-wrapper .spec-types ul {
+    padding-left: 5px;
+    list-style:decimal;
+    font-weight: bold;
+}
+#page-content-wrapper .spec-types ul li {
+    margin-left: 30px;
+    list-style:disc;
+    font-weight: normal;
+}
 .newtag span {
     position: absolute;
     font-family: 'Helvetica Neue Light', sans-serif;
@@ -79,4 +98,10 @@
    .overscroll {
         overflow: scroll;
     } 
+    .mockup-pdf object {
+        height: 475px;
+    }
+    .mobile-pad0 {
+        padding: 0!important;
+    }
 }

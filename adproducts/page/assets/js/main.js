@@ -102,3 +102,6 @@ function remove_home_mobile() {
     document.getElementById("iframe_idn").style.marginLeft = "0px";
 }
   
+
+
+
