@@ -1,0 +1,242 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Katibeh&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Acme&display=swap')
+.clearfix{
+    clear: both;
+}
+.clearfix:before, .clearfix:after{
+    content: "";
+    clear: both;
+    display: table;
+}
+.slick-slide {
+    min-height: 110px;
+}
+
+.wts-imsak::after, .wts-subuh::after, .wts-dzuhur::after, .wts-ashar::after, .wts-maghrib::after {
+    position: absolute;
+    content: '';
+    top: 0;
+    right: -1px;
+    height: 100%;
+    width: 1px; /* Ketebalan garis pemisah */
+    background-color: #e4e4e4; /* Warna garis pemisah */
+}
+
+#clock {
+    position: absolute;
+    right: 0;
+    top: 20px;
+    color: #3CB480;
+    font-size: 19px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    background-color: white;
+    padding-right: 20px; 
+}
+.wts-container {
+    position: absolute;
+    display: block;
+    width: 440px;
+    height: 50px;
+    bottom: 11px;
+}
+.wts-container .item {
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #f0cb61;
+    line-height: 18px;
+    width: 73.6px;
+    text-align: center;
+}
+.wts-imsak, .wts-subuh, .wts-dzuhur, .wts-ashar, .wts-maghrib, .wts-isya {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+} 
+.wts-imsak {
+    left: 0px;
+}
+.wts-subuh {
+    left: 73.6px;
+}
+.wts-dzuhur {
+    left: 147.2px;
+}
+.wts-ashar {
+    left: 220.8px;
+}
+.wts-maghrib {
+    left: 294.4px;
+}
+.wts-isya {
+    right: 0px;
+}
+
+.the-day {
+    max-width: 200px;
+    position: relative;
+    left: 224px;
+    top: 13px;
+    font-family: 'Acme', cursive;
+    color: #fff;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+
+.jadwal-box {
+    width: 442px;
+    text-align: center;
+    position: absolute;
+    right: 43px;
+    z-index: 9;
+    bottom: 10px;
+}
+.wts {
+    position: relative;
+    display: block;
+    width: 970px;
+    height: 250px;
+    margin-bottom: 15px;
+    font-family: 'Acme', cursive;
+}    
+.wts a.landingpage {
+    position: absolute;
+    width: 970px;
+    height: 250px;
+}
+.wts-city {
+    position: relative;
+    margin-bottom: 10px!important;
+    display: none;
+}
+.wts-city-prepend {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    z-index: 1;
+}
+.wts-city-prepend img {
+    vertical-align: middle;
+}
+.wts-city .select2-container {
+    display: block;
+    width: 160px!important;
+    position: absolute;
+    min-width: 0;
+    margin-bottom: 0;
+    outline: 0;
+    background-color: transparent;
+    border-radius: 4px 4px;
+    box-shadow: 0px 3px 16px rgba(119, 119, 119, 0.16);
+    left: 50px;
+    top: 17px;
+    z-index: 9;
+}
+.wts-city .select2-container .select2-selection--single {
+    border: 0!important;
+    color: #fff!important;
+    height: 30px!important;
+    background-color: #f0cb61 !important;
+    border-radius: 20px!important;
+    width: 100%;
+    box-shadow: none;
+}
+.select2-container--bootstrap .select2-selection--single .select2-selection__rendered {
+    color: white!important;
+    font-family: 'Acme', sans-serif;
+}
+.select2-container--bootstrap .select2-results > .select2-results__options {
+    max-height: 80px!important;
+}
+.select2-container--bootstrap .select2-selection--single .select2-selection__arrow b {
+    border-color: #fff transparent transparent;
+}
+.wts-city .select2-selection__rendered {
+    font-size: 14px!important;
+    line-height: 17px;
+}
+.wts-city-select-dropdown {
+    font-family: 'Roboto', sans-serif;
+}
+.wts-time {
+    background-color: transparent;
+    border-radius: 4px 4px;
+    height: 110px;
+    overflow: hidden;
+}
+.wts-day {
+    height: 110px;
+    position: relative;
+}
+.wts-day span {
+    display: block;
+}
+.wts-day span.waktusholat {
+    display: block;
+    font-weight: bold;
+    font-family: 'Acme', cursive;
+    color: #5a946b;
+    font-size: 15px;
+    letter-spacing: .8px;
+    font-weight: bold;
+}
+
+.wts-day .slick-slide {
+    font-size: 14px!important;
+    font-weight: bold;
+    color: #000;
+    text-align: center;
+}
+.wts-day .slick-prev:before {
+    content: "\276E";
+    color: #fff;
+}
+.wts-day .slick-next:before {
+    content: "\276F";
+    color: #fff;;
+}
+.wts-day .slick-next {
+    right: 30px;
+    z-index: 2;
+    top: 21px;
+/*
+    background-color: #028b43;
+    border-radius: 20px;
+    width: 25px;
+    height: 25px;
+*/
+}
+.wts-day .slick-prev {
+    left: 236px;
+    z-index: 2;
+    top: 21px;
+}
+.wts-day .slick-next:hover:before, .wts-day .slick-prev:hover:before {
+    color: #fff;
+}
+.wts-time dl {
+    padding: 10px 15px;
+    margin: 0;
+}
+.wts-time dt{
+    float: left;
+    font-size: 14px!important;
+    font-weight: normal;
+    color: #000;
+}
+.wts-time dd{
+    padding-left: 65px;
+    text-align: right;
+    font-size: 14px;
+    color: #777;
+    padding-bottom: 10px!important;
+}
+.wts-time dd:last-child{
+    padding-bottom: 0;
+}
+.select2-container--bootstrap .select2-results__option {
+    font-size: 12px!important;
+    font-family: 'Roboto', sans-serif;
+}

@@ -1,0 +1,197 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Katibeh&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Acme&display=swap')
+.clearfix{
+    clear: both;
+}
+.clearfix:before, .clearfix:after{
+    content: "";
+    clear: both;
+    display: table;
+}
+.slick-next::before, .slick-prev::before {
+    font-size: 11px!important;
+}
+.jadwal-box {
+    width: 282px;
+    z-index: 2;
+    position: absolute;
+    left: 20px;
+    bottom: 25px;
+}
+.wts-container {
+    position: relative;
+    display: block;
+    width: 282px;
+    height: 120px;
+}
+.wts-container .item {
+    border-radius: 10px;
+    width: 70px;
+    font-size: 13px;
+    text-transform: uppercase;
+    color: #f0cb61;
+    line-height: 16px;
+}
+.wts-imsak {
+    position: absolute;
+    left: 13px;
+    bottom: 48px;
+}
+.wts-subuh {
+    position: absolute;
+    left: 104px;
+    bottom: 48px;
+}
+.wts-dzuhur {
+    position: absolute;
+    right: 14px;
+    bottom: 48px;
+}
+.wts-ashar {
+    position: absolute;
+    left: 13px;
+    bottom: 0px;
+}
+.wts-maghrib {
+    position: absolute;
+    left: 105px;
+    bottom: 0px;
+}
+.wts-isya {
+    position: absolute;
+    right: 16px;
+    bottom: 0px;
+}
+.wts {
+    position: relative;
+    display: block;
+    width: 320px;
+    height: 320px;
+    margin-bottom: 15px;
+    font-family: 'Acme', sans-serif;
+} 
+.the-day {
+    max-width: 136px;
+    position: relative;
+    left: 142px;
+    top: 11px;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+.wts a.landingpage {
+    position: absolute;
+    width: 320px;
+    height: 320px;
+}
+.wts-city {
+    position: absolute;
+    display: none;
+    max-width: 130px;
+    z-index: 9;
+    top: 6px;
+}
+.wts-city-prepend {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    z-index: 1;
+}
+.wts-city-prepend img {
+    vertical-align: middle;
+}
+.wts-city .select2-container {
+    display: block;
+    width: 130px!important;
+    position: relative;
+    min-width: 0;
+    outline: 0;
+    background-color: #f0cb61;
+    border-radius: 10px;
+}
+.wts-city .select2-container .select2-selection--single {
+    border: 0!important;
+    color: #fff!important;
+    height: 30px!important;
+    background-color: #f0cb61 !important;
+    border-radius: 10px!important;
+    box-shadow: none;
+}
+.wts-city .select2-selection__rendered {
+    font-size: 12px!important;
+    line-height: 17px;
+}
+.wts-city-select-dropdown {
+    font-family: 'Roboto', sans-serif;
+}
+.wts-time {
+    height: 145px;
+    overflow: hidden;
+}
+.wts-day {
+    
+}
+.wts-day span {
+    padding: 2px;
+    display: block;
+}
+.wts-day span.waktusholat {
+    color: #5a946b;
+    font-family: 'Acme', sans-serif;
+    font-size: 15px;
+}
+.wts-day .slick-slide {
+    font-size: 14px!important;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+}
+.wts-day .slick-prev:before {
+    content: "\276E";
+    color: #fff;
+}
+.wts-day .slick-next:before {
+    content: "\276F";
+    color: #fff;
+}
+.wts-day .slick-next {
+    right: -7px;
+    z-index: 2;
+    top: 20px;
+}
+.wts-day .slick-prev {
+    left: 134px;
+    z-index: 2;
+    top: 20px;
+}
+.wts-day .slick-next:hover:before, .wts-day .slick-prev:hover:before {
+    color: #fff;
+}
+.wts-time dl {
+    padding: 10px 15px;
+    margin: 0;
+}
+.wts-time dt{
+    float: left;
+    font-size: 14px!important;
+    font-weight: normal;
+    color: #000;
+}
+.wts-time dd{
+    padding-left: 65px;
+    text-align: right;
+    font-size: 14px;
+    color: #777;
+    padding-bottom: 10px!important;
+}
+.wts-time dd:last-child{
+    padding-bottom: 0;
+}
+.select2-container--bootstrap .select2-results__option {
+    font-size: 11px!important;
+    font-family: 'Acme', sans-serif;
+}
+.select2-container--bootstrap .select2-selection--single .select2-selection__rendered {
+    font-family: 'Acme', sans-serif;
+    color: #fff!important;
+}
