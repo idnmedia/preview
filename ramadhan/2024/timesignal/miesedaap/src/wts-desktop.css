@@ -1,6 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Katibeh&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Acme&display=swap')
+@import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
+    
+@font-face {
+  font-family: 'Acme'; /* Nama font yang akan digunakan */
+  src: url('Acme-Regular.ttf') format('ttf');
+}
 .clearfix{
     clear: both;
 }
@@ -78,7 +83,7 @@
     position: relative;
     left: 224px;
     top: 13px;
-    font-family: 'Acme', cursive;
+    font-family: "Acme", sans-serif;
     color: #fff;
     font-size: 14px;
     text-transform: uppercase;
@@ -99,7 +104,7 @@
     width: 970px;
     height: 250px;
     margin-bottom: 15px;
-    font-family: 'Roboto', cursive;
+    font-family: "Acme", sans-serif;
 }    
 .wts a.landingpage {
     position: absolute;
@@ -176,7 +181,7 @@
 .wts-day span.waktusholat {
     display: block;
     font-weight: bold;
-    font-family: 'Acme', cursive;
+    font-family: "Acme", sans-serif;
     color: #5a946b;
     font-size: 15px;
     letter-spacing: .8px;
