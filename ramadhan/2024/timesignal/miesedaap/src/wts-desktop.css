@@ -99,7 +99,7 @@
     width: 970px;
     height: 250px;
     margin-bottom: 15px;
-    font-family: 'Acme', cursive;
+    font-family: 'Roboto', cursive;
 }    
 .wts a.landingpage {
     position: absolute;
@@ -145,7 +145,7 @@
 }
 .select2-container--bootstrap .select2-selection--single .select2-selection__rendered {
     color: white!important;
-    font-family: 'Acme', sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 .select2-container--bootstrap .select2-results > .select2-results__options {
     max-height: 80px!important;
