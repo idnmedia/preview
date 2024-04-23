@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SVG Popup</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <style>
+    .popup {
+  display: none;
+  position: absolute;
+        width: 300px;
+        height: 150px;
+  top: 0;
+  left: 0;
+  transform: translateX(-50%);
+  background-color: blue;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.popup.active {
+  display: block;
+}
+
+    </style>
+<svg id="demo-tiger" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1344 476" style="display: inline; width: inherit; min-width: inherit; max-width: inherit; height: inherit; min-height: inherit; max-height: inherit; ">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        stroke-width: 0px;
+      }
+
+      .cls-2 {
+        fill: red;
+      }
+    </style>
+  </defs>
+  <g class="">
+    <rect class="booth1 cls-2" x=".5" y=".5" width="207" height="91"/>
+    <path class="cls-1" d="M207,1v90H1V1h206M208,0H0v92h208V0h0Z"/>
+  </g>
+    
+  <g>
+    <rect class="cls-2" x="292.5" y=".5" width="255" height="91"/>
+    <path class="cls-1" d="M547,1v90h-254V1h254M548,0h-256v92h256V0h0Z"/>
+  </g>
+</svg>
+<div class="popup">
+  This is a popup! awdad awdwd
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+  var booth1Elements = document.querySelectorAll(".booth1");
+
+  booth1Elements.forEach(function(element) {
+    element.addEventListener("mouseenter", function() {
+      var popup = document.querySelector(".popup");
+      popup.classList.add("active");
+    });
+
+    element.addEventListener("mouseleave", function() {
+      var popup = document.querySelector(".popup");
+      popup.classList.remove("active");
+    });
+  });
+});
+
+    </script>
+</body>
+</html>

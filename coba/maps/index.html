@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <script src="svg-pan-zoom.js"></script>
+  </head>
+
+  <body>
+    <h1>Demo for svg-pan-zoom: In-line SVG</h1>
+    <div id="container" style="width: 500px; height: 500px; border:1px solid black; ">
+        <style>
+        .booth1:hover .popup {
+          opacity: 1;
+          display: block;
+            background-color: blue;
+        }
+        .popup {
+              width: 100px;
+              background-color: greenyellow;
+              padding: 1px 20px;
+              position: relative;
+              top: 20px;
+              transition: all 0.25s ease;
+              opacity: 1;
+              display: block;
+            }
+        </style>
+        
+        
+        <div class="popup">coba</div>
+        <?xml version="1.0" encoding="UTF-8"?>
+        
+ <style>
+    .popup {
+  display: none;
+  position: absolute;
+        width: 300px;
+        height: 150px;
+  top: 100px;
+  left: 700px;
+  transform: translateX(-50%);
+  background-color: blue;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.popup.active {
+  display: block;
+}
+
+    </style>
+<svg id="demo-tiger" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1344 476" style="display: inline; width: inherit; min-width: inherit; max-width: inherit; height: inherit; min-height: inherit; max-height: inherit; ">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        stroke-width: 0px;
+      }
+
+      .cls-2 {
+        fill: red;
+      }
+    </style>
+  </defs>
+  <g class="">
+    <rect class="booth1 cls-2" x=".5" y=".5" width="207" height="91"/>
+    <path class="cls-1" d="M207,1v90H1V1h206M208,0H0v92h208V0h0Z"/>
+  </g>
+    
+  <g>
+    <rect class="cls-2" x="292.5" y=".5" width="255" height="91"/>
+    <path class="cls-1" d="M547,1v90h-254V1h254M548,0h-256v92h256V0h0Z"/>
+  </g>
+</svg>
+<div class="popup">
+  This is a popup! awdad awdwd
+</div>
+
+
+        
+        
+     
+    </div>
+    <button id="enable">enable</button>
+    <button id="disable">disable</button>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+  var booth1Elements = document.querySelectorAll(".booth1");
+
+  booth1Elements.forEach(function(element) {
+    element.addEventListener("mouseenter", function() {
+      var popup = document.querySelector(".popup");
+      popup.classList.add("active");
+    });
+
+    element.addEventListener("mouseleave", function() {
+      var popup = document.querySelector(".popup");
+      popup.classList.remove("active");
+    });
+  });
+});
+
+    </script>
+        
+    <script>
+      // Don't use window.onLoad like this in production, because it can only listen to one function.
+      window.onload = function() {
+        // Expose to window namespase for testing purposes
+        window.zoomTiger = svgPanZoom('#demo-tiger', {
+          zoomEnabled: true,
+          controlIconsEnabled: true,
+          fit: true,
+          center: true,
+          // viewportSelector: document.getElementById('demo-tiger').querySelector('#g4') // this option will make library to misbehave. Viewport should have no transform attribute
+        });
+
+        document.getElementById('enable').addEventListener('click', function() {
+          window.zoomTiger.enableControlIcons();
+        })
+        document.getElementById('disable').addEventListener('click', function() {
+          window.zoomTiger.disableControlIcons();
+        })
+      };
+    </script>
+
+  </body>
+
+</html>
