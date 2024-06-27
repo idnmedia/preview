@@ -55,11 +55,14 @@
         </section>
         
         <section>
-            <div class="container-fluid ads" style="position: fixed; z-index: 9; bottom: 0;">
-                <a href="#" target="_blank">
-                    <img src="320x100.jpg" width="320" height="100">
-                        
-                </a>
+            <div id="myDiv" class="container-fluid ads" style="position: fixed; z-index: 9; bottom: 0; width: 100%; background-color: white;">
+                <div style="position: relative; max-width: 320px; left: 0; right: 0; margin: auto">
+                    <img src="https://ads.idntimes.com/cdn/button/close-black-white.png" id="closeBtn" style="max-width: 30px; position: absolute; right: 0; top: -30px;">
+                    <a href="#" target="_blank">
+                        <img src="320x100.jpg" width="320" height="100">
+                    </a>
+                </div>
+                
             </div>
         </section>
         
@@ -95,4 +98,10 @@
         
        
     </body>
+    <script>
+        document.getElementById('closeBtn').addEventListener('click', function() {
+            document.getElementById('myDiv').style.display = 'none';
+        });
+
+    </script>
 </html>
