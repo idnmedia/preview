@@ -1,0 +1,149 @@
+<html>
+    <head></head>
+    <body style="margin: 0">
+    
+        
+<!-- versi 16:9 -->  
+<!-- versi tanpa banner, video only -->
+<!-- template dengan button close tanpa jquery, -->    
+        
+<script>
+  var FloatingAds = function() {
+    var floatingBanner = document.createElement('div');
+    floatingBanner.id = "floatingbanner";
+    floatingBanner.style.position = "relative";
+    floatingBanner.style.backgroundColor = "black";
+    floatingBanner.style.left = "0px";
+    floatingBanner.style.right = "0px";
+    floatingBanner.style.margin = "auto";
+    floatingBanner.style.width = "760px";
+    floatingBanner.style.height = "430px";
+    floatingBanner.style.zIndex = "1"; // Mengatur nilai z-index
+    floatingBanner.style.borderRadius = "10px";
+    floatingBanner.innerHTML = '<iframe id="floatingiframe" width="760" height="430" src="https://www.idn.app/embed/live-music-tuesday-230522233933?auto_play=1&mute=1" frameborder="0" scrolling="no" allowfullscreen="true" style="z-index: 1; border-radius: 10px;"></iframe>';
+
+    var parentElement = window.parent.document.getElementById("inarticle1xx");
+    if (parentElement) {
+      parentElement.appendChild(floatingBanner);
+    }
+  };
+
+  setTimeout(FloatingAds, 1000); // after 1 second
+
+  // Dalam iframe (dokumen anak):
+  var scriptCode = `
+  var closeBtn;
+
+  function toggleCloseButton(show) {
+    if (show) {
+      if (!closeBtn) {
+        closeBtn = document.createElement('div');
+        closeBtn.className = "close_btn";
+        closeBtn.setAttribute("onclick", "closeFloating()");
+        closeBtn.style.position = "absolute";
+        closeBtn.style.zIndex = "999";
+        closeBtn.style.top = "-28px";
+        closeBtn.style.right = "0px";
+        closeBtn.style.backgroundColor = "#ff0506";
+        closeBtn.style.fontSize = "14px";
+        closeBtn.style.fontWeight = "bold";
+        closeBtn.style.color = "white";
+        closeBtn.style.cursor = "pointer";
+        closeBtn.style.width = "25px";
+        closeBtn.style.height = "25px";
+        closeBtn.style.display = "flex";
+        closeBtn.style.alignItems = "center";
+        closeBtn.style.justifyContent = "center";
+        closeBtn.style.borderRadius = "50%";
+        closeBtn.innerHTML = '<img src="https://ads.idntimes.com/cdn/button/close-red-white.png"/>';
+        document.getElementById("floatingbanner").appendChild(closeBtn);
+      } else {
+        closeBtn.style.display = "block";
+      }
+    } else {
+      if (closeBtn) {
+        closeBtn.style.display = "none";
+      }
+    }
+  }
+
+  function closeFloating() {
+    var floatingBanner = document.getElementById("floatingbanner");
+    if (floatingBanner) {
+      floatingBanner.style.transition = "left 1s ease-in"; 
+      floatingBanner.style.left = "-500px";
+
+      setTimeout(function() {
+        floatingBanner.remove();
+      }, 1300);
+    }
+  }
+
+  // Mendeteksi pergerakan scroll dan mengubah posisi floatingBanner menjadi fixed
+  window.addEventListener('scroll', function() {
+    var inarticleRect = document.getElementById("inarticle1xx").getBoundingClientRect();
+    var floatingBanner = document.getElementById("floatingbanner");
+    var floatingIframe = document.getElementById("floatingiframe");
+    var inarticle1xx = document.getElementById("inarticle1xx"); // Mengambil elemen inarticle1xx
+    if (inarticleRect.top < -250 && floatingBanner) {
+        floatingBanner.style.position = "fixed";
+        floatingBanner.style.bottom = "10px";
+        floatingBanner.style.left = "10px";
+        floatingBanner.style.margin = "unset";
+        floatingBanner.style.width = "400px";
+        floatingBanner.style.height = "225px";
+        floatingBanner.style.zIndex = "9999"; 
+        floatingIframe.style.width = "400px";
+        floatingIframe.style.height = "225px";
+        toggleCloseButton(true); // Tampilkan tombol close saat mode minimize
+
+        // ID gpt dari slot banner
+        if (inarticle1xx) {
+            inarticle1xx.style.height = "400px"; 
+        }
+    } else if (floatingBanner) {
+        floatingBanner.style.position = "relative";
+        floatingBanner.style.bottom = "auto";
+        floatingBanner.style.left = "0px";
+        floatingBanner.style.right = "0px";
+        floatingBanner.style.margin = "auto";
+        floatingBanner.style.width = "760px"; 
+        floatingBanner.style.height = "430px"; 
+        floatingBanner.style.zIndex = "1"; 
+        floatingIframe.style.width = "760px"; 
+        floatingIframe.style.height = "430px"; 
+        toggleCloseButton(false); // Sembunyikan tombol close saat mode normal
+
+        // ID gpt dari slot banner
+        if (inarticle1xx) {
+            inarticle1xx.style.height = ""; 
+        }
+    }
+});
+
+  `;
+
+  var parentElement = window.parent.document.getElementById('inarticle1xx');
+  if (parentElement) {
+    var scriptElement = window.parent.document.createElement('script');
+    scriptElement.innerHTML = scriptCode;
+    parentElement.appendChild(scriptElement);
+
+    // Mengubah ukuran width dan height dari iframe
+    var iframeElement = parentElement.querySelector('iframe');
+    if (iframeElement) {
+      iframeElement.style.width = '1px'; 
+      iframeElement.style.height = '1px'; 
+    }
+  }
+</script>
+
+
+
+
+
+
+
+        
+    </body>
+</html>

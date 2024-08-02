@@ -1,0 +1,61 @@
+<html>
+    <head></head>
+    <body style="margin: 0">
+        
+<!-- versi 16:9 -->  
+<!-- versi tanpa banner, video only -->
+<!-- template dengan button close tanpa jquery, -->    
+        
+<!--<script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>-->
+ 
+<a href="#" target="_blank">
+    <img src="120x600.jpg" width="120px" height="auto">
+</a>
+        
+<script>
+  // Dalam iframe (dokumen anak):
+  var scriptCode = `
+      document.addEventListener('DOMContentLoaded', function() {
+        var skinAdsElements = document.querySelectorAll('.skin-ads');
+        if (skinAdsElements.length > 0) {
+            var defaultTop = '461px';
+            var scrolledTop = '388px';
+            var lastScrollTop = 0;
+
+            // Tambahkan transisi langsung ke setiap elemen .skin-ads
+            skinAdsElements.forEach(function(skinAds) {
+                skinAds.style.transition = 'top 0.8s ease';
+                skinAds.style.top = defaultTop;
+            });
+
+            // Tambahkan event listener untuk mengubah nilai saat melakukan scroll
+            window.addEventListener('scroll', function() {
+                var currentScrollTop = window.scrollY || window.pageYOffset;
+
+                // Iterasi setiap elemen .skin-ads dan atur nilai top-nya
+                skinAdsElements.forEach(function(skinAds) {
+                    if (currentScrollTop > lastScrollTop) {
+                        // Scroll down
+                        skinAds.style.top = scrolledTop;
+                    } else {
+                        // Scroll up
+                        skinAds.style.top = defaultTop;
+                    }
+                });
+
+                lastScrollTop = currentScrollTop;
+            });
+        }
+    });
+  `;
+
+  var parentElement = window.parent.document.getElementsByTagName('body')[0];
+  if (parentElement) {
+    var scriptElement = window.parent.document.createElement('script');
+    scriptElement.innerHTML = scriptCode;
+    parentElement.appendChild(scriptElement);
+  }
+</script>     
+        
+    </body>
+</html>
