@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+
+        html, body {
+            background-image: url(tropicalislandsfeature.jpg);
+            background-size: cover;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            font-family: "Space Grotesk", sans-serif;
+        }
+
+        .solar-system {
+            display: flex;
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+            height: 100vh; /* Full viewport height */
+            overflow: hidden;
+        }
+
+        .system1, .system2, .system3 {
+            position: relative;
+            width: 320px;
+            height: 320px;
+            margin: 0 10px; /* Space between solar systems */
+        }
+
+        .countdown {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #fff;
+            text-align: center;
+            font-size: 48px;
+            font-weight: bold;
+        }
+
+        .countdown span {
+            display: block;
+        }
+        span.desc {
+            font-size: 30px;
+            text-transform: uppercase;
+        }
+        #days, #hours, #minutes {
+            font-size: 130px;
+            line-height: 100px;
+        }
+
+        /* Some positioning rules that are common for all objects */
+        .orbit {
+            border: 2px solid #fff;
+        }
+
+        #tengah, .orbit, .orbit + div, .orbit + div > div {
+            position: absolute;
+        }
+
+        #tengah, .orbit, .orbit + div {
+            top: 50%;
+            left: 50%;
+        }
+        .orbit + div > div {
+            top: 0;
+            left: 50%;
+        }
+
+        .orbit, .orbit + div div, #earth {
+            border-radius: 50%;
+        }
+
+        /* Individual objects rules */
+        #tengah {
+            height: 180px;
+            width: 180px;
+            margin-top: -90px; 
+            margin-left: -90px;
+        }
+
+        #planet-luar {
+            margin-top: -10px;
+            margin-left: -10px;
+            height: 20px;
+            width: 20px;
+            background-color: #fff;
+        }
+        .orbit-luar, .planet-luar-spin {
+            margin-top: -150px;
+            margin-left: -150px;
+            width: 300px;
+            height: 300px;
+            background-color: rgba(0, 0, 0, 0.15); 
+            border-radius: 100%;
+            border: 2px solid #fff;
+        }
+
+        #planet-dalam {
+            margin-top: -6.5px;
+            margin-left: -6.5px;
+            height: 15px;
+            width: 15px;
+            background-color: #fff;
+        }
+
+        .orbit-dalam, .planet-dalam-spin {
+            width: 250px;
+            height: 250px;
+            margin-left: -125px;
+            margin-top: -125px;   
+        }
+
+        /* Spinning animations */
+        @keyframes spin-right {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        .planet-luar-spin {
+            animation: spin-right 22s linear infinite;
+        }
+        .planet-dalam-spin {
+            animation: spin-right 8.8s linear infinite;
+        }
+    </style>
+    <title>Solar System Countdown</title>
+</head>
+<body>
+    <div class="solar-system">
+        <div class="system1">
+            <div class="orbit orbit-luar"></div>
+            <div class="planet-luar-spin">
+                <div id="planet-luar"></div>
+            </div>
+            
+            <div class="orbit orbit-dalam"></div>
+            <div class="planet-dalam-spin">
+                <div id="planet-dalam"></div>
+            </div>
+            
+            <div id="tengah"></div>
+            
+            <div class="countdown" id="countdown1">
+                <span id="days">0</span>
+                <span class="desc">Days</span>
+            </div>
+        </div>
+        
+        <div class="system2">
+            <div class="orbit orbit-luar"></div>
+            <div class="planet-luar-spin">
+                <div id="planet-luar"></div>
+            </div>
+            
+            <div class="orbit orbit-dalam"></div>
+            <div class="planet-dalam-spin">
+                <div id="planet-dalam"></div>
+            </div>
+            
+            <div id="tengah"></div>
+            
+            <div class="countdown" id="countdown2">
+                <span id="hours">0</span>
+                <span class="desc">Hours</span>
+            </div>
+        </div>
+        
+        <div class="system3">
+            <div class="orbit orbit-luar"></div>
+            <div class="planet-luar-spin">
+                <div id="planet-luar"></div>
+            </div>
+            
+            <div class="orbit orbit-dalam"></div>
+            <div class="planet-dalam-spin">
+                <div id="planet-dalam"></div>
+            </div>
+            
+            <div id="tengah"></div>
+            
+            <div class="countdown" id="countdown3">
+                <span id="minutes">0</span>
+                <span class="desc">Minutes</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function updateCountdown() {
+            const targetDate = new Date("2024-08-17T00:00:00");
+
+            const now = new Date();
+            const diff = targetDate - now;
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+
+            document.getElementById('days').textContent = days;
+            document.getElementById('hours').textContent = hours;
+            document.getElementById('minutes').textContent = minutes;
+
+            setTimeout(updateCountdown, 60000); // Update every minute
+        }
+
+        updateCountdown();
+    </script>
+</body>
+</html>
