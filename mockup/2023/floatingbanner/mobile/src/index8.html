@@ -1,0 +1,170 @@
+<html>
+    <body style="margin: 0;">
+        
+<!-- video only 16:9 -->
+        <!-- Video CDN -->
+        <!-- Auto Close -->
+
+<script>
+  var FloatingAds = function() {
+    var floatingBanner = document.createElement('div');
+    floatingBanner.id = "floatingbanner";
+    floatingBanner.style.position = "relative";
+    floatingBanner.style.backgroundColor = "black";
+    floatingBanner.style.width = "200px";
+    floatingBanner.style.height = "120px";
+    floatingBanner.style.left = "-260px";
+    floatingBanner.style.bottom = "0px";
+    floatingBanner.style.zIndex = "999";
+    floatingBanner.style.transition = "all .5s linear 0s";
+    floatingBanner.style.boxShadow = "1px 1px 10px #ccc";
+    floatingBanner.style.borderRadius = "8px";
+
+    var video = document.createElement('video');
+    video.width = 200;
+    video.height = 120;
+    video.src = "https://idnmedia.github.io/preview/ggwp/fsto/ro-origin/video.mp4"; // Ganti dengan URL video dari CDN
+    video.controls = false;
+    video.muted = true;
+    video.style.position = "absolute";
+    video.style.width = "200px";
+    video.style.height = "120px";
+    video.style.left = "0px";
+    video.style.top = "0px";
+    video.style.zIndex = "1";
+    video.style.borderRadius = "8px";
+
+    video.addEventListener('ended', function() {
+      closeFloating();
+    });
+
+    var overlayLink = document.createElement('a');
+    overlayLink.href = "https://www.idntimes.com/"; // Ganti dengan URL landing page
+    overlayLink.target = "_blank";
+    overlayLink.style.position = "absolute";
+    overlayLink.style.width = "200px";
+    overlayLink.style.height = "120px";
+    overlayLink.style.left = "0px";
+    overlayLink.style.top = "0px";
+    overlayLink.style.zIndex = "2";
+    overlayLink.style.display = "block";
+    overlayLink.style.borderRadius = "8px";
+
+    var countdown = document.createElement('div');
+    countdown.className = "countdown";
+    countdown.style.position = "absolute";
+    countdown.style.zIndex = "999";
+    countdown.style.bottom = "5px";
+    countdown.style.right = "10px";
+    countdown.style.fontSize = "12px";
+    countdown.style.color = "white";
+    countdown.style.textShadow = "1px 1px 2px black";
+    countdown.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
+    countdown.style.padding = "2px 5px";
+    countdown.style.borderRadius = "4px";
+
+    floatingBanner.appendChild(video);
+    floatingBanner.appendChild(overlayLink);
+    floatingBanner.appendChild(countdown);
+
+    var bottomStickyContent = window.parent.document.getElementsByClassName("bottom-sticky-content")[0];
+    if (bottomStickyContent) {
+      bottomStickyContent.prepend(floatingBanner);
+    }
+
+    setTimeout(function() {
+      floatingBanner.style.transition = "all .5s linear 0s";
+      floatingBanner.style.left = "10px";
+      
+      // Play the video after banner appears
+      video.play();
+    }, 3000);
+
+    video.addEventListener('timeupdate', updateCountdown);
+
+    // Show close button after video has played for 3 seconds
+    video.addEventListener('play', function() {
+      setTimeout(function() {
+        var closeBtn = document.createElement('div');
+        closeBtn.className = "close_btn";
+        closeBtn.style.position = "absolute";
+        closeBtn.style.zIndex = "999";
+        closeBtn.style.top = "-28px";
+        closeBtn.style.right = "0px";
+        closeBtn.style.backgroundColor = "#ff0506";
+        closeBtn.style.fontSize = "14px";
+        closeBtn.style.fontWeight = "bold";
+        closeBtn.style.color = "white";
+        closeBtn.style.cursor = "pointer";
+        closeBtn.style.width = "25px";
+        closeBtn.style.height = "25px";
+        closeBtn.style.display = "flex";
+        closeBtn.style.alignItems = "center";
+        closeBtn.style.justifyContent = "center";
+        closeBtn.style.borderRadius = "50%";
+        closeBtn.textContent = "X";
+        closeBtn.onclick = function() {
+          closeFloating();
+        };
+
+        floatingBanner.appendChild(closeBtn);
+      }, 3000); // 3 seconds
+    });
+
+    function updateCountdown() {
+      var remainingTime = Math.ceil(video.duration - video.currentTime);
+      countdown.textContent = remainingTime + "s";
+      if (remainingTime > 0) {
+        requestAnimationFrame(updateCountdown);
+      }
+    }
+  };
+
+  FloatingAds();
+
+  function closeFloating() {
+    var floatingBanner = window.parent.document.getElementById("floatingbanner");
+    if (floatingBanner) {
+      floatingBanner.style.transition = "left 1s ease-in";
+      floatingBanner.style.left = "-500px";
+
+      setTimeout(function() {
+        floatingBanner.remove();
+      }, 1300);
+    }
+  }
+</script>
+
+<script>
+  // Script untuk close button (x)
+  var scriptCode = `
+    function closeFloating() {
+      var floatingBanner = window.parent.document.getElementById("floatingbanner");
+      if (floatingBanner) {
+        floatingBanner.style.transition = "left 1s ease-in";
+        floatingBanner.style.left = "-500px";
+
+        setTimeout(function() {
+          floatingBanner.remove();
+        }, 1300);
+      }
+    }
+  `;
+
+  var parentElement = window.parent.document.getElementsByTagName('body')[0];
+  if (parentElement) {
+    var scriptElement = window.parent.document.createElement('script');
+    scriptElement.innerHTML = scriptCode;
+    parentElement.appendChild(scriptElement);
+  }
+</script>
+
+
+
+
+
+
+
+
+    </body>
+</html>
