@@ -1,0 +1,18 @@
+<html>
+    <body style="margin: 0">
+        <a href="#" target="_blank">
+            <img src="320x480.jpg" style="max-width: 320px; height: 480px;">
+        </a>
+        <script>
+            if (top !== self) {
+                var frameElement = window.frameElement;
+                if (frameElement) {
+                    frameElement.style.transition = "all .5s linear 0s";
+                    frameElement.style.margin = "auto";
+                    frameElement.style.width = "320px";
+                    frameElement.style.height = "480px";
+                }
+            }
+        </script>
+    </body>
+</html>
