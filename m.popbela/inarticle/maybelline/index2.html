@@ -1,0 +1,94 @@
+<html>
+<head>
+    <title>Popbela</title>
+    <link type="image/x-icon" rel="shortcut icon" href="web/favicon.png">
+    <meta name="description" content="Preview" itemprop="description" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        *, ::before, ::after {
+          box-sizing: border-box;
+        }
+        .container, .container-fluid{
+          --bs-gutter-x: 1.5rem;
+          --bs-gutter-y: 0;
+          width: 100%;
+          margin-right: auto;
+          margin-left: auto;
+            text-align: center;
+        }
+        .img-fluid {
+          max-width: 100%;
+          height: auto;
+        }
+        html, body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            background-color: white;
+        }
+
+        body {
+            margin: 0;
+            background-color: white;
+            text-align: center;
+            overflow-x: hidden; /* Added to hide horizontal overflow */
+        }
+        .header img, .body1 img, .body2 img {
+            max-width: 100%; /* Adjusted for responsiveness */
+            height: auto;
+            overflow-x: hidden;
+        }
+        img {
+            max-width: 100%;
+        }
+        .header {
+            position: fixed;
+            top: 0;
+            z-index: 99;
+            left: 0;
+            right: 0;
+            margin: auto;
+        }
+        .banner {
+            position: relative;
+            display: flex;
+            justify-content: center;  
+            left: 0;
+            right: 0;
+            margin: auto;
+        }
+        .infeed {
+            margin-top: 20px;
+            background-color: #ecedee;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="web/header.jpg">
+    </div>
+    <div class="body1" style="margin-top: 140px;">
+        <img src="web/body1.jpg">
+    </div>
+    <!-- inarticle -->
+    <div class="banner infeed">
+        <a href="https://www.maybelline.co.id/brave-together" target="_blank">
+            <img src="300x250-2.jpg" style="max-width: 100%; height: auto;">
+        </a>
+    </div>
+    <div class="body2" style="margin-top: 20px;">
+        <img src="web/body2.jpg">
+    </div>
+    
+    <div class="banner infeed">
+        <a href="https://www.maybelline.co.id/brave-together" target="_blank">
+            <img src="300x250-2.jpg" style="max-width: 100%; height: auto;">
+        </a>
+    </div>
+    
+    <div class="body3" style="margin-top: 20px;">
+        <img src="web/body3.jpg">
+    </div>
+</body>
+</html>
