@@ -1,0 +1,110 @@
+<html>
+    <head></head>
+    
+    <body style="margin: 0">
+        <style>
+            #bottom_slide {
+                width: 320px;
+                height: 100px;
+                overflow: hidden;
+                left: 0;
+                right: 0;
+                margin: auto;
+                position: fixed;
+                display: block;
+                text-align: center;
+                bottom: 0;
+            }
+            #bottom_slide .bs_sticky { 
+                width: 320px; 
+                height: 100px;
+                position: fixed;
+                bottom: 0;
+            }
+            #bottom_slide .bs_ad { 
+                width:320px; 
+                height:480px; 
+                display: none;
+            }
+            .close_bs {
+                position: absolute;
+                display: block;
+                z-index: 9;
+                top: 0;
+                right: 0;
+            }
+            .close_bs > img {
+                max-width: 60px;
+                height: auto;
+            }
+            .close_all > img {
+                max-width: 25px;
+                position: absolute;
+                top: 0;
+                z-index: 99;
+                right: 5px;
+                float: right;
+            }
+        </style>   
+        <div id="bottom_slide">
+            <div class="bs_sticky">
+                <img src="320x100.jpg" style="max-width: 320px; height: auto;">
+            </div>
+            <div class="bs_ad">
+                <a href="{clickurl}" target="_blank">
+                    <img src="320x480-bs.png" style="max-width: 320px; height: 480px;">
+                </a>
+                <div class="close_bs">
+                    <img src="https://ads.idn.media/cdn/button/close-red-white-rectangle.gif" alt="">
+                </div>
+            </div>
+            <div class="close_all">
+                <img src="https://ads.idn.media/cdn/button/close-black-white.png" alt="">
+            </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+        <script>
+            if(top!=self){
+                window.frameElement.style = '-webkit-transition: all .5s linear 0s; -moz-transition: all .5s linear 0s;-ms-transition: all .5s linear 0s;-o-transition: all .5s linear 0s;transition: all .5s linear 0s; height: 480px; position: fixed; bottom: 0; left:0; right:0; margin:auto;';
+            }
+            
+//            $(window.parent.document.getElementsByTagName("main")).css({'z-index':'1'});
+            $(window.parent.document.getElementsByClassName("ssb-content")).animate({'height':'480px'},"slow");
+            $(window.parent.document.getElementById("idn_ads_bottom_sticky_close_button")).css({'display':'none'});
+            $('#bottom_slide').animate({'height':'480px'},"slow");
+            $('.close_all').css({'display':'none'});
+            $('.bs_sticky').animate({'height':'0px'},"slow");
+            $('.bs_ad').fadeIn('slow');
+
+            $('.bs_sticky').click(function() {
+                if(top!=self){
+                    window.frameElement.style.height = '480px';
+                }
+//                $(window.parent.document.getElementsByTagName("main")).css({'z-index':'1'});
+                $(window.parent.document.getElementsByClassName("ssb-content")).animate({'height':'480px'},"slow");
+                $(window.parent.document.getElementById("idn_ads_bottom_sticky_close_button")).css({'display':'none'});
+                $('#bottom_slide').animate({'height':'480px'},"slow");
+                $('.close_all').css({'display':'none'});
+                $('.bs_sticky').animate({'height':'0px'},"slow");
+                $('.bs_ad').fadeIn('slow');
+            });
+            $('.close_bs').click(function() {
+                if(top!=self){
+                    window.frameElement.style.height = '130px';
+                }
+//                $(window.parent.document.getElementsByTagName("main")).css({'z-index':'20'});
+                $(window.parent.document.getElementsByClassName("ssb-content")).animate({'height':'100px'},"slow");
+                $(window.parent.document.getElementById("idn_ads_bottom_sticky_close_button")).css({'display':'flex'});
+                $('#bottom_slide').animate({'height':'130px'},"slow");
+                $('.close_all').css({'display':'block'});
+                $('.bs_sticky').animate({'height':'100px'},"slow");
+                $('.bs_ad').fadeOut('slow');
+            });
+            
+            $('.close_all').click(function() {
+                $('#bottom_slide').css({'display': 'none'});
+            });
+
+        </script>
+    </body>
+</html>
