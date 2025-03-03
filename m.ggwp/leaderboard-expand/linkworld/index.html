@@ -1,0 +1,99 @@
+<html>
+<head>
+    <title>GGWP.ID: Situs Media Esports Milenial dan Gen Z</title>
+    <link type="image/x-icon" rel="shortcut icon" href="web/fav.png">
+    <meta name="description" content="Preview" itemprop="description" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            background-color: white;
+        }
+
+        body {
+            margin: 0;
+            background-color: white;
+            text-align: center;
+            overflow-x: hidden; /* Added to hide horizontal overflow */
+        }
+        .header img, .body1 img, .body2 img {
+            max-width: 100%; /* Adjusted for responsiveness */
+            height: auto;
+            overflow-x: hidden;
+        }
+        img {
+            max-width: 100%;
+        }
+        .header {
+            position: fixed;
+            z-index: 99;
+            top: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+        }
+        .sticky {
+            position: fixed;
+            top: 0;
+            width: 100%;
+        }
+        .banner {
+            position: relative;
+            display: flex;
+            justify-content: center;  
+            left: 0;
+            right: 0;
+            margin: auto;
+        }
+        .infeed {
+            margin-top: 20px;
+            background-color: #ecedee;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    
+    
+    <div class="main">
+        <div id="header" class="header">
+            <img src="web/header.jpg">
+        </div>
+        <div style="margin-top: 100px;">
+            <iframe src="sumur/index.html" width="320" height="100" frameborder="0" scrolling="no"></iframe>
+        </div>
+        <div class="body1" style="position: relative; z-index: 9;">
+            <img src="web/body1.jpg">
+        </div>
+    </div>
+
+</body>
+    <script>
+        // Get the header
+var header = document.getElementById("header");
+// Get .body1
+var body1 = document.querySelector(".body1");
+
+// Get the offset position of the header
+var sticky = header.offsetTop;
+
+// Add the sticky class to the header when you reach its scroll position. Remove "sticky" when you leave the scroll position
+//function stickyHeader() {
+//    if (window.pageYOffset > sticky) {
+//        header.classList.add("sticky");
+//        body1.style.top = "10px"; // Add 100px margin to body1 when header is sticky
+//    } else {
+//        header.classList.remove("sticky");
+//        body1.style.top = "0"; // Reset margin when header is not sticky
+//    }
+//}
+
+// Listen for the scroll event
+window.onscroll = function () {
+    stickyHeader();
+};
+
+    </script>
+</html>
