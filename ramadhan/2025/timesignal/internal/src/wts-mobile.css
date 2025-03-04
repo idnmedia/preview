@@ -1,0 +1,211 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Katibeh&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
+    
+@font-face {
+  font-family: 'Acme'; /* Nama font yang akan digunakan */
+  src: url('Acme-Regular.ttf') format('ttf');
+}
+.clearfix{
+    clear: both;
+}
+.clearfix:before, .clearfix:after{
+    content: "";
+    clear: both;
+    display: table;
+}
+.slick-next::before, .slick-prev::before {
+    font-size: 11px!important;
+}
+.jadwal-box {
+    width: 282px;
+    z-index: 2;
+    position: absolute;
+    left: 20px;
+    bottom: 25px;
+}
+.wts-container {
+    position: relative;
+    display: block;
+    width: 280px;
+    height: 100px;
+    top: 23px;
+    border-radius: 10px;
+    background-color: #1f2c44;
+}
+.wts-container .item {
+    width: 33.333%;
+    font-size: 11px;
+    text-transform: uppercase;
+    color: #f48368;
+    line-height: 16px;
+}
+.wts-imsak {
+    position: absolute;
+    left: 0px;
+    top: 10px;
+    border-right: 1px solid #4e596f;
+}
+.wts-subuh {
+    position: absolute;
+    left: 33.333%;
+    top: 10px;
+    border-right: 1px solid #4e596f;
+}
+.wts-dzuhur {
+    position: absolute;
+    left: 66.666%;
+    top: 10px;
+}
+.wts-ashar {
+    position: absolute;
+    left: 0px;
+    bottom: 10px;
+    border-right: 1px solid #4e596f;
+}
+.wts-maghrib {
+    position: absolute;
+    left: 33.333%;
+    bottom: 10px;
+    border-right: 1px solid #4e596f;
+}
+.wts-isya {
+    position: absolute;
+    left: 66.666%;
+    bottom: 10px;
+}
+.wts {
+    position: relative;
+    display: block;
+    width: 320px;
+    height: 320px;
+    margin-bottom: 15px;
+    font-family: 'Acme', sans-serif;
+} 
+.the-day {
+    max-width: 136px;
+    position: relative;
+    left: 142px;
+    top: 11px;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+.wts a.landingpage {
+    position: absolute;
+    width: 320px;
+    height: 320px;
+}
+.wts-city {
+    position: absolute;
+    display: none;
+    max-width: 130px;
+    z-index: 9;
+    top: 6px;
+}
+.wts-city-prepend {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    z-index: 1;
+}
+.wts-city-prepend img {
+    vertical-align: middle;
+}
+.wts-city .select2-container {
+    display: block;
+    width: 130px!important;
+    position: relative;
+    min-width: 0;
+    outline: 0;
+    background-color: #f0cb61;
+    border-radius: 10px;
+    left: 15px;
+}
+.wts-city .select2-container .select2-selection--single {
+    border: 0!important;
+    color: #fff!important;
+    height: 30px!important;
+    background-color: #1f2c44 !important;
+    border-radius: 10px!important;
+    box-shadow: none;
+}
+.wts-city .select2-selection__rendered {
+    font-size: 12px!important;
+    line-height: 17px;
+}
+.wts-city-select-dropdown {
+    font-family: 'Acme', sans-serif;
+}
+.wts-time {
+    height: 145px;
+    overflow: hidden;
+}
+.wts-day {
+    
+}
+.wts-day span {
+    padding: 2px;
+    display: block;
+}
+.wts-day span.waktusholat {
+    color: #fff;
+    font-family: 'Acme', sans-serif;
+    font-size: 18px;
+}
+.wts-day .slick-slide {
+    font-size: 14px!important;
+    font-weight: 400;
+    color: #1f2c44;
+    text-align: center;
+}
+.wts-day .slick-prev:before {
+    content: "\276E";
+    color: #1f2c44;
+    display: none;
+}
+.wts-day .slick-next:before {
+    content: "\276F";
+    color: #1f2c44;
+    display: none;
+}
+.wts-day .slick-next {
+    right: -7px;
+    z-index: 2;
+    top: 20px;
+}
+.wts-day .slick-prev {
+    left: 134px;
+    z-index: 2;
+    top: 20px;
+}
+.wts-day .slick-next:hover:before, .wts-day .slick-prev:hover:before {
+    color: #fff;
+}
+.wts-time dl {
+    padding: 10px 15px;
+    margin: 0;
+}
+.wts-time dt{
+    float: left;
+    font-size: 14px!important;
+    font-weight: normal;
+    color: #000;
+}
+.wts-time dd{
+    padding-left: 65px;
+    text-align: right;
+    font-size: 14px;
+    color: #777;
+    padding-bottom: 10px!important;
+}
+.wts-time dd:last-child{
+    padding-bottom: 0;
+}
+.select2-container--bootstrap .select2-results__option {
+    font-size: 11px!important;
+    font-family: 'Acme', sans-serif;
+}
+.select2-container--bootstrap .select2-selection--single .select2-selection__rendered {
+    font-family: 'Acme', sans-serif;
+    color: #fff!important;
+}

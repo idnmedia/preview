@@ -1,0 +1,70 @@
+<html>
+    <body style="margin: 0;">
+<style>
+    @import url("css-idntimes.css");
+    @import url("wts-desktop.css");
+</style>
+
+<div class="wts clearfix">
+    <a href="{lp}" target="_blank" class="landingpage"></a>
+    <div class="jadwal-box">
+        <div class="wts-city">
+            <select name="" class="wts-city-select"></select>
+        </div>
+        <div class="wts-time">
+            <div class="wts-day"></div>
+        </div>
+    </div>
+
+    <img src="970x250.jpg" style="max-width: 970px; height: auto;">
+</div>
+
+<script src="js-idntimes.js" type="text/javascript"></script>
+<script src="https://idnmedia.github.io/preview/ramadhan/2025/timesignal/src/js-jadwalsholat.js" type="text/javascript"></script>
+
+<script>
+    $(function() {
+        var currentMonth = 2; // Maret (index dimulai dari 0)
+        var currentYear = 2025; // Tahun saat ini
+        var ramadanStartDay = 1; // Ramadan dimulai pada tanggal 12 Maret 2024
+        var ramadanEndDay = 30; // Ramadan berakhir pada tanggal 9 April 2024
+
+        // Inisialisasi currentDay dengan tanggal di bulan Ramadan
+        var currentDay = getCurrentRamadanDay(currentMonth, currentYear, ramadanStartDay);
+
+        var dataCities = [];
+        $.each( cities, function( key, city ) {
+            dataCities.push({
+                'id': city.slug,
+                'text': city.name,
+            });
+        });
+        $('select.wts-city-select').select2({
+            data: dataCities,
+            placeholder: 'Select a city'
+        });
+
+        $('select.wts-city-select').on('select2:select', function (e) {
+            var val = $(this).val();
+            initSchedules(val, currentDay);
+        });
+        initSchedules(cities[0].slug, currentDay);
+    });
+
+    // Fungsi untuk mendapatkan tanggal di bulan Ramadan
+    function getCurrentRamadanDay(currentMonth, currentYear, ramadanStartDay) {
+        var currentDate = new Date(currentYear, currentMonth, ramadanStartDay);
+        var today = new Date(); // Tanggal saat ini
+
+        var timeDiff = Math.abs(today.getTime() - currentDate.getTime());
+        var currentDay = Math.ceil(timeDiff / (1000 * 3600 * 24)); // Menghitung hari ke-n di bulan Ramadan
+
+        return currentDay;
+    }
+</script>
+
+
+
+              
+    </body>
+</html>
