@@ -142,7 +142,8 @@
     overflow: hidden;
 }
 .wts-day {
-    
+    height: 150px;
+    position: relative;
 }
 .wts-day span {
     padding: 2px;
@@ -154,6 +155,7 @@
     font-size: 17px;
 }
 .wts-day .slick-slide {
+    height: 150px;
     font-size: 14px!important;
     font-weight: 400;
     color: #fff;
