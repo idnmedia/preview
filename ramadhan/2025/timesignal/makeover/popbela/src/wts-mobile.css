@@ -102,8 +102,9 @@ span.text-bimas {
     left: 142px;
     top: 12px;
     font-size: 13px;
-    font-family: "Lilita One", sans-serif;
+    font-family: "Figtree", sans-serif;
     text-transform: uppercase;
+    font-weight: bold;
 }
 .wts a.landingpage {
     position: absolute;
