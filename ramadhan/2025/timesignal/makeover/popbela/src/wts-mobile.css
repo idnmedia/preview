@@ -1,0 +1,228 @@
+@import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap');
+    
+@font-face {
+  font-family: 'Acme'; /* Nama font yang akan digunakan */
+  src: url('Acme-Regular.ttf') format('ttf');
+}
+.clearfix{
+    clear: both;
+}
+.clearfix:before, .clearfix:after{
+    content: "";
+    clear: both;
+    display: table;
+}
+.slick-next::before, .slick-prev::before {
+    font-size: 11px!important;
+}
+span.text-bimas {
+    font-family: 'Figtree', sans-serif;
+    color: white;
+    font-size: 10px;
+    position: absolute;
+    bottom: 6px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+.jadwal-box {
+    width: 282px;
+    z-index: 2;
+    position: absolute;
+    left: 20px;
+    bottom: 25px;
+    height: 150px;
+}
+.wts-container {
+    position: absolute;
+    display: block;
+    width: 280px;
+    height: 100px;
+    bottom: 0px;
+    bottom: 0px;
+    border-radius: 10px;
+    background-color: #fff;
+}
+.wts-container .item {
+    width: 33.333%;
+    font-size: 11px;
+    text-transform: uppercase;
+    color: #2b2b2b;
+    line-height: 16px;
+}
+.wts-imsak {
+    position: absolute;
+    left: 0px;
+    top: 10px;
+    border-right: 1px solid #ccc;
+}
+.wts-subuh {
+    position: absolute;
+    left: 33.333%;
+    top: 10px;
+    border-right: 1px solid #ccc;
+}
+.wts-dzuhur {
+    position: absolute;
+    left: 66.666%;
+    top: 10px;
+}
+.wts-ashar {
+    position: absolute;
+    left: 0px;
+    bottom: 10px;
+    border-right: 1px solid #ccc;
+}
+.wts-maghrib {
+    position: absolute;
+    left: 33.333%;
+    bottom: 10px;
+    border-right: 1px solid #ccc;
+}
+.wts-isya {
+    position: absolute;
+    left: 66.666%;
+    bottom: 10px;
+}
+.wts {
+    position: relative;
+    display: block;
+    width: 320px;
+    height: 320px;
+    margin-bottom: 15px;
+    font-family: 'Figtree', sans-serif;
+} 
+.the-day {
+    max-width: 136px;
+    position: relative;
+    left: 142px;
+    top: 12px;
+    font-size: 13px;
+    font-family: "Lilita One", sans-serif;
+    text-transform: uppercase;
+}
+.wts a.landingpage {
+    position: absolute;
+    width: 320px;
+    height: 320px;
+}
+.wts-city {
+    position: absolute;
+    display: none;
+    max-width: 130px;
+    z-index: 9;
+    top: -22px;
+}
+.wts-city-prepend {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    z-index: 1;
+}
+.wts-city-prepend img {
+    vertical-align: middle;
+}
+.wts-city .select2-container {
+    display: block;
+    width: 130px!important;
+    position: relative;
+    min-width: 0;
+    outline: 0;
+    background-color: #e5a856;
+    border-radius: 10px;
+    top: 30px;
+}
+.wts-city .select2-container .select2-selection--single {
+    border: 0!important;
+    color: #fff!important;
+    height: 30px!important;
+    background-color: #100f14!important;
+    border-radius: 10px!important;
+    box-shadow: none;
+}
+.wts-city .select2-selection__rendered {
+    font-size: 12px!important;
+    line-height: 17px;
+}
+.wts-city-select-dropdown {
+    font-family: 'Acme', sans-serif;
+}
+.wts-time {
+    overflow: hidden;
+}
+.wts-day {
+    height: 150px;
+    position: relative;
+}
+.wts-day span {
+    padding: 2px;
+    display: block;
+}
+.wts-day span.waktusholat {
+    color: #dd2c79;
+    font-family: 'Acme', sans-serif;
+    font-size: 17px;
+    font-weight: bold;
+}
+.wts-day .slick-slide {
+    height: 150px;
+    font-size: 14px!important;
+    font-weight: 400;
+    color: #fff;
+    text-align: center;
+}
+.wts-day .slick-prev:before {
+    content: "\276E";
+    color: #fff;
+    display: none;
+}
+.wts-day .slick-next:before {
+    content: "\276F";
+    color: #fff;
+    display: none;
+}
+.wts-day .slick-next {
+    right: -7px;
+    z-index: 2;
+    top: 20px;
+}
+.wts-day .slick-prev {
+    left: 134px;
+    z-index: 2;
+    top: 20px;
+}
+.wts-day .slick-next:hover:before, .wts-day .slick-prev:hover:before {
+    color: #fff;
+}
+.wts-time dl {
+    padding: 10px 15px;
+    margin: 0;
+}
+.wts-time dt{
+    float: left;
+    font-size: 14px!important;
+    font-weight: normal;
+    color: #000;
+}
+.wts-time dd{
+    padding-left: 65px;
+    text-align: right;
+    font-size: 14px;
+    color: #777;
+    padding-bottom: 10px!important;
+}
+.wts-time dd:last-child{
+    padding-bottom: 0;
+}
+.select2-container--bootstrap .select2-results__option {
+    font-size: 11px!important;
+    font-family: 'Acme', sans-serif;
+}
+.select2-container--bootstrap .select2-selection--single .select2-selection__rendered {
+    font-family: 'Acme', sans-serif;
+    color: #fff!important;
+}
