@@ -19,7 +19,7 @@
     </div>
 
     <div class="leaderboard_big">
-        <a href="{lp}" target="_blank">
+        <a href="https://samkokfantasy.onelink.me/fNiQ/duniaku" target="_blank">
             <img src="320x400.jpg" alt="expandbanner">
         </a>
         <div class="close_big kanan">
@@ -36,13 +36,6 @@ if (data1) data1.style.height = "420px";
 
 const data2 = parent.document.getElementById('idnads_header_leaderboard');
 if (data2) data2.style.height = "420px";
-</script>
-        
-<script>
-const leaderboardElement = parent.document.getElementById('div-gpt-ad-leaderboard');
-if (leaderboardElement) {
-leaderboardElement.style.maxHeight = '400px';
-}
 </script>
 
 
@@ -94,6 +87,13 @@ $(document).ready(function () {
 });
 </script>
 
+<script>
+const elements = parent.document.querySelectorAll('[id^="div-gpt-ad-leaderboard"]');
+elements.forEach(el => {
+  el.style.maxHeight = '400px';
+});
+
+</script>
 
     </body>
 </html>
