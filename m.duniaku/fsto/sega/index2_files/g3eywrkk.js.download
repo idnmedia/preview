@@ -1,2 +1,0 @@
-window.adbro=window.adbro||{};window.adbro.publisher='990c977d-7af1-48e2-9128-b5062311b039';window.adbro.config={selectors:{images:'.main-content .embed-image > img, .article-content .embed-image > img'},functions:{onPlaceholderSized:function(div,img){div.style.marginBottom='-'+img.offsetHeight+'px';div.style.marginRight='auto';div.style.marginLeft='auto';div.style.display='block';}}};if(window.top.innerWidth<800){window.adbro.publisher='990f228d-214d-4f7b-b921-d5ad9de28da0';}
-ptag('config',window.adbro.config);ptag('config','slot',window.adbro.publisher);
