@@ -995,7 +995,386 @@
 	</script><!--idn-partner2-->
 	<script src="https://ad.vidverto.io/vidverto/js/aries/v1/invocation.js">
 	</script>
-	
+	<script id="idnads-slot-1">
+	           
+	           var pbjs = pbjs || {};
+	           var gptadslots = [];
+	           var gpt_slot_objects = [];
+
+	           pbjs.que = pbjs.que || [];
+	           window.googletag = window.googletag || {cmd: []};
+	           googletag.cmd.push(function() {
+	               
+
+
+	       gptadslots['div-gpt-ad-leaderboard-1'] = googletag.defineSlot('/253109699/DuniakuMobile/anime-manga', [[320,100],[300,250]], "div-gpt-ad-leaderboard-1")
+	       .setTargeting('pos', ['leaderboard']).addService(googletag.pubads());
+	       googletag.enableServices();
+	       gpt_slot_objects.push(gptadslots['div-gpt-ad-leaderboard-1']);
+	       googletag.display('div-gpt-ad-leaderboard-1');
+	       googletag.pubads().setTargeting('topic', ['Crunchyroll'])
+	       
+	       
+	       
+	       
+	       
+	       
+
+
+	       gptadslots['div-gpt-ad-mega_billboard-1'] = googletag.defineSlot('/253109699/DuniakuMobile/anime-manga', [[320,480]], "div-gpt-ad-mega_billboard-1")
+	       .setTargeting('pos', ['mega_billboard']).addService(googletag.pubads());
+	       googletag.enableServices();
+	       gpt_slot_objects.push(gptadslots['div-gpt-ad-mega_billboard-1']);
+	       googletag.display('div-gpt-ad-mega_billboard-1');
+	       googletag.pubads().setTargeting('topic', ['Crunchyroll'])
+	       
+	       
+	       
+	         if(document.getElementById("ads-scrollpage-container-megabillboard-1") !== null) {
+	           document.getElementById("ads-scrollpage-container-megabillboard-1").classList.add("ads-scrollpage-container-megabillboard");
+	         }
+	         if(document.getElementById("idnads_non_sticky_header_mb-1") !== null) {
+	           document.getElementById("idnads_non_sticky_header_mb-1").children[0].style.fontFamily = "PT Serif"
+	         }
+	         if(document.getElementById("idnads_btn-close-1") !== null) {
+	           let SvgBtnHeaderNonSticky = document.getElementById("idnads_btn-close-1").children[0];
+	           SvgBtnHeaderNonSticky.setAttribute("fill", "#ED2227");
+	         }
+	         if(document.getElementById("idnads_non_sticky_header_mb-1") !== null) {
+	           document.getElementById("idnads_non_sticky_header_mb-1").children[1].style.fontFamily = "PT Serif"
+	         }
+	         
+	           
+	       
+	       
+	       
+	       let firstVisit = true;
+	       let hasSticky = false;
+
+	       let idnadsHeader = document.getElementById("idnads_header-1");
+	       let mb = document.getElementById("div-gpt-ad-mega_billboard-1");
+	       let placeholder_mb = document.getElementById("idnads_placeholder_mb");
+	       let stickyHeaderMB = document.getElementById("idnads_sticky_header_mb-1");
+	       let nonStickyHeaderMB = document.getElementById("idnads_non_sticky_header_mb-1");
+	       let btnCloseSticky = document.getElementById("idnads_btn-close_sticky-1");
+	       let btnCloseNonSticky = document.getElementById("idnads_btn-close-1");
+	       let scrollpageContainer = document.getElementById("ads-scrollpage-container-megabillboard-1");
+
+	       function showCloseButton() {
+	           if (btnCloseSticky !== null) {
+	               btnCloseSticky.style.visibility = "visible";
+	           }
+	           if (btnCloseNonSticky !== null) {
+	               btnCloseNonSticky.style.visibility = "visible";
+	           }
+	       }
+
+	       function hideCloseButton() {
+	           if (btnCloseSticky !== null) {
+	               btnCloseSticky.style.visibility = "hidden";
+	           }
+	           if (btnCloseNonSticky !== null) {
+	               btnCloseNonSticky.style.visibility = "hidden";
+	           }
+	       }
+
+	       if (null) {
+	           hideCloseButton();
+	       } else {
+	           showCloseButton();
+	       }
+
+	       googletag.pubads().addEventListener("impressionViewable", (event) => {
+	           function resizeAdsTo1x1() {
+	             if (idnadsHeader !== null) {
+	               idnadsHeader.classList.remove("ad-mega_billboard-container");
+	             }
+	               if (mb !== null) {
+	               mb.classList.remove("ad-mega_billboard");
+	               mb.style.position = "fixed";
+	             }
+	             if(placeholder_mb !== null) {
+	               placeholder_mb.classList.remove("show_placeholder_mb");
+	             }
+	             if(stickyHeaderMB !== null) {
+	               stickyHeaderMB.style.display = "none";
+	             }
+	             if(btnCloseSticky !== null) {
+	               btnCloseSticky.style.display = "none";
+	             }
+	             if(scrollpageContainer !== null) {
+	               scrollpageContainer.classList.remove("ads-scrollpage-container-megabillboard-smaller");
+	               scrollpageContainer.classList.add("ad-mega_billboard-smaller");
+	             }
+	           }
+	           function backToDefault() {
+	               if (idnadsHeader !== null) {
+	                   idnadsHeader.classList.remove("ad-mega_billboard-container");
+	               }
+	               if (mb !== null) {
+	                   mb.style.position = "relative";
+	                   mb.classList.remove("ad-mega_billboard");
+	               }
+	               if(placeholder_mb !== null) {
+	                   placeholder_mb.classList.remove("show_placeholder_mb");
+	               }
+	               if(stickyHeaderMB !== null) {
+	                 stickyHeaderMB.style.display = "none";
+	               }
+	               if(btnCloseSticky !== null) {
+	                 btnCloseSticky.style.display = "none";
+	               }
+	               if(nonStickyHeaderMB !== null) {
+	                 nonStickyHeaderMB.style.display = "flex";
+	               }
+	               if(scrollpageContainer !== null) {
+	                 scrollpageContainer.classList.remove("ad-mega_billboard-smaller");
+	                 scrollpageContainer.classList.remove("ads-scrollpage-container-megabillboard-smaller");
+	               }
+	           }
+	       
+	           function scrollFunction() {
+	               if (document.getElementById("IDN_MegaBillboard") !== null && document.getElementById("IDN_MegaBillboard").getBoundingClientRect().bottom < 0) {
+	                   if (firstVisit) {
+	                       idnadsHeader.classList.add("ad-mega_billboard-container")
+	                       mb.classList.add("ad-mega_billboard")
+	                       placeholder_mb.classList.add("show_placeholder_mb")
+
+	                       if(stickyHeaderMB !== null) {
+	                         stickyHeaderMB.style.display = "flex";
+	                         stickyHeaderMB.children[0].style.fontFamily = "PT Serif"
+	                         stickyHeaderMB.style.backgroundColor = "#ED2227"
+	                       }
+
+	                       if (btnCloseSticky !== null) {
+	                         btnCloseSticky.style.display = "flex";
+	                         let SvgBtnHeaderSticky = btnCloseSticky.children[0];
+	                         SvgBtnHeaderSticky.setAttribute("fill", "#ED2227");
+	                       }
+
+	                       if(nonStickyHeaderMB !== null) {
+	                         nonStickyHeaderMB.style.display = "none";
+	                       }
+
+	                       if(scrollpageContainer !== null) {
+	                         scrollpageContainer.classList.add("ads-scrollpage-container-megabillboard-smaller");
+	                       }
+	                         
+	                       setTimeout(function() {
+	                         if(false) {
+	                           resizeAdsTo1x1();
+	                           hasSticky = true;
+	                         }
+	                         else {
+	                           backToDefault();
+	                         }
+	                       }, 3000)
+	                       
+	                       if (false && document.getElementsByClassName("ad-mega_billboard-container")[0] !== null) {
+	                         hideCloseButton();
+	                       }
+	                       if (null) {
+	                         setTimeout(showCloseButton, null)
+	                       }
+	                       
+	                       firstVisit = false;
+	                   }
+	                   else if(hasSticky) {
+	                     resizeAdsTo1x1();
+	                   }
+	               } else {
+	                   backToDefault();
+	               }
+	           }
+	           document.addEventListener('scroll', function(event) {
+	               event.preventDefault();
+	               scrollFunction();
+	           });
+	       });
+
+
+	       gptadslots['div-gpt-ad-inarticle1-1'] = googletag.defineSlot('/253109699/DuniakuMobile/anime-manga', [[300,250],[320,480],[320,100],[336,280]], "div-gpt-ad-inarticle1-1")
+	       .setTargeting('pos', ['inarticle1']).addService(googletag.pubads());
+	       googletag.enableServices();
+	       gpt_slot_objects.push(gptadslots['div-gpt-ad-inarticle1-1']);
+	       googletag.display('div-gpt-ad-inarticle1-1');
+	       googletag.pubads().setTargeting('topic', ['Crunchyroll'])
+	       
+	       
+	       
+	       
+	         if(document.getElementById("idnads_header_inarticle1-1")) {
+	           document.getElementById("idnads_header_inarticle1-1").children[0].children[0].style.fontFamily = "PT Serif"
+	         }  
+	       
+	       
+	       
+
+
+	       gptadslots['div-gpt-ad-inarticle2'] = googletag.defineSlot('/253109699/DuniakuMobile/anime-manga', [[300,250],[320,100],[336,280]], "div-gpt-ad-inarticle2")
+	       .setTargeting('pos', ['inarticle2']).addService(googletag.pubads());
+	       googletag.enableServices();
+	       gpt_slot_objects.push(gptadslots['div-gpt-ad-inarticle2']);
+	       googletag.display('div-gpt-ad-inarticle2');
+	       googletag.pubads().setTargeting('topic', ['Crunchyroll'])
+	       
+	       
+	       
+	       
+	       
+	       
+
+
+	       gptadslots['div-gpt-ad-inarticle3'] = googletag.defineSlot('/253109699/DuniakuMobile/anime-manga', [[300,250],[320,100],[336,280]], "div-gpt-ad-inarticle3")
+	       .setTargeting('pos', ['inarticle3']).addService(googletag.pubads());
+	       googletag.enableServices();
+	       gpt_slot_objects.push(gptadslots['div-gpt-ad-inarticle3']);
+	       googletag.display('div-gpt-ad-inarticle3');
+	       googletag.pubads().setTargeting('topic', ['Crunchyroll'])
+	       
+	       
+	       
+	       
+	       
+	       
+
+
+
+
+
+
+	       gptadslots['div-gpt-ad-sticky'] = googletag.defineSlot('/253109699/DuniakuMobile/anime-manga', [[320,100],[320,50],[300,100]], "div-gpt-ad-sticky")
+	       .setTargeting('pos', ['sticky']).addService(googletag.pubads());
+	       googletag.enableServices();
+	       gpt_slot_objects.push(gptadslots['div-gpt-ad-sticky']);
+	       googletag.display('div-gpt-ad-sticky');
+	       googletag.pubads().setTargeting('topic', ['Crunchyroll'])
+	       
+	       
+	       
+	       
+	       const footer_banner = document.getElementsByClassName("footer_banner")[0];
+	                   const svg = document.querySelectorAll(".ssb svg")[0];
+	                   const footerHeight = document.getElementsByClassName("footer_banner")[0].offsetHeight;
+	                   let show = false;
+	                   
+	                   const isVisible = document.getElementById('google_image_div') !== null;
+	                   googletag.pubads().addEventListener("slotRenderEnded", (event) => {
+	                                   if(event.slot.getSlotElementId() === 'div-gpt-ad-sticky' && !event.slotContentChanged) {
+	                                       footer_banner.style.bottom = "-108px";
+	                                       svg.style.transform = "rotate(-180deg)";
+	                                   }
+	                               });
+	                   document.getElementById("idn_ads_bottom_sticky_close_button").addEventListener("click", function () {
+	                       footer_banner.style.bottom = show ? "0" : "-108px";
+	                       svg.style.transform = show ? "rotate(0deg)" :  "rotate(-180deg)";
+	                       show = !show;
+	                   }, false);
+	       
+
+
+
+
+	       gptadslots['div-gpt-ad-custom1'] = googletag.defineSlot('/253109699/DuniakuMobile/anime-manga', [[1,1]], "div-gpt-ad-custom1")
+	       .setTargeting('pos', ['custom1']).addService(googletag.pubads());
+	       googletag.enableServices();
+	       gpt_slot_objects.push(gptadslots['div-gpt-ad-custom1']);
+	       googletag.display('div-gpt-ad-custom1');
+	       googletag.pubads().setTargeting('topic', ['Crunchyroll'])
+	       
+	       
+	       
+	       
+	       
+	       
+
+
+	       gptadslots['div-gpt-ad-custom2'] = googletag.defineSlot('/253109699/DuniakuMobile/anime-manga', [[1,1]], "div-gpt-ad-custom2")
+	       .setTargeting('pos', ['custom2']).addService(googletag.pubads());
+	       googletag.enableServices();
+	       gpt_slot_objects.push(gptadslots['div-gpt-ad-custom2']);
+	       googletag.display('div-gpt-ad-custom2');
+	       googletag.pubads().setTargeting('topic', ['Crunchyroll'])
+	       
+	       
+	       
+	       
+	       
+	       
+
+
+	         gptadslots['div-gpt-ad-oop1'] = googletag.defineOutOfPageSlot('/253109699/DuniakuMobile/anime-manga', 'div-gpt-ad-oop1')
+	           .setTargeting('pos', ['oop1'])
+	           .addService(googletag.pubads());
+	           googletag.enableServices();
+	           googletag.pubads().refresh([gptadslots['div-gpt-ad-oop1']]);
+	       
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	               
+
+
+
+
+
+
+
+
+
+
+
+
+
+	           gptadslots['div-gpt-ad-interstitial'] = googletag.defineOutOfPageSlot('/253109699/DuniakuMobile/Interstitial',
+	           googletag.enums.OutOfPageFormat.INTERSTITIAL)
+	           .addService(googletag.pubads());
+	           googletag.enableServices();
+	           googletag.pubads().refresh([gptadslots['div-gpt-ad-interstitial']]);
+	           
+
+
+
+
+
+
+
+
+
+	               function callAdserver(gptSlots) {
+	                   if (pbjs.adserverCalled) return;
+	                   pbjs.adserverCalled = true;
+	               }
+	   
+	               pbjs.que.push(function() {
+	                   pbjs.rp.requestBids({
+	                       callback: callAdserver,
+	                           gptSlotObjects: gpt_slot_objects
+	                   });
+	               });
+	   
+	               setTimeout(function() {
+	                   callAdserver(gpt_slot_objects);
+	               }, 3500);
+	           });
+	</script>
 	<script async src="https://fundingchoicesmessages.google.com/f/AGSKWxUMcHE86q0zFkGl9cTeybbwgeC88y2a8K3qTFuKLOI0R3X36s6VNnl5sh7DC5yYpvTkVNeJBLu2ppTIJuWKnItKgbUNOg21lNC7QYN2Bbco6Bj-gwIlaT4iZptQItG8gwwuK7oM1g==?fccs=W1siQUtzUm9sOGZBRThhcVhMb2szcXlaQTdnTDdnT1AwTHF6Rm9adUFPdTd0WE9LSEVRUU8zdTJrbVhhc2dOMWQ1WFNod0dtWmFudHVQNVFhS1NsQWw5N3FQOVJJR191SzhXMUxFXzlaWjg1b1cyY2RBNTktRGNTM3BVcFYxRmZZOTZ3UExReXlSMS02YV9QdDR4eWUzQUdCTFNETF83N194TGdRPT0iXSxudWxsLG51bGwsbnVsbCxudWxsLG51bGwsWzE3NTIwNDI5MjMsODY2MDAwMDAwXSxudWxsLG51bGwsbnVsbCxbbnVsbCxbN11dLCJodHRwczovL2R1bmlha3UuaWRudGltZXMuY29tL2FuaW1lLW1hbmdhL2FuaW1lLWxhaW4vaGFsLW1lbmFyaWstZGktd2l0aC15b3UtYW5kLXRoZS1yYWluLWVwaXNvZGUtMS0wMC10NDRtMy05eTVsZ3giLG51bGwsW1s4LCJQcEQyWUQxTGRyVSJdLFs5LCJlbi1VUyJdLFsyMywiMTczMDE3MTQ3MiJdLFsxOSwiMiJdLFsxNywiWzBdIl0sWzI0LCIiXSxbMjksImZhbHNlIl1dXQ">
 	</script>
 	<script src="https://invstatic101.creativecdn.com/encrypted-signals/encrypted-tag-g.js">
@@ -1266,7 +1645,7 @@
 		<script>
 		(self.__next_s=self.__next_s||[]).push([0,{"async":true,"children":"(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':\n          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],\n          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=\n          '/tag-manager/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);\n          })(window,document,'script','dataLayer','GTM-T7ZWCDK7');","id":"script-gtm"}])
 		</script><noscript id="no-script-gtm-global"><iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-T7ZWCDK7" style="display:none;visibility:hidden" width="0"></iframe></noscript>
-		<div class="css-wbf7uf" id="wrapper-IDN_MegaBillboard" style="overflow: hidden; display: none;">
+		<div class="css-wbf7uf" id="wrapper-IDN_MegaBillboard" style="overflow: hidden;">
 			<div class="css-11qstqy" id="content-IDN_MegaBillboard">
 				<div class="css-1hl2n9c" id="IDN_MegaBillboard" style="width: 100%; display: flex; justify-content: center;">
 					<style>
@@ -1373,6 +1752,9 @@
 											
                                             
                                             <!-- megabillboard 320x480 -->
+                                            <a href="https://soj.onelink.me/BzLX/pa1vj3cm" target="_blank">
+                                                <img src="320x480.jpg" style="max-width: 320px; height: 480px;">
+                                            </a>
                                             
                                             
                                             
@@ -2406,9 +2788,9 @@
 																					<div class="ads-scrollpage-banner-inarticle1">
 																						
                                                                                         
-                                                                                        <!-- inarticle1 300x250 -->
+                                                                                        <!-- inarticle1 parallax 320x480 300x250 -->
                                                                                         <a href="https://soj.onelink.me/BzLX/pa1vj3cm" target="_blank">
-                                                                                            <img src="300x250.jpg" style="max-width: 300px; height: auto">
+                                                                                            <img src="320x480.jpg" style="max-width: 320px; height: 480px;">
                                                                                         </a>
                                                                                         
                                                                                         
@@ -4058,7 +4440,7 @@
 				        z-index: -1;
 				    }
 				</style>
-				<div class="footer_banner" id="idn_ads_bottom_sticky" style="width: 100%; bottom: 0; z-index: 99999999999999; transition: all .5s ease; height: auto; padding-top: 4px; padding-bottom: 4px; display: none;">
+				<div class="footer_banner" id="idn_ads_bottom_sticky" style="width: 100%; bottom: 0; z-index: 99999999999999; transition: all .5s ease; height: auto; padding-top: 4px; padding-bottom: 4px;">
 					
 					<span class="ssb" id="idn_ads_bottom_sticky_close_button" style="position: absolute;right: 2px;top: -20px;height: 20px;width: 24px;z-index:99999;display: flex;justify-content:center;align-items: center;border-radius: 5px 5px 0 0;"><svg height="6" viewbox="0 0 10 6" width="10" xmlns="http://www.w3.org/2000/svg">
 					<path clip-rule="evenodd" d="M5 4.1566L8.78083 0.296916C8.91478 0.160212 9.09644 0.0834146 9.28584 0.0834146C9.47525 0.0834146 9.65691 0.160212 9.79086 0.296916C9.92477 0.433662 10 0.619105 10 0.812465C10 1.00582 9.92477 1.19127 9.79086 1.32801L5.50501 5.70325C5.37106 5.83995 5.18941 5.91675 5 5.91675C4.81059 5.91675 4.62894 5.83995 4.49498 5.70325L0.20914 1.32801C0.0752277 1.19127 0 1.00582 0 0.812465C0 0.619105 0.0752277 0.433662 0.20914 0.296916C0.343092 0.160212 0.524746 0.0834146 0.714155 0.0834146C0.903564 0.0834146 1.08522 0.160212 1.21917 0.296916L5 4.1566Z" fill="#484C4E" fill-rule="evenodd"></path></svg></span>
@@ -4066,8 +4448,11 @@
 						<div class="sticky-content" style="height: 100px;">
 							
                             
-                            <!-- stickybotto 320x50 -->
+                            <!-- stickybotto 320x100 -->
                             
+                            <a href="https://soj.onelink.me/BzLX/pa1vj3cm" target="_blank">
+                            <img src="320x100.jpg" style="max-width: 320px; height: 100px;">
+                        </a>
                             
 						</div>
 					</div>
