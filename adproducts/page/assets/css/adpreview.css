@@ -1,1062 +1,541 @@
-/* Global style */
- 
-.nempel {
-    position: fixed;
-    top: 0;
-    width: 100%;
+/** xxxxxxxxxx DESKTOP xxxxxxxxxx **/
+
+/** ===== FSTO DESKTOP ===== **/
+/* -- ALL PUBLISHER --*/
+#fsto-desktop.preview-desktop .banner-box {
+    pointer-events: none;
 }
-.takethis {
-    position: relative;
+#fsto-desktop.preview-desktop .site-box {
+    overflow: auto!important;
 }
-.spec-des .browse_box {
-    position: relative;
-    display: inline;
-    cursor: pointer;
-    font-size: 12px;
-}
-.spec-des .browse_ad {
-    display: inline-block;
-    border: 1px solid #ced4da;
-    border-radius: 5px;
-    padding: 7px 10px;
-    color: #495057;
-    transition: all 0.5s ease;
-    margin: 5px;
-    text-align: center;
-    background-color: #e9ecef;
-}
-.spec-des input {
+#fsto-desktop .sticky-bottom {
     position: absolute;
-    left: 0;
+    bottom: 0px;
     width: 100%;
-    height: 40px;
-    bottom: -10px;
-    opacity: 0;
-    cursor: pointer;
-}
-.spec-des .takess {
-    display: inline-block;
-    border: 1px solid #ced4da;
-    border-radius: 5px;
-    padding: 7px 10px;
-    color: #495057;
-    transition: all 0.5s ease;
-    cursor: pointer;
-    font-size: 12px;
-    text-align: center;
-    background-color: #e9ecef;
-}
-
-.preview_box {
-    max-width: 300px;
-    position: relative;
-    display: block
-}
-.preview_box-des input {
-    position: absolute;
-    left: 0;
-    width: 100%;
-    height: 30px;
-    bottom: -10px;
-    opacity: 0;
-    cursor: pointer;
-}
-.custom-file-label {
-    height: 30px;
-}
-.custom-file-label::after {
-    height: 28px;
-}
-.custom-file {
-    height: 30px;
-    margin-bottom: 10px;
-    width: 250px;
-    margin-right: 5px;
-    display: block!important;
-}
-.normal_width {
-    display: inline-block;
-}
-.normal_width .custom-file {
-    width: 200px!important;
-}
-.custom-file-input {
-    height: 30px;
-}
-
-
-.browse_box:hover .browse_ad {
-    color: white!important;
-    background-color: #333!important;
-}
-
-
-#bg-image .takess:hover {
-    color: white!important;
-    background-color: #333!important;
-}
-#popbela-style .takess:hover {
-    color: white!important;
-    background-color: #333!important;
-}
-#yummy-style .takess:hover {
-    color: white!important;
-    background-color: #333!important;
-}
-
-.try_ad {
-   background-color: #222;
-   border-radius: 20px;
-   color: white;
-   margin-top: 20px;
-   position: relative;
-   text-align: center;
-}
-.try_ad h1 {
-   font-size: 2rem;
-   padding: 10px;
-   color: white;
-   text-align: center;
-   border-top-left-radius: 20px;
-   border-top-right-radius: 20px;
-   border-bottom: 2px solid #3e3e3e;
-    background-color: #222;
-}
-.try_ad span {
-   font-size: 15px;
-}
-.try_ad .browse_ad {
-   margin-top: 10px;
-   display: inline-block;
-   border: 1px solid #ccc;
-   padding: 0 10px;
-   position: relative;
-   border-radius: 5px;
-   cursor: pointer;
-}
-
-.try_ad input {
-    position: absolute;
+    height: 42px;
+    background-color: #f6f6f6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     left: 0;
     right: 0;
     margin: auto;
-    top: 130px;
-    width: 160px;
-    opacity: 0;
-    cursor: pointer;
-}
-.try_ad input:hover ~ .try_ad .browse_ad {
-background-color: #333;
-}
-.try_ad .takess {
-   margin-top: 10px;
-   display: inline-block;
-   border: 1px solid #ccc;
-   padding: 0 10px;
-   position: relative;
-   margin-left: 20px;
-   cursor: pointer;
-   border-radius: 5px;
-}
-.takess img {
-   max-width: 30px;
-}
-.spec-des {
-   height: auto!important;
-}   
-
-/* ======== Ad preview style ======== */
-
-/* ==== RMB Desktop ==== */
-#rmb-mockup video {
-    position: relative;
-    max-width: 332px;
-    height: auto;
-    top: 20px;
-}
-
-#capthis {
-    display: inline-block;
-}
-
-/* ==== Desktop ==== */
-.adpreview_desktop_box {
-    width: 587px;
-    height: 463px;
-    position: relative;
-    left: 0;
-    right: 0;
-    margin: auto;
-    text-align: center;
-    overflow: hidden;
-}
-.adpreview_desktop_box .web_box {
-    position: absolute;
-    width: 534px;
-    height: 336px;
-    overflow-y: hidden;
-    overflow-x: hidden;
-    left: 0;
-    right: 0;
-    margin: auto;
-    top: 29px;
-    z-index: 3;
-    scrollbar-width : thin;
-    scrollbar-color: dark;
-}
-.adpreview_desktop_box img.desktop_frame {
-    width: 100%;
-    position: absolute;
-    left: 0;
-    right: 0;
-    margin: auto;
-    height: auto;
-    z-index: 2;
-}
-
-
-/* ==== Mobile ==== */
-.adpreview_mobile_box {
-    width: 380px;
-    height: 760px;
-    position: relative;
-    left: 0;
-    right: 0;
-    margin: auto;
-    text-align: center;
-    overflow: hidden;
-}
-.adpreview_mobile_box .web_box {
-    position: absolute;
-    width: 330px;
-    height: 717px;
-    overflow-y: hidden;
-    overflow-x: hidden;
-    left: 0;
-    right: 0;
-    margin: auto;
-    top: 20px;
-    z-index: 3;
-    scrollbar-width : thin;
-    scrollbar-color: dark;
-    border-radius: 15px;
-}
-.web_box img {
-    max-width: 100%;
-}
-.adpreview_mobile_box img.mobile_frame {
-    width: 100%;
-    position: absolute;
-    left: 0;
-    right: 0;
-    margin: auto;
-    height: auto;
-    z-index: 2;
-}
-.adpreview_mobile_box img.topframe {
-    position: absolute;
-    width: 100%;
-    left: 0;
-    top: 0;
-    z-index: 9;
-}
-.adpreview_mobile_box img.botframe {
-    position: absolute;
-    width: 100%;
-    left: 0;
-    bottom: 2px;
-    z-index: 9;
-}
-.adpreview_mobile_box img.img_header {
-    width: 330px;
-    position: absolute;
     z-index: 4;
-    left: 0;
-    right: 0;
-    margin: auto;
-    top: 20px;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
 }
-.adpreview_mobile_box img.img_share {
-    width: 330px;
-    position: absolute;
-    z-index: 4;
-    left: 0;
-    right: 0;
-    margin: auto;
-    bottom: 23px;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
-}
-
-
-
-
-/* ========= Display Ad Desktop ========= */
-
-/* ==== Bottomsticky Desktop ==== */
-
-#Dbottomsticky_idn .web_box {
-    overflow-y: hidden;
-    overflow-x: hidden;
-}
-#Dbottomsticky_idn .banner_ad {
-    left: 0;
-    right: 0;
-    top: 325px;
-    margin: auto;
-    text-align: center;
-    background-color: transparent;
-    padding: 0;
-    position: relative;
-    z-index: 6;
-}
-#Dbottomsticky_idn .banner_ad img {
-    width: 310px;
-    height: 38px;
-}
-
-
-/* ==== Medium Rectangle ==== */
-
-#Medrec .web_box {
-    overflow-y: hidden;
-    overflow-x: hidden;
-}
-#Medrec .banner_ad {
-    margin: auto;
-    text-align: center;
-    background-color: transparent;
-    padding: 0;
-    position: absolute;
-    z-index: 6;
-}
-#Medrec .banner_ad._idntimes {
-    right: 90px;
-    top: 120px;  
-}
-#Medrec .banner_ad._fortune {
-    right: 64px;
-    top: 120px;  
-}
-#Medrec .banner_ad._popb {
-    right: 98px;
-    top: 183px;  
-}
-#Medrec .banner_ad._popm {
-    right: 93px;
-    top: 132px;  
-}
-#Medrec .banner_ad img {
-    width: 115px;
-    height: 96px;
-}
-
-
-/* ==== Vertical Billboard Rectangle ==== */
-
-#VerticalBB .web_box {
-    overflow-y: hidden;
-    overflow-x: hidden;
-}
-#VerticalBB .banner_ad {
-    margin: auto;
-    text-align: center;
-    background-color: transparent;
-    padding: 0;
-    position: absolute;
-    z-index: 6;
-}
-#VerticalBB .banner_ad._idntimes {
-    right: 90px;
-    top: 128px; 
-}
-#VerticalBB .banner_ad._popb {
-    right: 99px;
-    top: 85px; 
-}
-#VerticalBB .banner_ad img {
-    width: 115px;
-    height: 230px;
-}
-
-
-/* ==== In Article All Desktop ==== */
-
-#Dinarticle .web_box {
-    overflow-y: hidden;
-    overflow-x: hidden;
-}
-#Dinarticle .banner_ad {
-    margin: auto;
-    text-align: center;
-    background-color: transparent;
-    padding: 0;
-    position: absolute;
-    z-index: 6;
-}
-#Dinarticle .banner_ad._duniaku {
-    top: 206px;
-    left: 159px
-}
-#Dinarticle .banner_ad._duniaku img {
-    width: 269px;
+#fsto-desktop .sticky-bottom img {
+    width: 273px;
     height: 34px;
 }
+#fsto-desktop img.skin-left, #fsto-desktop img.skin-right {
+    position: absolute;
+    width: 55px;
+    height: auto;
+    z-index: 5;
+}
+#fsto-desktop img.skin-left {
+    top: 80px;
+    left: 25px;
+}
+#fsto-desktop img.skin-right {
+    top: 80px;
+    right: 32px;
+}
 
-#Dinarticle .banner_ad._ggwp1 {
+
+
+
+
+
+/** ===== BILLBOARD DESKTOP & MASTHEAD DESKTOP ===== **/
+#billboard-desktop .banner-box img, #masthead-desktop .banner-box img, #masthead-desktop .banner-box video {
+    position: absolute;
+}
+/* -- ALL PUBLISHER Ex IDN TIMES & YUMMY --*/
+#billboard-desktop .banner-box img, #masthead-desktop .banner-box img {
+    width: 350px;
+    height: 92px;
+    top: 65px;
+    left: 95px;
+}
+/* -- IDNTIMES --*/
+#idntimes #billboard-desktop .banner-box img, #idntimes #masthead-desktop .banner-box img {
+    top: 76px;
+}
+#idntimes #masthead-desktop .banner-box video {
+    width: 143px;
+    height: 80px;
     top: 82px;
-    left: 159px
+    left: 99px;
 }
-#Dinarticle .banner_ad._ggwp2 {
-    top: 190px;
-    left: 159px
+/* -- POPMAMA & FORTUNE  --*/
+#popmama #masthead-desktop .banner-box video, #fortune #masthead-desktop .banner-box video {
+    width: 147px;
+    height: 82px;
+    top: 69px;
+    left: 99px;
 }
-#Dinarticle .banner_ad._ggwp1 img, #Dinarticle .banner_ad._ggwp2 img {
-    width: 269px;
-    height: 34px;
-}
-
-#Dinarticle .banner_ad._fortune {
-    top: 155px;
-    left: 181px;
-}
-#Dinarticle .banner_ad._fortune img {
-    width: 108px;
-    height: 90px;
-}
-
-
-
-
-
-
-
-#Dinarticle_idn .web_box {
-    overflow-y: hidden;
-    overflow-x: hidden;
-}
-#Dinarticle_idn .banner_ad {
-    left: 98px;
-    top: 195px;
-    margin: auto;
-    text-align: center;
-    background-color: transparent;
-    padding: 0;
-    position: absolute;
-    z-index: 6;
-}
-#Dinarticle_idn .banner_ad img {
-    width: 275px;
-    height: 34px;
-}
-
-#Dinarticle_popb .web_box {
-    overflow-y: hidden;
-    overflow-x: hidden;
-}
-#Dinarticle_popb .banner_ad {
-    left: 86px;
-    top: 179px;
-    margin: auto;
-    text-align: center;
-    background-color: transparent;
-    padding: 0;
-    position: absolute;
-    z-index: 6;
-}
-#Dinarticle_popb .banner_ad img {
-    width: 275px;
-    height: 34px;
-}
-
-
-/* ==== Skinad Desktop All Style ==== */
-
-#Dskinad .web_box {
-    overflow-y: hidden;
-    overflow-x: hidden;
-}
-#Dskinad .banner_ad_L, #Dskinad .banner_ad_R {
-    margin: auto;
-    text-align: center;
-    background-color: transparent;
-    padding: 0;
-    position: absolute;
-    z-index: 6;
-}
-
-/* Skinad Duniaku */
-#Dskinad .banner_ad_L._duniaku {
-    left: 57px;
-    top: 100px;
-}
-#Dskinad .banner_ad_R._duniaku {
-    right: 57px;
-    top: 100px;
-}
-#Dskinad .banner_ad_L._duniaku img, #Dskinad .banner_ad_R._duniaku img {
-    width: 46px;
-    height: 191px;
-}
-
-
-
-/* ==== Skinad Desktop IDN ==== */
-#DSkinad_idn .web_box {
-    overflow-y: hidden;
-    overflow-x: hidden;
-}
-#DSkinad_idn .banner_ad_L {
-    left: 43px;
-    top: 102px;
-    margin: auto;
-    text-align: center;
-    background-color: transparent;
-    padding: 0;
-    position: absolute;
-    z-index: 6;
-}
-#DSkinad_idn .banner_ad_R {
-    right: 42px;
-    top: 102px;
-    margin: auto;
-    text-align: center;
-    background-color: transparent;
-    padding: 0;
-    position: absolute;
-    z-index: 6;
-}
-#DSkinad_idn .banner_ad_L img, #DSkinad_idn .banner_ad_R img {
-    width: 46px;
-    height: 192px;
-}
-
-
-/* ==== Skinad Desktop Popbela ==== */
-
-#DSkinad_popb .web_box {
-    overflow-y: hidden;
-    overflow-x: hidden;
-}
-#DSkinad_popb .banner_ad_L {
-    left: 27px;
-    top: 84px;
-    margin: auto;
-    text-align: center;
-    background-color: transparent;
-    padding: 0;
-    position: absolute;
-    z-index: 6;
-}
-#DSkinad_popb .banner_ad_R {
-    right: 26px;
-    top: 84px;
-    margin: auto;
-    text-align: center;
-    background-color: transparent;
-    padding: 0;
-    position: absolute;
-    z-index: 6;
-}
-#DSkinad_popb .banner_ad_L img, #DSkinad_popb .banner_ad_R img {
-    width: 46px;
-    height: 192px;
-}
-
-/* ==== Skinad Desktop Popmama ==== */
-
-#DSkinad_popm .web_box {
-    overflow-y: hidden;
-    overflow-x: hidden;
-}
-#DSkinad_popm .banner_ad_L {
-    left: 26px;
+/* -- POPBELA  --*/
+#popbela #masthead-desktop .banner-box video {
+    width: 100px;
+    height: 56px;
     top: 83px;
-    margin: auto;
-    text-align: center;
-    background-color: transparent;
-    padding: 0;
-    position: absolute;
-    z-index: 6;
+    left: 104px;
 }
-#DSkinad_popm .banner_ad_R {
-    right: 26px;
-    top: 83px;
-    margin: auto;
-    text-align: center;
-    background-color: transparent;
-    padding: 0;
-    position: absolute;
-    z-index: 6;
+/* -- GGWP & DUNIAKU  --*/
+#ggwp #masthead-desktop .banner-box video, #duniaku #masthead-desktop .banner-box video {
+    width: 138px;
+    height: 78px;
+    top: 71px;
+    left: 101px;
 }
-#DSkinad_popm .banner_ad_L img, #DSkinad_popm .banner_ad_R img {
-    width: 50px;
-    height: 203px;
-}
-
-
-
-/* ==== Masthead Desktop IDN ==== */
-
-#DMasthead .web_box {
-    overflow-y: hidden;
-    overflow-x: hidden;
-}
-#DMasthead .banner_ad {
-    left: 0;
-    right: 0;
-    margin: auto;
-    text-align: center;
-    background-color: transparent;
-    padding: 0;
-    position: relative;
-    z-index: 6;
-    width: 370px;
-    height: 95px;
-}
-#DMasthead .banner_ad._idntimes {
-    top: 112px;
-}
-#DMasthead .banner_ad._fortune {
-    top: 86px;
-}
-#DMasthead .banner_ad._popb {
-    top: 70px;
-}
-#DMasthead .banner_ad._popm {
-    top: 92px;
-}
-#DMasthead .banner_ad._yummy {
-    top: 59px;
-}
-#DMasthead .banner_ad._duniaku {
-    top: 113px;
-}
-#DMasthead .banner_ad._ggwp {
-    top: 70px;
-}
-#DMasthead .banner_ad._ggwp img {
-    width: 349px;
-    height: 90px;
-}
-#DMasthead .banner_ad img {
-    width: 370px;
-    height: 95px;
-}
-#DMasthead ._idntimes video, #DMasthead ._duniaku video {
-    width: 145px;
-    height: 82px;
-    position: absolute;
-    top: 6.5px;
-    left: 8px; 
-}
-#DMasthead ._fortune video {
-    width: 145px;
-    height: 82px;
-    position: absolute;
-    top: 6.5px;
-    left: 8px; 
-}
-#DMasthead ._popb video {
-    width: 120px;
-    height: 82px;
-    position: absolute;
-    top: 6.5px;
-    left: 8px; 
-}
-#DMasthead ._popm video {
-    width: 135px;
-    height: 82px;
-    position: absolute;
-    top: 6.5px;
-    left: 8px; 
-}
-#DMasthead ._ggwp video {
-    width: 135px;
-    height: 82px;
-    position: absolute;
-    top: 5px;
-    left: 19px; 
-}
-
-
-/* ==== Video in Medium Rectangle ==== */
-
-#videoinbannerMRd .web_box {
-    overflow-y: hidden;
-    overflow-x: hidden;
-}
-#videoinbannerMRd .banner_ad {
-    text-align: center;
-    background-color: black;
-    padding: 0;
-    position: absolute;
-    z-index: 6;
-}
-#videoinbannerMRd .banner_ad._idntimes {
-    right: 91px;
-    top: 120px; 
-}
-#videoinbannerMRd .banner_ad._fortune {
-    right: 63px;
-    top: 120px; 
-}
-#videoinbannerMRd .banner_ad._popb {
-    right: 98px;
-    top: 184px; 
-}
-#videoinbannerMRd .banner_ad._popm {
-    right: 93px;
-    top: 132px;
-}
-#videoinbannerMRd .banner_ad, #videoinbannerMRd video {
-    width: 115px;
-    height: 96px;
-}
-
-  
-/* ========= Display Ad Mobile ========= */
-
-/* ==== Megabillboard ==== */
-
-#idnmegabillboard .web_box {
-   padding-top: 470px;
-   overflow-y: scroll;
-   overflow-x: hidden;
-}
-#idnmegabillboard .web_box:hover {
-   overflow-y: scroll;
-   overflow-x: hidden;
-}
-#idnmegabillboard .banner_ad {
-    width: 330px;
-    left: 0;
-    right: 0;
-    top: 20px;
-    margin: auto;
-    text-align: center;
-    background-color: black;
-    padding: 10px;
-    position: relative;
-    z-index: -1;
-}
-#idnmegabillboard .banner_ad img {
-    width: 300px;
-    height: 450px;
-} 
-
-
-/* ==== Parallax ==== */
-
-#parallax .web_box {
-   padding-top: 0;
-   overflow-y: hidden;
-   overflow-x: hidden;
-}
-#parallax .web_box:hover {
-   overflow-y: scroll;
-   overflow-x: hidden;
-}
-#parallax .banner_ad {
+/* -- YUMMY --*/
+#yummy #billboard-desktop .banner-box img, #yummy #masthead-desktop .banner-box img {
     width: 350px;
+    height: 89px;
+    top: 36px;
+    left: 94px;
+}
+#yummy #masthead-desktop .banner-box video {
+    width: 138px;
+    height: 78px;
+    top: 41px;
+    left: 101px;
+}
+
+
+
+
+
+
+/** ===== LEADERBOARD DESKTOP ===== **/
+/* -- ALL PUBLISHER --*/
+#leaderboard-desktop .banner-box img {
+    position: absolute;
+    width: 284px;
+    height: 36px;
+    top: 3px;
     left: 0;
     right: 0;
-    top: 100px;
     margin: auto;
-    text-align: center;
-    padding: 10px;
-    position: relative;
-    z-index: -1;
-}
-#parallax .banner_ad img {
-    width: 320px;
-    height: 450px;
 }
 
 
-/* ==== parallax Billboard ==== */
 
-#parallaxB .web_box {
-   padding-top: 0;
-   overflow-y: hidden;
-   overflow-x: hidden;
-}
-#parallaxB .web_box:hover {
-   overflow-y: scroll;
-   overflow-x: hidden;
-}
-#parallaxB .banner_ad {
-    width: 350px;
+/** ===== STICKY BOTTOM DESKTOP ===== **/
+/* -- ALL PUBLISHER --*/
+#sticky-bottom-desktop .banner-box img {
+    position: absolute;
+    width: 284px;
+    height: 36px;
+    bottom: 3px;
     left: 0;
     right: 0;
-    top: 100px;
     margin: auto;
-    text-align: center;
+}
+
+
+/** ===== SKINAD DESKTOP ===== **/
+/* -- ALL PUBLISHER Ex YUMMY --*/
+#skinad .banner-box img {
+    position: absolute;
+    width: 57px;
+    height: 210px;
+}
+#skinad .banner-box img.skin-left {
+    top: 54px;
+    left: 19px;
+}
+#skinad .banner-box img.skin-right {
+    top: 54px;
+    right: 20px;
+}
+/* -- YUMMY --*/
+#yummy #skinad .banner-box img {
+    position: absolute;
+    width: 44px;
+    height: 229px;
+}
+#yummy #skinad .banner-box img.skin-left {
+    top: 51px;
+    left: 0px;
+}
+#yummy #skinad .banner-box img.skin-right {
+    top: 51px;
+    right: 0px;
+}
+
+/** ===== IN ARTICLE 1 DESKTOP ===== **/
+/* -- ALL PUBLISHER Ex Yummy --*/
+#inarticle-1-desktop .banner-box img {
+    position: absolute;
+    width: 125px;
+    height: 187px;
+    top: 88px;
+    left: 142px; 
+}
+/* -- Yummy --*/
+#yummy #inarticle-1-desktop .banner-box img {
+    top: 114px;
+    left: 122px;
+    width: 122px;
+    height: 182px;
+}
+
+
+/** ===== IN ARTICLE 2 DESKTOP ===== **/
+/* -- ALL PUBLISHER Ex Yummy --*/
+#inarticle-2-desktop .banner-box img {
+    position: absolute;
+    width: 118px;
+    height: 98px;
+    top: 98px;
+    left: 145px;
+}
+/* -- Yummy --*/
+#yummy #inarticle-2-desktop .banner-box img {
+    top: 160px;
+    left: 44px;
+    width: 283px;
+    height: 37px;
+}
+
+
+
+/** ===== IN ARTICLE 3 DESKTOP ===== **/
+#inarticle-3-desktop .banner-box img {
+    position: absolute;
+    width: 118px;
+    height: 98px;
+}
+/* -- IDNTIMES --*/
+#idntimes #inarticle-3-desktop .banner-box img {
+    top: 102px;
+    left: 145px;
+}
+
+
+
+
+/** ===== MEDIUM RECTANGLE DESKTOP & VIDEO IN BANNER MR ===== **/
+#medium-rectangle-desktop .banner-box img, #medium-rectangle-desktop .banner-box video {
+    position: absolute;
+    width: 117px;
+    height: 98px; 
+}
+#medium-rectangle-desktop .banner-box video {
     background-color: black;
-    padding: 10px;
-    position: relative;
-    z-index: -1;
 }
-#parallaxB .banner_ad img {
-    width: 320px;
-    height: 450px;
-}
-
-/* ==== Parallax General ==== */
-
-#Parallax .web_box {
-    overflow-y: hidden;
-    overflow-x: hidden;
-}
-#Parallax .banner_ad {
-    left: 0;
-    right: 0;
-    margin: auto;
-    text-align: center;
-    background-color: transparent;
-    padding: 0;
-    position: relative;
-    z-index: 6;
-}
-#Parallax .banner_ad img {
-    width: 282px;
-    height: 423px;
-}
-#Parallax .banner_ad._ggwp {
-    top: 167px;
-}
-
-
-/* ==== In Article All Mobile ==== */
-
-#Minarticle .web_box {
-    overflow-y: hidden;
-    overflow-x: hidden;
-}
-#Minarticle .banner_ad {
-    left: 0;
-    right: 0;
-    top: 222px;
-    margin: auto;
-    text-align: center;
-    background-color: transparent;
-    padding: 0;
-    position: relative;
-    z-index: 6;
-}
-#Minarticle .banner_ad img {
-    width: 275px;
-    height: 230px;
-}
-
-#Minarticle .banner_ad._ggwp {
-    top: 326px;
-}
-
-
-/* ==== In Article Swipe ==== */
-
-#inartswipe .web_box {
-    overflow-y: hidden;
-    overflow-x: hidden;
-}
-#inartswipe .banner_ad {
-    left: 0;
-    right: 0;
-    top: 222px;
-    margin: auto;
-    text-align: center;
-    background-color: transparent;
-    padding: 0;
-    position: relative;
-    z-index: 6;
-    width: 330px;
+#video-medium-rectangle .banner-box .video-box {
+    position: absolute;
+    width: 117px;
+    height: 98px;
+    background-color: white;
     overflow: hidden;
 }
-#inartswipe .banner_ad img {
-    width: 275px;
-    height: 230px;
+#video-medium-rectangle .banner-box .video-box video {
+    width: 117px;
+    height: 66px;
+}
+#video-medium-rectangle .banner-box .video-box span {
+    position: absolute;
+    font-size: 7px;
+    z-index: 2;
+    color: white;
+    background-color: #ed2028;
+    left: 0px;
+    right: 0px;
+    margin: auto;
+    border-radius: 5px;
+    display: block;
+    bottom: 10px;
+    padding: 1px;
+    width: 64px;
+    text-align: center;
+    font-family: 'poppins', sans-serif;
+}
+/* -- IDNTIMES > Memiliki header dengan height yang lebih tinggi dibanding publisher lain--*/
+#idntimes #medium-rectangle-desktop .banner-box img, #idntimes #video-medium-rectangle .banner-box .video-box {
+    right: 91px;
+    top: 75px;
+}
+/* -- YUMMY --*/
+#yummy #medium-rectangle-desktop .banner-box img, #yummy #video-medium-rectangle .banner-box .video-box {
+    right: 67px;
+    top: 106px;
+}
+/* -- PUBLISHER LAIN Ex IDN TIMES & YUMMY --*/
+#medium-rectangle-desktop .banner-box img, #video-medium-rectangle .banner-box .video-box {
+    right: 91px;
+    top: 64px;
 }
 
 
-/* ==== Bottom Slide ==== */
 
-#botslide .web_box {
-    overflow-y: hidden;
-    overflow-x: hidden;
+
+/** ===== VERTICAL BILLBOARD DESKTOP ===== **/
+/* -- ALL PUBLISHER Ex YUMMY --*/
+#vertical-billboard-desktop .banner-box img {
+    position: absolute;
+    width: 117px;
+    height: 231px;
+    top: 59px;
+    right: 89px;
 }
-#botslide .banner_ad {
+/* -- YUMMY --*/
+#yummy #vertical-billboard-desktop .banner-box img {
+    top: 78px;
+    right: 66px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/** xxxxxxxxxx MOBILE xxxxxxxxxx **/
+
+/** ===== FSTO MOBILE & MEGABILLBOARD & STICKY BOTTOM MOBILE ===== **/
+#fsto-mobile.preview-mobile .banner-box, #megabillboard-mobile.preview-mobile .banner-box {
+    pointer-events: none;
+}
+#fsto-mobile .site-box, #megabillboard-mobile .site-box {
+    overflow: auto;
+}
+.site-box .megabillboard {
+    padding: 0px 20px 0px 20px;
+    background-color: #fafafa;
+}
+.site-box .megabillboard img {
+    width: 288px;
+    height: 432px;
+}
+.banner-box .sticky-bottom {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    height: auto;
+    padding: 5px;
+    background-color: #f6f6f6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     left: 0;
     right: 0;
-    bottom: 0;
     margin: auto;
-    text-align: center;
-    background-color: transparent;
-    padding: 0;
-    position: absolute;
-    z-index: 6;
+    z-index: 4;
+}
+.banner-box .sticky-bottom img {
+    width: 296px;
+    height: 87px;
 }
 
 
-/* ==== Leaderboard Expand ==== */
 
-#leadexp .web_box {
-    overflow-y: hidden;
-    overflow-x: hidden;
+
+/** ===== CAROUSEL STICKY ===== **/
+.banner-box .sticky-bottom .gallery-cell {
+  width: 290px;
+  height: 91px;
+  margin-right: 5px;
+  counter-increment: gallery-cell;
+}
+.banner-box .sticky-bottom .gallery-cell img {
+    width: 290px;
+    height: 91px;
+}   
+/* position dots in gallery */
+.flickity-page-dots {
+  bottom: 0px;
+}
+/* white circles */
+.flickity-page-dots .dot {
+  width: 12px;
+  height: 12px;
+  opacity: 1;
+  background: transparent;
+  border: 2px solid white;
+}
+/* fill-in selected dot */
+.flickity-page-dots .dot.is-selected {
+  background: white;
+}
+.gallery {
     background-color: white;
 }
-#leadexp .banner_ad {
-    left: 0;
-    right: 0;
-    top: 130px;
-    margin: auto;
-    text-align: center;
-    background-color: transparent;
-    padding: 0;
-    position: absolute;
-    z-index: 6;
-}
-#leadexp .banner_ad._fortune {
-    top: 137px;
-}
-#leadexp .banner_ad._popmama {
-    top: 90px;
-}
-#leadexp .banner_ad._duniaku {
-    top: 150px;
-}
-#leadexp .banner_ad._ggwp {
-    top: 127px;
-}
-#leadexp img.site2 {
-    padding-top: 320px;
-}
 
-/* ==== Bottomsticky Mobile ==== */
-
-#Mbottomsticky .web_box {
-    overflow-y: hidden;
-    overflow-x: hidden;
-}
-#Mbottomsticky .close_button {
-    position: absolute;
-    z-index: 9;
-    max-width: 25px;
-    bottom: 113px;
-    right: 43px;
-}
-#Mbottomsticky .banner_ad {
-    left: 0;
-    right: 0;
-    bottom: 22px;
-    margin: auto;
-    text-align: center;
-    background-color: transparent;
-    padding: 0;
-    position: absolute;
-    z-index: 6;
-    width: 290px;
-    height: 91px;
-}
-#Mbottomsticky .banner_ad img {
-    width: 290px;
-    height: 91px;
-}
-
-
-
-/* ==== Carousel Sticky Mobile ==== */
-
-#carouselsticky .web_box {
-    overflow-y: hidden;
-    overflow-x: hidden;
-}
-#carouselsticky .banner_ad {
-    left: 0;
-    right: 0;
-    bottom: 22px;
-    margin: auto;
-    text-align: center;
-    background-color: transparent;
-    padding: 0;
-    position: absolute;
-    z-index: 6;
-    width: 330px;
-}
-
-
-
-/* ==== Masthead Mobile ==== */
-
-#MMasthead .web_box {
-    overflow-y: hidden;
-    overflow-x: hidden;
-}
-#MMasthead .banner_ad {
-    left: 0;
-    right: 0;
-    margin: auto;
-    text-align: center;
-    background-color: transparent;
-    padding: 0;
+.banner-box .sticky-bottom .close_cs {
     position: relative;
-    z-index: 6;
-    width: 275px;
-    height: 230px;
+    display: block;
+    z-index: 9;
+    text-align: right;
+
 }
-#MMasthead .banner_ad img {
-    width: 100%;
-    height: auto;
+.close_cs img {
+    height: 18px!important;
+    width: 18px!important;
+    position: relative;
+    right: 5px;
+    z-index: 9999;
+    margin-bottom: 2px;
 }
-#MMasthead video {
-    width: 220px;
-    height: 123px;
-    position: absolute;
-    top: 10px;
-    left: 0;
-    right: 0;
-    margin: auto;   
+
+.flickity-enabled {
+  position: relative;
 }
-#MMasthead .banner_ad._idntimes {
-    top: 145px;
+.flickity-enabled:focus { outline: none; }
+.flickity-viewport {
+  overflow: hidden;
+  position: relative;
+  height: 100%;
 }
-#MMasthead .banner_ad._fortune {
-    top: 74px;
+.flickity-slider {
+  position: absolute;
+  width: 100%;
+  height: 100%;
 }
-#MMasthead .banner_ad._popbela {
-    top: 125px;
+
+/* draggable */
+
+.flickity-enabled.is-draggable {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
-#MMasthead .banner_ad._popmama {
-    top: 81px;
+
+.flickity-enabled.is-draggable .flickity-viewport {
+  cursor: move;
+  cursor: -webkit-grab;
+  cursor: grab;
+    width: 297px;
 }
-#MMasthead .banner_ad._duniaku {
-    top: 159px;
+
+.flickity-enabled.is-draggable .flickity-viewport.is-pointer-down {
+  cursor: -webkit-grabbing;
+  cursor: grabbing;
 }
-#MMasthead .banner_ad._ggwp {
-    top: 113px;
+
+/* ---- flickity-button ---- */
+
+.flickity-button {
+  position: absolute;
+  background: hsla(0, 0%, 100%, 0.75);
+  border: none;
+  color: #333;
+}
+
+.flickity-button:hover {
+  background: white;
+  cursor: pointer;
+}
+
+.flickity-button:active {
+  opacity: 0.6;
+}
+
+.flickity-button:disabled {
+  opacity: 0.3;
+  cursor: auto;
+  /* prevent disabled button from capturing pointer up event. #716 */
+  pointer-events: none;
+}
+
+.flickity-button-icon {
+  fill: currentColor;
+}
+
+/* ---- previous/next buttons ---- */
+
+.flickity-prev-next-button {
+  top: 50%;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  /* vertically center */
+  transform: translateY(-50%);
+}
+
+.flickity-prev-next-button.previous { left: 10px; }
+.flickity-prev-next-button.next { right: 10px; }
+/* right to left */
+.flickity-rtl .flickity-prev-next-button.previous {
+  left: auto;
+  right: 10px;
+}
+.flickity-rtl .flickity-prev-next-button.next {
+  right: auto;
+  left: 10px;
+}
+
+.flickity-prev-next-button .flickity-button-icon {
+  position: absolute;
+  left: 20%;
+  top: 20%;
+  width: 60%;
+  height: 60%;
+}
+
+/* ---- page dots ---- */
+
+.flickity-page-dots {
+  position: absolute;
+  width: 100%;
+  bottom: -25px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-align: center;
+  line-height: 1;
+}
+
+.flickity-rtl .flickity-page-dots { direction: rtl; }
+
+.flickity-page-dots .dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 0 8px;
+  background: #333;
+  border-radius: 50%;
+  opacity: 0.25;
+  cursor: pointer;
+}
+
+.flickity-page-dots .dot.is-selected {
+  opacity: 1;
 }
 
 
-/* ==== Masthead Sticky ==== */
 
-#MMasthead_sticky .web_box {
-    overflow-y: hidden;
-    overflow-x: hidden;
-}
-#MMasthead_sticky .banner_ad {
+
+
+
+
+/** ===== MASTHEAD STICKY ===== **/
+#masthead-sticky-mobile .banner-box #mastheadsticky {
+    width: 290px;
+    height: 60px;
+    overflow: hidden;
     left: 0;
     right: 0;
     margin: auto;
-    text-align: center;
-    background-color: transparent;
-    padding: 0;
     position: absolute;
-    z-index: 6;
-    width: 290px;
-    height: 290px;
-    bottom: 23px;
+    display: block;
+    text-align: center;
+    bottom: 0;
+}
+#mastheadsticky img {
+    max-width: 100%;
+    left: 0;
+    right: 0;
+    margin: auto;
 }
 #mastheadsticky .ms_big img {
     width: 290px;
@@ -1064,9 +543,9 @@ background-color: #333;
 }
 #mastheadsticky .ms_small img {
     width: 290px;
-    height: 45px;
+    height: 91px;
 }
-#MMasthead_sticky video {
+#mastheadsticky video {
     position: absolute;
     margin: auto;
     width: 260px;
@@ -1076,230 +555,653 @@ background-color: #333;
     top: 5px;
     z-index: 1;
 }
-
-
-
-/* ==== Video in Banner In Article Mobile ==== */
-
-#videoinbannerMarticle .web_box {
-    overflow-y: hidden;
-    overflow-x: hidden;
+#mastheadsticky .ms_small { 
+    width:290px; 
+    height:91px;
+    bottom: 0;
+    position: absolute;
 }
-#videoinbannerMarticle .banner_ad {
+#mastheadsticky .ms_big { 
+    width:290px; 
+    height:290px; 
+    display: none;
+}
+.close_big {
+    position: absolute;
+    display: block;
+    z-index: 9;
+    top: 0;
+    right: 0;
+}
+#mastheadsticky .close_big img {
+    height: auto;
+    width: 57px;
+}
+.close_ms {
+    position: absolute;
+    display: block;
+    z-index: 9;
+    top: 0;
+    right: 0;
+}
+.close_ms > img {
+    height: 15px;
+}
+
+
+
+
+
+
+
+/** ===== LEADERBOARD MOBILE & MASTHEAD MOBILE ===== **/
+/* -- ALL PUBLISHER Ex YUMMY --*/
+#leaderboard-mobile .banner-box img, #masthead-mobile .banner-box img, #masthead-mobile .banner-box video{
+    position: absolute;
     left: 0;
     right: 0;
-    top: 220px;
     margin: auto;
-    text-align: center;
-    background-color: black;
-    padding: 0;
-    position: relative;
-    z-index: 6;
 }
-#videoinbannerMarticle .banner_ad, #videoinbannerMarticle video {
-    width: 278px;
-    height: 232px;
+#leaderboard-mobile .banner-box img, #masthead-mobile .banner-box img {
+    width: 277px;
+    height: 231px;
+    top: 179px;
+}
+#masthead-mobile .banner-box video {
+    width: 220px;
+    height: 124px;
+    top: 187px;
+}
+/* -- YUMMY --*/
+#yummy #leaderboard-mobile .banner-box img, #yummy #masthead-mobile .banner-box img {
+    top: 112px;
+}
+#yummy #masthead-mobile .banner-box video {
+    top: 120px;
 }
 
 
-/* ==== Video Sticky ==== */
 
-#videoSticky .web_box {
-    overflow-y: hidden;
-    overflow-x: hidden;
-}
-#videoSticky .banner_ad {
-    left: 30px;
-    bottom: 30px;
-    margin: auto;
-    text-align: center;
-    background-color: black;
-    padding: 0;
+
+
+
+/** ===== VIDEO IN BANNER ARTICLE 1 MOBILE ===== **/
+/* -- ALL PUBLISHER --*/
+#video-article .banner-box .video-box {
     position: absolute;
-    z-index: 6;
+    width: 285px;
+    height: 238px;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    left: 0;
+    right: 0;
+    top: 212px;
+    margin: auto;
 }
-#videoSticky .banner_ad, #videoSticky video {
-    width: 190px;
-    height: 110px;
+#video-article .banner-box .video-box video {
+    width: 285px;
+    height: 160px;
+}
+#video-article .banner-box .video-box span {
+    position: absolute;
+    font-size: 13px;
+    z-index: 2;
+    color: white;
+    background-color: #ed2028;
+    left: 0px;
+    right: 0px;
+    margin: auto;
+    border-radius: 5px;
+    display: block;
+    bottom: 26px;
+    padding: 3px;
+    width: 110px;
+    text-align: center;
+    font-family: 'poppins', sans-serif;
 }
 
 
 
-/* ==========  RESPONSIVE ========== */
+/** ===== IN ARTICLE 1 MOBILE ===== **/
+/* -- ALL PUBLISHER --*/
+#inarticle-1-mobile .banner-box img {
+    position: absolute;
+    width: 300px;
+    height: 446px;
+    top: 205px;
+    left: 18px;
+}
+
+
+/** ===== IN ARTICLE 2 MOBILE ===== **/
+/* -- ALL PUBLISHER --*/
+#inarticle-2-mobile .banner-box img {
+    position: absolute;
+    width: 285px;
+    height: 238px;
+    top: 274px;
+    left: 26px;
+}
+
+
+
+/** ===== IN ARTICLE SWIPE MOBILE ===== **/
+/* -- ALL PUBLISHER --*/
+
+#inarticle-swipe-mobile .slider {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-animation:animation ease 1s;
+    animation-delay:.8s;
+    animation-fill-mode:backwards;
+    width: 275px;
+    height: 200px;
+    position: relative;
+    perspective:1000px;
+    transition:ease-in-out .2s;
+}
+#inarticle-swipe-mobile .slider-container {
+    position: relative;
+    background-color: black;
+    height: 280px;
+    width: 100%;
+    top: 254px;
+}
+#inarticle-swipe-mobile .banner-box img{
+    width: 275px;
+    height: 230px;
+}
+#inarticle-swipe-mobile .slide{
+    -webkit-user-select:none;
+    user-select:none;
+    -moz-user-select:none;
+    position:absolute;
+    height:300px;
+    width:250px;
+    -webkit-transform-style:preserve-3d;
+    transform-style:preserve-3d;
+    -moz-transform-style:preserve-3d;
+    text-align:center;
+    box-sizing:border-box;    
+}
+#inarticle-swipe-mobile .slide img { 
+    text-align:center;
+    width: 270px; 
+    height: 225px; 
+    -webkit-user-drag:none;
+    user-drag:none;
+    -moz-user-drag:none; 
+    border-radius:2px; 
+    box-shadow: 2px 1px 10px #000;
+}
+
+@-webkit-keyframes animation{from{opacity:0; -webkit-transform:scale(1.2) rotateX(45deg);transform:scale(1.2) rotateX(45deg);} to{ }}
+
+@-webkit-keyframes animation2{from{opacity:0; -webkit-transform:scale(1.2) rotateX(45deg);transform:scale(1.2) rotateX(45deg);} to{ }}
+
+@keyframes swipe {
+    0% {
+        left: -60px;
+    }
+    20% {
+        left: -60px;
+    }
+    40% {
+        left: 60px;
+    }
+    60% {
+        left: 60px;
+    }
+    80% {
+        left: 60px;
+    }
+    100% {
+        left: -60px;
+    }
+}
+.guide-anim {
+    animation: swipe 2s infinite; /* IE 10+, Fx 29+ */
+    animation-timing-function: linear;
+
+}
+img.guide-anim {
+    position: absolute;
+    max-width: 50px;
+    z-index: 9;
+    bottom: 50px;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+
+
+
+
+
+  
+
+/** ===== RMB ===== **/
+#rmb-mockup .site-box {
+    background-color: white;
+}
+#rmb-mockup video {
+    position: relative;
+    max-width: 340px;
+    height: auto;
+    top: 20px;
+    left: -2px;
+}
+
+
+
+
+
+  
+
+
+
+/* ========== ****************  RESPONSIVE **************** ========== */
 
 @media (max-width: 480px) {
-    /* ==== RMB Mobile ==== */
+    
+    /* ====== RESPONSIVE DISPLAY DESKTOP ====== */
+    
+    
+    /** ===== RESPONSIVE FSTO DESKTOP ===== **/
+    /* -- ALL PUBLISHER --*/
+
+    #fsto-desktop .sticky-bottom {
+        height: 42px;
+    }
+    #fsto-desktop .sticky-bottom img {
+        width: 140px;
+        height: auto!important;
+    }
+    #fsto-desktop img.skin-left, #fsto-desktop img.skin-right {
+        width: 26px;
+    }
+    #fsto-desktop img.skin-left {
+        top: 41px;
+        left: 12px;
+    }
+    #fsto-desktop img.skin-right {
+        top: 41px;
+        right: 12px;
+    }
+    
+    
+    /** ===== RESPONSIVE LEADERBOARD DESKTOP ===== **/
+    /* -- ALL PUBLISHER --*/
+    #leaderboard-desktop .banner-box img {
+        width: 142px;
+        height: 18px;
+        top: 1px;
+    }
+      
+    
+    /** ===== RESPONSIVE BILLBOARD DESKTOP & MASTHEAD DESKTOP ===== **/
+    /* -- ALL PUBLISHER Ex IDN TIMES & YUMMY --*/
+    #billboard-desktop .banner-box img, #masthead-desktop .banner-box img {
+        width: 172px;
+        height: 44px;
+        top: 31px;
+        left: 45px;
+    }
+    /* -- IDNTIMES --*/
+    #idntimes #billboard-desktop .banner-box img, #idntimes #masthead-desktop .banner-box img {
+        top: 37px;
+    }
+    #idntimes #masthead-desktop .banner-box video {
+        width: 71px;
+        height: 40px;
+        top: 39px;
+        left: 47px;
+    }
+    /* -- POPMAMA & FORTUNE  --*/
+    #popmama #masthead-desktop .banner-box video, #fortune #masthead-desktop .banner-box video {
+        width: 75px;
+        height: 42px;
+        top: 32px;
+        left: 47px;
+    }
+    /* -- POPBELA  --*/
+    #popbela #masthead-desktop .banner-box video {
+        width: 50px;
+        height: 28px;
+        top: 39px;
+        left: 50px;
+    }
+    /* -- GGWP & DUNIAKU  --*/
+    #ggwp #masthead-desktop .banner-box video, #duniaku #masthead-desktop .banner-box video {
+        width: 68px;
+        height: 38px;
+        top: 34px;
+        left: 48px;
+    }
+    /* -- YUMMY --*/
+    #yummy #billboard-desktop .banner-box img, #yummy #masthead-desktop .banner-box img {
+        width: 170px;
+        height: 44px;
+        top: 16px;
+        left: 47px;
+    }
+    #yummy #masthead-desktop .banner-box video {
+        width: 69px;
+        height: 38px;
+        top: 19px;
+        left: 48px;
+    }
+    
+    
+    /** ===== RESPONSIVE SKINAD DESKTOP ===== **/
+    /* -- ALL PUBLISHER Ex YUMMY --*/
+    #skinad .banner-box img {
+        width: 29px;
+        height: 109px;
+    }
+    #skinad .banner-box img.skin-left {
+        top: 25px;
+        left: 8px;
+    }
+    #skinad .banner-box img.skin-right {
+        top: 25px;
+        right: 8px;
+    }
+    /* -- YUMMY --*/
+    #yummy #skinad .banner-box img {
+        width: 21px;
+        height: 113px;
+    }
+    #yummy #skinad .banner-box img.skin-left {
+        top: 24px;
+        left: 0px;
+    }
+    #yummy #skinad .banner-box img.skin-right {
+        top: 24px;
+        right: 0px;
+    }
+    
+    
+    
+    /** ===== RESPONSIVE STICKY BOTTOM DESKTOP ===== **/
+    /* -- ALL PUBLISHER --*/
+    #sticky-bottom-desktop .banner-box img {
+        width: 139px;
+        height: 18px;
+        bottom: 3px;
+    }
+    
+    
+    
+    
+    /** ===== RESPONSIVE MEDIUM RECTANGLE DESKTOP & VIDEO IN BANNER MR ===== **/
+    #medium-rectangle-desktop .banner-box img, #medium-rectangle-desktop .banner-box video {
+        width: 57px;
+        height: 48px; 
+    }
+    #video-medium-rectangle .banner-box .video-box {
+        width: 117px;
+        height: 98px;
+    }
+    #video-medium-rectangle .banner-box .video-box video {
+        width: 117px;
+        height: 66px;
+    }
+    #video-medium-rectangle .banner-box .video-box span {
+        font-size: 7px;
+        border-radius: 5px;
+        bottom: 10px;
+        padding: 1px;
+        width: 64px;
+    }
+    /* -- IDNTIMES > Memiliki header dengan height yang lebih tinggi dibanding publisher lain--*/
+    #idntimes #medium-rectangle-desktop .banner-box img, #idntimes #video-medium-rectangle .banner-box .video-box {
+        right: 44px;
+        top: 35px;
+    }
+    /* -- YUMMY --*/
+    #yummy #medium-rectangle-desktop .banner-box img, #yummy #video-medium-rectangle .banner-box .video-box {
+        right: 33px;
+        top: 52px;
+    }
+    /* -- PUBLISHER LAIN Ex IDN TIMES & YUMMY --*/
+    #medium-rectangle-desktop .banner-box img, #video-medium-rectangle .banner-box .video-box {
+        right: 44px;
+        top: 30px;
+    }
+    
+    
+    
+    
+    /** ===== RESPONSIVE VERTICAL BILLBOARD DESKTOP ===== **/
+    /* -- ALL PUBLISHER Ex YUMMY --*/
+    #vertical-billboard-desktop .banner-box img {
+        width: 57px;
+        height: 113px;
+        top: 28px;
+        right: 44px;
+    }
+    /* -- YUMMY --*/
+    #yummy #vertical-billboard-desktop .banner-box img {
+        top: 38px;
+        right: 32px;
+    }
+    
+    
+    
+    
+    /** ===== RESPONSIVE IN ARTICLE 1 DESKTOP ===== **/
+    /* -- ALL PUBLISHER Ex Yummy --*/
+    #inarticle-1-desktop .banner-box img {
+        width: 61px;
+        height: 93px;
+        top: 43px;
+        left: 69px; 
+    }
+    /* -- Yummy --*/
+    #yummy #inarticle-1-desktop .banner-box img {
+        width: 60px;
+        height: 90px;
+        top: 55px;
+        left: 59px; 
+    }
+    
+    
+    
+    
+    /** ===== RESPONSIVE IN ARTICLE 2 DESKTOP ===== **/
+    /* -- ALL PUBLISHER Ex Yummy --*/
+    #inarticle-2-desktop .banner-box img {
+        width: 59px;
+        height: 49px;
+        top: 47px;
+        left: 70px;
+    }
+    /* -- Yummy --*/
+    #yummy #inarticle-2-desktop .banner-box img {
+        width: 139px;
+        height: 18px;
+        top: 78px;
+        left: 21px;
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    /* ====== RESPONSIVE MOBILE ====== */
+    
+    /** ===== RESPONSIVE FSTO MOBILE & MEGABILLBOARD & STICKY BOTTOM MOBILE ===== **/
+    .site-box .megabillboard {
+        padding: 0px 20px 0px 20px;
+        background-color: #fafafa;
+    }
+    .site-box .megabillboard img {
+        width: 216px;
+        height: 324px;
+    }
+    .banner-box .sticky-bottom {
+        position: absolute;
+        bottom: 0px;
+        width: 100%;
+        height: auto;
+        padding: 5px;
+        background-color: #f6f6f6;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        left: 0;
+        right: 0;
+        margin: auto;
+        z-index: 4;
+    }
+    .banner-box .sticky-bottom img {
+        width: 216pxpx;
+        height: 68px;
+    }
+    .preview-mobile .site-box .top-text {
+        font-size: 10px;
+    }
+    
+    /** ===== RESPONSIVE LEADERBOARD MOBILE & MASTHEAD MOBILE ===== **/
+    /* -- ALL PUBLISHER Ex YUMMY --*/
+    #leaderboard-mobile .banner-box img, #masthead-mobile .banner-box img {
+        width: 207px;
+        height: 173px;
+        top: 133px;
+    }
+    #masthead-mobile .banner-box video {
+        width: 165px;
+        height: 93px;
+        top: 138px;
+    }
+    /* -- YUMMY --*/
+    #yummy #leaderboard-mobile .banner-box img, #yummy #masthead-mobile .banner-box img {
+        top: 84px;
+    }
+    #yummy #masthead-mobile .banner-box video {
+        top: 90px;
+    }
+    
+    /* -- RESPONSIVE MASTHEAD STICKY -- */
+    #masthead-sticky-mobile .banner-box #mastheadsticky {
+        height: 94px;
+        width: 225px;
+    }
+    #mastheadsticky video {
+        width: 215px;
+        height: 121px;
+    }
+    #mastheadsticky .ms_big {
+        width: 225px;
+    }
+    #mastheadsticky .ms_big img {
+        width: 225px;
+        height: 225px;
+    }
+    #mastheadsticky .ms_small {
+        width: 225px;
+        height: 70px;
+    }
+    #mastheadsticky .ms_small img {
+        width: 225px;
+        height: 70px;
+    }
+    #mastheadsticky .close_big img {
+        width: auto;
+        height: 15px;
+    }
+    
+    
+    /** ===== RESPONSIVE IN ARTICLE 1 MOBILE ===== **/
+    /* -- ALL PUBLISHER --*/
+    #inarticle-1-mobile .banner-box img {
+        position: absolute;
+        width: 223px;
+        height: 334px;
+        top: 152px;
+        left: 14px;
+    }
+    
+    
+    
+    /** ===== RESPONSIVE IN ARTICLE 2 MOBILE ===== **/
+    /* -- ALL PUBLISHER --*/
+    #inarticle-2-mobile .banner-box img {
+        position: absolute;
+        width: 214px;
+        height: 177px;
+        top: 204px;
+        left: 18px;
+    }
+    
+    
+    /* -- RESPONSIVE VIDEO IN BANNER ARTICLE 1 MOBILE -- */
+    #video-article .banner-box .video-box {
+        width: 207px;
+        height: 173px;
+        top: 160px;
+    }
+    #video-article .banner-box .video-box video {
+        width: 207px;
+        height: 116px;
+    }
+    #video-article .banner-box .video-box span {
+        font-size: 10px;
+        width: 100px;
+    }
+    
+    /** ===== RESPONSIVE IN ARTICLE SWIPE MOBILE ===== **/
+    /* -- ALL PUBLISHER --*/
+
+    #inarticle-swipe-mobile .slider {
+        width: 275px;
+        height: 115px;
+    }
+    #inarticle-swipe-mobile .slider-container {
+        height: 210px;
+        top: 190px;
+    }
+    #inarticle-swipe-mobile .banner-box img{
+        width: 275px;
+        height: 230px;
+    }
+    #inarticle-swipe-mobile .slide{
+        height:300px;
+        width:250px;
+    }
+    #inarticle-swipe-mobile .slide img { 
+        width: 180px; 
+        height: 150px; 
+    }
+    
+    
+    /* -- RESPONSIVE CAROUSEL STICKY -- */
+    .flickity-enabled.is-draggable .flickity-viewport {
+        width: 220px;
+    }
+    
     #rmb-mockup video {
         position: relative;
         max-width: 254px;
         height: auto;
         top: 14px;
-    }
-    #mastheadsticky {
-        width: 230px!important;
-    }
-    #MMasthead_sticky .banner_ad, #mastheadsticky .ms_big img {
-        width: 230px;
-        height: 230px;
-    }
-    #displayad2 {
-        position: absolute;
-    }
-    #mastheadsticky .ms_small, #mastheadsticky .ms_small img {
-        width: 230px!important;
-        height: 36px!important;
-    }
-    #MMasthead_sticky video {
-        width: 200px;
-        height: 115px;
-    }
-    .try_ad input {
-        left: 0;
-        right: 0;
-        margin: auto;
-        top: 150px;
-    }
-    .try_ad .takess {
-        margin-left: 0;
-    }
-    .adpreview_desktop_box {
-        width: 290px;
-        height: 229px;
-    }
-    .adpreview_desktop_box .web_box {
-        top: 15px;
-        width: 261px;
-        height: 164px;
-        border-radius: 12px;
-    }
-    .adpreview_mobile_box {
-        width: 290px;
-        height: 580px;
-    }
-    .adpreview_mobile_box .web_box {
-        top: 18px;
-        width: 250px;
-        height: 544px;
-        border-radius: 12px;
-    }
-    .adpreview_mobile_box img.img_header {
-        width: 250px;
-        top: 17px;
-    }
-    .adpreview_mobile_box img.img_share {
-        width: 250px;
-        bottom: 18px;
-    }
-    #idnmegabillboard .banner_ad {
-        width: 250px;
-    }
-    #idnmegabillboard .banner_ad img {
-        width: 100%;
-        height: auto;
-    }
-    #idnmegabillboard .web_box {
-        padding-top: 365px;
-        overflow-y: scroll;
-    }
-    #Mbottomsticky .banner_ad {
-        bottom: 18px;
-    }
-    #Mbottomsticky .banner_ad, #Mbottomsticky .banner_ad img {
-        max-width: 230px;
-        height: auto;
-    }
-    #leadexp .banner_ad {
-        top: 110px;
-    }
-    #leadexp .banner_ad._popbela {
-        top: 104px;
-    }
-    #leadexp .banner_ad._popmama {
-        top: 72px;
-    }
-    #leadexp .banner_ad._fortune {
-        top: 66px;
-    }
-    #leadexp .banner_ad._duniaku {
-        top: 120px;
-    }
-    #leadexp .banner_ad._ggwp {
-        top: 102px;
-    }
-    #leadexp img.site2 {
-        padding-top: 250px;
-    }
-    #leaderboard_expand {
-        width: 220px!important;
-        height: 290px!important;
-    }
-    #leaderboard_expand .leaderboard_small, .leaderboard_small img {
-        width: 220px!important;
-        height: 69px!important;
-    }
-    #leaderboard_expand .leaderboard_big {
-        width: 220px!important;
-        height: 275px!important;
-        position: absolute;
-        top: 0;
-    }
-    .leaderboard_big img {
-        width: 220px!important;
-        height: auto!important;
-    }
-    #Minarticle .banner_ad, #Minarticle .banner_ad img {
-        width: 210px;
-        height: 175px;
-        top: 171px;
-    }
-    #parallax .web_box {
-        overflow-y: scroll;
-    }
-    #parallax .banner_ad {
-        width: 250px;
-    }
-    #parallax .banner_ad img {
-        width: 100%;
-        height: auto;
-    }
-    #parallaxB .web_box {
-        overflow-y: scroll;
-    }
-    #parallaxB .banner_ad {
-        background-color: white;
-        width: 270px;
-    }
-    #parallaxB .banner_ad img {
-        width: 100%;
-        height: auto;
-    }
-    #bottom_slide {
-        width: 230px!important;
-        bottom: 19px!important;
-    }
-    #bottom_slide .bs_sticky, .bs_sticky img {
-        width: 230px!important;
-        height: 39px!important;
-    }
-    #bottom_slide .bs_ad {
-        width: 230px!important;
-        height: 345px!important;
-    }
-    .bs_ad img {
-        position: absolute;
-        bottom: 0;
-        width: 230px!important;
-        height: 345px!important;
-    }
-    .close_bs img {
-        position: relative!important;
-        width: 56px!important;
-        height: 15px!important;
-        top: 98px!important;
-    }
-    #carouselsticky .banner_ad {
-        width: 250px;
-        bottom: 18px;
     }
     .gallery-cell {
         width: 220px!important;
@@ -1309,254 +1211,14 @@ background-color: #333;
         width: 220px!important;
         height: auto!important;
     }
-    #MMasthead .banner_ad {
-        width: 210px;
-        height: 175px;
-    }
-    #MMasthead video {
-        width: 185px;
-        height: 95px;
-        top: 5px;
-    }
-    #MMasthead .banner_ad._idntimes {
-        top: 108px;
-    }
-    #MMasthead .banner_ad._popbela {
-        top: 100px;
-    }
-    #MMasthead .banner_ad._popmama {
-        top: 65px;
-    }
-    #MMasthead .banner_ad._duniaku {
-        top: 122px;
-    }
-    #videoinbannerMarticle .banner_ad, #videoinbannerMarticle video {
-        width: 210px;
-        height: 175px;
-    }
-    #videoinbannerMarticle .banner_ad {
-        top: 170px;
-    }
-    #inartswipe .banner_ad {
-        width: 250px;
-        top: 170px;
-    }
-    #inartswipe .banner_ad img {
-        width: 200px;
-        height: 167px;
-    }
-    #inartswipe .slider-container {
-        height: 220px!important;
-    }
-    #inartswipe .slider {
-        top: 69%!important;
-    }
     
     
     
     
-    
-    /* === Responsive Desktop === */
-    
-    /* Inarticle desktop versi general */
-    
-    #Dinarticle .banner_ad._fortune {
-        top: 76px;
-        left: 90px;
-    }
-    #Dinarticle .banner_ad._fortune img {
-        width: 53px;
-        height: 44px;
-    }
-    
-    
-    /* Masthad desktop */
-    
-    #DMasthead .banner_ad {
-        width: 180px;
-        height: 46px;
-        top: 56px;
-    }
-    #DMasthead .banner_ad img {
-        width: 180px;
-        height: 46px;
-    }
-    #DMasthead ._idntimes video  {
-        width: 65px;
-        height: auto;
-        top: 4px;
-        left: 5px;
-    }
-    #DMasthead ._fortune video {
-        width: 70px;
-        height: auto;
-        top: 4px;
-        left: 5px;
-    }
-    #DMasthead ._popb video {
-        width: 65px;
-        height: auto;
-        top: 4px;
-        left: 5px;
-    }
-    #DMasthead ._popm video {
-        width: 60px;
-        height: auto;
-        top: 4px;
-        left: 5px;
-    }
-    #DMasthead ._idntimes video  {
-        width: 65px;
-        height: auto;
-        top: 4px;
-        left: 5px;
-    }
-    #DMasthead ._duniaku video  {
-        width: 70px;
-        height: auto;
-        top: 3px;
-        left: 3px;
-    }
-    #DMasthead .banner_ad._idntimes {
-        top: 55px;
-    }
-    #DMasthead .banner_ad._fortune {
-        top: 43px;
-    }
-    #DMasthead .banner_ad._popb {
-        top: 35px;
-    }
-    #DMasthead .banner_ad._popm {
-        top: 46px;
-    }
-    #DMasthead .banner_ad._duniaku {
-        top: 57px;
-    }
-    #DMasthead .banner_ad._ggwp {
-        top: 57px;
-    }
-    
-    #videoinbannerMRd .banner_ad, #videoinbannerMRd video {
-        width: 56px;
-        height: 47px;
-    }
-    #videoinbannerMRd .banner_ad._idntimes {
-        right: 45px;
-        top: 60px;
-    }
-    #videoinbannerMRd .banner_ad._fortune {
-        right: 32px;
-        top: 59px;
-    }
-    #videoinbannerMRd .banner_ad._popb {
-        right: 49px;
-        top: 90px;
-    }
-    .leaderboard_comp {
-        width: 180px!important;
-        height: 46px!important;
-    }
-    .leaderboard_comp_slider {
-        width: 40px!important;
-        height: 23px!important;
-        background-size: cover;
-    }
-    
-    #Dbottomsticky_idn .banner_ad {
-        top: 154px;
-    }
-    #Dbottomsticky_idn .banner_ad img {
-        width: 152px;
-        height: 19px;
-    }
-    
-    #DSkinad_idn .banner_ad_L {
-        left: 22px;
-        top: 50px;
-    }
-    #DSkinad_idn .banner_ad_R {
-        right: 22px;
-        top: 50px;
-    }
-    #DSkinad_idn .banner_ad_L img, #DSkinad_idn .banner_ad_R img {
-        width: 23px;
-        height: 96px;
-    }
-    
-    #VerticalBB .banner_ad img {
-        width: 56px;
-        height: 112px;
-    }
-    #VerticalBB .banner_ad._idntimes {
-        right: 45px;
-        top: 65px;
-    }
-    #VerticalBB .banner_ad._popb {
-        right: 49px;
-        top: 42px;
-    }
-
-    #Dinarticle_idn .banner_ad {
-        left: 50px;
-        top: 90px;
-    }
-    #Dinarticle_idn .banner_ad img {
-        width: 135px;
-        height: 17px;
-    }
-    
-    #Dinarticle_popb .banner_ad {
-        left: 45px;
-        top: 82px;
-    }
-    #Dinarticle_popb .banner_ad img {
-        width: 135px;
-        height: 17px;
-    }
-    
-    #Medrec .banner_ad img {
-        width: 56px;
-        height: 47px;
-    }
-    #Medrec .banner_ad._idntimes {
-        right: 45px;
-        top: 59px;
-    }
-    #Medrec .banner_ad._fortune {
-        right: 32px;
-        top: 59px;
-    }
-    #Medrec .banner_ad._popb {
-        right: 49px;
-        top: 90px;
-    }
 }
 
 
-#DSkinad_duniaku .banner_ad_L {
-    left: 30px;
-    top: 50px;
-    margin: auto;
-    text-align: center;
-    background-color: transparent;
-    padding: 0;
-    position: absolute;
-    z-index: 6;
-}
-#DSkinad_duniaku .banner_ad_R {
-    right: 52px;
-    top: 50px;
-    margin: auto;
-    text-align: center;
-    background-color: transparent;
-    padding: 0;
-    position: absolute;
-    z-index: 6;
-}
-#DSkinad_duniaku .banner_ad_L img, #DSkinad_duniaku .banner_ad_R img {
-    width: 22px;
-    height: 92px;
-}
+
 
 
 /* ==== Yummt App ==== */
@@ -1616,7 +1278,7 @@ background-color: #333;
 }
 
 /* middle 2 */
-#YummyApp.middle1 .banner_ad {
+#YummyApp.middle2 .banner_ad {
     left: 1px;
     right: 0;
     top: 300px;
@@ -1627,191 +1289,7 @@ background-color: #333;
     position: absolute;
     z-index: 6;
 }
-#YummyApp.middle1 .banner_ad img {
+#YummyApp.middle2 .banner_ad img {
     width: 260px;
     height: 217px;
 }
-
-/* ==== Yummt Web ==== */
-
-/* mobile leaderboard */
-#YummyWeb.M-leaderboard .banner_ad {
-    left: 1px;
-    right: 0;
-    top: 123px;
-    margin: auto;
-    text-align: center;
-    background-color: transparent;
-    padding: 0;
-    position: absolute;
-    z-index: 6;
-}
-#YummyWeb.M-leaderboard .banner_ad img {
-    width: 270px;
-    height: 227px;
-}
-
-
-/* mobile infeed */
-#YummyWeb.M-infeed .banner_ad {
-    left: 1px;
-    right: 0;
-    top: 234px;
-    margin: auto;
-    text-align: center;
-    background-color: transparent;
-    padding: 0;
-    position: absolute;
-    z-index: 6;
-}
-#YummyWeb.M-infeed .banner_ad img {
-    width: 270px;
-    height: 227px;
-}
-
-/* mobile stickybottom */
-#YummyWeb.M-stickybottom .banner_ad {
-    left: 1px;
-    right: 0;
-    bottom: 23px;
-    margin: auto;
-    text-align: center;
-    background-color: transparent;
-    padding: 0;
-    position: absolute;
-    z-index: 6;
-}
-#YummyWeb.M-stickybottom .banner_ad img {
-    width: 270px;
-    height: 84px;
-}
-
-/* mobile inarticle */
-#YummyWeb.M-inarticle .banner_ad {
-    left: 1px;
-    right: 0;
-    top: 274px;
-    margin: auto;
-    text-align: center;
-    background-color: transparent;
-    padding: 0;
-    position: absolute;
-    z-index: 6;
-}
-#YummyWeb.M-inarticle .banner_ad img {
-    width: 270px;
-    height: 227px;
-}
-
-/* leaderboard */
-#YummyWeb.D-leaderboard .banner_ad {
-    position: absolute;
-    z-index: 9;
-    text-align: center;
-    left: 0;
-    right: 0;
-    margin: auto;
-    top: 60px;
-}
-#YummyWeb.D-leaderboard .banner_ad img {
-    width: 370px;
-    height: 95px;
-}
-
-
-/* stickybottom desktop */
-#YummyWeb.D-stickybottom .banner_ad {
-    position: absolute;
-    z-index: 9;
-    text-align: center;
-    left: 0;
-    right: 0;
-    margin: auto;
-    bottom: 100px;
-}
-#YummyWeb.D-stickybottom .banner_ad img {
-    width: 280px;
-    height: 35px;
-}
-
-/* infeed desktop */
-#YummyWeb.D-infeed .banner_ad {
-    position: absolute;
-    z-index: 9;
-    text-align: center;
-    left: 0;
-    right: 0;
-    margin: auto;
-    bottom: 262px;
-}
-#YummyWeb.D-infeed .banner_ad img {
-    width: 280px;
-    height: 35px;
-}
-
-/* in article desktop */
-#YummyWeb.D-inarticle .banner_ad {
-    position: absolute;
-    z-index: 9;
-    text-align: center;
-    left: 87px;
-    bottom: 258px;
-}
-#YummyWeb.D-inarticle .banner_ad img {
-    width: 267px;
-    height: 33px;
-}
-
-
-/* MR desktop */
-#YummyWeb.D-mediumrectangle .banner_ad {
-    position: absolute;
-    z-index: 9;
-    right: 62px;
-    margin: auto;
-    top: 119px;
-}
-#YummyWeb.D-mediumrectangle .banner_ad img {
-    width: 126px;
-    height: 105px;
-}
-
-
-/* ==== Skinad Desktop yummy ==== */
-
-#YummyWeb .banner_ad_L {
-    left: 35px;
-    top: 66px;
-    margin: auto;
-    text-align: center;
-    background-color: transparent;
-    padding: 0;
-    position: absolute;
-    z-index: 6;
-}
-#YummyWeb .banner_ad_R {
-    right: 33px;
-    top: 66px;
-    margin: auto;
-    text-align: center;
-    background-color: transparent;
-    padding: 0;
-    position: absolute;
-    z-index: 6;
-}
-#YummyWeb .banner_ad_L img, #YummyWeb .banner_ad_R img {
-    width: 46px;
-    height: 220px;
-}
-
-
-
-
-
-
-
-
-
-
-
-

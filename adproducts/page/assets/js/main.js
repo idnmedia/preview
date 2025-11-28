@@ -104,4 +104,3 @@ function remove_home_mobile() {
   
 
 
-

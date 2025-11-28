@@ -1,52 +1,14 @@
+/* update oktober 2025 */
+
+
+.custom-file-label {
+    font-size: 1.3rem;
+}
 .mockup-pdf object {
     height: 800px;
 }
-.spec-types p{
-    font-weight: normal;
-    margin-left: 20px;
-}
-.spec-types h4{
-    margin-top: 15px;
-}
-#page-content-wrapper .spec-types ul {
-    padding-left: 5px;
-    list-style:decimal;
-    font-weight: bold;
-}
-#page-content-wrapper .spec-types ul li {
-    margin-left: 30px;
-    list-style:disc;
-    font-weight: normal;
-}
-.newtag span {
-    position: absolute;
-    font-family: 'Helvetica Neue Light', sans-serif;
-    font-size: 8px;
-    background-color: red;
-    padding: 2px 5px;
-    color: white;
-    text-align: center;
-    line-height: normal;
-    right: 55px;
-    float: right;
-    border-radius: 10px;
-    text-indent: 0;
-    top: 5px;
-}
-.newtag_2 span {
-    position: absolute;
-    font-family: 'Helvetica Neue Light', sans-serif;
-    font-size: 8px;
-    background-color: red;
-    padding: 2px 5px;
-    color: white;
-    text-align: center;
-    line-height: normal;
-    float: right;
-    border-radius: 10px;
-    text-indent: 0;
-    top: 5px;
-}
+
+
 #sidebar-wrapper .sidebar-nav li .nakwa li a {
     position: relative;
 }
@@ -94,6 +56,27 @@
 .bv-tag {
     
 }
+
+
+.contact-us-page h1 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 32px;
+    letter-spacing: .2px;
+}
+.contact-us-page .contact-info h4 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 24px;
+    letter-spacing: .2px;
+}
+.contact-us-page .contact-info table th, .contact-us-page .contact-info table td {
+    font-family: 'Outfit', sans-serif;
+    font-size: 16px;
+    letter-spacing: .2px;
+}
+
+
+
+
 @media screen and (max-width: 480px) {
    .overscroll {
         overflow: scroll;

@@ -1,4 +1,5 @@
 // fungsi untuk screenshot dan download image preview versi 1
+// tidak terpakai
 $(function() {
   $("#btnSave").click(function() {
     html2canvas($(".takethis"), {
@@ -50,9 +51,10 @@ $(function() {
 
 
 // fungsi untuk screenshot dan download image preview versi 2
+// terpakai
 
 function downloadimage() {
-    var node = document.getElementById('capthis');
+    var node = document.getElementById('capture');
     domtoimage.toPng(node)
         .then(function (dataUrl) {
         var img = new Image();
@@ -75,40 +77,16 @@ function downloadURI(uri, name) {
 
 // fungsi upload dan replace image statis, untuk banner standar
 
-function readURL(input) {
-   if (input.files && input.files[0]) {
-       var reader = new FileReader();
+function readURL(input, targetId) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
 
-       reader.onload = function (e) {
-           $('#displayad').attr('src', e.target.result);
-       };
+    reader.onload = function(e) {
+      $('#' + targetId).attr('src', e.target.result);
+    };
 
-       reader.readAsDataURL(input.files[0]);
-   }
-}
-	
-function readURL2(input) {
-   if (input.files && input.files[0]) {
-       var reader = new FileReader();
-
-       reader.onload = function (e) {
-           $('#displayad2').attr('src', e.target.result);
-       };
-
-       reader.readAsDataURL(input.files[0]);
-   }
-}
-
-function readURL3(input) {
-   if (input.files && input.files[0]) {
-       var reader = new FileReader();
-
-       reader.onload = function (e) {
-           $('#displayad3').attr('src', e.target.result);
-       };
-
-       reader.readAsDataURL(input.files[0]);
-   }
+    reader.readAsDataURL(input.files[0]);
+  }
 }
 
 // fungsi upload dan replace video, untuk video
@@ -200,7 +178,7 @@ function PostChunk() {
 
 $('input[type="file"]').change(function(e){
     var fileName = e.target.files[0].name;
-    $(e.target).siblings('.custom-file-label').html(fileName);
+    $(e.target).siblings('.file-name').html(fileName);
 });
 
 

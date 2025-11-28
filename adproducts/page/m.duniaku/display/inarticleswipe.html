@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+    
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="description" content="Duniaku - InArticle Swipe Banner">
@@ -12,10 +13,11 @@
 
         <!-- Bootstrap core CSS -->
         <link href="../../assets/css/bootstrap.min.css" rel="stylesheet">
-
+ 
         <!-- Custom styles  -->
         <link href="../../assets/css/main.css" rel="stylesheet">
-        <!-- <link href="../../assets/css/idn_ads_style.css" rel="stylesheet"> -->
+        <link href="../../assets/css/incl.css" rel="stylesheet">
+        <link href="../../assets/css/adpreview.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
         <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
         
@@ -61,47 +63,91 @@
         <!-- End Google Tag Manager -->
         
     </head>
+    
+    
     <body>
-        <section id="bg-image" class="" style="padding-top: 50px;">
+        <section id="duniaku">
             <div id="page-content-wrapper">
                 <div class="container">
                     <div class="row">
                         
-                        
-<!--
-                        <div class="col-md-7 animated fadeIn delay-1s">
-                            <img class="d-block w-100" src="screenshots/leaderboard-tvc-m.png" alt="Second slide" style="left: 0; right: 0; margin: auto; max-height: 350px; width: auto!important;">
-                            <video autoplay muted loop playsinline preload="metadata" style="width: 120px; height: auto; position: absolute; left: 0; right: 0; margin: auto; top: 97px; z-index: 2;">
-                                <source src="https://ads.idntimes.com/ads-assets/internal/video/video-lazada-ultah_1.mp4" type="video/mp4">
-                            </video>
+                        <!-- AdPreview -->
+                    
+                        <div class="col-md-6 text-center animated fadeIn delay-1s">
+                            <div id="capture">
+                                <div id="inarticle-swipe-mobile" class="preview-mobile">
+                                    <div class="site-box">
+                                        <img src="images/inarticle2-site.jpg" pinger-seen="true" class="img-fluid">         
+                                    </div>
+                                    
+                                    <div class="banner-box">
+                                        <div class="slider-container">
+            
+                                               <img id="swipeIcon" src="../../assets/images/icon/swipe.gif" class="guide-anim" style="max-width: 50px; height: auto!important;">
+                                                <div class="slider">
+
+
+                                                    <div class="slide">
+                                                        <a href="#" target="_blank">
+                                                            <img id="banner-ad-3" src="images/inarticleswipe-300x250-1.jpg"/>
+                                                        </a>
+                                                    </div>
+                                                    <div id="guideremove" class="slide slide2">
+                                                        <a href="#" target="_blank">
+                                                            <img id="banner-ad-2" src="images/inarticleswipe-300x250-3.jpg"/>
+                                                        </a>
+                                                    </div>
+                                                    <div class="slide" >
+                                                        <a href="#" target="_blank">
+                                                            <img id="banner-ad" src="images/inarticleswipe-300x250-2.jpg"/>
+                                                        </a>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                    </div>
+                                </div> 
+                            </div> 
+                            
+                            
                         </div>
--->
                         
-                        <div class="col-md-6 offset-md-3 spec-des animated fadeIn delay-1sets">
-                            <h1>InArticle Swipe Banner</h1>
-                            <div class="pad20">
-                                <h3>Pricing</h3>
-                                <ul class="font_bold">
-                                    <li>CPD : <b>IDR 14.000.000</b></li>
-                                </ul>
-                                <h3>Specification :</h3>
-                                <ul>
-                                    <li>Width : 300 pixel</li>
-                                    <li>Height : 250 pixel</li>
-                                    <li>Max Size : 100 KB</li>
-                                    <li>Quantity : 3</li>
-                                </ul>
-                                <h3>Format</h3>
-                                <ul>
-                                    <li>JPG</li>
-                                    <li>PNG</li>
-                                </ul>
+                        <div class="col-md-6 animated fadeIn delay-1sets">
+                            <div class="spec-box">
+                                <h1>InArticle Swipe Banner</h1>
+                                <div class="pad20">
+                                    <h3>Price</h3>
+                                    <div class="price">CPD : <span class="price-update">soon to be updated</span></div>
 
-
-    <!--                            <a href="../../preview/mobile/idntimes/leaderboard-tvc.html" target="_blank" class="preview animated bounceIn delay-2s">Go to Preview<i class="fa fa-arrow-right"></i></a>-->
+                                    <h3>Specification</h3>
+                                    <ul>
+                                        <li>Width x Height : 300 x 250 pixels</li>
+                                        <li>Banner Format : JPG, PNG, or GIF</li>
+                                        <li>Size : Max 150 KB</li>
+                                        <li>Quantity : 3</li>
+                                    </ul>
+                                    
+                                    <div class="browse-box-2">
+                                        <div class="upload-file animated bounceIn delay-2s">
+                                            <input type="file" required onchange="readURL(this, 'banner-ad')" type='file' accept="image/*"> 
+                                            <label class="file-name">Upload Your 300x250 (1)</label>    
+                                        </div>
+                                        <div class="upload-file animated bounceIn delay-2s">
+                                            <input type="file" required onchange="readURL(this, 'banner-ad-2')" type='file' accept="image/*"> 
+                                            <label class="file-name">Upload Your 300x250 (2)</label>  
+                                        </div>
+                                        <div class="upload-file animated bounceIn delay-2s">
+                                            <input type="file" required onchange="readURL(this, 'banner-ad-3')" type='file' accept="image/*"> 
+                                            <label class="file-name">Upload Your 300x250 (3)</label>  
+                                        </div>
+                                        
+                                        <div class="download-file animated bounceIn delay-2s" onclick="downloadimage()">
+                                            <i class="fa fa-download"></i> <span>Download Preview</span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        
                     </div>
                 </div>  
             </div>
@@ -110,5 +156,9 @@
         <!-- Bootstrap core JavaScript -->
         <script src="../../assets/js/jquery.min.js"></script>
         <script src="../../assets/js/bootstrap.bundle.min.js"></script>
+        <script src="../../assets/js/domtoimage.js"></script>  
+        <script src="../../assets/js/adpreview.js"></script> 
+        
+        <script src="https://ads.idn.media/products/cdn/js/inarticleswipe.js?upv=1.0"></script> 
     </body>
 </html>

@@ -16,6 +16,7 @@
 
         <!-- Custom styles  -->
         <link href="../../assets/css/main.css" rel="stylesheet">
+        <link href="../../assets/css/incl.css" rel="stylesheet">
         <link href="../../assets/css/adpreview.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
         <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -63,7 +64,7 @@
         
     </head>
     <body>
-        <section id="bg-image" class="" style="padding-top: 50px;">
+        <section id="idntimes">
             <div id="page-content-wrapper">
                 <div class="container">
                     <div class="row">
@@ -71,54 +72,45 @@
                         <!-- AdPreview -->
                     
                         <div class="col-md-7 text-center animated fadeIn delay-1s">
-                            <div id="capthis">
-                                <div id="Dbottomsticky_idn">
-                                    <div class="takethis adpreview_desktop_box">
-                                        <div class="web_box">
-                                            <img src="images/stickybottom-site.jpg">
-                                        </div>
-                                        <img class="desktop_frame" src="../../assets/images/frame/desktop.png">
-                                        <div class="banner_ad">
-                                            <img id="displayad" src="../../assets/images/banner-dummy/728x90-transparent.png">
-                                        </div>
+                            <div id="capture">
+                                <div id="sticky-bottom-desktop" class="preview-desktop">
+                                    <div class="site-box">
+                                        <img src="images/stickybottom-site.jpg" class="img-fluid">
+                                    </div>
+                                    <div class="banner-box">
+                                        <img id="banner-ad" src="../../assets/images/blank.png"> 
                                     </div>
                                 </div>
+                                
+                                
                             </div>
                         </div>
                         
                         <div class="col-md-5 animated fadeIn delay-1sets">
-                            <div class="spec-des">
+                            <div class="spec-box">
                                 <h1>Sticky Bottom</h1>
                                 <div class="pad20">
-                                    <h3>Pricing</h3>
-                                    <ul class="font_bold">
-                                        <li>CPD Only : IDR 11.000.000</li>
-                                    </ul>
-                                    <h3>Specification :</h3>
+                                    <h3>Price</h3>
+                                    <div class="price">CPD : <span class="price-style">IDR 13.000.000</span></div>
+
+                                    <h3>Specification</h3>
                                     <ul>
-                                        <li>Width : 728 pixel</li>
-                                        <li>Height : 90 pixel</li>
-                                        <li>Max Size : 100 KB</li>
-                                    </ul>
-                                    <h3>Format</h3>
-                                    <ul>
-                                        <li>JPG</li>
-                                        <li>PNG</li>
-                                        <li>GIF</li>
+                                        <li>Width x Height : 728 x 90 pixels</li>
+                                        <li>Banner Format : JPG, PNG, or GIF</li>
+                                        <li>Size : Max 150 KB</li>
                                     </ul>
                                     
-                                    <div class="browse_box">
-                                        <div class="browse_ad animated bounceIn delay-2s">
-                                            <i class="fa fa-upload"></i> Upload Your Ad
+                                    <div class="browse-box">
+                                        <div class="upload-file animated bounceIn delay-2s">
+                                            <i class="fa fa-upload"></i>
+                                            <span>Upload Your Ad</span>
+                                            <input onchange="readURL(this, 'banner-ad')" type='file' accept="image/*"> 
                                         </div>
-                                        <input class="onhov" onchange="readURL(this);" type='file' width="100">
+                                        <div class="download-file animated bounceIn delay-2s" onclick="downloadimage()">
+                                            <i class="fa fa-download"></i> <span>Download Preview</span>
+                                        </div>
                                     </div>
 
-                                    <div class="takess animated bounceIn delay-2s" onclick="downloadimage()">
-                                        <i class="fa fa-download"></i> <span>Download Preview</span>
-                                    </div>
-
-<!--                                    <a href="../../preview/desktop/idntimes/stickybottom.html" target="_blank" class="preview animated bounceIn delay-2s">Go to Preview<i class="fa fa-arrow-right"></i></a>-->
                                 </div>
                             </div>
                         </div>

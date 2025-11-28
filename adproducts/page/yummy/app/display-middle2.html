@@ -15,6 +15,7 @@
         <!-- Custom styles  -->
         <link href="../../assets/css/main.css" rel="stylesheet">
         <link href="../../assets/css/adpreview.css" rel="stylesheet">
+        <link href="../../assets/css/incl.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
         <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
         
@@ -61,60 +62,26 @@
         
     </head>
     <body> 
-        <section id="yummy-style" class="" style="padding-top: 50px;">
+        <section id="yummy">
             <div id="page-content-wrapper">
                 <div class="container">
                     <div class="row">
+
                         
-                        <!-- AdPreview -->
-                    
-                        <div class="col-md-6 text-center animated fadeIn delay-1s">
-                            <div id="capthis">
-                                <div id="YummyApp" class="middle1">
-                                    <div class="takethis adpreview_mobile_box">
-                                        <div class="web_box">
-                                            <img src="images/middle2-site.jpg">
-                                        </div>
-                                        <img class="mobile_frame" src="../../assets/images/frame/mobile.png">
-                                        <div class="banner_ad">
-                                            <img id="displayad" src="../../assets/images/banner-dummy/300x250-transparent.png">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-6 animated fadeIn delay-1sets">
-                            <div class="spec-des">
+                        <div class="col-md-6 offset-md-3 animated fadeIn delay-1sets">
+                            <div class="spec-box">
                                 <h1>Middle 2</h1>
                                 <div class="pad20">
                                     <h3>Price</h3>
-                                    <ul class="font_bold">
-                                        <li>CPD : <b>IDR 23.000.000</b></li>
-                                    </ul>
-                                    <h3>Specification </h3>
-                                    <ul>
-                                        <li>Width : 300 pixel</li>
-                                        <li>Height : 250 pixel</li>
-                                        <li>Max Size : 150 KB</li>
-                                    </ul>
-                                    <h3>Format</h3>
-                                    <ul>
-                                        <li>JPG</li>
-                                        <li>PNG</li>
-                                        <li>GIF</li>
-                                    </ul>
+                                    <div class="price">CPD : <span class="price-style">IDR 23.000.000</span></div>
                                     
-                                    <div class="browse_box">
-                                        <div class="browse_ad animated bounceIn delay-2s">
-                                            <i class="fa fa-upload"></i> Upload Your Ad
-                                        </div>
-                                        <input class="onhov" onchange="readURL(this);" type='file' width="100">
-                                    </div>
+                                    <h3>Specification</h3>
+                                    <ul>
+                                        <li>Width x Height: 300 x 250 pixels</li>
+                                        <li>Banner Format : JPG, PNG, or GIF</li>
+                                        <li>Size : Max 150 KB</li>
+                                    </ul>
 
-                                    <div class="takess animated bounceIn delay-2s" onclick="downloadimage()">
-                                        <i class="fa fa-download"></i> <span>Download Preview</span>
-                                    </div>
                                 </div>
                             </div>
                         </div>

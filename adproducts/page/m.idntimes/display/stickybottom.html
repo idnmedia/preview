@@ -15,6 +15,7 @@
 
         <!-- Custom styles  -->
         <link href="../../assets/css/main.css" rel="stylesheet">
+        <link href="../../assets/css/incl.css" rel="stylesheet">
         <link href="../../assets/css/adpreview.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
         <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -62,7 +63,7 @@
         
     </head>
     <body>
-        <section id="bg-image" class="" style="padding-top: 50px;">
+        <section id="idntimes">
             <div id="page-content-wrapper">
                 <div class="container">
                     <div class="row">
@@ -70,55 +71,46 @@
                         <!-- AdPreview -->
                     
                         <div class="col-md-6 text-center animated fadeIn delay-1s">
-                            <div id="capthis">
-                                <div id="Mbottomsticky">
-                                    <div class="takethis adpreview_mobile_box">
-                                        <div class="web_box">
-                                            <img src="images/bottomsticky-site.jpg">
-                                        </div>
-                                        <img class="mobile_frame" src="../../assets/images/frame/mobile.png">
-                                        <img src="../../../cdn/button/close-red-white.png" class="close_button">
-                                        <div class="banner_ad">
-                                            <img id="displayad" src="images/carouselsticky-320x100.jpg">
+                            <div id="capture">
+                                <div id="sticky-bottom-mobile" class="preview-mobile">
+                                    <div class="site-box">
+                                        <img src="images/stickybottom-site.jpg" pinger-seen="true" class="img-fluid">         
+                                    </div>
+                                    
+                                    <div class="banner-box">
+                                        <div class="sticky-bottom">
+                                            <img id="banner-ad" src="images/320x100-mitsubishi.jpg" class="img-fluid">
                                         </div>
                                     </div>
-                                </div>
-                            </div>
+                                </div> 
+                            </div> 
                         </div>
-                        
+                         
                         <div class="col-md-6 animated fadeIn delay-1sets">
-                            <div class="spec-des">
+                            <div class="spec-box">
                                 <h1>Sticky Bottom</h1>
                                 <div class="pad20">
-                                    <h3>Pricing</h3>
-                                    <ul class="font_bold">
-                                        <li>CPD : <b>IDR 140.000.000</b></li>
-                                    </ul>
-                                    <h3>Specification :</h3>
+                                    <h3>Price</h3>
+                                    <div class="price">CPD : <span class="price-style">IDR 110.000.000</span> </div>
+
+                                    <h3>Specification</h3>
                                     <ul>
-                                        <li>Width : 320 pixel ~ hires : 640 pixel</li>
-                                        <li>Height : 100 pixel ~ hires : 200 pixel</li>
-                                        <li>Max Size : 150 KB</li>
-                                    </ul>
-                                    <h3>Format</h3>
-                                    <ul>
-                                        <li>JPG</li>
-                                        <li>PNG</li>
-                                        <li>GIF</li>
+                                        <li>Width x Height : 320 x 100 pixels</li>
+                                        <li>Width x Height <b>(Hires)</b> : 640 x 200 pixels</li>
+                                        <li>Banner Format : JPG, PNG, or GIF</li>
+                                        <li>Size : Max 150 KB</li>
                                     </ul>
                                     
-                                    <div class="browse_box">
-                                        <div class="browse_ad animated bounceIn delay-2s">
-                                            <i class="fa fa-upload"></i> Upload Your Ad
+                                    <div class="browse-box">
+                                        <div class="upload-file animated bounceIn delay-2s">
+                                            <i class="fa fa-upload"></i>
+                                            <span>Upload Your Ad</span>
+                                            <input onchange="readURL(this, 'banner-ad')" type='file' accept="image/*"> 
                                         </div>
-                                        <input class="onhov" onchange="readURL(this);" type='file' width="100">
+                                        <div class="download-file animated bounceIn delay-2s" onclick="downloadimage()">
+                                            <i class="fa fa-download"></i> <span>Download Preview</span>
+                                        </div>
                                     </div>
-
-                                    <div class="takess animated bounceIn delay-2s" onclick="downloadimage()">
-                                        <i class="fa fa-download"></i> <span>Download Preview</span>
-                                    </div>
-
-<!--                                    <a href="../../preview/mobile/idntimes/stickybot.html" target="_blank" class="preview animated bounceIn delay-2s">Go To Preview</a>-->
                                 </div>
                             </div>
                         </div>

@@ -4,18 +4,19 @@
     
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta name="description" content="IDN Times - Mega Billboard">
-        <meta name="author" content="IDN Media, IDN Times">
+        <meta name="description" content="Yummy - Mega Billboard">
+        <meta name="author" content="IDN Media, Yummy">
         
         <meta name="robots" content="noindex">
 
-        <title>Mega Billboard - IDN Times | IDN Ads</title>
+        <title>Mega Billboard - Yummy | IDN Ads</title>
 
         <!-- Bootstrap core CSS -->
         <link href="../../assets/css/bootstrap.min.css" rel="stylesheet">
 
         <!-- Custom styles  -->
         <link href="../../assets/css/main.css" rel="stylesheet">
+        <link href="../../assets/css/incl.css" rel="stylesheet">
         <link href="../../assets/css/adpreview.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
         <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -63,7 +64,7 @@
         
     </head>
     <body>
-        <section id="yummy-style" class="" style="padding-top: 50px;">
+        <section id="yummy">
             <div id="page-content-wrapper">
                 <div class="container">
                     <div class="row">
@@ -71,47 +72,54 @@
                         <!-- AdPreview --> 
                     
                         <div class="col-md-6 text-center animated fadeIn delay-1s">
-                            <div id="capthis">
-                                <div id="idnmegabillboard">
-                                    <div class="takethis adpreview_mobile_box">
-                                        <div class="web_box">
-                                            <img src="images/header.jpg" style="position: sticky; top: -470px">
-                                            <img src="images/megabillboard-site.jpg">
+                            <div id="capture">
+                                <div id="megabillboard-mobile" class="preview-mobile">
+                                    <div class="site-box">
+                                        <div class="megabillboard">
+                                            <span class="top-text">
+                                                Iklan - Scroll untuk Melanjutkan
+                                            </span>
+                                            <img id="banner-ad" src="images/320x480-miesedaap.jpg" class="img-fluid">
                                         </div>
-                                        <img class="mobile_frame" src="../../assets/images/frame/mobile.png">
-                                        <div class="banner_ad">
-                                            <img id="displayad" src="images/320x480-fiesta.jpg">
+                                        <div class="download-app">
+                                            <img src="images/download-apps.jpg" class="img-fluid">
                                         </div>
+                                        <div class="site-header">
+                                            <img src="images/site-header.jpg" class="img-fluid">
+                                        </div>                              
+                                        <img src="images/megabillboard-site.jpg" pinger-seen="true" class="img-fluid">         
                                     </div>
-                                </div>
-                            </div>
-                        </div>     
+                                    
+                                    <div class="banner-box"></div>
+                                </div> 
+                            </div> 
+                        </div>
+                                              
                         <div class="col-md-6 animated fadeIn delay-1sets">
-                            <div class="spec-des">
+                            <div class="spec-box">
                                 <h1>Mega Billboard</h1>
                                 <div class="pad20">
-                                    <h3>Pricing</h3>
-                                    <ul class="font_bold">
-                                        <li>CPD : <b>IDR 5.000.000</b></li>
-                                    </ul>
+                                    <h3>Price</h3>
+                                    <div class="price">CPD : <span class="price-style">IDR 8.000.000</span> </div>
+
                                     <h3>Specification </h3>
                                     <ul>
-                                        <li>Width : 320 pixel</li>
-                                        <li>Height : 480 pixel</li>
-                                        <li>Format : JPG, PNG, or GIF</li>
-                                        <li>Max Size : 150 KB</li>
+                                        <li>Width x Height : 320 x 480 pixels</li>
+                                        <li>Banner Format : JPG, PNG, or GIF</li>
+                                        <li>Size : Max 150 KB</li>
                                     </ul>
  
-                                    <div class="browse_box">
-                                        <div class="browse_ad animated bounceIn delay-2s">
-                                            <i class="fa fa-upload"></i> Upload Your Ad
+                                    <div class="browse-box">
+                                        <div class="upload-file animated bounceIn delay-2s">
+                                            <i class="fa fa-upload"></i>
+                                            <span>Upload Your Ad</span>
+                                            <input onchange="readURL(this, 'banner-ad')" type='file' accept="image/*"> 
                                         </div>
-                                        <input class="onhov" onchange="readURL(this);" type='file' width="100">
+                                        <div class="download-file animated bounceIn delay-2s" onclick="downloadimage()">
+                                            <i class="fa fa-download"></i> <span>Download Preview</span>
+                                        </div>
                                     </div>
-
-                                    <div class="takess animated bounceIn delay-2s" onclick="downloadimage()">
-                                        <i class="fa fa-download"></i> <span>Download Preview</span>
-                                    </div>
+                                    
 
                                 </div>
                             </div>
