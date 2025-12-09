@@ -2158,9 +2158,13 @@
 														
                                                         <!-- billboard 970x250 -->
                                                         
-                                                        <a href="{lp}" target="_blank">
-                                                            <img src="images/970x250.gif" style="width: 970px; height: 250px;">
-                                                        </a>
+<div style="position: relative; width: 970px; height: 250px; display: block; left: 0; right: 0; margin: auto;">
+    <a href="{lp}" target="_blank" style="position: absolute; display: block; width: 970px; height: 250px;"></a>
+    <video controls autoplay muted playsinline loop preload="metadata" style="width: 380px; height: 214px; position: absolute; left: 0; right: 0px; top: 18px; z-index: 1; margin: auto;">
+        <source src="images/video-min.mp4" type="video/mp4">
+    </video>
+    <img src="images/970x250.gif" style="max-width: 970px; height: 250px;">
+</div>
                                                         
 													</div>
 												</div>
