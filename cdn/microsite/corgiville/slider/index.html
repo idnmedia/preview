@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+<body>
+	<div class="carousel-container">
+		<div class="carousel-stage" id="carousel-stage">
+			<!-- card structure defined in js for DOM Manipulation -->
+		</div>
+		<div class="carousel-controls">
+			<button class="nav-btn" id="prev-btn"><img src="prev-btn.png"></button>
+			<div class="pagination-indicators" id="pagination-dots"></div><button class="nav-btn" id="next-btn"><img src="next-btn.png"></button>
+		</div>
+	</div>
+	<style>
+
+        html {
+         background: transparent;
+        }
+        body {
+            margin: 0;
+        }
+
+        :root {
+         --shift-x: 32vw;
+        }
+
+        .carousel-container {
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         justify-content: center;
+         min-height: 100vh;
+         perspective: 2000px;
+         overflow: hidden;
+         width: 100%;
+        }
+
+        .carousel-stage {
+         position: relative;
+         width: 100vw;
+         height: 500px;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         transform-style: preserve-3d;
+        }
+
+        /* CARD */
+        .carousel-card {
+         position: absolute;
+         width: 650px;
+         height: 365px;
+         border-radius: 15px;
+         overflow: hidden;
+         cursor: pointer;
+         transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .carousel-card.active {
+         transform: translate3d(0, 0, 250px);
+         z-index: 10;
+        }
+
+        .carousel-card.left {
+         transform: translate3d(calc(var(--shift-x) * -1), 0, -150px)
+           rotateY(35deg) scale(0.85);
+         opacity: 0.5;
+        }
+
+        .carousel-card.right {
+         transform: translate3d(var(--shift-x), 0, -150px)
+           rotateY(-35deg) scale(0.85);
+         opacity: 0.5;
+        }
+
+        .carousel-card.hidden {
+         opacity: 0;
+         transform: translate3d(0, 0, -1000px) scale(0.1);
+        }
+
+        /* IMAGE */
+        .card-image {
+         width: 100%;
+         height: 100%;
+         background-size: cover;
+         background-position: center;
+        }
+
+        /* CONTROLS */
+        .carousel-controls {
+         margin-top: 20px;
+         display: flex;
+         align-items: center;
+         gap: 15px;
+         padding: 8px 16px;
+         border-radius: 100px;
+         background: rgba(255,255,255,0.1);
+        }
+
+        .nav-btn {
+         background: none;
+         border: none;
+         cursor: pointer;
+        }
+
+        .nav-btn img {
+         width: 32px;
+        }
+
+        /* THUMBNAILS */
+        .pagination-indicators {
+         display: flex;
+           align-items: center;
+         gap: 12px;
+        }
+
+        .thumb {
+         width: 45px;
+         height: 32px;
+         border-radius: 8px;
+         background-size: cover;
+         background-position: center;
+         opacity: 0.4;
+         transform: scale(0.9);
+         transition: all 0.3s ease;
+         pointer-events: none; /* indicator only */
+        }
+
+        .thumb.active {
+         width: 125px;
+         height: 67px;
+         opacity: 1;
+         transform: scale(1);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 600px) {
+         .carousel-card {
+           width: 75vw;
+           height: 45vw;
+         }
+
+         .thumb {
+           width: 36px;
+           height: 24px;
+         }
+
+         .thumb.active {
+           width: 56px;
+           height: 36px;
+         }
+        }
+
+	</style>
+    
+    
+	<script>
+        const achievements = [
+         {
+           id: 1,
+           image: "image.png",
+             link: "https://youtube.com"
+         },
+         {
+           id: 2,
+           image: "image2.png",
+             link: "https://youtube.com"
+         },
+         {
+           id: 3,
+           image: "image.png",
+             link: "https://youtube.com"
+         },
+         {
+           id: 4,
+           image: "image2.png",
+             link: "https://youtube.com"
+         },
+         {
+           id: 5,
+           image: "image.png",
+             link: "https://youtube.com"
+         },
+         {
+           id: 6,
+           image: "image2.png",
+             link: "https://youtube.com"
+         },
+         {
+           id: 7,
+           image: "image.png",
+             link: "https://youtube.com"
+         },
+         {
+           id: 8,
+           image: "image2.png",
+             link: "https://youtube.com"
+         },
+         {
+           id: 9,
+           image: "image.png",
+             link: "https://youtube.com"
+         }
+        ];
+
+        let activeIndex = 0;
+        const total = achievements.length;
+        const stage = document.getElementById("carousel-stage");
+        const dotsContainer = document.getElementById("pagination-dots");
+
+        // 1. Initial Render (Run Once)
+        function init() {
+         achievements.forEach((item, index) => {
+           // Create the card
+           const card = document.createElement("div");
+           card.className = "carousel-card";
+           card.id = `card-${index}`;
+           card.onclick = () => {
+         if (index !== activeIndex) {
+           activeIndex = index;
+           update();
+         }
+        };
+
+           card.innerHTML = `
+         <a href="${item.link}" target="_blank" class="card-link">
+           <div class="card-image" style="background-image:url('${item.image}')"><\/div>
+         <\/a>
+        `;
+
+           stage.appendChild(card);
+
+           // Create the dot
+           const dot = document.createElement("div");
+        dot.className = `thumb ${index === activeIndex ? "active" : ""}`;
+        dot.id = `dot-${index}`;
+        dot.style.backgroundImage = `url('${item.image}')`;
+        //dot.onclick = () => {
+        //  activeIndex = index;
+        //  update();
+        //};
+        dotsContainer.appendChild(dot);
+
+         });
+
+         update(); // First placement
+        }
+
+        // 2. The "Update" function (Triggers the smooth transition)
+        function update() {
+         achievements.forEach((_, index) => {
+           const card = document.getElementById(`card-${index}`);
+           const dot = document.getElementById(`dot-${index}`);
+
+           // Circular Offset Math
+           let offset = index - activeIndex;
+           if (offset > Math.floor(total / 2)) offset -= total;
+           if (offset < -Math.floor(total / 2)) offset += total;
+
+           // Apply classes based on offset
+           let positionClass = "hidden";
+           if (offset === 0) positionClass = "active";
+           else if (offset === -1) positionClass = "left";
+           else if (offset === 1) positionClass = "right";
+
+           card.className = `carousel-card ${positionClass}`;
+           dot.className = `thumb ${index === activeIndex ? "active" : ""}`;
+
+         });
+        }
+
+        // Navigation
+        const next = () => {
+         activeIndex = (activeIndex + 1) % total;
+         update();
+        };
+        const prev = () => {
+         activeIndex = (activeIndex - 1 + total) % total;
+         update();
+        };
+
+        document.getElementById("next-btn").onclick = next;
+        document.getElementById("prev-btn").onclick = prev;
+
+        // Keyboard Support
+        window.addEventListener("keydown", (e) => {
+         if (e.key === "ArrowRight") next();
+         if (e.key === "ArrowLeft") prev();
+        });
+
+
+
+        init();
+	</script> 
+</body>
+</html>
