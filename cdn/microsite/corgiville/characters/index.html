@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Character Swap Gallery</title>
+
+<style>
+* {
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 24px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* BIG CARD */
+.big-card {
+  border-radius: 32px;
+  padding: 32px;
+  color: #000;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.4s ease;
+}
+
+.big-img {
+  width: 100%;
+  max-height: 380px;
+  object-fit: contain;
+}
+
+.big-title {
+  margin: 24px 0 8px;
+  font-size: 32px;
+}
+
+.big-desc {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* THUMBNAILS */
+.thumbs {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.thumb {
+  border-radius: 24px;
+  padding: 16px;
+  cursor: pointer;
+  transition: transform 0.35s ease, background 0.35s ease;
+}
+
+.thumb:hover {
+  transform: scale(1.05);
+}
+
+.thumb img {
+  width: 100%;
+  height: 140px;
+  object-fit: contain;
+}
+</style>
+</head>
+
+<body>
+<div class="wrapper">
+  <div class="big-card">
+    <img class="big-img" />
+    <h2 class="big-title"></h2>
+    <p class="big-desc"></p>
+  </div>
+
+  <div class="thumbs">
+    <div class="thumb"><img src="thumb.png" /></div>
+    <div class="thumb"><img src="thumb2.png" /></div>
+    <div class="thumb"><img src="thumb3.png" /></div>
+    <div class="thumb"><img src="thumb4.png" /></div>
+    
+  </div>
+</div>
+
+<script>
+const characters = [
+  {
+    name: "Daddy Carlyle Wiggleton",
+    desc: "The curious builder. Carlyle loves fixing things and showing his pups that every oops can become an aha!",
+    image: "thumb.png",
+  },
+  {
+    name: "Sunny Wiggleton",
+    desc: "Always cheerful and ready to help.",
+    image: "thumb2.png",
+  },
+  {
+    name: "Buddy Wiggleton",
+    desc: "The playful explorer of the family.",
+    image: "thumb3.png",
+  },
+  {
+    name: "Luna Wiggleton",
+    desc: "Creative and thoughtful.",
+    image: "thumb4.png",
+  },
+  {
+    name: "Max Wiggleton",
+    desc: "Strong, calm, and dependable.",
+    image: "thumb5.png",
+  }
+];
+
+const bigCard = document.querySelector(".big-card");
+const bigImg = document.querySelector(".big-img");
+const bigTitle = document.querySelector(".big-title");
+const bigDesc = document.querySelector(".big-desc");
+const thumbs = document.querySelectorAll(".thumb");
+
+function render() {
+  const active = characters[0];
+
+  bigCard.style.background = active.bg;
+  bigImg.src = active.image;
+  bigTitle.textContent = active.name;
+  bigDesc.textContent = active.desc;
+
+  thumbs.forEach((thumb, i) => {
+    const data = characters[i + 1];
+    thumb.style.background = data.bg;
+    thumb.querySelector("img").src = data.image;
+
+    thumb.onclick = () => swap(i + 1);
+  });
+}
+
+function swap(index) {
+  const temp = characters[0];
+  characters[0] = characters[index];
+  characters[index] = temp;
+  render();
+}
+
+render();
+</script>
+</body>
+</html>
