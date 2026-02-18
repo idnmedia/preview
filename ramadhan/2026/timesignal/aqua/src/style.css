@@ -1,0 +1,273 @@
+/* === dibuat dengan penuh cinta dari tim IDN Creative == */
+
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap');
+
+
+body {
+    margin: 0;
+}
+
+/* ===== BANNER BOX & IMAGE ===== */
+.banner-box {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+}
+#desktop.banner-box, #desktop .banner-img {
+    width: 970px;
+    height: 250px;
+}
+#mobile.banner-box, #mobile .banner-img {
+    width: 320px;
+    height: 320px;
+}
+
+.banner-img {
+    position: absolute;
+    inset: 0;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity .4s ease;
+}
+.banner-img.active {
+    opacity: 1;
+    z-index: 1;
+}
+.click-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
+
+
+/* ===== IMSAKIYAH ===== */
+.imsak-container {
+    position: absolute;
+    z-index: 3;
+    background: #0747b9;
+    border-radius: 12px;
+    box-sizing: border-box;
+    font-family: "Lato", sans-serif;
+}
+#desktop .imsak-container {
+    padding: 12px;
+    width: 100%;
+    max-width: 341px;
+    height: 215px;
+    right: 19px;
+    top: 18px;
+}
+#mobile .imsak-container {
+    padding: 8px;
+    width: 100%;
+    max-width: 300px;
+    bottom: 15px;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.imsak-header {
+    display: flex; 
+    align-items: center;     
+    justify-content: center;
+    gap: 15px;
+    align-items: center;
+    margin-bottom: 12px;
+}
+#imsakTimes {
+  transition: opacity .25s ease, transform .25s ease;
+}
+
+#imsakTimes.switching {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+#dateInfo {
+    font-size: 12px;
+    text-align: right;
+    color: white;
+}
+#dateInfo span {
+    display: inline-block;
+    font-weight: bold;
+}
+#citySelect {
+    padding: 6px 10px;
+    border-radius: 9px;
+    border: 1px solid #ddd;
+    font-size: 12px;
+    max-width: 150px;
+    background-color: transparent;
+    color: white;
+}
+#citySelect option {
+  background-color: #fff;
+    border: none;
+    color: black;
+}
+
+.imsak-date {
+    font-size: 14px;
+    color: #666;
+}
+.imsak-times {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+}
+.time-box {
+    text-align: center;
+    background-color: orange;
+    border-radius: 15px;
+    padding: 6px 8px;
+  background: #fff;
+  font-size: 14px;
+  display: flex;
+    flex-direction: column;   /* ⬅️ bikin atas–bawah */
+  align-items: center;      /* tengah horizontal */
+  justify-content: center;
+    gap: 3px;
+    box-shadow: 2px 2px 2px #2d2d2d5e;
+}
+.time-box span {
+    font-size: 12px;
+    
+}
+.time-box .label {
+    font-size: 12px;
+    color: #666;
+}
+
+.time-box .time {
+    font-weight: bold;
+    font-size: 16px;
+}
+.time-box.next {
+  background: #fff3cd;
+  font-weight: bold;
+    background: linear-gradient(135deg, #69d9fc, #0054c8);
+  color: #fff;
+    font-size: 18px;
+}
+
+
+
+
+
+
+
+/* ===== COUNTDOWN ===== */
+
+
+#countdownInfo {
+  font-size: 15px;
+  margin-top: 4px;
+    margin-bottom: 10px;
+    text-align: center;
+  opacity: .85;
+    padding: 6px;
+    color: white;
+}
+
+#countdownInfo b {
+  font-weight: bold;
+    color: #6ddafb;
+}
+
+
+/* -- masih perlu di edit lagi -- */
+
+.countdown-container {
+    position: absolute;
+    font-family: "Nunito Sans", sans-serif;
+    z-index: 3;
+    text-align: center;
+}
+#desktop .countdown-container {
+    width: auto;
+    height: 120px;
+    bottom: 50px;
+    right: 20px;
+}
+.countdown-container p {
+    font-size: 14px;
+    color: #1a2b3b;
+}
+.countdown-container ul {
+    display: flex;
+    gap: 16px; /* jarak antar li */
+    list-style: none;
+    padding: 0;
+    margin: 0;  
+}
+.countdown-container li {
+    display: inline-block;
+    font-size: 10px;
+    list-style-type: none;
+    text-transform: uppercase;
+    width: 60px;
+    height: 75px;
+    background-color: #1a2b3b;
+    padding: 5px;
+    border-radius: 10px;
+    font-weight: bold;
+    color: white;
+}
+.countdown-container li span {
+    display: block;
+    font-size: 2.5rem;
+    color: #f0d34c;
+}
+
+span.sumber {
+    font-size: 10px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+
+
+/* ===== MOBILE ===== */
+@media (max-width: 600px) {
+    .banner-box, .banner-img {
+        width: 320px;
+        height: 480px;
+    }
+    #countdownInfo {
+        font-size: 14px;
+        padding: 5px;
+    }
+    .time-box {
+        padding: 5px 8px;
+    }
+    .time-box.next {
+        font-size: 16px;
+    }
+    .countdown-container ul {
+        gap: 10px;
+    }
+    .countdown-container li {
+        width: 55px;
+        height: 65px;
+    }
+    .countdown-container li span {
+        font-size: 2.2rem;
+    }
+
+    .imsak-container {
+        max-width: 300px;
+    }
+    .imsak-header {
+        margin-bottom: 7px;
+    }
+    #citySelect {
+        font-size: 11px;
+        max-width: 135px;
+    }
+}

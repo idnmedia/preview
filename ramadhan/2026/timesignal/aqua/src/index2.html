@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jadwal Imsakiyah</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    
+    <div id="mobile" class="banner-box">
+  <a href="#" target="_blank" class="click-layer"></a>
+
+  <div class="imsak-container">
+    <div class="imsak-header">
+      <select id="citySelect"></select>
+      <div id="dateInfo"></div>
+        
+    </div>
+      <div id="countdownInfo"></div>
+    <div class="imsak-times" id="imsakTimes"></div>
+<!--      <span class="sumber">Sumber : bimasislam.kemenag.go.id</span>-->
+  </div>
+
+  <img id="banner-general" src="320x320.gif" class="banner-img active">
+  <img id="banner-berbuka" src="320x320.gif" class="banner-img">
+  <img id="banner-berpuasa" src="320x320.gif" class="banner-img">
+</div>
+
+
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="data-jadwal.js"></script>
+<script src="app.js"></script>
+    <script>
+            const data1 = parent.document.getElementById('idnads_header_leaderboard');
+            if (data1) {
+                data1.style.height = "320px";
+            }
+
+            const data2 = parent.document.getElementById('div-gpt-ad-leaderboard');
+            if (data2) {
+                data2.setAttribute("style", "max-height: 320px !important;");
+            }
+        </script>
+
+        <script type="text/javascript">
+            if(top!=self){
+                window.frameElement.style = 'width: 320px; height: 320px; margin-bottom: 10px; position: relative;';
+            };
+        </script>
+</body>
+</html>
