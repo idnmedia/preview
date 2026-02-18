@@ -11,13 +11,16 @@ body {
 
 /* ===== BANNER BOX & IMAGE ===== */
 .banner-box {
-    position: relative;
+    position: absolute;
     overflow: hidden;
     border-radius: 15px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 #desktop.banner-box, #desktop .banner-img {
-    width: 970px;
-    height: 250px;
+    width: 910px;
+    height: 235px;
 }
 #mobile.banner-box, #mobile .banner-img {
     width: 320px;
@@ -54,10 +57,10 @@ body {
 #desktop .imsak-container {
     padding: 12px;
     width: 100%;
-    max-width: 341px;
+    max-width: 325px;
     height: 215px;
-    right: 19px;
-    top: 18px;
+    right: 15px;
+    top: 16px;
 }
 #mobile .imsak-container {
     padding: 8px;
