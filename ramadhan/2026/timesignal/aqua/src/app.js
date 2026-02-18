@@ -2,7 +2,7 @@
    CONFIG
 ================================= */
 
-const RAMADAN_START = new Date(2026, 1, 18); // 7 Feb 2026 (bulan mulai dari 0)
+const RAMADAN_START = new Date(2026, 1, 19); // 7 Feb 2026 (bulan mulai dari 0)
 const BANNER_DURATION = 10; // menit banner aktif
 
 let currentRamadanDay = null;
