@@ -1,10 +1,8 @@
 /* ===============================
-   CONFIG
+   VERSI BREAKDOWN BERDASARKAN JADWAL MANUAL YANG SUDAH DITENTUKAN
 ================================= */
 
-const RAMADAN_START = new Date(2026, 1, 19); // 7 Feb 2026 (bulan mulai dari 0)
-const BANNER_DURATION = 10; // menit banner aktif
-
+const RAMADAN_START = new Date(2026, 1, 19); // 19 Feb 2026
 let currentRamadanDay = null;
 let currentSchedule = null;
 
@@ -17,7 +15,6 @@ const citySelect = document.getElementById("citySelect");
 const dateInfo = document.getElementById("dateInfo");
 const imsakTimes = document.getElementById("imsakTimes");
 const countdownInfo = document.getElementById("countdownInfo");
-
 
 
 /* ===============================
@@ -55,7 +52,6 @@ function render() {
 
   const timesContainer = document.getElementById("imsakTimes");
 
-  // animasi keluar
   timesContainer.classList.add("switching");
 
   setTimeout(() => {
@@ -65,14 +61,12 @@ function render() {
 
     renderDate(day);
     renderTimes(todayData);
-    checkBannerTime(todayData);
+    checkBannerTime();
 
-    // animasi masuk
     timesContainer.classList.remove("switching");
 
   }, 200);
 }
-
 
 
 /* ===============================
@@ -81,7 +75,6 @@ function render() {
 
 setInterval(() => {
 
-  // cek pergantian hari Ramadan
   const newDay = getRamadanDay();
   if (newDay && newDay !== currentRamadanDay) {
     render();
@@ -89,12 +82,9 @@ setInterval(() => {
 
   highlightNextPrayer();
   updateCountdown();
+  checkBannerTime();
 
-  if (currentSchedule) {
-    checkBannerTime(currentSchedule);
-  }
-
-}, 1000); // 1 detik
+}, 1000);
 
 
 /* ===============================
@@ -122,10 +112,9 @@ function renderDate(day) {
   });
 
   dateInfo.innerHTML = `
-  ${tanggal}
-  <span class="hijri">(${day} Ramadan 1447 H)</span>
-`;
-
+    ${tanggal}
+    <span class="hijri">(${day} Ramadan 1447 H)</span>
+  `;
 }
 
 
@@ -186,7 +175,7 @@ function highlightNextPrayer() {
   }
 
   if (!found && boxes.length > 0) {
-    boxes[0].classList.add("next"); // reset ke imsak besok
+    boxes[0].classList.add("next");
   }
 }
 
@@ -223,7 +212,6 @@ function updateCountdown() {
     }
   }
 
-  // jika semua sudah lewat → ke imsak besok
   if (!target) {
     const [h, m] = currentSchedule.IMSAK.split(":").map(Number);
     target = {
@@ -248,18 +236,8 @@ function updateCountdown() {
 
 
 /* ===============================
-   BANNER LOGIC
+   BANNER LOGIC (NEW FIXED TIME)
 ================================= */
-
-function toMinutes(time) {
-  const [h, m] = time.split(":").map(Number);
-  return h * 60 + m;
-}
-
-function nowMinutes() {
-  const d = new Date();
-  return d.getHours() * 60 + d.getMinutes();
-}
 
 function showBanner(type) {
   document.querySelectorAll(".banner-img")
@@ -269,20 +247,15 @@ function showBanner(type) {
   if (el) el.classList.add("active");
 }
 
-function checkBannerTime(todaySchedule) {
-  const now = nowMinutes();
-  const imsak = toMinutes(todaySchedule.IMSAK);
-  const magrib = toMinutes(todaySchedule.MAGRIB);
+function checkBannerTime() {
+  const now = new Date();
+  const totalMinutes = now.getHours() * 60 + now.getMinutes();
 
-  if (now >= imsak && now < imsak + BANNER_DURATION) {
-    showBanner("berpuasa");
-    return;
+  if (totalMinutes <= 300) {
+    showBanner("berpuasa"); // 00:00–05:00
+  } else if (totalMinutes <= 1020) {
+    showBanner("general"); // 05:01–17:00
+  } else {
+    showBanner("berbuka"); // 17:01–23:59
   }
-
-  if (now >= magrib && now < magrib + BANNER_DURATION) {
-    showBanner("berbuka");
-    return;
-  }
-
-  showBanner("general");
 }
