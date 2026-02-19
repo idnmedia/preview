@@ -8,6 +8,9 @@
 </head>
 <body>
 
+    <style>
+      @import url("https://idnmedia.github.io/preview/ramadhan/2026/timesignal/aqua//src/style.css");
+    </style>
     
     <div id="mobile" class="banner-box">
   <a href="#" target="_blank" class="click-layer"></a>
@@ -23,32 +26,43 @@
 <!--      <span class="sumber">Sumber : bimasislam.kemenag.go.id</span>-->
   </div>
 
-  <img id="banner-general" src="320x320-default.jpg" class="banner-img active">
-  <img id="banner-berbuka" src="320x320-berbuka.jpg" class="banner-img">
-  <img id="banner-berpuasa" src="320x320-imsyak.jpg" class="banner-img">
+  <img id="banner-general" src="https://idnmedia.github.io/preview/ramadhan/2026/timesignal/aqua/src/320x320-default.jpg" class="banner-img active">
+  <img id="banner-berbuka" src="https://idnmedia.github.io/preview/ramadhan/2026/timesignal/aqua/src/320x320-berbuka.jpg" class="banner-img">
+  <img id="banner-berpuasa" src="https://idnmedia.github.io/preview/ramadhan/2026/timesignal/aqua/src/320x320-imsyak.jpg" class="banner-img">
 </div>
 
 
 
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-<script src="data-jadwal.js"></script>
-<script src="app.js"></script>
-    <script>
-            const data1 = parent.document.getElementById('idnads_header_leaderboard');
-            if (data1) {
-                data1.style.height = "320px";
-            }
+<script src="https://idnmedia.github.io/preview/ramadhan/2026/timesignal/aqua/src/data-jadwal.js"></script>
+<script src="https://idnmedia.github.io/preview/ramadhan/2026/timesignal/aqua/src/app.js"></script>
+<script>
+// idnads_header_leaderboard (single)
+const data1 = parent.document.getElementById('idnads_header_leaderboard');
+if (data1) {
+    data1.style.height = "340px";
+}
 
-            const data2 = parent.document.getElementById('div-gpt-ad-leaderboard');
-            if (data2) {
-                data2.setAttribute("style", "max-height: 320px !important;");
-            }
-        </script>
+// Class css-1gyevap (bisa lebih dari satu)
+const data2 = parent.document.getElementsByClassName('css-1gyevap');
+if (data2.length > 0) {
+    Array.from(data2).forEach(el => {
+        el.style.height = "340px";
+    });
+}
 
-        <script type="text/javascript">
-            if(top!=self){
-                window.frameElement.style = 'width: 320px; height: 320px; margin-bottom: 10px; position: relative;';
-            };
-        </script>
+// Semua id yang diawali div-gpt-ad-leaderboard
+const leaderboardAds = parent.document.querySelectorAll('[id^="div-gpt-ad-leaderboard"]');
+
+leaderboardAds.forEach(el => {
+    el.style.setProperty('max-height', '340px', 'important');
+});
+</script>
+<script type="text/javascript">
+if(top!=self){
+    window.frameElement.style = 'width: 320px; height: 320px; margin-top: 5px; position: relative;';
+};
+</script>
+    
 </body>
 </html>
