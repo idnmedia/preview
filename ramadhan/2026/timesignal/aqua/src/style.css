@@ -63,10 +63,10 @@ body {
     top: 16px;
 }
 #mobile .imsak-container {
-    padding: 8px;
+    padding: 6px;
     width: 100%;
-    max-width: 300px;
-    bottom: 15px;
+    max-width: 242px;
+    bottom: 21px;
     left: 0;
     right: 0;
     margin: auto;
@@ -124,15 +124,14 @@ body {
 }
 .time-box {
     text-align: center;
-    background-color: orange;
     border-radius: 15px;
     padding: 6px 8px;
-  background: #fff;
-  font-size: 14px;
-  display: flex;
+    background: #fff;
+    font-size: 14px;
+    display: flex;
     flex-direction: column;   /* ⬅️ bikin atas–bawah */
-  align-items: center;      /* tengah horizontal */
-  justify-content: center;
+    align-items: center;      /* tengah horizontal */
+    justify-content: center;
     gap: 3px;
     box-shadow: 2px 2px 2px #2d2d2d5e;
 }
@@ -150,10 +149,10 @@ body {
     font-size: 16px;
 }
 .time-box.next {
-  background: #fff3cd;
-  font-weight: bold;
+    background: #fff3cd;
+    font-weight: bold;
     background: linear-gradient(135deg, #69d9fc, #0054c8);
-  color: #fff;
+    color: #fff;
     font-size: 18px;
 }
 
@@ -241,16 +240,30 @@ span.sumber {
     .banner-box, .banner-img {
         width: 320px;
         height: 480px;
+        border-radius: 8px;
     }
     #countdownInfo {
-        font-size: 14px;
-        padding: 5px;
+        font-size: 13px;
+        padding: 3px;
+        margin-bottom: 6px;
+        margin-top: -2px;
+    }
+    #dateInfo {
+        font-size: 10px;
+    }
+    .imsak-times {
+        gap: 4px;
     }
     .time-box {
-        padding: 5px 8px;
+        padding: 4px;
+        font-size: 12px;
+        gap: 2px;
+    }
+    .time-box span {
+        font-size: 11px;
     }
     .time-box.next {
-        font-size: 16px;
+        font-size: 14px;
     }
     .countdown-container ul {
         gap: 10px;
@@ -270,7 +283,7 @@ span.sumber {
         margin-bottom: 7px;
     }
     #citySelect {
-        font-size: 11px;
-        max-width: 135px;
+        font-size: 10px;
+        max-width: 105px;
     }
 }
