@@ -156,104 +156,10 @@
 	<link href="https://video-hub.bidsxchange.com" rel="dns-prefetch">
 	<link href="https://scripts.jixie.media" rel="dns-prefetch">
 	<link href="https://imasdk.googleapis.com" rel="dns-prefetch">
-	<script>
-	   (self.__next_s=self.__next_s||[]).push([0,{"children":"\n(function() {\n  'use strict';\n  \n  // Get actual domain from browser\n  const actualDomain = window.location.hostname;\n  const allowedDomains = [\n    'idntimes.com',\n    'popmama.com',\n    'popbela.com',\n    'ggwp.id',\n    'fortuneidn.com',\n    'localhost',\n    'rujakcingur.com',\n    'rawonmerah.com',\n    'empalpenyet.com',\n    'sotogubeng.com',\n    'miebabat.com',\n  ];\n  \n  // Check if current domain is allowed\n  const isAllowedDomain = allowedDomains.some(domain => actualDomain.includes(domain));\n  \n  if (!isAllowedDomain) {\n    // Redirect to official domain\n    const officialDomain = 'https://www.idntimes.com/life/family/5-dampak-positif-membiasakan-anak-membereskan-mainan-sendiri-c1c2-01-bfjms-y4xzly';\n    console.warn('[ANTI-MIRROR] Unauthorized domain detected. Redirecting...');\n    window.location.href = officialDomain;\n    return;\n  }\n  \n  // Store domain in sessionStorage for API calls\n  try {\n    sessionStorage.setItem('_domain_verify', actualDomain);\n  } catch (e) {\n    console.error('[ANTI-MIRROR] SessionStorage not available');\n  }\n  \n  // Intercept fetch requests to add domain verification header\n  const originalFetch = window.fetch;\n  window.fetch = function(...args) {\n    const [url, options = {}] = args;\n    \n    // Only add header for same-origin or API requests\n    if (typeof url === 'string' && (url.startsWith('/') || url.includes(actualDomain))) {\n      options.headers = {\n        ...options.headers,\n        'X-Domain-Verify': actualDomain,\n        'X-Requested-With': 'XMLHttpRequest'\n      };\n    }\n    \n    return originalFetch.apply(this, [url, options]);\n  };\n  \n  // Prevent iframe embedding from unauthorized domains\n  if (window.top !== window.self) {\n    try {\n      const parentDomain = window.top.location.hostname;\n      const isParentAllowed = allowedDomains.some(domain => parentDomain.includes(domain));\n      \n      if (!isParentAllowed) {\n        console.warn('[ANTI-MIRROR] Unauthorized iframe embedding detected');\n        window.top.location = window.self.location;\n      }\n    } catch (e) {\n      // Cross-origin iframe - force break out\n      console.warn('[ANTI-MIRROR] Cross-origin iframe detected');\n      window.top.location = window.self.location;\n    }\n  }\n  \n  // Disable right-click and text selection on production (optional)\n  if (window.location.hostname !== 'localhost') {\n    document.addEventListener('contextmenu', function(e) {\n      // Allow on development tools\n      if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') {\n        return;\n      }\n      // Uncomment to disable right-click\n      // e.preventDefault();\n    });\n  }\n  \n  // Watermark detection - add invisible watermark to detect scraping\n  const watermark = document.createElement('div');\n  watermark.style.cssText = 'position:absolute;opacity:0;pointer-events:none;';\n  watermark.setAttribute('data-domain', actualDomain);\n  watermark.setAttribute('data-timestamp', Date.now().toString());\n  document.body.appendChild(watermark);\n  \n})();\n        ","id":"anti-mirror-protection"}])
-	</script>
+	
 	<script src="/_next/static/chunks/polyfills-42372ed130431b0a.js">
 	</script>
-	<script id="anti-mirror-protection">
-	   (function() {
-	    'use strict';
-	    
-	    // Get actual domain from browser
-	    const actualDomain = window.location.hostname;
-	    const allowedDomains = [
-	      'idntimes.com',
-	      'popmama.com',
-	      'popbela.com',
-	      'ggwp.id',
-	      'fortuneidn.com',
-	      'localhost',
-	      'rujakcingur.com',
-	      'rawonmerah.com',
-	      'empalpenyet.com',
-	      'sotogubeng.com',
-	      'miebabat.com',
-	    ];
-	    
-	    // Check if current domain is allowed
-	    const isAllowedDomain = allowedDomains.some(domain => actualDomain.includes(domain));
-	    
-	    if (!isAllowedDomain) {
-	      // Redirect to official domain
-	      const officialDomain = 'https://www.idntimes.com/life/family/5-dampak-positif-membiasakan-anak-membereskan-mainan-sendiri-c1c2-01-bfjms-y4xzly';
-	      console.warn('[ANTI-MIRROR] Unauthorized domain detected. Redirecting...');
-	      window.location.href = officialDomain;
-	      return;
-	    }
-	    
-	    // Store domain in sessionStorage for API calls
-	    try {
-	      sessionStorage.setItem('_domain_verify', actualDomain);
-	    } catch (e) {
-	      console.error('[ANTI-MIRROR] SessionStorage not available');
-	    }
-	    
-	    // Intercept fetch requests to add domain verification header
-	    const originalFetch = window.fetch;
-	    window.fetch = function(...args) {
-	      const [url, options = {}] = args;
-	      
-	      // Only add header for same-origin or API requests
-	      if (typeof url === 'string' && (url.startsWith('/') || url.includes(actualDomain))) {
-	        options.headers = {
-	          ...options.headers,
-	          'X-Domain-Verify': actualDomain,
-	          'X-Requested-With': 'XMLHttpRequest'
-	        };
-	      }
-	      
-	      return originalFetch.apply(this, [url, options]);
-	    };
-	    
-	    // Prevent iframe embedding from unauthorized domains
-	    if (window.top !== window.self) {
-	      try {
-	        const parentDomain = window.top.location.hostname;
-	        const isParentAllowed = allowedDomains.some(domain => parentDomain.includes(domain));
-	        
-	        if (!isParentAllowed) {
-	          console.warn('[ANTI-MIRROR] Unauthorized iframe embedding detected');
-	          window.top.location = window.self.location;
-	        }
-	      } catch (e) {
-	        // Cross-origin iframe - force break out
-	        console.warn('[ANTI-MIRROR] Cross-origin iframe detected');
-	        window.top.location = window.self.location;
-	      }
-	    }
-	    
-	    // Disable right-click and text selection on production (optional)
-	    if (window.location.hostname !== 'localhost') {
-	      document.addEventListener('contextmenu', function(e) {
-	        // Allow on development tools
-	        if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') {
-	          return;
-	        }
-	        // Uncomment to disable right-click
-	        // e.preventDefault();
-	      });
-	    }
-	    
-	    // Watermark detection - add invisible watermark to detect scraping
-	    const watermark = document.createElement('div');
-	    watermark.style.cssText = 'position:absolute;opacity:0;pointer-events:none;';
-	    watermark.setAttribute('data-domain', actualDomain);
-	    watermark.setAttribute('data-timestamp', Date.now().toString());
-	    document.body.appendChild(watermark);
-	    
-	   })();
-	</script>
+	
 	<style data-emotion="css-global" data-s="">
 	   body{padding:0;margin:0;}h1,h2,h3,h4,h5,p{margin:0;padding:0;}a{-webkit-text-decoration:none;text-decoration:none;}a:hover span{-webkit-text-decoration:underline;text-decoration:underline;}
 	</style>
