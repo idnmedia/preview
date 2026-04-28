@@ -1,10 +1,10 @@
 <html>
     <body style="margin: 0;">
-        <div style="position: absolute; width: 300px; height: 250px; background-color: white; border-radius: 10px; left: 0; right: 0; margin: auto;"> 
+<div style="position: absolute; width: 300px; height: 250px; background-color: white; border-radius: 10px; left: 0; right: 0; margin: auto;"> 
     <a href="#" target="_blank" style="position: absolute; z-index: 9; right: 0px; left: 0; margin: auto; bottom: 0px; height: 70px; width: 300px;"></a>
     <span style="position: absolute; font-size: 13px; z-index: 2; color: white; background-color: #ea0b2b ; left: 0px; right: 0px; margin: auto; border-radius: 5px; display: block; bottom: 21px; padding: 3px; width: 110px; text-align: center; font-family: 'poppins', sans-serif;">Selengkapnya</span>
     <video id="videoInBanner" loop muted playsinline preload="none" style="width: 300px; height: 180px; position: absolute; z-index: 1; background-color: black; left: 0; right: 0; margin: auto;">
-        <source src="video.mp4" type="video/mp4">
+        <source src="https://idnmedia.github.io/preview/m.idntimes/videoinbanner/diabetasol/video.mp4" type="video/mp4">
     </video>   
 </div>
 
@@ -12,77 +12,20 @@
 (function() {
     var video = document.getElementById('videoInBanner');
     if (!video) return;
-    
-    video.pause();
-    
-    var hasStartedPlaying = false;
-    var observer = null;
-    
-    function isVideoVisible() {
-        var rect = video.getBoundingClientRect();
-        var windowHeight = window.innerHeight || document.documentElement.clientHeight;
-        var windowWidth = window.innerWidth || document.documentElement.clientWidth;
-        
-        var fullyVisible = (
-            rect.top >= 0 &&
-            rect.left >= 0 &&
-            rect.bottom <= windowHeight &&
-            rect.right <= windowWidth
-        );
-        
-        return fullyVisible;
-    }
-    
-    function onScrollOrResize() {
-        if (isVideoVisible()) {
-            if (video.paused && !hasStartedPlaying) {
-                hasStartedPlaying = true;
-                video.play().catch(function(e) {
-                    hasStartedPlaying = false;
-                });
-            }
-        } else {
-            if (!video.paused) {
+
+    var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
+                video.play().catch(function(){});
+            } else {
                 video.pause();
-                hasStartedPlaying = false;
             }
-        }
-    }
-    
-    if (window.IntersectionObserver) {
-        observer = new IntersectionObserver(function(entries) {
-            entries.forEach(function(entry) {
-                // HARUS 100% terlihat
-                if (entry.intersectionRatio === 1) {
-                    if (video.paused && !hasStartedPlaying) {
-                        hasStartedPlaying = true;
-                        video.play().catch(function(e) {
-                            hasStartedPlaying = false;
-                        });
-                    }
-                } else {
-                    if (!video.paused) {
-                        video.pause();
-                        hasStartedPlaying = false;
-                    }
-                }
-            });
-        }, {
-            threshold: [1.0] // hanya trigger saat 100% visible
         });
-        
-        observer.observe(video);
-    }
-    
-    window.addEventListener('scroll', onScrollOrResize);
-    window.addEventListener('resize', onScrollOrResize);
-    window.addEventListener('orientationchange', onScrollOrResize);
-    
-    setTimeout(function() {
-        video.pause();
-        hasStartedPlaying = false;
-    }, 500);
-    
+    }, {
+        threshold: [0.5]
+    });
+
+    observer.observe(video);
 })();
 </script>
     </body>
