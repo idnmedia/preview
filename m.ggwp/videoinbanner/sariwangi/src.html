@@ -1,0 +1,32 @@
+<html>
+    <body style="margin: 0;">
+<div style="position: absolute; width: 300px; height: 250px; background-color: white; border-radius: 10px; left: 0; right: 0; margin: auto;"> 
+    <a href="#" target="_blank" style="position: absolute; z-index: 9; right: 0px; left: 0; margin: auto; bottom: 0px; height: 70px; width: 300px;"></a>
+    <span style="position: absolute; font-size: 13px; z-index: 2; color: white; background-color: #0654a9 ; left: 0px; right: 0px; margin: auto; border-radius: 5px; display: block; bottom: 21px; padding: 3px; width: 110px; text-align: center; font-family: 'poppins', sans-serif;">Selengkapnya</span>
+    <video id="videoInBanner" loop muted playsinline preload="none" style="width: 300px; height: 180px; position: absolute; z-index: 1; background-color: black; left: 0; right: 0; margin: auto;">
+        <source src="video.mp4" type="video/mp4">
+    </video>   
+</div>
+
+<script>
+(function() {
+    var video = document.getElementById('videoInBanner');
+    if (!video) return;
+
+    var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
+                video.play().catch(function(){});
+            } else {
+                video.pause();
+            }
+        });
+    }, {
+        threshold: [0.5]
+    });
+
+    observer.observe(video);
+})();
+</script>
+    </body>
+</html>
