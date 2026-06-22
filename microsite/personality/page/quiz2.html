@@ -4,6 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
   <title>✨ Kuis Kepribadian – Temukan Dirimu</title>
+  
+  <!-- Google Analytics (ganti G-XXXXXXXXXX dengan ID kamu) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+
+  <!-- html2canvas untuk generate gambar share IG -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
   <style>
     /* ===== GLOBAL RESET & VARIABLES ===== */
     * {
@@ -429,7 +442,31 @@
       transform: translateY(-2px);
     }
 
-    /* Tombol share untuk desktop (copy link) */
+    .btn-share-wa {
+      background: #25D366;
+      color: white;
+      border: none;
+      box-shadow: 0 8px 18px rgba(37, 211, 102, 0.35);
+    }
+
+    .btn-share-wa:hover {
+      background: #20bd5a;
+      box-shadow: 0 12px 24px rgba(37, 211, 102, 0.5);
+      transform: translateY(-2px);
+    }
+
+    .btn-share-ig {
+      background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+      color: white;
+      border: none;
+      box-shadow: 0 8px 18px rgba(220, 39, 67, 0.35);
+    }
+
+    .btn-share-ig:hover {
+      box-shadow: 0 12px 24px rgba(220, 39, 67, 0.5);
+      transform: translateY(-2px);
+    }
+
     .btn-share-desktop {
       background: #4caf50;
       color: white;
@@ -521,7 +558,7 @@
           <span>❓</span> 3 Pertanyaan
         </div>
         <div class="feature-item">
-          <span>⏱️</span> < 1 Menit
+          <span>⏱️</span>  1 Menit
         </div>
         <div class="feature-item">
           <span>🎯</span> 4 Tipe Unik
@@ -558,6 +595,14 @@
           <button onclick="selectAnswer(this, 'D')">🎉 Energik dan spontan</button>
           <button onclick="selectAnswer(this, 'C')">🌙 Tenang dan berpikir dalam</button>
         </div>
+          
+          <div class="question" data-id="3" style="display:none;">
+          <p>🌟 Orang lain menggambarkan kamu sebagai...</p>
+          <button onclick="selectAnswer(this, 'D')">🤗 Penuh perhatian dan pengertian</button>
+          <button onclick="selectAnswer(this, 'C')">🦅 Pemimpin yang tegas</button>
+          <button onclick="selectAnswer(this, 'B')">🎉 Energik dan spontan</button>
+          <button onclick="selectAnswer(this, 'A')">🌙 Tenang dan berpikir dalam</button>
+        </div>
       </div>
 
       <div class="navigation">
@@ -572,10 +617,10 @@
       <div class="personality-type" id="resultType"></div>
       <p class="description" id="resultDesc"></p>
       <img id="resultImage" class="result-image" alt="Ilustrasi Kepribadian" />
-      
+
       <div class="action-buttons" id="actionButtons">
         <button class="btn btn-outline" onclick="retakeQuiz()">↺ Coba Lagi</button>
-        <!-- Share button akan di-generate dinamis -->
+        <!-- Share buttons akan di-generate dinamis -->
         <a class="btn btn-accent" id="downloadBtn" href="#" download="#">
           ⬇️ Unduh (JPG)
         </a>
@@ -639,7 +684,6 @@
         quizMode.style.display = 'block';
         resultMode.style.display = 'none';
         
-        // Reset state
         currentQuestion = 0;
         answers.length = 0;
         
@@ -733,11 +777,17 @@
 
         currentResultType = finalType;
 
-        // Simpan ke localStorage
+        // ===== GOOGLE ANALYTICS TRACKING =====
+        if (typeof gtag === 'function') {
+          gtag('event', 'quiz_result', {
+            'result_type': finalType,
+            'result_label': resultData[finalType].type
+          });
+        }
+        // ====================================
+
         localStorage.setItem("quizCompleted", "true");
         localStorage.setItem("quizResultType", finalType);
-
-        // Tampilkan hasil
         displayResult(finalType);
       }
 
@@ -752,78 +802,128 @@
         document.getElementById('resultImage').src = data.img;
         document.getElementById('resultImage').alt = data.type;
 
-        // Set download link
         const downloadBtn = document.getElementById('downloadBtn');
         downloadBtn.href = data.downloadFile;
         downloadBtn.download = `Hasil-Kepribadian-${data.type.replace(/[^a-zA-Z]/g, '-')}.jpg`;
 
-        // Reset toast
         document.getElementById('toast').style.opacity = '0';
-
-        // Generate share button sesuai device
-        generateShareButton(data);
+        generateShareButtons(data);
       }
 
-      // ========== GENERATE SHARE BUTTON ==========
-      function generateShareButton(data) {
+      // ========== GENERATE SHARE BUTTONS ==========
+      function generateShareButtons(data) {
         const actionButtons = document.getElementById('actionButtons');
         
-        // Hapus share button lama jika ada
-        const oldShareBtn = document.getElementById('shareBtn');
-        if (oldShareBtn) oldShareBtn.remove();
+        // Hapus share buttons lama
+        const oldWa = document.getElementById('shareWaBtn');
+        const oldIg = document.getElementById('shareIgBtn');
+        const oldDesktop = document.getElementById('shareDesktopBtn');
+        if (oldWa) oldWa.remove();
+        if (oldIg) oldIg.remove();
+        if (oldDesktop) oldDesktop.remove();
 
-        const shareBtn = document.createElement('button');
-        shareBtn.id = 'shareBtn';
-        
-        const shareText = `Hasil Kuis Kepribadianku: ${data.type}\n"${data.desc}"\n\nCoba kuisnya juga yuk! 👉 ${window.location.href}`;
+        const shareUrl = window.location.href;
+        const shareText = `Hasil Kuis Kepribadianku: ${data.type}\n"${data.desc}"`;
 
         if (isMobileDevice()) {
-          // MOBILE: pakai navigator.share()
-          shareBtn.className = 'btn btn-primary';
-          shareBtn.innerHTML = '📤 Bagikan';
-          shareBtn.addEventListener('click', async function() {
-            try {
-              if (navigator.share) {
-                await navigator.share({
-                  title: `Hasil Kepribadianku – ${data.type}`,
-                  text: shareText,
-                  url: window.location.href
-                });
-                showToast('✨ Terima kasih sudah berbagi!', true);
-              } else {
-                // Fallback copy
-                await navigator.clipboard.writeText(shareText);
-                showToast('📋 Hasil disalin! Bagikan ke temanmu ya.', true);
-              }
-            } catch (err) {
-              // User cancel share atau error
-              if (err.name !== 'AbortError') {
-                try {
-                  await navigator.clipboard.writeText(shareText);
-                  showToast('📋 Hasil disalin ke clipboard.', true);
-                } catch (e) {
-                  showToast('⚠️ Gagal membagikan. Silakan screenshot.', false);
-                }
-              }
-            }
+          // ===== MOBILE: WhatsApp + Instagram =====
+          
+          // Tombol WhatsApp
+          const waBtn = document.createElement('button');
+          waBtn.id = 'shareWaBtn';
+          waBtn.className = 'btn btn-share-wa';
+          waBtn.innerHTML = '💬 Share WA';
+          waBtn.addEventListener('click', function() {
+            const waText = encodeURIComponent(
+              `${shareText}\n\n✨ Coba kuisnya juga yuk! gratis kok 👉 ${shareUrl}`
+            );
+            window.open(`https://wa.me/?text=${waText}`, '_blank');
+            showToast('✅ Membuka WhatsApp...', true);
           });
+
+          // Tombol Instagram
+          const igBtn = document.createElement('button');
+          igBtn.id = 'shareIgBtn';
+          igBtn.className = 'btn btn-share-ig';
+          igBtn.innerHTML = '📸 Share IG';
+          igBtn.addEventListener('click', async function() {
+            await shareImageToIG(data);
+          });
+
+          const downloadBtn = document.getElementById('downloadBtn');
+          actionButtons.insertBefore(igBtn, downloadBtn);
+          actionButtons.insertBefore(waBtn, igBtn);
+
         } else {
-          // DESKTOP: tombol copy link + toast
-          shareBtn.className = 'btn btn-share-desktop';
-          shareBtn.innerHTML = '🔗 Salin & Bagikan';
-          shareBtn.addEventListener('click', async function() {
+          // ===== DESKTOP: Salin & Bagikan (tanpa IG) =====
+          const desktopBtn = document.createElement('button');
+          desktopBtn.id = 'shareDesktopBtn';
+          desktopBtn.className = 'btn btn-share-desktop';
+          desktopBtn.innerHTML = '🔗 Salin & Bagikan';
+          desktopBtn.addEventListener('click', async function() {
             try {
-              await navigator.clipboard.writeText(shareText);
+              const fullText = `${shareText}\n\n✨ Coba kuisnya juga yuk! gratis kok 👉 ${shareUrl}`;
+              await navigator.clipboard.writeText(fullText);
               showToast('✅ Link & hasil sudah disalin! Bagikan ke temanmu.', true);
             } catch (e) {
               showToast('⚠️ Gagal menyalin. Silakan copy manual.', false);
             }
           });
-        }
 
-        // Sisipkan sebelum download button
-        const downloadBtn = document.getElementById('downloadBtn');
-        actionButtons.insertBefore(shareBtn, downloadBtn);
+          const downloadBtn = document.getElementById('downloadBtn');
+          actionButtons.insertBefore(desktopBtn, downloadBtn);
+        }
+      }
+
+      // ===== FUNGSI SHARE GAMBAR KE IG =====
+      async function shareImageToIG(data) {
+        showToast('⏳ Menyiapkan gambar...', true);
+        
+        try {
+          const resultCard = document.querySelector('#resultMode');
+          
+          const canvas = await html2canvas(resultCard, {
+            backgroundColor: '#f8f0ff',
+            scale: 2,
+            useCORS: true,
+            allowTaint: true
+          });
+          
+          canvas.toBlob(async (blob) => {
+            const file = new File([blob], 'hasil-quiz-kepribadian.png', { type: 'image/png' });
+            
+            if (navigator.share && navigator.canShare && navigator.canShare({ files: [file] })) {
+              try {
+                await navigator.share({
+                  title: data.type,
+                  text: '✨ Coba kuis kepribadian ini juga yuk!',
+                  files: [file]
+                });
+                showToast('✅ Pilih Instagram untuk share!', true);
+              } catch (err) {
+                if (err.name !== 'AbortError') {
+                  downloadImage(canvas);
+                  showToast('📥 Gambar diunduh! Buka IG & upload ke Story ya.', true);
+                }
+              }
+            } else {
+              downloadImage(canvas);
+              showToast('📥 Gambar diunduh! Buka IG & upload ke Story ya.', true);
+            }
+          }, 'image/png');
+          
+        } catch (err) {
+          console.error('Generate gambar gagal:', err);
+          showToast('⚠️ Gagal membuat gambar. Coba screenshot manual.', false);
+        }
+      }
+
+      // ===== FUNGSI DOWNLOAD GAMBAR =====
+      function downloadImage(canvas) {
+        const link = document.createElement('a');
+        link.download = 'hasil-quiz-kepribadian.png';
+        link.href = canvas.toDataURL('image/png');
+        link.click();
       }
 
       // ========== TOAST ==========
@@ -844,26 +944,23 @@
         localStorage.removeItem("quizResultType");
         currentResultType = null;
 
-        // Kembali ke landing page
         resultMode.style.display = 'none';
         quizMode.style.display = 'none';
         landingPage.style.display = 'block';
       };
 
-      // ========== CHECK LOCALSTORAGE (PROTEKSI) ==========
+      // ========== CHECK LOCALSTORAGE ==========
       function checkAccess() {
         const quizCompleted = localStorage.getItem("quizCompleted");
         const savedType = localStorage.getItem("quizResultType");
 
         if (quizCompleted === "true" && savedType && resultData[savedType]) {
-          // User sudah menyelesaikan quiz, langsung tampilkan hasil
           currentResultType = savedType;
           landingPage.style.display = 'none';
           quizMode.style.display = 'none';
           resultMode.style.display = 'block';
           displayResult(savedType);
         } else {
-          // Tampilkan landing page
           landingPage.style.display = 'block';
           quizMode.style.display = 'none';
           resultMode.style.display = 'none';
