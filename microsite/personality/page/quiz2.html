@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+  <title>✨ Kuis Kepribadian – Temukan Dirimu</title>
+  <style>
+    /* ===== GLOBAL RESET & VARIABLES ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #5c6bc0;
+      --primary-soft: #8e99d6;
+      --accent: #ff8a65;
+      --bg-gradient: linear-gradient(145deg, #f8f0ff 0%, #e8eaf6 100%);
+      --card-bg: rgba(255, 255, 255, 0.8);
+      --glass-border: rgba(255, 255, 255, 0.5);
+      --text-dark: #2e2e3a;
+      --text-soft: #4a4a5c;
+      --shadow-sm: 0 10px 25px -8px rgba(0, 0, 0, 0.1);
+      --shadow-hover: 0 20px 30px -12px rgba(92, 107, 192, 0.25);
+      --radius-xl: 32px;
+      --radius-lg: 24px;
+      --radius-md: 18px;
+      --radius-sm: 14px;
+      --font-main: 'Segoe UI', 'Inter', system-ui, -apple-system, sans-serif;
+    }
+
+    body {
+      font-family: var(--font-main);
+      background: var(--bg-gradient);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.2rem;
+      margin: 0;
+      backdrop-filter: blur(2px);
+    }
+
+    /* ===== MAIN CARD CONTAINER ===== */
+    .container {
+      width: 100%;
+      max-width: 650px;
+      background: var(--card-bg);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-sm), 0 0 0 1px rgba(255,255,255,0.6) inset;
+      padding: 2.2rem 1.8rem;
+      transition: all 0.3s ease;
+      animation: fadeSlideUp 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+      text-align: center;
+    }
+
+    @keyframes fadeSlideUp {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    h1 {
+      font-size: clamp(2rem, 7vw, 2.6rem);
+      font-weight: 700;
+      color: var(--text-dark);
+      text-align: center;
+      margin-bottom: 1.2rem;
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg, #5c6bc0, #7c4dff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+    }
+
+    h1::before {
+      content: "🧩";
+      font-size: 2.2rem;
+      -webkit-text-fill-color: initial;
+    }
+
+    /* ===== LANDING PAGE ===== */
+    #landingPage {
+      animation: fadeSlideUp 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    .landing-icon {
+      font-size: 5rem;
+      animation: float 3s ease-in-out infinite;
+      margin-bottom: 0.5rem;
+    }
+
+    .landing-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .landing-subtitle {
+      font-size: 1rem;
+      color: var(--text-soft);
+      margin-bottom: 2rem;
+      line-height: 1.5;
+    }
+
+    .btn-start {
+      display: inline-block;
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 1rem 3rem;
+      border-radius: 60px;
+      font-weight: 700;
+      font-size: 1.2rem;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 25px rgba(92, 107, 192, 0.4);
+      animation: pulse 2s ease-in-out infinite;
+      text-transform: uppercase;
+    }
+
+    .btn-start:hover {
+      background: #4a57b0;
+      box-shadow: 0 15px 35px rgba(92, 107, 192, 0.5);
+      transform: translateY(-3px);
+    }
+
+    .landing-features {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .feature-item {
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-soft);
+    }
+
+    .feature-item span {
+      display: block;
+      font-size: 2rem;
+      margin-bottom: 0.3rem;
+    }
+
+    /* ===== QUESTION AREA ===== */
+    #quiz {
+      text-align: left;
+    }
+
+    .question {
+      animation: fadeInQuestion 0.35s ease;
+    }
+
+    @keyframes fadeInQuestion {
+      from { opacity: 0.4; transform: translateX(10px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    .question p {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 1.8rem;
+      line-height: 1.4;
+      padding-left: 0.2rem;
+      border-left: 5px solid var(--primary-soft);
+      padding-left: 1.2rem;
+      background: linear-gradient(to right, rgba(92,107,192,0.05), transparent);
+      border-radius: 0 12px 12px 0;
+    }
+
+    .question button {
+      display: block;
+      width: 100%;
+      background: white;
+      border: 1.5px solid rgba(92, 107, 192, 0.2);
+      padding: 1rem 1.5rem;
+      margin-bottom: 0.9rem;
+      border-radius: var(--radius-md);
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: var(--text-soft);
+      text-align: left;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      background: rgba(255,255,255,0.7);
+      backdrop-filter: blur(4px);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      letter-spacing: 0.2px;
+    }
+
+    .question button::before {
+      content: "○";
+      font-size: 1.4rem;
+      color: #c5cae9;
+      font-weight: 400;
+      transition: all 0.2s;
+    }
+
+    .question button:hover:not(.selected) {
+      background: #f3f0ff;
+      border-color: var(--primary-soft);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-hover);
+      color: #2c2c3a;
+    }
+
+    .question button.selected {
+      background: linear-gradient(115deg, #5c6bc0 0%, #7c4dff 100%);
+      border-color: transparent;
+      color: white;
+      font-weight: 600;
+      box-shadow: 0 12px 22px -8px rgba(92, 107, 192, 0.6);
+      transform: scale(1.01);
+    }
+
+    .question button.selected::before {
+      content: "●";
+      color: white;
+      font-size: 1.2rem;
+      text-shadow: 0 0 8px rgba(255,255,255,0.8);
+    }
+
+    /* ===== NAVIGATION ===== */
+    .navigation {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 2.4rem;
+      gap: 1.2rem;
+    }
+
+    .navigation button {
+      flex: 1;
+      background: white;
+      border: none;
+      padding: 0.9rem 1.4rem;
+      border-radius: 60px;
+      font-weight: 650;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.7px;
+      cursor: pointer;
+      transition: 0.25s;
+      background: rgba(255,255,255,0.75);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(92,107,192,0.25);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.3rem;
+    }
+
+    .navigation button:disabled {
+      opacity: 0.45;
+      pointer-events: none;
+      background: #e0e0e0;
+      color: #8d8d9c;
+      border-color: transparent;
+    }
+
+    #nextBtn {
+      background: var(--primary);
+      color: white;
+      border: none;
+      font-weight: 650;
+      box-shadow: 0 8px 18px rgba(92, 107, 192, 0.35);
+    }
+
+    #nextBtn:hover:not(:disabled) {
+      background: #4a57b0;
+      box-shadow: 0 12px 24px rgba(92, 107, 192, 0.5);
+      transform: translateY(-2px);
+    }
+
+    #prevBtn:hover:not(:disabled) {
+      background: white;
+      border-color: var(--primary);
+      color: #2e2e4a;
+    }
+
+    /* ===== PROGRESS DOTS ===== */
+    .progress-dots {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 1.8rem;
+    }
+    .dot {
+      width: 10px;
+      height: 10px;
+      background: #d1d1e9;
+      border-radius: 20px;
+      transition: 0.3s;
+    }
+    .dot.active {
+      width: 28px;
+      background: var(--primary);
+    }
+
+    /* ===== RESULT STYLES ===== */
+    .personality-type {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 1.2rem;
+      background: rgba(92,107,192,0.1);
+      display: inline-block;
+      padding: 0.4rem 2rem;
+      border-radius: 40px;
+      letter-spacing: 0.5px;
+    }
+
+    .description {
+      font-size: 1.15rem;
+      line-height: 1.7;
+      color: var(--text-soft);
+      margin: 1.5rem 0 2rem;
+      padding: 0 0.5rem;
+      font-weight: 500;
+      text-align: center;
+    }
+
+    .result-image {
+      max-width: 220px;
+      width: 70%;
+      height: auto;
+      margin: 0.8rem auto 1.8rem;
+      display: block;
+      border-radius: var(--radius-lg);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+      background: #f3f0ff;
+      padding: 0.8rem;
+      transition: transform 0.3s;
+    }
+
+    .result-image:hover {
+      transform: scale(1.02);
+    }
+
+    .action-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .btn {
+      border: none;
+      padding: 0.9rem 1.6rem;
+      border-radius: 60px;
+      font-weight: 650;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.7px;
+      cursor: pointer;
+      transition: 0.25s;
+      background: rgba(255,255,255,0.75);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(92,107,192,0.25);
+      color: var(--primary);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+      flex: 1 1 auto;
+      min-width: 120px;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+      border: none;
+      box-shadow: 0 8px 18px rgba(92, 107, 192, 0.35);
+    }
+
+    .btn-primary:hover {
+      background: #4a57b0;
+      box-shadow: 0 12px 24px rgba(92, 107, 192, 0.5);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline:hover {
+      background: white;
+      border-color: var(--primary);
+      color: #2e2e4a;
+      transform: translateY(-2px);
+    }
+
+    .btn-accent {
+      background: var(--accent);
+      color: white;
+      border: none;
+      box-shadow: 0 8px 18px rgba(255, 138, 101, 0.3);
+    }
+
+    .btn-accent:hover {
+      background: #ff7043;
+      box-shadow: 0 12px 24px rgba(255, 138, 101, 0.45);
+      transform: translateY(-2px);
+    }
+
+    /* Tombol share untuk desktop (copy link) */
+    .btn-share-desktop {
+      background: #4caf50;
+      color: white;
+      border: none;
+      box-shadow: 0 8px 18px rgba(76, 175, 80, 0.35);
+    }
+
+    .btn-share-desktop:hover {
+      background: #43a047;
+      box-shadow: 0 12px 24px rgba(76, 175, 80, 0.5);
+      transform: translateY(-2px);
+    }
+
+    .toast-message {
+      margin-top: 1.2rem;
+      font-size: 0.9rem;
+      color: #4a4a5c;
+      background: #e8eaf6;
+      padding: 0.5rem 1rem;
+      border-radius: 30px;
+      display: inline-block;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 550px) {
+      .container {
+        padding: 1.8rem 1.2rem;
+        border-radius: 32px;
+      }
+
+      .question p {
+        font-size: 1.1rem;
+        padding-left: 0.9rem;
+      }
+
+      .question button {
+        padding: 0.85rem 1.2rem;
+        font-size: 0.98rem;
+      }
+
+      .navigation button {
+        padding: 0.8rem 1rem;
+        font-size: 0.9rem;
+      }
+
+      .action-buttons {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .landing-icon {
+        font-size: 4rem;
+      }
+
+      .landing-title {
+        font-size: 1.5rem;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .container {
+        padding: 2.8rem 2.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="quiz1" class="container">
+
+    <!-- ==================== LANDING PAGE ==================== -->
+    <div id="landingPage">
+      <div class="landing-icon">🧩</div>
+      <div class="landing-title">Ayo Main Quiz!</div>
+      <p class="landing-subtitle">
+        Temukan tipe kepribadianmu yang unik ✨<br>
+        Cukup jawab 3 pertanyaan seru dan dapatkan hasilnya!
+      </p>
+      <button class="btn-start" onclick="startQuiz()">
+        🚀 Mulai
+      </button>
+      <div class="landing-features">
+        <div class="feature-item">
+          <span>❓</span> 3 Pertanyaan
+        </div>
+        <div class="feature-item">
+          <span>⏱️</span> < 1 Menit
+        </div>
+        <div class="feature-item">
+          <span>🎯</span> 4 Tipe Unik
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== QUIZ MODE ==================== -->
+    <div id="quizMode" style="display:none;">
+      <h1>Kuis Kepribadian</h1>
+      <div class="progress-dots" id="progressDots"></div>
+
+      <div id="quiz">
+        <div class="question" data-id="0">
+          <p>✨ Saat libur, kamu lebih suka...</p>
+          <button onclick="selectAnswer(this, 'A')">📋 Mengatur rencana dan tujuan</button>
+          <button onclick="selectAnswer(this, 'B')">❤️ Bersama keluarga/teman dekat</button>
+          <button onclick="selectAnswer(this, 'C')">📚 Membaca atau menonton film sendirian</button>
+          <button onclick="selectAnswer(this, 'D')">🌍 Keluar rumah tanpa rencana, cari petualangan</button>
+        </div>
+
+        <div class="question" data-id="1" style="display:none;">
+          <p>🧠 Ketika menghadapi masalah...</p>
+          <button onclick="selectAnswer(this, 'C')">🔍 Analisis dan ambil keputusan logis</button>
+          <button onclick="selectAnswer(this, 'B')">💬 Tanya pendapat orang terdekat</button>
+          <button onclick="selectAnswer(this, 'D')">⚡ Ikuti insting dan jalanin aja</button>
+          <button onclick="selectAnswer(this, 'A')">🧭 Ambil alih dan atur solusinya</button>
+        </div>
+
+        <div class="question" data-id="2" style="display:none;">
+          <p>🌟 Orang lain menggambarkan kamu sebagai...</p>
+          <button onclick="selectAnswer(this, 'B')">🤗 Penuh perhatian dan pengertian</button>
+          <button onclick="selectAnswer(this, 'A')">🦅 Pemimpin yang tegas</button>
+          <button onclick="selectAnswer(this, 'D')">🎉 Energik dan spontan</button>
+          <button onclick="selectAnswer(this, 'C')">🌙 Tenang dan berpikir dalam</button>
+        </div>
+      </div>
+
+      <div class="navigation">
+        <button onclick="prevQuestion()" id="prevBtn" disabled>‹ Sebelumnya</button>
+        <button onclick="nextQuestion()" id="nextBtn">Selanjutnya ›</button>
+      </div>
+    </div>
+
+    <!-- ==================== RESULT MODE ==================== -->
+    <div id="resultMode" style="display:none;">
+      <h1>✨ Hasil Kepribadian</h1>
+      <div class="personality-type" id="resultType"></div>
+      <p class="description" id="resultDesc"></p>
+      <img id="resultImage" class="result-image" alt="Ilustrasi Kepribadian" />
+      
+      <div class="action-buttons" id="actionButtons">
+        <button class="btn btn-outline" onclick="retakeQuiz()">↺ Coba Lagi</button>
+        <!-- Share button akan di-generate dinamis -->
+        <a class="btn btn-accent" id="downloadBtn" href="#" download="#">
+          ⬇️ Unduh (JPG)
+        </a>
+      </div>
+      <div id="toast" class="toast-message"></div>
+    </div>
+
+  </div>
+
+  <script>
+    (function() {
+      // ========== DETEKSI MOBILE / DESKTOP ==========
+      function isMobileDevice() {
+        return /Android|iPhone|iPad|iPod|webOS/i.test(navigator.userAgent) || 
+               ('ontouchstart' in window && window.innerWidth < 768);
+      }
+
+      // ========== DATA HASIL TIAP TIPE ==========
+      const resultData = {
+        A: {
+          type: "🦅 Tipe A · Si Pemimpin",
+          desc: "Kamu penuh ambisi, percaya diri, dan suka mengatur situasi. Orang lain melihatmu sebagai pribadi yang tegas dan bisa diandalkan.",
+          img: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='40' r='22' fill='%235c6bc0'/%3E%3Cpath d='M22 75c0-15 13-28 28-28s28 13 28 28' fill='%235c6bc0'/%3E%3Ctext x='50' y='85' font-size='14' text-anchor='middle' fill='white'%3E🦅%3C/text%3E%3C/svg%3E",
+          downloadFile: "hasil-tipe-a-pemimpin.jpg"
+        },
+        B: {
+          type: "❤️ Tipe B · Si Perawat",
+          desc: "Kamu hangat, penuh empati, dan selalu peduli pada orang di sekitarmu. Kehadiranmu bikin orang lain merasa nyaman.",
+          img: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='40' r='22' fill='%23e57373'/%3E%3Cpath d='M22 75c0-15 13-28 28-28s28 13 28 28' fill='%23e57373'/%3E%3Ctext x='50' y='85' font-size='14' text-anchor='middle' fill='white'%3E❤️%3C/text%3E%3C/svg%3E",
+          downloadFile: "hasil-tipe-b-perawat.jpg"
+        },
+        C: {
+          type: "🌙 Tipe C · Si Pemikir",
+          desc: "Kamu tenang, analitis, dan suka berpikir dalam. Lebih nyaman dengan ide-ide besar daripada obrolan ringan.",
+          img: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='40' r='22' fill='%2342a5f5'/%3E%3Cpath d='M22 75c0-15 13-28 28-28s28 13 28 28' fill='%2342a5f5'/%3E%3Ctext x='50' y='85' font-size='14' text-anchor='middle' fill='white'%3E🌙%3C/text%3E%3C/svg%3E",
+          downloadFile: "hasil-tipe-c-pemikir.jpg"
+        },
+        D: {
+          type: "🌍 Tipe D · Si Petualang",
+          desc: "Kamu energik, spontan, dan selalu siap eksplorasi hal baru. Hidupmu penuh warna dan kejutan!",
+          img: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='40' r='22' fill='%23ff8a65'/%3E%3Cpath d='M22 75c0-15 13-28 28-28s28 13 28 28' fill='%23ff8a65'/%3E%3Ctext x='50' y='85' font-size='14' text-anchor='middle' fill='white'%3E🌍%3C/text%3E%3C/svg%3E",
+          downloadFile: "hasil-tipe-d-petualang.jpg"
+        }
+      };
+
+      // ========== QUIZ STATE ==========
+      let currentQuestion = 0;
+      const answers = [];
+      const questions = document.querySelectorAll('.question');
+      const prevBtn = document.getElementById('prevBtn');
+      const nextBtn = document.getElementById('nextBtn');
+      const progressDotsContainer = document.getElementById('progressDots');
+      const landingPage = document.getElementById('landingPage');
+      const quizMode = document.getElementById('quizMode');
+      const resultMode = document.getElementById('resultMode');
+      let currentResultType = null;
+
+      // ========== START QUIZ ==========
+      window.startQuiz = function() {
+        landingPage.style.display = 'none';
+        quizMode.style.display = 'block';
+        resultMode.style.display = 'none';
+        
+        // Reset state
+        currentQuestion = 0;
+        answers.length = 0;
+        
+        createProgressDots();
+        showQuestion(0);
+      };
+
+      // ========== PROGRESS DOTS ==========
+      function createProgressDots() {
+        progressDotsContainer.innerHTML = '';
+        questions.forEach((_, idx) => {
+          const dot = document.createElement('span');
+          dot.className = 'dot' + (idx === currentQuestion ? ' active' : '');
+          dot.dataset.index = idx;
+          progressDotsContainer.appendChild(dot);
+        });
+      }
+
+      function updateProgressDots() {
+        const dots = document.querySelectorAll('#quizMode .dot');
+        dots.forEach((dot, idx) => {
+          dot.classList.toggle('active', idx === currentQuestion);
+        });
+      }
+
+      // ========== SELECT ANSWER ==========
+      window.selectAnswer = function(button, type) {
+        const questionDiv = questions[currentQuestion];
+        const allButtons = questionDiv.querySelectorAll('button');
+        allButtons.forEach(btn => btn.classList.remove('selected'));
+        button.classList.add('selected');
+        answers[currentQuestion] = type;
+      };
+
+      // ========== SHOW QUESTION ==========
+      function showQuestion(index) {
+        questions.forEach(q => q.style.display = 'none');
+        questions[index].style.display = 'block';
+
+        prevBtn.disabled = index === 0;
+        nextBtn.textContent = index === questions.length - 1 ? "✨ Lihat Hasil" : "Selanjutnya ›";
+
+        const savedAnswer = answers[index];
+        const currentButtons = questions[index].querySelectorAll('button');
+        currentButtons.forEach(btn => btn.classList.remove('selected'));
+
+        if (savedAnswer) {
+          currentButtons.forEach(btn => {
+            const onclickAttr = btn.getAttribute('onclick');
+            if (onclickAttr && onclickAttr.includes(`'${savedAnswer}'`)) {
+              btn.classList.add('selected');
+            }
+          });
+        }
+
+        updateProgressDots();
+      }
+
+      // ========== NAVIGATION ==========
+      window.nextQuestion = function() {
+        if (!answers[currentQuestion]) {
+          alert("✨ Pilih salah satu jawaban dulu ya, biar makin cocok!");
+          return;
+        }
+
+        if (currentQuestion < questions.length - 1) {
+          currentQuestion++;
+          showQuestion(currentQuestion);
+        } else {
+          showResult();
+        }
+      };
+
+      window.prevQuestion = function() {
+        if (currentQuestion > 0) {
+          currentQuestion--;
+          showQuestion(currentQuestion);
+        }
+      };
+
+      // ========== CALCULATE & SHOW RESULT ==========
+      function showResult() {
+        const counts = { A: 0, B: 0, C: 0, D: 0 };
+        answers.forEach(type => {
+          if (type) counts[type]++;
+        });
+
+        const finalType = Object.keys(counts).reduce((a, b) =>
+          counts[a] >= counts[b] ? a : b
+        );
+
+        currentResultType = finalType;
+
+        // Simpan ke localStorage
+        localStorage.setItem("quizCompleted", "true");
+        localStorage.setItem("quizResultType", finalType);
+
+        // Tampilkan hasil
+        displayResult(finalType);
+      }
+
+      function displayResult(type) {
+        const data = resultData[type];
+
+        quizMode.style.display = 'none';
+        resultMode.style.display = 'block';
+
+        document.getElementById('resultType').textContent = data.type;
+        document.getElementById('resultDesc').textContent = data.desc;
+        document.getElementById('resultImage').src = data.img;
+        document.getElementById('resultImage').alt = data.type;
+
+        // Set download link
+        const downloadBtn = document.getElementById('downloadBtn');
+        downloadBtn.href = data.downloadFile;
+        downloadBtn.download = `Hasil-Kepribadian-${data.type.replace(/[^a-zA-Z]/g, '-')}.jpg`;
+
+        // Reset toast
+        document.getElementById('toast').style.opacity = '0';
+
+        // Generate share button sesuai device
+        generateShareButton(data);
+      }
+
+      // ========== GENERATE SHARE BUTTON ==========
+      function generateShareButton(data) {
+        const actionButtons = document.getElementById('actionButtons');
+        
+        // Hapus share button lama jika ada
+        const oldShareBtn = document.getElementById('shareBtn');
+        if (oldShareBtn) oldShareBtn.remove();
+
+        const shareBtn = document.createElement('button');
+        shareBtn.id = 'shareBtn';
+        
+        const shareText = `Hasil Kuis Kepribadianku: ${data.type}\n"${data.desc}"\n\nCoba kuisnya juga yuk! 👉 ${window.location.href}`;
+
+        if (isMobileDevice()) {
+          // MOBILE: pakai navigator.share()
+          shareBtn.className = 'btn btn-primary';
+          shareBtn.innerHTML = '📤 Bagikan';
+          shareBtn.addEventListener('click', async function() {
+            try {
+              if (navigator.share) {
+                await navigator.share({
+                  title: `Hasil Kepribadianku – ${data.type}`,
+                  text: shareText,
+                  url: window.location.href
+                });
+                showToast('✨ Terima kasih sudah berbagi!', true);
+              } else {
+                // Fallback copy
+                await navigator.clipboard.writeText(shareText);
+                showToast('📋 Hasil disalin! Bagikan ke temanmu ya.', true);
+              }
+            } catch (err) {
+              // User cancel share atau error
+              if (err.name !== 'AbortError') {
+                try {
+                  await navigator.clipboard.writeText(shareText);
+                  showToast('📋 Hasil disalin ke clipboard.', true);
+                } catch (e) {
+                  showToast('⚠️ Gagal membagikan. Silakan screenshot.', false);
+                }
+              }
+            }
+          });
+        } else {
+          // DESKTOP: tombol copy link + toast
+          shareBtn.className = 'btn btn-share-desktop';
+          shareBtn.innerHTML = '🔗 Salin & Bagikan';
+          shareBtn.addEventListener('click', async function() {
+            try {
+              await navigator.clipboard.writeText(shareText);
+              showToast('✅ Link & hasil sudah disalin! Bagikan ke temanmu.', true);
+            } catch (e) {
+              showToast('⚠️ Gagal menyalin. Silakan copy manual.', false);
+            }
+          });
+        }
+
+        // Sisipkan sebelum download button
+        const downloadBtn = document.getElementById('downloadBtn');
+        actionButtons.insertBefore(shareBtn, downloadBtn);
+      }
+
+      // ========== TOAST ==========
+      function showToast(text, isSuccess = true) {
+        const toastEl = document.getElementById('toast');
+        toastEl.textContent = text;
+        toastEl.style.opacity = '1';
+        toastEl.style.background = isSuccess ? '#e8f5e9' : '#ffebee';
+        toastEl.style.color = isSuccess ? '#2e7d32' : '#b71c1c';
+        setTimeout(() => {
+          toastEl.style.opacity = '0';
+        }, 3000);
+      }
+
+      // ========== RETAKE QUIZ ==========
+      window.retakeQuiz = function() {
+        localStorage.removeItem("quizCompleted");
+        localStorage.removeItem("quizResultType");
+        currentResultType = null;
+
+        // Kembali ke landing page
+        resultMode.style.display = 'none';
+        quizMode.style.display = 'none';
+        landingPage.style.display = 'block';
+      };
+
+      // ========== CHECK LOCALSTORAGE (PROTEKSI) ==========
+      function checkAccess() {
+        const quizCompleted = localStorage.getItem("quizCompleted");
+        const savedType = localStorage.getItem("quizResultType");
+
+        if (quizCompleted === "true" && savedType && resultData[savedType]) {
+          // User sudah menyelesaikan quiz, langsung tampilkan hasil
+          currentResultType = savedType;
+          landingPage.style.display = 'none';
+          quizMode.style.display = 'none';
+          resultMode.style.display = 'block';
+          displayResult(savedType);
+        } else {
+          // Tampilkan landing page
+          landingPage.style.display = 'block';
+          quizMode.style.display = 'none';
+          resultMode.style.display = 'none';
+        }
+      }
+
+      // ========== KEYBOARD SUPPORT ==========
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' && quizMode.style.display !== 'none') {
+          const activeQuestion = questions[currentQuestion];
+          if (activeQuestion && activeQuestion.style.display !== 'none') {
+            e.preventDefault();
+            nextQuestion();
+          }
+        }
+      });
+
+      // ========== INIT ==========
+      checkAccess();
+
+    })();
+  </script>
+</body>
+</html>

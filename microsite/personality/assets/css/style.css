@@ -1,0 +1,43 @@
+body { 
+    font-family: Arial, sans-serif; 
+    padding: 0px; 
+margin: 0px;}
+    .question { display: none; }
+    .question.active { display: block; }
+    button { margin: 10px 0; padding: 10px 20px; font-size: 16px; }
+    #resultPage { display: none; }
+    .score-display { font-weight: bold; color: green; margin-bottom: 10px; }
+    #leaderboard { margin-top: 30px; }
+    #trophyContainer img { width: 60px; margin: 5px; }
+    #jawabanBenar img, #jawabanSalah img { width: 100px; display: block; margin: 10px auto; }
+    audio { display: none; }
+    #nameInputSection { text-align: center; margin-top: 30px; }
+
+
+.container {
+    width: 100%;
+    max-width: 500px;
+    height: 100vh;
+    left: 0;
+    right: 0;
+    margin: auto;
+    text-align: center;
+    background-image: url(../images/background.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.box {
+    
+}
+#nameInputSection {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+}

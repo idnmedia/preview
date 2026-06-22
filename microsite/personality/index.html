@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beranda Kuis Anak</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; text-align: center; }
+    .game-selection { 
+      display: flex; 
+      gap: 20px; 
+      flex-wrap: wrap; 
+      justify-content: center; 
+      margin-top: 30px;
+    }
+    .game-card { 
+      border: 2px solid #ccc; 
+      padding: 20px; 
+      width: 200px; 
+      text-align: center; 
+      border-radius: 10px; 
+      cursor: pointer; 
+      transition: all 0.3s ease; 
+    }
+    .game-card:hover { 
+      background-color: #f0f0f0; 
+      transform: scale(1.05); 
+    }
+    button { 
+      margin-top: 10px; 
+      padding: 10px 20px; 
+      font-size: 16px; 
+    }
+  </style>
+</head>
+<body>
+  <h1>Selamat Datang di Kuis Anak</h1>
+
+  <audio id="backgroundMusic" autoplay loop>
+    <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_42a2e6ba36.mp3" type="audio/mpeg">
+  </audio>
+
+  <div id="gameSelection" class="game-selection">
+    <div class="game-card" onclick="goToGame('page/quiz1.html')">🐶 Kuis Hewan & Buah</div>
+    <div class="game-card" onclick="goToGame('kuis-warna-bentuk.html')">🎨 Kuis Warna & Bentuk</div>
+    <div class="game-card">🔢 Kuis Angka</div>
+    <div class="game-card">🚗 Kuis Kendaraan</div>
+    <div class="game-card">🍽️ Kuis Makanan</div>
+  </div>
+
+  <script>
+    function goToGame(url) {
+      window.location.href = url;
+    }
+
+    // Auto-play musik latar dengan volume kecil
+    const bgm = document.getElementById('backgroundMusic');
+    bgm.volume = 0.2;
+    bgm.play().catch(() => {
+      console.warn("Autoplay diblokir, musik akan dimulai saat interaksi.");
+    });
+  </script>
+</body>
+</html>

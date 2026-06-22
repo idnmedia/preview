@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+  <title>✨ Hasil Kepribadian – Si Pemimpin</title>
+  <!-- html2canvas untuk download & share -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <style>
+    /* ===== GLOBAL RESET & VARIABLES (SERAGAM DENGAN QUIZ) ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #5c6bc0;
+      --primary-soft: #8e99d6;
+      --accent: #ff8a65;
+      --bg-gradient: linear-gradient(145deg, #f8f0ff 0%, #e8eaf6 100%);
+      --card-bg: rgba(255, 255, 255, 0.8);
+      --glass-border: rgba(255, 255, 255, 0.5);
+      --text-dark: #2e2e3a;
+      --text-soft: #4a4a5c;
+      --shadow-sm: 0 10px 25px -8px rgba(0, 0, 0, 0.1);
+      --shadow-hover: 0 20px 30px -12px rgba(92, 107, 192, 0.25);
+      --radius-xl: 32px;
+      --radius-lg: 24px;
+      --radius-md: 18px;
+      --radius-sm: 14px;
+      --font-main: 'Segoe UI', 'Inter', system-ui, -apple-system, sans-serif;
+    }
+
+    body {
+      font-family: var(--font-main);
+      background: var(--bg-gradient);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.2rem;
+      margin: 0;
+      backdrop-filter: blur(2px);
+    }
+
+    /* ===== CONTAINER UTAMA (seragam container quiz) ===== */
+    .result-container {
+      width: 100%;
+      max-width: 650px;
+      background: var(--card-bg);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-sm), 0 0 0 1px rgba(255,255,255,0.6) inset;
+      padding: 2.2rem 1.8rem;
+      transition: all 0.3s ease;
+      animation: fadeSlideUp 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+      text-align: center;
+    }
+
+    @keyframes fadeSlideUp {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ===== BAGIAN DALAM CARD (area yang akan di-download) ===== */
+    #resultCardContent {
+      position: relative;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 7vw, 2.6rem);
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 1.2rem;
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg, #5c6bc0, #7c4dff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .personality-type {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 1.2rem;
+      background: rgba(92,107,192,0.1);
+      display: inline-block;
+      padding: 0.4rem 2rem;
+      border-radius: 40px;
+      letter-spacing: 0.5px;
+    }
+
+    .description {
+      font-size: 1.15rem;
+      line-height: 1.7;
+      color: var(--text-soft);
+      margin: 1.5rem 0 2rem;
+      padding: 0 0.5rem;
+      font-weight: 500;
+    }
+
+    /* Ilustrasi / gambar */
+    .result-image {
+      max-width: 220px;
+      width: 70%;
+      height: auto;
+      margin: 0.8rem auto 1.8rem;
+      display: block;
+      border-radius: var(--radius-lg);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+      background: #f3f0ff;
+      padding: 0.8rem;
+      transition: transform 0.3s;
+    }
+
+    .result-image:hover {
+      transform: scale(1.02);
+    }
+
+    /* ===== TOMBOL AKSI (seragam style navigasi quiz) ===== */
+    .action-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .btn {
+      border: none;
+      padding: 0.9rem 1.6rem;
+      border-radius: 60px;
+      font-weight: 650;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.7px;
+      cursor: pointer;
+      transition: 0.25s;
+      background: rgba(255,255,255,0.75);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(92,107,192,0.25);
+      color: var(--primary);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+      flex: 1 1 auto;
+      min-width: 120px;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+      border: none;
+      box-shadow: 0 8px 18px rgba(92, 107, 192, 0.35);
+    }
+
+    .btn-primary:hover {
+      background: #4a57b0;
+      box-shadow: 0 12px 24px rgba(92, 107, 192, 0.5);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline:hover {
+      background: white;
+      border-color: var(--primary);
+      color: #2e2e4a;
+      transform: translateY(-2px);
+    }
+
+    .btn-accent {
+      background: var(--accent);
+      color: white;
+      border: none;
+      box-shadow: 0 8px 18px rgba(255, 138, 101, 0.3);
+    }
+
+    .btn-accent:hover {
+      background: #ff7043;
+      box-shadow: 0 12px 24px rgba(255, 138, 101, 0.45);
+      transform: translateY(-2px);
+    }
+
+    /* Toast kecil */
+    .toast-message {
+      margin-top: 1.2rem;
+      font-size: 0.9rem;
+      color: #4a4a5c;
+      background: #e8eaf6;
+      padding: 0.5rem 1rem;
+      border-radius: 30px;
+      display: inline-block;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 550px) {
+      .result-container {
+        padding: 1.8rem 1.2rem;
+      }
+      .action-buttons {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .btn {
+        width: 100%;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .result-container {
+        padding: 2.8rem 2.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="result-container" id="resultContainer">
+    <!-- Bagian ini akan ditangkap sebagai gambar untuk download/share -->
+    <div id="resultCardContent">
+      <h1>✨ Hasil Kepribadian</h1>
+      <div class="personality-type">🦅 Tipe D · Si Pemimpin</div>
+      
+      <p class="description">
+        Kamu penuh ambisi, percaya diri, dan suka mengatur situasi. Orang lain melihatmu sebagai pribadi yang tegas dan bisa diandalkan.
+      </p>
+      
+      <!-- Gambar ilustrasi (pastikan file leader.png ada, atau gunakan placeholder) -->
+      <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='40' r='22' fill='%235c6bc0'/%3E%3Cpath d='M22 75c0-15 13-28 28-28s28 13 28 28' fill='%235c6bc0'/%3E%3Ctext x='50' y='85' font-size='14' text-anchor='middle' fill='white'%3E🦅%3C/text%3E%3C/svg%3E"
+           alt="Si Pemimpin" class="result-image" id="resultImage" />
+    </div>
+
+    <!-- Tombol aksi -->
+    <div class="action-buttons">
+      <button class="btn btn-outline" onclick="window.location.href='quiz1.html'">↺ Coba Lagi</button>
+      <button class="btn btn-primary" id="shareBtn">📤 Bagikan</button>
+      <button class="btn btn-accent" id="downloadBtn">⬇️ Unduh (JPG)</button>
+    </div>
+    <div id="toast" class="toast-message"></div>
+  </div>
+
+  <script>
+    (function() {
+      const resultContainer = document.getElementById('resultContainer');
+      const shareBtn = document.getElementById('shareBtn');
+      const downloadBtn = document.getElementById('downloadBtn');
+      const toastEl = document.getElementById('toast');
+
+      // Fungsi untuk menampilkan toast sementara
+      function showToast(text, isSuccess = true) {
+        toastEl.textContent = text;
+        toastEl.style.opacity = '1';
+        toastEl.style.background = isSuccess ? '#e8f5e9' : '#ffebee';
+        toastEl.style.color = isSuccess ? '#2e7d32' : '#b71c1c';
+        setTimeout(() => {
+          toastEl.style.opacity = '0';
+        }, 2500);
+      }
+
+      // Fungsi generate gambar dari card content menggunakan html2canvas
+      async function captureResultImage() {
+        const element = document.getElementById('resultCardContent');
+        // Pastikan elemen terlihat sempurna
+        const canvas = await html2canvas(element, {
+          scale: 2, // resolusi lebih tajam
+          backgroundColor: '#f8f0ff', // senada background
+          allowTaint: false,
+          useCORS: true,
+        });
+        return canvas;
+      }
+
+      // Fungsi download JPG
+      async function downloadResult() {
+        try {
+          showToast('⏳ Menyiapkan gambar...', true);
+          const canvas = await captureResultImage();
+          const image = canvas.toDataURL('image/jpeg', 0.9);
+          const link = document.createElement('a');
+          link.download = 'hasil-kepribadian-pemimpin.jpg';
+          link.href = image;
+          link.click();
+          showToast('✅ Gambar berhasil diunduh!', true);
+        } catch (error) {
+          showToast('❌ Gagal mengunduh gambar.', false);
+          console.error(error);
+        }
+      }
+
+      // Fungsi share (Web Share API + fallback copy link / download)
+      async function shareResult() {
+        try {
+          const canvas = await captureResultImage();
+          const blob = await new Promise(resolve => canvas.toBlob(resolve, 'image/jpeg', 0.9));
+          
+          // Cek apakah browser mendukung Web Share API dengan file
+          if (navigator.share && navigator.canShare && navigator.canShare({ files: [new File([blob], 'hasil.jpg', { type: 'image/jpeg' })] })) {
+            const file = new File([blob], 'hasil-kepribadian.jpg', { type: 'image/jpeg' });
+            await navigator.share({
+              title: 'Hasil Kepribadianku – Si Pemimpin',
+              text: 'Lihat hasil kuis kepribadianku! Aku tipe D: Si Pemimpin yang penuh ambisi. 🦅',
+              files: [file],
+            });
+            showToast('✨ Terima kasih sudah berbagi!', true);
+          } else {
+            // Fallback: download otomatis + salin teks ke clipboard
+            const imageUrl = canvas.toDataURL('image/jpeg', 0.9);
+            // Salin deskripsi ke clipboard
+            await navigator.clipboard.writeText('Hasil Kuis Kepribadianku: Tipe D · Si Pemimpin 🦅. Cek sendiri di: [link]');
+            // Tawarkan download
+            const link = document.createElement('a');
+            link.download = 'hasil-kepribadian-pemimpin.jpg';
+            link.href = imageUrl;
+            link.click();
+            showToast('📋 Teks disalin & gambar diunduh. Bagikan manual ya!', true);
+          }
+        } catch (err) {
+          console.log('Share gagal, fallback:', err);
+          // Fallback akhir: download saja
+          downloadResult();
+          try {
+            await navigator.clipboard.writeText('Aku baru saja ikut kuis kepribadian dan hasilnya Si Pemimpin! 🦅');
+            showToast('📋 Link/teks disalin. Gambar diunduh.', true);
+          } catch (e) {
+            showToast('⚠️ Silakan screenshot halaman ini.', false);
+          }
+        }
+      }
+
+      // Event listener
+      downloadBtn.addEventListener('click', downloadResult);
+      shareBtn.addEventListener('click', shareResult);
+
+      // Efek kecil: animasi gambar saat hover sudah ada di CSS
+    })();
+  </script>
+</body>
+</html>

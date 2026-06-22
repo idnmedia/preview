@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+  <title>✨ Kuis Kepribadian – Temukan Dirimu</title>
+  <style>
+    /* ===== GLOBAL RESET & VARIABLES ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #5c6bc0;
+      --primary-soft: #8e99d6;
+      --accent: #ff8a65;
+      --bg-gradient: linear-gradient(145deg, #f8f0ff 0%, #e8eaf6 100%);
+      --card-bg: rgba(255, 255, 255, 0.8);
+      --glass-border: rgba(255, 255, 255, 0.5);
+      --text-dark: #2e2e3a;
+      --text-soft: #4a4a5c;
+      --shadow-sm: 0 10px 25px -8px rgba(0, 0, 0, 0.1);
+      --shadow-hover: 0 20px 30px -12px rgba(92, 107, 192, 0.25);
+      --radius-xl: 32px;
+      --radius-lg: 24px;
+      --radius-md: 18px;
+      --radius-sm: 14px;
+      --font-main: 'Segoe UI', 'Inter', system-ui, -apple-system, sans-serif;
+    }
+
+    body {
+      font-family: var(--font-main);
+      background: var(--bg-gradient);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.2rem;
+      margin: 0;
+      backdrop-filter: blur(2px);
+    }
+
+    /* ===== MAIN CARD CONTAINER ===== */
+    .container {
+      width: 100%;
+      max-width: 650px;
+      background: var(--card-bg);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-sm), 0 0 0 1px rgba(255,255,255,0.6) inset;
+      padding: 2.2rem 1.8rem;
+      transition: all 0.3s ease;
+      animation: fadeSlideUp 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    @keyframes fadeSlideUp {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    h1 {
+      font-size: clamp(2rem, 7vw, 2.6rem);
+      font-weight: 700;
+      color: var(--text-dark);
+      text-align: center;
+      margin-bottom: 2rem;
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg, #5c6bc0, #7c4dff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+    }
+
+    h1::before {
+      content: "🧩";
+      font-size: 2.2rem;
+      -webkit-text-fill-color: initial;
+    }
+
+    /* ===== QUESTION AREA ===== */
+    .question {
+      animation: fadeInQuestion 0.35s ease;
+    }
+
+    @keyframes fadeInQuestion {
+      from { opacity: 0.4; transform: translateX(10px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    .question p {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 1.8rem;
+      line-height: 1.4;
+      padding-left: 0.2rem;
+      border-left: 5px solid var(--primary-soft);
+      padding-left: 1.2rem;
+      background: linear-gradient(to right, rgba(92,107,192,0.05), transparent);
+      border-radius: 0 12px 12px 0;
+    }
+
+    /* ===== BUTTONS STYLE ===== */
+    .question button {
+      display: block;
+      width: 100%;
+      background: white;
+      border: 1.5px solid rgba(92, 107, 192, 0.2);
+      padding: 1rem 1.5rem;
+      margin-bottom: 0.9rem;
+      border-radius: var(--radius-md);
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: var(--text-soft);
+      text-align: left;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      background: rgba(255,255,255,0.7);
+      backdrop-filter: blur(4px);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      letter-spacing: 0.2px;
+    }
+
+    .question button::before {
+      content: "○";
+      font-size: 1.4rem;
+      color: #c5cae9;
+      font-weight: 400;
+      transition: all 0.2s;
+    }
+
+    .question button:hover:not(.selected) {
+      background: #f3f0ff;
+      border-color: var(--primary-soft);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-hover);
+      color: #2c2c3a;
+    }
+
+    .question button.selected {
+      background: linear-gradient(115deg, #5c6bc0 0%, #7c4dff 100%);
+      border-color: transparent;
+      color: white;
+      font-weight: 600;
+      box-shadow: 0 12px 22px -8px rgba(92, 107, 192, 0.6);
+      transform: scale(1.01);
+    }
+
+    .question button.selected::before {
+      content: "●";
+      color: white;
+      font-size: 1.2rem;
+      text-shadow: 0 0 8px rgba(255,255,255,0.8);
+    }
+
+    /* ===== NAVIGATION ===== */
+    .navigation {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 2.4rem;
+      gap: 1.2rem;
+    }
+
+    .navigation button {
+      flex: 1;
+      background: white;
+      border: none;
+      padding: 0.9rem 1.4rem;
+      border-radius: 60px;
+      font-weight: 650;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.7px;
+      cursor: pointer;
+      transition: 0.25s;
+      background: rgba(255,255,255,0.75);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(92,107,192,0.25);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.3rem;
+    }
+
+    .navigation button:disabled {
+      opacity: 0.45;
+      pointer-events: none;
+      background: #e0e0e0;
+      color: #8d8d9c;
+      border-color: transparent;
+    }
+
+    #nextBtn {
+      background: var(--primary);
+      color: white;
+      border: none;
+      font-weight: 650;
+      box-shadow: 0 8px 18px rgba(92, 107, 192, 0.35);
+    }
+
+    #nextBtn:hover:not(:disabled) {
+      background: #4a57b0;
+      box-shadow: 0 12px 24px rgba(92, 107, 192, 0.5);
+      transform: translateY(-2px);
+    }
+
+    #prevBtn:hover:not(:disabled) {
+      background: white;
+      border-color: var(--primary);
+      color: #2e2e4a;
+    }
+
+    /* ===== PROGRESS INDICATOR (optional clean) ===== */
+    .progress-dots {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 1.8rem;
+    }
+    .dot {
+      width: 10px;
+      height: 10px;
+      background: #d1d1e9;
+      border-radius: 20px;
+      transition: 0.3s;
+    }
+    .dot.active {
+      width: 28px;
+      background: var(--primary);
+    }
+
+    /* ===== RESPONSIVE ADJUSTMENTS ===== */
+    @media (max-width: 550px) {
+      .container {
+        padding: 1.8rem 1.2rem;
+        border-radius: 32px;
+      }
+
+      .question p {
+        font-size: 1.1rem;
+        padding-left: 0.9rem;
+      }
+
+      .question button {
+        padding: 0.85rem 1.2rem;
+        font-size: 0.98rem;
+      }
+
+      .navigation button {
+        padding: 0.8rem 1rem;
+        font-size: 0.9rem;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .container {
+        padding: 2.8rem 2.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="quiz1" class="container">
+    <h1>Kuis Kepribadian</h1>
+
+    <!-- Progress dots sederhana -->
+    <div class="progress-dots" id="progressDots"></div>
+
+    <div id="quiz">
+      <!-- Pertanyaan 1 -->
+      <div class="question" data-id="0">
+        <p>✨ Saat libur, kamu lebih suka...</p>
+        <button onclick="selectAnswer(this, 'A')">📋 Mengatur rencana dan tujuan</button>
+        <button onclick="selectAnswer(this, 'B')">❤️ Bersama keluarga/teman dekat</button>
+        <button onclick="selectAnswer(this, 'C')">📚 Membaca atau menonton film sendirian</button>
+        <button onclick="selectAnswer(this, 'D')">🌍 Keluar rumah tanpa rencana, cari petualangan</button>
+      </div>
+
+      <!-- Pertanyaan 2 -->
+      <div class="question" data-id="1" style="display:none;">
+        <p>🧠 Ketika menghadapi masalah...</p>
+        <button onclick="selectAnswer(this, 'C')">🔍 Analisis dan ambil keputusan logis</button>
+        <button onclick="selectAnswer(this, 'B')">💬 Tanya pendapat orang terdekat</button>
+        <button onclick="selectAnswer(this, 'D')">⚡ Ikuti insting dan jalanin aja</button>
+        <button onclick="selectAnswer(this, 'A')">🧭 Ambil alih dan atur solusinya</button>
+      </div>
+
+      <!-- Pertanyaan 3 -->
+      <div class="question" data-id="2" style="display:none;">
+        <p>🌟 Orang lain menggambarkan kamu sebagai...</p>
+        <button onclick="selectAnswer(this, 'B')">🤗 Penuh perhatian dan pengertian</button>
+        <button onclick="selectAnswer(this, 'A')">🦅 Pemimpin yang tegas</button>
+        <button onclick="selectAnswer(this, 'D')">🎉 Energik dan spontan</button>
+        <button onclick="selectAnswer(this, 'C')">🌙 Tenang dan berpikir dalam</button>
+      </div>
+    </div>
+
+    <div class="navigation">
+      <button onclick="prevQuestion()" id="prevBtn" disabled>‹ Sebelumnya</button>
+      <button onclick="nextQuestion()" id="nextBtn">Selanjutnya ›</button>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      // --- STATE ---
+      let currentQuestion = 0;
+      const answers = [];             // menyimpan jawaban per indeks pertanyaan
+      const questions = document.querySelectorAll('.question');
+      const prevBtn = document.getElementById('prevBtn');
+      const nextBtn = document.getElementById('nextBtn');
+      const progressDotsContainer = document.getElementById('progressDots');
+
+      // --- BUAT PROGRESS DOTS DINAMIS ---
+      function createProgressDots() {
+        progressDotsContainer.innerHTML = '';
+        questions.forEach((_, idx) => {
+          const dot = document.createElement('span');
+          dot.className = 'dot' + (idx === currentQuestion ? ' active' : '');
+          dot.dataset.index = idx;
+          progressDotsContainer.appendChild(dot);
+        });
+      }
+
+      function updateProgressDots() {
+        const dots = document.querySelectorAll('.dot');
+        dots.forEach((dot, idx) => {
+          if (idx === currentQuestion) {
+            dot.classList.add('active');
+          } else {
+            dot.classList.remove('active');
+          }
+        });
+      }
+
+      // --- PILIH JAWABAN ---
+      window.selectAnswer = function(button, type) {
+        const questionDiv = questions[currentQuestion];
+        // Hapus kelas 'selected' dari semua tombol di pertanyaan ini
+        const allButtons = questionDiv.querySelectorAll('button');
+        allButtons.forEach(btn => btn.classList.remove('selected'));
+
+        // Tandai tombol yang dipilih
+        button.classList.add('selected');
+
+        // Simpan jawaban berdasarkan indeks pertanyaan saat ini
+        answers[currentQuestion] = type;
+      };
+
+      // --- TAMPILKAN PERTANYAAN BERDASARKAN INDEX ---
+      function showQuestion(index) {
+        // Sembunyikan semua pertanyaan
+        questions.forEach(q => q.style.display = 'none');
+        // Tampilkan pertanyaan aktif
+        questions[index].style.display = 'block';
+
+        // Update navigasi tombol
+        prevBtn.disabled = index === 0;
+        nextBtn.textContent = index === questions.length - 1 ? "✨ Lihat Hasil" : "Selanjutnya ›";
+
+        // Kembalikan tampilan terpilih jika sudah ada jawaban tersimpan
+        const savedAnswer = answers[index];
+        const currentButtons = questions[index].querySelectorAll('button');
+        
+        // Hapus dulu semua selected
+        currentButtons.forEach(btn => btn.classList.remove('selected'));
+        
+        if (savedAnswer) {
+          // Cari tombol yang atribut onclick-nya mengandung huruf jawaban
+          currentButtons.forEach(btn => {
+            const onclickAttr = btn.getAttribute('onclick');
+            if (onclickAttr && onclickAttr.includes(`'${savedAnswer}'`)) {
+              btn.classList.add('selected');
+            }
+          });
+        }
+
+        updateProgressDots();
+      }
+
+      // --- NEXT QUESTION ---
+      window.nextQuestion = function() {
+        // Validasi: harus memilih jawaban
+        if (!answers[currentQuestion]) {
+          alert("✨ Pilih salah satu jawaban dulu ya, biar makin cocok!");
+          return;
+        }
+
+        if (currentQuestion < questions.length - 1) {
+          currentQuestion++;
+          showQuestion(currentQuestion);
+        } else {
+          // Sudah di pertanyaan terakhir -> tampilkan hasil
+          showResult();
+        }
+      };
+
+      // --- PREV QUESTION ---
+      window.prevQuestion = function() {
+        if (currentQuestion > 0) {
+          currentQuestion--;
+          showQuestion(currentQuestion);
+        }
+      };
+
+      // --- KALKULASI HASIL & REDIRECT ---
+      function showResult() {
+        const counts = { A: 0, B: 0, C: 0, D: 0 };
+        answers.forEach(type => {
+          if (type) counts[type]++;
+        });
+
+        // Tentukan tipe dominan (terbanyak)
+        const finalType = Object.keys(counts).reduce((a, b) =>
+          counts[a] >= counts[b] ? a : b
+        );
+
+        // Mapping halaman hasil (pastikan file-file ini ada di server-mu)
+        const resultPageMap = {
+          A: 'result-x2k9A.html',
+          B: 'result-zbN4q.html',
+          C: 'result-vP1cZ.html',
+          D: 'result-kLm82.html'
+        };
+
+        // Animasi singkat sebelum pindah (opsional)
+        document.querySelector('.container').style.opacity = '0.7';
+        setTimeout(() => {
+          window.location.href = resultPageMap[finalType];
+        }, 200);
+      }
+
+      // --- INISIALISASI AWAL ---
+      function initQuiz() {
+        createProgressDots();
+        // Tampilkan pertanyaan pertama
+        showQuestion(0);
+      }
+
+      // Jalankan setelah DOM siap
+      initQuiz();
+
+      // Opsional: dukung navigasi keyboard (Enter untuk next)
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') {
+          const activeQuestion = questions[currentQuestion];
+          if (activeQuestion && activeQuestion.style.display !== 'none') {
+            e.preventDefault();
+            nextQuestion();
+          }
+        }
+      });
+
+    })();
+  </script>
+</body>
+</html>
