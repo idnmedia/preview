@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover" />
   <title>✨ Kuis Kepribadian – Temukan Dirimu</title>
   
   <!-- Google Analytics (ganti G-XXXXXXXXXX dengan ID kamu) -->
@@ -177,6 +177,75 @@
       margin-bottom: 0.3rem;
     }
 
+    /* ===== NAME INPUT STEP ===== */
+    #nameStep {
+      text-align: center;
+      animation: fadeSlideUp 0.5s ease;
+    }
+
+    .name-input-card {
+      background: rgba(255,255,255,0.7);
+      backdrop-filter: blur(12px);
+      border-radius: var(--radius-lg);
+      padding: 2rem 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .name-label {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+
+    .name-input {
+      width: 100%;
+      padding: 1rem 1.5rem;
+      border-radius: 60px;
+      border: 1.5px solid rgba(92, 107, 192, 0.3);
+      font-size: 1.2rem;
+      background: white;
+      outline: none;
+      text-align: center;
+      font-weight: 500;
+      transition: 0.2s;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+    }
+
+    .name-input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 4px rgba(92,107,192,0.15);
+    }
+
+    .btn-name-next {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 0.9rem 2.8rem;
+      border-radius: 60px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-top: 1.8rem;
+      cursor: pointer;
+      transition: 0.2s;
+      box-shadow: 0 8px 20px rgba(92,107,192,0.35);
+      text-transform: uppercase;
+    }
+
+    .btn-name-next:hover {
+      background: #4a57b0;
+      transform: translateY(-2px);
+    }
+
+    .error-message {
+      color: #d32f2f;
+      font-size: 0.9rem;
+      margin-top: 0.6rem;
+      min-height: 1.5rem;
+    }
+
     /* ===== QUESTION AREA ===== */
     #quiz {
       text-align: left;
@@ -338,6 +407,13 @@
     }
 
     /* ===== RESULT STYLES ===== */
+    .user-greeting {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 0.5rem;
+    }
+
     .personality-type {
       font-size: 1.6rem;
       font-weight: 700;
@@ -566,6 +642,17 @@
       </div>
     </div>
 
+    <!-- ==================== NAME INPUT STEP ==================== -->
+    <div id="nameStep" style="display:none;">
+      <h1>✨ Siapa Nama Kamu?</h1>
+      <div class="name-input-card">
+        <label class="name-label" for="userNameInput">Masukkan nama panggilanmu dulu, yuk!</label>
+        <input type="text" id="userNameInput" class="name-input" placeholder="cth. Ara, Bimo, Sari..." autocomplete="off" />
+        <div class="error-message" id="nameError"></div>
+        <button class="btn-name-next" onclick="submitName()">Lanjut ke Kuis ✨</button>
+      </div>
+    </div>
+
     <!-- ==================== QUIZ MODE ==================== -->
     <div id="quizMode" style="display:none;">
       <h1>Kuis Kepribadian</h1>
@@ -595,14 +682,6 @@
           <button onclick="selectAnswer(this, 'D')">🎉 Energik dan spontan</button>
           <button onclick="selectAnswer(this, 'C')">🌙 Tenang dan berpikir dalam</button>
         </div>
-          
-          <div class="question" data-id="3" style="display:none;">
-          <p>🌟 Orang lain menggambarkan kamu sebagai...</p>
-          <button onclick="selectAnswer(this, 'D')">🤗 Penuh perhatian dan pengertian</button>
-          <button onclick="selectAnswer(this, 'C')">🦅 Pemimpin yang tegas</button>
-          <button onclick="selectAnswer(this, 'B')">🎉 Energik dan spontan</button>
-          <button onclick="selectAnswer(this, 'A')">🌙 Tenang dan berpikir dalam</button>
-        </div>
       </div>
 
       <div class="navigation">
@@ -614,13 +693,13 @@
     <!-- ==================== RESULT MODE ==================== -->
     <div id="resultMode" style="display:none;">
       <h1>✨ Hasil Kepribadian</h1>
+      <div class="user-greeting" id="userGreeting"></div>
       <div class="personality-type" id="resultType"></div>
       <p class="description" id="resultDesc"></p>
       <img id="resultImage" class="result-image" alt="Ilustrasi Kepribadian" />
 
       <div class="action-buttons" id="actionButtons">
         <button class="btn btn-outline" onclick="retakeQuiz()">↺ Coba Lagi</button>
-        <!-- Share buttons akan di-generate dinamis -->
         <a class="btn btn-accent" id="downloadBtn" href="#" download="#">
           ⬇️ Unduh (JPG)
         </a>
@@ -674,13 +753,43 @@
       const nextBtn = document.getElementById('nextBtn');
       const progressDotsContainer = document.getElementById('progressDots');
       const landingPage = document.getElementById('landingPage');
+      const nameStep = document.getElementById('nameStep');
       const quizMode = document.getElementById('quizMode');
       const resultMode = document.getElementById('resultMode');
       let currentResultType = null;
+      let userName = "";
 
-      // ========== START QUIZ ==========
+      // ========== START QUIZ (dari landing ke input nama) ==========
       window.startQuiz = function() {
         landingPage.style.display = 'none';
+        nameStep.style.display = 'block';
+        quizMode.style.display = 'none';
+        resultMode.style.display = 'none';
+        document.getElementById('userNameInput').value = '';
+        document.getElementById('nameError').textContent = '';
+      };
+
+      // ========== SUBMIT NAME ==========
+      window.submitName = function() {
+        const nameInput = document.getElementById('userNameInput');
+        const name = nameInput.value.trim();
+        const errorEl = document.getElementById('nameError');
+        
+        if (!name) {
+          errorEl.textContent = '✨ Nama tidak boleh kosong, isi dulu ya!';
+          nameInput.focus();
+          return;
+        }
+        if (name.length < 2) {
+          errorEl.textContent = '✨ Nama terlalu pendek, minimal 2 karakter ya.';
+          return;
+        }
+        
+        userName = name;
+        errorEl.textContent = '';
+        
+        // Lanjut ke kuis
+        nameStep.style.display = 'none';
         quizMode.style.display = 'block';
         resultMode.style.display = 'none';
         
@@ -777,17 +886,16 @@
 
         currentResultType = finalType;
 
-        // ===== GOOGLE ANALYTICS TRACKING =====
         if (typeof gtag === 'function') {
           gtag('event', 'quiz_result', {
             'result_type': finalType,
             'result_label': resultData[finalType].type
           });
         }
-        // ====================================
 
         localStorage.setItem("quizCompleted", "true");
         localStorage.setItem("quizResultType", finalType);
+        localStorage.setItem("quizUserName", userName);
         displayResult(finalType);
       }
 
@@ -796,6 +904,14 @@
 
         quizMode.style.display = 'none';
         resultMode.style.display = 'block';
+
+        // Tampilkan sapaan dengan nama user
+        const greetingEl = document.getElementById('userGreeting');
+        if (userName) {
+          greetingEl.textContent = `👋 Hai, ${userName}!`;
+        } else {
+          greetingEl.textContent = '';
+        }
 
         document.getElementById('resultType').textContent = data.type;
         document.getElementById('resultDesc').textContent = data.desc;
@@ -814,7 +930,6 @@
       function generateShareButtons(data) {
         const actionButtons = document.getElementById('actionButtons');
         
-        // Hapus share buttons lama
         const oldWa = document.getElementById('shareWaBtn');
         const oldIg = document.getElementById('shareIgBtn');
         const oldDesktop = document.getElementById('shareDesktopBtn');
@@ -823,12 +938,9 @@
         if (oldDesktop) oldDesktop.remove();
 
         const shareUrl = window.location.href;
-        const shareText = `Hasil Kuis Kepribadianku: ${data.type}\n"${data.desc}"`;
+        const shareText = `✨ ${userName ? userName + ', ' : ''}Hasil Kuis Kepribadianku: ${data.type}\n"${data.desc}"`;
 
         if (isMobileDevice()) {
-          // ===== MOBILE: WhatsApp + Instagram =====
-          
-          // Tombol WhatsApp
           const waBtn = document.createElement('button');
           waBtn.id = 'shareWaBtn';
           waBtn.className = 'btn btn-share-wa';
@@ -841,7 +953,6 @@
             showToast('✅ Membuka WhatsApp...', true);
           });
 
-          // Tombol Instagram
           const igBtn = document.createElement('button');
           igBtn.id = 'shareIgBtn';
           igBtn.className = 'btn btn-share-ig';
@@ -855,7 +966,6 @@
           actionButtons.insertBefore(waBtn, igBtn);
 
         } else {
-          // ===== DESKTOP: Salin & Bagikan (tanpa IG) =====
           const desktopBtn = document.createElement('button');
           desktopBtn.id = 'shareDesktopBtn';
           desktopBtn.className = 'btn btn-share-desktop';
@@ -918,7 +1028,6 @@
         }
       }
 
-      // ===== FUNGSI DOWNLOAD GAMBAR =====
       function downloadImage(canvas) {
         const link = document.createElement('a');
         link.download = 'hasil-quiz-kepribadian.png';
@@ -926,7 +1035,6 @@
         link.click();
       }
 
-      // ========== TOAST ==========
       function showToast(text, isSuccess = true) {
         const toastEl = document.getElementById('toast');
         toastEl.textContent = text;
@@ -938,47 +1046,55 @@
         }, 3000);
       }
 
-      // ========== RETAKE QUIZ ==========
       window.retakeQuiz = function() {
         localStorage.removeItem("quizCompleted");
         localStorage.removeItem("quizResultType");
+        localStorage.removeItem("quizUserName");
         currentResultType = null;
+        userName = "";
 
         resultMode.style.display = 'none';
         quizMode.style.display = 'none';
+        nameStep.style.display = 'none';
         landingPage.style.display = 'block';
       };
 
-      // ========== CHECK LOCALSTORAGE ==========
       function checkAccess() {
         const quizCompleted = localStorage.getItem("quizCompleted");
         const savedType = localStorage.getItem("quizResultType");
+        const savedName = localStorage.getItem("quizUserName");
 
         if (quizCompleted === "true" && savedType && resultData[savedType]) {
           currentResultType = savedType;
+          if (savedName) userName = savedName;
           landingPage.style.display = 'none';
+          nameStep.style.display = 'none';
           quizMode.style.display = 'none';
           resultMode.style.display = 'block';
           displayResult(savedType);
         } else {
           landingPage.style.display = 'block';
+          nameStep.style.display = 'none';
           quizMode.style.display = 'none';
           resultMode.style.display = 'none';
         }
       }
 
-      // ========== KEYBOARD SUPPORT ==========
       document.addEventListener('keydown', function(e) {
-        if (e.key === 'Enter' && quizMode.style.display !== 'none') {
-          const activeQuestion = questions[currentQuestion];
-          if (activeQuestion && activeQuestion.style.display !== 'none') {
+        if (e.key === 'Enter') {
+          if (nameStep.style.display !== 'none' && document.activeElement === document.getElementById('userNameInput')) {
             e.preventDefault();
-            nextQuestion();
+            submitName();
+          } else if (quizMode.style.display !== 'none') {
+            const activeQuestion = questions[currentQuestion];
+            if (activeQuestion && activeQuestion.style.display !== 'none') {
+              e.preventDefault();
+              nextQuestion();
+            }
           }
         }
       });
 
-      // ========== INIT ==========
       checkAccess();
 
     })();
