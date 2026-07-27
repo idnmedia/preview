@@ -1,0 +1,1397 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover" />
+  <title>Kuis Kepribadian – Temukan Dirimu</title>
+  
+  <!-- Google Analytics) -->
+  <!--
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+  -->
+
+  <!-- html2canvas untuk generate gambar share IG -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+  <style>
+    /* ===== GLOBAL RESET & VARIABLES ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #5c6bc0;
+      --primary-soft: #8e99d6;
+      --accent: #ff8a65;
+      --bg-gradient: linear-gradient(145deg, #f8f0ff 0%, #e8eaf6 100%);
+      --card-bg: rgba(255, 255, 255, 0.8);
+      --glass-border: rgba(255, 255, 255, 0.5);
+      --text-dark: #2e2e3a;
+      --text-soft: #4a4a5c;
+      --shadow-sm: 0 10px 25px -8px rgba(0, 0, 0, 0.1);
+      --shadow-hover: 0 20px 30px -12px rgba(92, 107, 192, 0.25);
+      --radius-xl: 32px;
+      --radius-lg: 24px;
+      --radius-md: 18px;
+      --radius-sm: 14px;
+      --font-main: 'Segoe UI', 'Inter', system-ui, -apple-system, sans-serif;
+    }
+
+    body {
+      font-family: var(--font-main);
+      background: var(--bg-gradient);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.2rem;
+      margin: 0;
+      backdrop-filter: blur(2px);
+    }
+
+    /* ===== MAIN CARD CONTAINER ===== */
+    .container {
+      width: 100%;
+      max-width: 650px;
+      background: var(--card-bg);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-sm), 0 0 0 1px rgba(255,255,255,0.6) inset;
+      padding: 2.2rem 1.8rem;
+      transition: all 0.3s ease;
+      animation: fadeSlideUp 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+      text-align: center;
+      position: relative;
+    }
+
+    @keyframes fadeSlideUp {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+      40% { transform: translateY(-15px); }
+      60% { transform: translateY(-7px); }
+    }
+
+    h1 {
+      font-size: clamp(2rem, 7vw, 2.6rem);
+      font-weight: 700;
+      color: var(--text-dark);
+      text-align: center;
+      margin-bottom: 1.2rem;
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg, #5c6bc0, #7c4dff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+    }
+
+    h1::before {
+      content: "🧩";
+      font-size: 2.2rem;
+      -webkit-text-fill-color: initial;
+    }
+
+    /* ===== HERO / LANDING PAGE (NEW CONCEPT) ===== */
+    #heroPage {
+      animation: fadeSlideUp 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 60vh;
+      padding: 1rem 0;
+    }
+
+    .hero-icon {
+      font-size: 5.5rem;
+      animation: float 3s ease-in-out infinite;
+      margin-bottom: 1rem;
+    }
+
+    .hero-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 0.8rem;
+      background: linear-gradient(135deg, #5c6bc0, #7c4dff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-subtitle {
+      font-size: 1.1rem;
+      color: var(--text-soft);
+      margin-bottom: 2rem;
+      line-height: 1.6;
+      max-width: 400px;
+    }
+
+    .scroll-down-indicator {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 2rem;
+      cursor: pointer;
+      color: var(--primary);
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .scroll-down-indicator span {
+      font-size: 0.9rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .scroll-down-arrow {
+      font-size: 2.2rem;
+      animation: bounce 2s infinite;
+      color: var(--primary);
+    }
+
+    /* ===== INTRO SECOND PAGE ===== */
+    #introSecondPage {
+      animation: fadeSlideUp 0.6s ease;
+    }
+
+    .intro-second-icon {
+      font-size: 3.5rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .intro-second-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 1rem;
+    }
+
+    .intro-second-desc {
+      font-size: 1rem;
+      color: var(--text-soft);
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    .btn-start-quiz {
+      display: inline-block;
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 1rem 3rem;
+      border-radius: 60px;
+      font-weight: 700;
+      font-size: 1.2rem;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 25px rgba(92, 107, 192, 0.4);
+      animation: pulse 2s ease-in-out infinite;
+      text-transform: uppercase;
+    }
+
+    .btn-start-quiz:hover {
+      background: #4a57b0;
+      box-shadow: 0 15px 35px rgba(92, 107, 192, 0.5);
+      transform: translateY(-3px);
+    }
+
+    .features-row {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+      flex-wrap: wrap;
+    }
+
+    .feature-item {
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-soft);
+    }
+
+    .feature-item span {
+      display: block;
+      font-size: 2rem;
+      margin-bottom: 0.3rem;
+    }
+
+    /* ===== NAME INPUT STEP ===== */
+    #nameStep {
+      text-align: center;
+      animation: fadeSlideUp 0.5s ease;
+    }
+
+    .name-input-card {
+      background: rgba(255,255,255,0.7);
+      backdrop-filter: blur(12px);
+      border-radius: var(--radius-lg);
+      padding: 2rem 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .name-label {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+
+    .name-input {
+      width: 100%;
+      padding: 1rem 1.5rem;
+      border-radius: 60px;
+      border: 1.5px solid rgba(92, 107, 192, 0.3);
+      font-size: 1.2rem;
+      background: white;
+      outline: none;
+      text-align: center;
+      font-weight: 500;
+      transition: 0.2s;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+    }
+
+    .name-input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 4px rgba(92,107,192,0.15);
+    }
+
+    .btn-name-next {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 0.9rem 2.8rem;
+      border-radius: 60px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-top: 1.8rem;
+      cursor: pointer;
+      transition: 0.2s;
+      box-shadow: 0 8px 20px rgba(92,107,192,0.35);
+      text-transform: uppercase;
+    }
+
+    .btn-name-next:hover {
+      background: #4a57b0;
+      transform: translateY(-2px);
+    }
+
+    .error-message {
+      color: #d32f2f;
+      font-size: 0.9rem;
+      margin-top: 0.6rem;
+      min-height: 1.5rem;
+    }
+
+    /* ===== QUESTION AREA ===== */
+    #quiz {
+      text-align: left;
+    }
+
+    .question-counter {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--primary-soft);
+      margin-bottom: 0.8rem;
+      text-align: center;
+      letter-spacing: 0.5px;
+    }
+
+    .question {
+      animation: fadeInQuestion 0.35s ease;
+    }
+
+    @keyframes fadeInQuestion {
+      from { opacity: 0.4; transform: translateX(10px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    .question p {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 1.8rem;
+      line-height: 1.4;
+      padding-left: 0.2rem;
+      border-left: 5px solid var(--primary-soft);
+      padding-left: 1.2rem;
+      background: linear-gradient(to right, rgba(92,107,192,0.05), transparent);
+      border-radius: 0 12px 12px 0;
+    }
+
+    .question button {
+      display: block;
+      width: 100%;
+      background: white;
+      border: 1.5px solid rgba(92, 107, 192, 0.2);
+      padding: 1rem 1.5rem;
+      margin-bottom: 0.9rem;
+      border-radius: var(--radius-md);
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: var(--text-soft);
+      text-align: left;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      background: rgba(255,255,255,0.7);
+      backdrop-filter: blur(4px);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      letter-spacing: 0.2px;
+    }
+
+    .question button::before {
+      content: "○";
+      font-size: 1.4rem;
+      color: #c5cae9;
+      font-weight: 400;
+      transition: all 0.2s;
+    }
+
+    .question button:hover:not(.selected) {
+      background: #f3f0ff;
+      border-color: var(--primary-soft);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-hover);
+      color: #2c2c3a;
+    }
+
+    .question button.selected {
+      background: linear-gradient(115deg, #5c6bc0 0%, #7c4dff 100%);
+      border-color: transparent;
+      color: white;
+      font-weight: 600;
+      box-shadow: 0 12px 22px -8px rgba(92, 107, 192, 0.6);
+      transform: scale(1.01);
+    }
+
+    .question button.selected::before {
+      content: "●";
+      color: white;
+      font-size: 1.2rem;
+      text-shadow: 0 0 8px rgba(255,255,255,0.8);
+    }
+
+    /* ===== NAVIGATION ===== */
+    .navigation {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 2.4rem;
+      gap: 1.2rem;
+    }
+
+    .navigation button {
+      flex: 1;
+      background: white;
+      border: none;
+      padding: 0.9rem 1.4rem;
+      border-radius: 60px;
+      font-weight: 650;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.7px;
+      cursor: pointer;
+      transition: 0.25s;
+      background: rgba(255,255,255,0.75);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(92,107,192,0.25);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.3rem;
+    }
+
+    .navigation button:disabled {
+      opacity: 0.45;
+      pointer-events: none;
+      background: #e0e0e0;
+      color: #8d8d9c;
+      border-color: transparent;
+    }
+
+    #nextBtn {
+      background: var(--primary);
+      color: white;
+      border: none;
+      font-weight: 650;
+      box-shadow: 0 8px 18px rgba(92, 107, 192, 0.35);
+    }
+
+    #nextBtn:hover:not(:disabled) {
+      background: #4a57b0;
+      box-shadow: 0 12px 24px rgba(92, 107, 192, 0.5);
+      transform: translateY(-2px);
+    }
+
+    #prevBtn:hover:not(:disabled) {
+      background: white;
+      border-color: var(--primary);
+      color: #2e2e4a;
+    }
+
+    /* ===== PROGRESS DOTS ===== */
+    .progress-dots {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 1.8rem;
+    }
+    .dot {
+      width: 10px;
+      height: 10px;
+      background: #d1d1e9;
+      border-radius: 20px;
+      transition: 0.3s;
+    }
+    .dot.active {
+      width: 28px;
+      background: var(--primary);
+    }
+
+    /* ===== RESULT STYLES (TIDAK DIUBAH) ===== */
+    .user-greeting {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .personality-type {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 1.2rem;
+      background: rgba(92,107,192,0.1);
+      display: inline-block;
+      padding: 0.4rem 2rem;
+      border-radius: 40px;
+      letter-spacing: 0.5px;
+    }
+
+    .description {
+      font-size: 1.15rem;
+      line-height: 1.7;
+      color: var(--text-soft);
+      margin: 1.5rem 0 2rem;
+      padding: 0 0.5rem;
+      font-weight: 500;
+      text-align: center;
+    }
+
+    .result-image {
+      max-width: 220px;
+      width: 70%;
+      height: auto;
+      margin: 0.8rem auto 1.8rem;
+      display: block;
+      border-radius: var(--radius-lg);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+      background: #f3f0ff;
+      padding: 0.8rem;
+      transition: transform 0.3s;
+    }
+
+    .result-image:hover {
+      transform: scale(1.02);
+    }
+
+    /* ===== SWIPE SLIDER (MOBILE ONLY) ===== */
+    .swipe-container {
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+      margin-top: 1rem;
+    }
+
+    .swipe-wrapper {
+      display: flex;
+      transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+      will-change: transform;
+      width: 200%;
+    }
+
+    .swipe-slide {
+      width: 50%;
+      flex-shrink: 0;
+      padding: 0 0.5rem;
+      box-sizing: border-box;
+    }
+
+    .slide-indicators {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin: 1.5rem 0 1rem;
+    }
+
+    .slide-indicator {
+      width: 10px;
+      height: 10px;
+      background: #d1d1e9;
+      border-radius: 20px;
+      transition: 0.3s;
+    }
+
+    .slide-indicator.active {
+      width: 28px;
+      background: var(--primary);
+    }
+
+    .additional-info {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--text-soft);
+      margin: 1rem 0 2rem;
+      padding: 0 0.5rem;
+      font-weight: 500;
+      text-align: center;
+      background: rgba(92,107,192,0.05);
+      border-radius: var(--radius-md);
+      padding: 1.2rem;
+    }
+
+    .action-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .btn {
+      border: none;
+      padding: 0.9rem 1.6rem;
+      border-radius: 60px;
+      font-weight: 650;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.7px;
+      cursor: pointer;
+      transition: 0.25s;
+      background: rgba(255,255,255,0.75);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(92,107,192,0.25);
+      color: var(--primary);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+      flex: 1 1 auto;
+      min-width: 120px;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+      border: none;
+      box-shadow: 0 8px 18px rgba(92, 107, 192, 0.35);
+    }
+
+    .btn-primary:hover {
+      background: #4a57b0;
+      box-shadow: 0 12px 24px rgba(92, 107, 192, 0.5);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline:hover {
+      background: white;
+      border-color: var(--primary);
+      color: #2e2e4a;
+      transform: translateY(-2px);
+    }
+
+    .btn-accent {
+      background: var(--accent);
+      color: white;
+      border: none;
+      box-shadow: 0 8px 18px rgba(255, 138, 101, 0.3);
+    }
+
+    .btn-accent:hover {
+      background: #ff7043;
+      box-shadow: 0 12px 24px rgba(255, 138, 101, 0.45);
+      transform: translateY(-2px);
+    }
+
+    .btn-share-wa {
+      background: #25D366;
+      color: white;
+      border: none;
+      box-shadow: 0 8px 18px rgba(37, 211, 102, 0.35);
+    }
+
+    .btn-share-wa:hover {
+      background: #20bd5a;
+      box-shadow: 0 12px 24px rgba(37, 211, 102, 0.5);
+      transform: translateY(-2px);
+    }
+
+    .btn-share-ig {
+      background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+      color: white;
+      border: none;
+      box-shadow: 0 8px 18px rgba(220, 39, 67, 0.35);
+    }
+
+    .btn-share-ig:hover {
+      box-shadow: 0 12px 24px rgba(220, 39, 67, 0.5);
+      transform: translateY(-2px);
+    }
+
+    .btn-share-desktop {
+      background: #4caf50;
+      color: white;
+      border: none;
+      box-shadow: 0 8px 18px rgba(76, 175, 80, 0.35);
+    }
+
+    .btn-share-desktop:hover {
+      background: #43a047;
+      box-shadow: 0 12px 24px rgba(76, 175, 80, 0.5);
+      transform: translateY(-2px);
+    }
+
+    .toast-message {
+      margin-top: 1.2rem;
+      font-size: 0.9rem;
+      color: #4a4a5c;
+      background: #e8eaf6;
+      padding: 0.5rem 1rem;
+      border-radius: 30px;
+      display: inline-block;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+
+    @media (min-width: 769px) {
+      .swipe-container, .slide-indicators {
+        display: none;
+      }
+      .desktop-result-content {
+        display: block;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .desktop-result-content {
+        display: none;
+      }
+    }
+
+    @media (max-width: 550px) {
+      .container {
+        padding: 1.8rem 1.2rem;
+        border-radius: 32px;
+      }
+
+      .question p {
+        font-size: 1.1rem;
+        padding-left: 0.9rem;
+      }
+
+      .question button {
+        padding: 0.85rem 1.2rem;
+        font-size: 0.98rem;
+      }
+
+      .navigation button {
+        padding: 0.8rem 1rem;
+        font-size: 0.9rem;
+      }
+
+      .action-buttons {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .hero-icon {
+        font-size: 4rem;
+      }
+
+      .hero-title {
+        font-size: 1.7rem;
+      }
+      
+      .swipe-slide {
+        padding: 0 0.2rem;
+      }
+      
+      .additional-info {
+        font-size: 0.95rem;
+        padding: 1rem;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .container {
+        padding: 2.8rem 2.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="quiz1" class="container">
+
+    <!-- ==================== HERO PAGE (INTRO 1) ==================== -->
+    <div id="heroPage">
+      <div class="hero-icon">🧩</div>
+      <div class="hero-title">Temukan Dirimu</div>
+      <p class="hero-subtitle">
+        Sebuah perjalanan singkat untuk mengenali karakter unik dalam dirimu. Siap menjelajah?
+      </p>
+      <div class="scroll-down-indicator" id="scrollDownTrigger">
+        <span>Kenali lebih lanjut</span>
+        <div class="scroll-down-arrow">↓</div>
+      </div>
+    </div>
+
+    <!-- ==================== INTRO SECOND PAGE ==================== -->
+    <div id="introSecondPage" style="display: none;">
+      <div class="intro-second-icon">✨</div>
+      <div class="intro-second-title">Ayo Mulai Kuisnya!</div>
+      <p class="intro-second-desc">
+        Cukup jawab 7 pertanyaan seru dan dapatkan tipe kepribadianmu. Singkat, menarik, dan penuh kejutan!
+      </p>
+      <button class="btn-start-quiz" id="btnStartQuiz">🚀 Mulai Kuis</button>
+      <div class="features-row">
+        <div class="feature-item">
+          <span>❓</span> 7 Pertanyaan
+        </div>
+        <div class="feature-item">
+          <span>⏱️</span> ~2 Menit
+        </div>
+        <div class="feature-item">
+          <span>🎯</span> 4 Tipe Unik
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== NAME INPUT STEP ==================== -->
+    <div id="nameStep" style="display:none;">
+      <h1>Siapa Nama Kamu?</h1>
+      <div class="name-input-card">
+        <label class="name-label" for="userNameInput">Masukkan nama panggilanmu dulu, yuk!</label>
+        <input type="text" id="userNameInput" class="name-input" placeholder="cth. Ara, Bimo, Sari..." autocomplete="off" />
+        <div class="error-message" id="nameError"></div>
+        <button class="btn-name-next" onclick="submitName()">Lanjut ke Kuis ✨</button>
+      </div>
+    </div>
+
+    <!-- ==================== QUIZ MODE ==================== -->
+    <div id="quizMode" style="display:none;">
+      <div class="question-counter" id="questionCounter">1 / 7</div>
+      <div class="progress-dots" id="progressDots"></div>
+
+      <div id="quiz">
+        <!-- Pertanyaan 1 - 7 -->
+        <div class="question" data-id="0">
+          <p>✨ Saat libur, kamu lebih suka...</p>
+          <button onclick="selectAnswer(this, 'A')">📋 Mengatur rencana dan tujuan</button>
+          <button onclick="selectAnswer(this, 'B')">❤️ Bersama keluarga/teman dekat</button>
+          <button onclick="selectAnswer(this, 'C')">📚 Membaca atau menonton film sendirian</button>
+          <button onclick="selectAnswer(this, 'D')">🌍 Keluar rumah tanpa rencana, cari petualangan</button>
+        </div>
+
+        <div class="question" data-id="1" style="display:none;">
+          <p>🧠 Ketika menghadapi masalah...</p>
+          <button onclick="selectAnswer(this, 'C')">🔍 Analisis dan ambil keputusan logis</button>
+          <button onclick="selectAnswer(this, 'B')">💬 Tanya pendapat orang terdekat</button>
+          <button onclick="selectAnswer(this, 'D')">⚡ Ikuti insting dan jalanin aja</button>
+          <button onclick="selectAnswer(this, 'A')">🧭 Ambil alih dan atur solusinya</button>
+        </div>
+
+        <div class="question" data-id="2" style="display:none;">
+          <p>🌟 Orang lain menggambarkan kamu sebagai...</p>
+          <button onclick="selectAnswer(this, 'B')">🤗 Penuh perhatian dan pengertian</button>
+          <button onclick="selectAnswer(this, 'A')">🦅 Pemimpin yang tegas</button>
+          <button onclick="selectAnswer(this, 'D')">🎉 Energik dan spontan</button>
+          <button onclick="selectAnswer(this, 'C')">🌙 Tenang dan berpikir dalam</button>
+        </div>
+
+        <div class="question" data-id="3" style="display:none;">
+          <p>📅 Di akhir pekan, energi kamu paling banyak dipakai untuk...</p>
+          <button onclick="selectAnswer(this, 'D')">🏄‍♂️ Olahraga atau aktivitas outdoor</button>
+          <button onclick="selectAnswer(this, 'C')">🎨 Kreativitas: menggambar, menulis, musik</button>
+          <button onclick="selectAnswer(this, 'A')">📈 Belajar skill baru atau networking</button>
+          <button onclick="selectAnswer(this, 'B')">🍲 Memasak atau quality time bersama orang tersayang</button>
+        </div>
+
+        <div class="question" data-id="4" style="display:none;">
+          <p>💬 Saat berada di kelompok baru, kamu cenderung...</p>
+          <button onclick="selectAnswer(this, 'A')">🎤 Memimpin percakapan dan mengarahkan topik</button>
+          <button onclick="selectAnswer(this, 'B')">👂 Mendengarkan dan memastikan semua orang nyaman</button>
+          <button onclick="selectAnswer(this, 'D')">🎭 Mencairkan suasana dengan candaan spontan</button>
+          <button onclick="selectAnswer(this, 'C')">👀 Mengamati dulu sebelum ikut berbicara</button>
+        </div>
+
+        <div class="question" data-id="5" style="display:none;">
+          <p>🎯 Yang paling memotivasi kamu dalam hidup adalah...</p>
+          <button onclick="selectAnswer(this, 'A')">🏆 Prestasi dan pengakuan</button>
+          <button onclick="selectAnswer(this, 'B')">💞 Hubungan yang bermakna dengan orang lain</button>
+          <button onclick="selectAnswer(this, 'C')">🧘 Ketenangan batin dan pemahaman diri</button>
+          <button onclick="selectAnswer(this, 'D')">🌠 Pengalaman baru dan kebebasan</button>
+        </div>
+
+        <div class="question" data-id="6" style="display:none;">
+          <p>📚 Jika harus memilih satu genre buku/film...</p>
+          <button onclick="selectAnswer(this, 'C')">🔮 Fiksi ilmiah atau misteri yang kompleks</button>
+          <button onclick="selectAnswer(this, 'B')">💕 Drama romantis atau kisah persahabatan</button>
+          <button onclick="selectAnswer(this, 'A')">📊 Biografi tokoh sukses atau bisnis</button>
+          <button onclick="selectAnswer(this, 'D')">🗺️ Petualangan atau traveling</button>
+        </div>
+      </div>
+
+      <div class="navigation">
+        <button onclick="prevQuestion()" id="prevBtn" disabled>‹ Sebelumnya</button>
+        <button onclick="nextQuestion()" id="nextBtn">Selanjutnya ›</button>
+      </div>
+    </div>
+
+    <!-- ==================== RESULT MODE (TIDAK DIUBAH) ==================== -->
+    <div id="resultMode" style="display:none;">
+      <h1>✨ Hasil Kepribadian</h1>
+      <div class="user-greeting" id="userGreeting"></div>
+      <div class="personality-type" id="resultType"></div>
+      
+      <div class="desktop-result-content" id="desktopResult">
+        <p class="description" id="resultDescDesktop"></p>
+        <img id="resultImageDesktop" class="result-image" alt="Ilustrasi Kepribadian" />
+        <div class="additional-info" id="additionalInfoDesktop"></div>
+        <div class="action-buttons" id="actionButtonsDesktop">
+          <button class="btn btn-outline" onclick="retakeQuiz()">↺ Coba Lagi</button>
+          <a class="btn btn-accent" id="downloadBtnDesktop" href="#" download="#">
+            ⬇️ Unduh (JPG)
+          </a>
+        </div>
+      </div>
+
+      <div class="swipe-container" id="swipeContainer">
+        <div class="swipe-wrapper" id="swipeWrapper">
+          <div class="swipe-slide" id="slide1">
+            <p class="description" id="resultDescMobile"></p>
+            <img id="resultImageMobile" class="result-image" alt="Ilustrasi Kepribadian" />
+            <p style="font-size: 0.85rem; color: #8d8d9c; margin-top: -0.5rem;">← Geser ke kiri untuk info lainnya</p>
+          </div>
+          <div class="swipe-slide" id="slide2">
+            <div class="additional-info" id="additionalInfoMobile"></div>
+            <div class="action-buttons" id="actionButtonsMobile">
+              <button class="btn btn-outline" onclick="retakeQuiz()">↺ Coba Lagi</button>
+              <a class="btn btn-accent" id="downloadBtnMobile" href="#" download="#">
+                ⬇️ Unduh (JPG)
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="slide-indicators" id="slideIndicators">
+        <span class="slide-indicator active" data-index="0"></span>
+        <span class="slide-indicator" data-index="1"></span>
+      </div>
+
+      <div id="toast" class="toast-message"></div>
+    </div>
+
+  </div>
+
+  <script>
+    (function() {
+      // ========== DETEKSI MOBILE / DESKTOP ==========
+      function isMobileDevice() {
+        return /Android|iPhone|iPad|iPod|webOS/i.test(navigator.userAgent) || 
+               ('ontouchstart' in window && window.innerWidth < 768);
+      }
+
+      // ========== DATA HASIL TIAP TIPE (TIDAK DIUBAH) ==========
+      const resultData = {
+        A: {
+          type: "🦅 Tipe A · Si Pemimpin",
+          desc: "Kamu penuh ambisi, percaya diri, dan suka mengatur situasi. Orang lain melihatmu sebagai pribadi yang tegas dan bisa diandalkan.",
+          additional: "Sebagai seorang pemimpin alami, kamu unggul dalam situasi yang membutuhkan arah dan keputusan cepat. Kamu sering menjadi tempat teman-temanmu mencari saran karena kepercayaan dirimu yang menular. Teruslah memimpin dengan hati, ya!",
+          img: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='40' r='22' fill='%235c6bc0'/%3E%3Cpath d='M22 75c0-15 13-28 28-28s28 13 28 28' fill='%235c6bc0'/%3E%3Ctext x='50' y='85' font-size='14' text-anchor='middle' fill='white'%3E🦅%3C/text%3E%3C/svg%3E",
+          downloadFile: "hasil-tipe-a-pemimpin.jpg"
+        },
+        B: {
+          type: "❤️ Tipe B · Si Perawat",
+          desc: "Kamu hangat, penuh empati, dan selalu peduli pada orang di sekitarmu. Kehadiranmu bikin orang lain merasa nyaman.",
+          additional: "Kemampuanmu untuk memahami perasaan orang lain adalah anugerah. Kamu adalah pendengar yang baik dan sering menjadi 'rumah' bagi teman-teman yang sedang bersedih. Jangan lupa untuk merawat dirimu sendiri juga ya, karena kamu sangat berharga!",
+          img: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='40' r='22' fill='%23e57373'/%3E%3Cpath d='M22 75c0-15 13-28 28-28s28 13 28 28' fill='%23e57373'/%3E%3Ctext x='50' y='85' font-size='14' text-anchor='middle' fill='white'%3E❤️%3C/text%3E%3C/svg%3E",
+          downloadFile: "hasil-tipe-b-perawat.jpg"
+        },
+        C: {
+          type: "🌙 Tipe C · Si Pemikir",
+          desc: "Kamu tenang, analitis, dan suka berpikir dalam. Lebih nyaman dengan ide-ide besar daripada obrolan ringan.",
+          additional: "Pikiranmu yang tajam dan kemauan untuk menyelami kompleksitas membuatmu unggul dalam pemecahan masalah. Kamu sering menemukan solusi yang tidak terpikirkan orang lain. Kadang-kadang, bagikan juga pemikiranmu yang brilian itu ke dunia!",
+          img: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='40' r='22' fill='%2342a5f5'/%3E%3Cpath d='M22 75c0-15 13-28 28-28s28 13 28 28' fill='%2342a5f5'/%3E%3Ctext x='50' y='85' font-size='14' text-anchor='middle' fill='white'%3E🌙%3C/text%3E%3C/svg%3E",
+          downloadFile: "hasil-tipe-c-pemikir.jpg"
+        },
+        D: {
+          type: "🌍 Tipe D · Si Petualang",
+          desc: "Kamu energik, spontan, dan selalu siap eksplorasi hal baru. Hidupmu penuh warna dan kejutan!",
+          additional: "Semangat petualanganmu menular ke semua orang di sekitarmu! Kamu membawa energi positif dan selalu siap mencoba hal baru tanpa ragu. Ingatlah bahwa petualangan terbaik adalah yang dibagikan dengan orang-orang terdekat. Jelajahi terus!",
+          img: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='40' r='22' fill='%23ff8a65'/%3E%3Cpath d='M22 75c0-15 13-28 28-28s28 13 28 28' fill='%23ff8a65'/%3E%3Ctext x='50' y='85' font-size='14' text-anchor='middle' fill='white'%3E🌍%3C/text%3E%3C/svg%3E",
+          downloadFile: "hasil-tipe-d-petualang.jpg"
+        }
+      };
+
+      // ========== QUIZ STATE ==========
+      let currentQuestion = 0;
+      const totalQuestions = 7;
+      const answers = new Array(totalQuestions).fill(null);
+      const questions = document.querySelectorAll('.question');
+      const prevBtn = document.getElementById('prevBtn');
+      const nextBtn = document.getElementById('nextBtn');
+      const progressDotsContainer = document.getElementById('progressDots');
+      const questionCounter = document.getElementById('questionCounter');
+      
+      // Halaman elements
+      const heroPage = document.getElementById('heroPage');
+      const introSecondPage = document.getElementById('introSecondPage');
+      const nameStep = document.getElementById('nameStep');
+      const quizMode = document.getElementById('quizMode');
+      const resultMode = document.getElementById('resultMode');
+      
+      let currentResultType = null;
+      let userName = "";
+      let currentSlide = 0;
+      let touchStartX = 0;
+      let touchEndX = 0;
+
+      // ========== SCROLL / KLIK UNTUK PINDAH KE INTRO KEDUA ==========
+      function goToIntroSecond() {
+        heroPage.style.display = 'none';
+        introSecondPage.style.display = 'block';
+        nameStep.style.display = 'none';
+        quizMode.style.display = 'none';
+        resultMode.style.display = 'none';
+      }
+
+      // Trigger via klik tombol scroll down
+      document.getElementById('scrollDownTrigger').addEventListener('click', goToIntroSecond);
+
+      // Trigger via scroll wheel di dalam hero (opsional, sebagai tambahan)
+      window.addEventListener('wheel', function(e) {
+        if (heroPage.style.display !== 'none' && e.deltaY > 20) {
+          goToIntroSecond();
+        }
+      }, { passive: true });
+
+      // ========== MULAI DARI INTRO KEDUA KE INPUT NAMA ==========
+      document.getElementById('btnStartQuiz').addEventListener('click', function() {
+        introSecondPage.style.display = 'none';
+        nameStep.style.display = 'block';
+        quizMode.style.display = 'none';
+        resultMode.style.display = 'none';
+        document.getElementById('userNameInput').value = '';
+        document.getElementById('nameError').textContent = '';
+      });
+
+      // ========== SUBMIT NAME ==========
+      window.submitName = function() {
+        const nameInput = document.getElementById('userNameInput');
+        const name = nameInput.value.trim();
+        const errorEl = document.getElementById('nameError');
+        
+        if (!name) {
+          errorEl.textContent = '✨ Nama tidak boleh kosong, isi dulu ya!';
+          nameInput.focus();
+          return;
+        }
+        if (name.length < 2) {
+          errorEl.textContent = '✨ Nama terlalu pendek, minimal 2 karakter ya.';
+          return;
+        }
+        
+        userName = name;
+        errorEl.textContent = '';
+        
+        nameStep.style.display = 'none';
+        quizMode.style.display = 'block';
+        resultMode.style.display = 'none';
+        
+        currentQuestion = 0;
+        answers.fill(null);
+        
+        createProgressDots();
+        showQuestion(0);
+      };
+
+      // ========== PROGRESS DOTS & COUNTER ==========
+      function createProgressDots() {
+        progressDotsContainer.innerHTML = '';
+        for (let i = 0; i < totalQuestions; i++) {
+          const dot = document.createElement('span');
+          dot.className = 'dot' + (i === currentQuestion ? ' active' : '');
+          dot.dataset.index = i;
+          progressDotsContainer.appendChild(dot);
+        }
+        updateQuestionCounter();
+      }
+
+      function updateProgressDots() {
+        const dots = document.querySelectorAll('#quizMode .dot');
+        dots.forEach((dot, idx) => {
+          dot.classList.toggle('active', idx === currentQuestion);
+        });
+        updateQuestionCounter();
+      }
+
+      function updateQuestionCounter() {
+        if (questionCounter) {
+          questionCounter.textContent = `${currentQuestion + 1} / ${totalQuestions}`;
+        }
+      }
+
+      // ========== SELECT ANSWER ==========
+      window.selectAnswer = function(button, type) {
+        const questionDiv = questions[currentQuestion];
+        const allButtons = questionDiv.querySelectorAll('button');
+        allButtons.forEach(btn => btn.classList.remove('selected'));
+        button.classList.add('selected');
+        answers[currentQuestion] = type;
+      };
+
+      // ========== SHOW QUESTION ==========
+      function showQuestion(index) {
+        questions.forEach(q => q.style.display = 'none');
+        if (questions[index]) {
+          questions[index].style.display = 'block';
+        }
+
+        prevBtn.disabled = index === 0;
+        nextBtn.textContent = index === totalQuestions - 1 ? "✨ Lihat Hasil" : "Selanjutnya ›";
+
+        const savedAnswer = answers[index];
+        const currentButtons = questions[index]?.querySelectorAll('button') || [];
+        currentButtons.forEach(btn => btn.classList.remove('selected'));
+
+        if (savedAnswer) {
+          currentButtons.forEach(btn => {
+            const onclickAttr = btn.getAttribute('onclick');
+            if (onclickAttr && onclickAttr.includes(`'${savedAnswer}'`)) {
+              btn.classList.add('selected');
+            }
+          });
+        }
+
+        updateProgressDots();
+      }
+
+      // ========== NAVIGATION ==========
+      window.nextQuestion = function() {
+        if (!answers[currentQuestion]) {
+          alert("✨ Pilih salah satu jawaban dulu ya, biar makin cocok!");
+          return;
+        }
+
+        if (currentQuestion < totalQuestions - 1) {
+          currentQuestion++;
+          showQuestion(currentQuestion);
+        } else {
+          showResult();
+        }
+      };
+
+      window.prevQuestion = function() {
+        if (currentQuestion > 0) {
+          currentQuestion--;
+          showQuestion(currentQuestion);
+        }
+      };
+
+      // ========== CALCULATE & SHOW RESULT (TIDAK DIUBAH) ==========
+      function showResult() {
+        const counts = { A: 0, B: 0, C: 0, D: 0 };
+        answers.forEach(type => {
+          if (type) counts[type]++;
+        });
+
+        const finalType = Object.keys(counts).reduce((a, b) =>
+          counts[a] >= counts[b] ? a : b
+        );
+
+        currentResultType = finalType;
+
+        if (typeof gtag === 'function') {
+          gtag('event', 'quiz_result', {
+            'result_type': finalType,
+            'result_label': resultData[finalType].type
+          });
+        }
+
+        localStorage.setItem("quizCompleted", "true");
+        localStorage.setItem("quizResultType", finalType);
+        localStorage.setItem("quizUserName", userName);
+        displayResult(finalType);
+      }
+
+      function displayResult(type) {
+        const data = resultData[type];
+
+        quizMode.style.display = 'none';
+        resultMode.style.display = 'block';
+
+        const greetingEl = document.getElementById('userGreeting');
+        if (userName) {
+          greetingEl.textContent = `👋 Hai, ${userName}!`;
+        } else {
+          greetingEl.textContent = '';
+        }
+
+        document.getElementById('resultType').textContent = data.type;
+
+        if (!isMobileDevice()) {
+          document.getElementById('desktopResult').style.display = 'block';
+          document.getElementById('swipeContainer').style.display = 'none';
+          document.getElementById('slideIndicators').style.display = 'none';
+          
+          document.getElementById('resultDescDesktop').textContent = data.desc;
+          document.getElementById('resultImageDesktop').src = data.img;
+          document.getElementById('resultImageDesktop').alt = data.type;
+          document.getElementById('additionalInfoDesktop').textContent = data.additional;
+          
+          const downloadBtnDesktop = document.getElementById('downloadBtnDesktop');
+          downloadBtnDesktop.href = data.downloadFile;
+          downloadBtnDesktop.download = `Hasil-Kepribadian-${data.type.replace(/[^a-zA-Z]/g, '-')}.jpg`;
+          
+          generateShareButtons(data, 'Desktop');
+        } else {
+          document.getElementById('desktopResult').style.display = 'none';
+          document.getElementById('swipeContainer').style.display = 'block';
+          document.getElementById('slideIndicators').style.display = 'flex';
+          
+          currentSlide = 0;
+          updateSwipePosition();
+          
+          document.getElementById('resultDescMobile').textContent = data.desc;
+          document.getElementById('resultImageMobile').src = data.img;
+          document.getElementById('resultImageMobile').alt = data.type;
+          document.getElementById('additionalInfoMobile').textContent = data.additional;
+          
+          const downloadBtnMobile = document.getElementById('downloadBtnMobile');
+          downloadBtnMobile.href = data.downloadFile;
+          downloadBtnMobile.download = `Hasil-Kepribadian-${data.type.replace(/[^a-zA-Z]/g, '-')}.jpg`;
+          
+          generateShareButtons(data, 'Mobile');
+          setupSwipeListeners();
+        }
+
+        document.getElementById('toast').style.opacity = '0';
+      }
+
+      // ========== SWIPE (TIDAK DIUBAH) ==========
+      function setupSwipeListeners() {
+        const swipeContainer = document.getElementById('swipeContainer');
+        swipeContainer.removeEventListener('touchstart', handleTouchStart);
+        swipeContainer.removeEventListener('touchend', handleTouchEnd);
+        swipeContainer.removeEventListener('touchmove', handleTouchMove);
+        
+        swipeContainer.addEventListener('touchstart', handleTouchStart, {passive: true});
+        swipeContainer.addEventListener('touchend', handleTouchEnd, {passive: true});
+        swipeContainer.addEventListener('touchmove', handleTouchMove, {passive: true});
+        
+        document.querySelectorAll('.slide-indicator').forEach(indicator => {
+          indicator.addEventListener('click', function() {
+            const index = parseInt(this.dataset.index);
+            goToSlide(index);
+          });
+        });
+      }
+
+      function handleTouchStart(e) { touchStartX = e.changedTouches[0].screenX; }
+      function handleTouchMove(e) { touchEndX = e.changedTouches[0].screenX; }
+      function handleTouchEnd() {
+        if (!touchStartX || !touchEndX) return;
+        const diff = touchStartX - touchEndX;
+        if (Math.abs(diff) > 50) {
+          if (diff > 0 && currentSlide === 0) goToSlide(1);
+          else if (diff < 0 && currentSlide === 1) goToSlide(0);
+        }
+        touchStartX = 0; touchEndX = 0;
+      }
+
+      function goToSlide(index) {
+        currentSlide = index;
+        updateSwipePosition();
+        updateSlideIndicators();
+      }
+
+      function updateSwipePosition() {
+        document.getElementById('swipeWrapper').style.transform = `translateX(-${currentSlide * 50}%)`;
+      }
+
+      function updateSlideIndicators() {
+        document.querySelectorAll('.slide-indicator').forEach((ind, idx) => {
+          ind.classList.toggle('active', idx === currentSlide);
+        });
+      }
+
+      // ========== SHARE BUTTONS (TIDAK DIUBAH) ==========
+      function generateShareButtons(data, mode) {
+        const actionButtonsId = mode === 'Desktop' ? 'actionButtonsDesktop' : 'actionButtonsMobile';
+        const actionButtons = document.getElementById(actionButtonsId);
+        
+        const oldWa = actionButtons.querySelector('#shareWaBtn');
+        const oldIg = actionButtons.querySelector('#shareIgBtn');
+        const oldDesktop = actionButtons.querySelector('#shareDesktopBtn');
+        if (oldWa) oldWa.remove();
+        if (oldIg) oldIg.remove();
+        if (oldDesktop) oldDesktop.remove();
+
+        const shareUrl = window.location.href;
+        const shareText = `✨ ${userName ? userName + ', ' : ''}Hasil Kuis Kepribadianku: ${data.type}\n"${data.desc}"`;
+
+        if (isMobileDevice()) {
+          const waBtn = document.createElement('button');
+          waBtn.id = 'shareWaBtn';
+          waBtn.className = 'btn btn-share-wa';
+          waBtn.innerHTML = '💬 Share WA';
+          waBtn.addEventListener('click', function() {
+            const waText = encodeURIComponent(`${shareText}\n\n✨ Coba kuisnya juga yuk! gratis kok 👉 ${shareUrl}`);
+            window.open(`https://wa.me/?text=${waText}`, '_blank');
+            showToast('✅ Membuka WhatsApp...', true);
+          });
+
+          const igBtn = document.createElement('button');
+          igBtn.id = 'shareIgBtn';
+          igBtn.className = 'btn btn-share-ig';
+          igBtn.innerHTML = '📸 Share IG';
+          igBtn.addEventListener('click', async function() { await shareImageToIG(data); });
+
+          const downloadBtn = actionButtons.querySelector('a');
+          if (downloadBtn) {
+            actionButtons.insertBefore(igBtn, downloadBtn);
+            actionButtons.insertBefore(waBtn, igBtn);
+          } else {
+            actionButtons.appendChild(waBtn);
+            actionButtons.appendChild(igBtn);
+          }
+        } else {
+          const desktopBtn = document.createElement('button');
+          desktopBtn.id = 'shareDesktopBtn';
+          desktopBtn.className = 'btn btn-share-desktop';
+          desktopBtn.innerHTML = '🔗 Salin & Bagikan';
+          desktopBtn.addEventListener('click', async function() {
+            try {
+              const fullText = `${shareText}\n\n✨ Coba kuisnya juga yuk! gratis kok 👉 ${shareUrl}`;
+              await navigator.clipboard.writeText(fullText);
+              showToast('✅ Link & hasil sudah disalin! Bagikan ke temanmu.', true);
+            } catch (e) {
+              showToast('⚠️ Gagal menyalin. Silakan copy manual.', false);
+            }
+          });
+
+          const downloadBtn = actionButtons.querySelector('a');
+          if (downloadBtn) actionButtons.insertBefore(desktopBtn, downloadBtn);
+          else actionButtons.appendChild(desktopBtn);
+        }
+      }
+
+      async function shareImageToIG(data) {
+        showToast('⏳ Menyiapkan gambar...', true);
+        try {
+          const resultCard = document.querySelector('#resultMode');
+          const canvas = await html2canvas(resultCard, { backgroundColor: '#f8f0ff', scale: 2, useCORS: true, allowTaint: true });
+          canvas.toBlob(async (blob) => {
+            const file = new File([blob], 'hasil-quiz-kepribadian.png', { type: 'image/png' });
+            if (navigator.share && navigator.canShare && navigator.canShare({ files: [file] })) {
+              try {
+                await navigator.share({ title: data.type, text: '✨ Coba kuis kepribadian ini juga yuk!', files: [file] });
+                showToast('✅ Pilih Instagram untuk share!', true);
+              } catch (err) {
+                if (err.name !== 'AbortError') { downloadImage(canvas); showToast('📥 Gambar diunduh! Buka IG & upload ke Story ya.', true); }
+              }
+            } else { downloadImage(canvas); showToast('📥 Gambar diunduh! Buka IG & upload ke Story ya.', true); }
+          }, 'image/png');
+        } catch (err) { showToast('⚠️ Gagal membuat gambar. Coba screenshot manual.', false); }
+      }
+
+      function downloadImage(canvas) {
+        const link = document.createElement('a'); link.download = 'hasil-quiz-kepribadian.png'; link.href = canvas.toDataURL('image/png'); link.click();
+      }
+
+      function showToast(text, isSuccess = true) {
+        const toastEl = document.getElementById('toast');
+        toastEl.textContent = text; toastEl.style.opacity = '1';
+        toastEl.style.background = isSuccess ? '#e8f5e9' : '#ffebee';
+        toastEl.style.color = isSuccess ? '#2e7d32' : '#b71c1c';
+        setTimeout(() => { toastEl.style.opacity = '0'; }, 3000);
+      }
+
+      window.retakeQuiz = function() {
+        localStorage.removeItem("quizCompleted"); localStorage.removeItem("quizResultType"); localStorage.removeItem("quizUserName");
+        currentResultType = null; userName = ""; currentSlide = 0;
+        resultMode.style.display = 'none'; quizMode.style.display = 'none'; nameStep.style.display = 'none';
+        introSecondPage.style.display = 'none'; heroPage.style.display = 'block';
+      };
+
+      function checkAccess() {
+        const quizCompleted = localStorage.getItem("quizCompleted");
+        const savedType = localStorage.getItem("quizResultType");
+        const savedName = localStorage.getItem("quizUserName");
+        if (quizCompleted === "true" && savedType && resultData[savedType]) {
+          currentResultType = savedType; if (savedName) userName = savedName;
+          heroPage.style.display = 'none'; introSecondPage.style.display = 'none';
+          nameStep.style.display = 'none'; quizMode.style.display = 'none';
+          resultMode.style.display = 'block'; displayResult(savedType);
+        } else {
+          heroPage.style.display = 'block'; introSecondPage.style.display = 'none';
+          nameStep.style.display = 'none'; quizMode.style.display = 'none'; resultMode.style.display = 'none';
+        }
+      }
+
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') {
+          if (nameStep.style.display !== 'none' && document.activeElement === document.getElementById('userNameInput')) {
+            e.preventDefault(); submitName();
+          } else if (quizMode.style.display !== 'none') {
+            const activeQuestion = questions[currentQuestion];
+            if (activeQuestion && activeQuestion.style.display !== 'none') { e.preventDefault(); nextQuestion(); }
+          }
+        }
+      });
+
+      checkAccess();
+    })();
+  </script>
+</body>
+</html>

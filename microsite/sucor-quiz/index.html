@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover" />
+  <title>Kuis Kepribadian – Temukan Dirimu</title>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js">
+  </script>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #5c6bc0;
+      --primary-soft: #8e99d6;
+      --accent: #ff8a65;
+      --bg-gradient: linear-gradient(145deg, #f8f0ff 0%, #e8eaf6 100%);
+      --card-bg: rgba(255, 255, 255, 0.85);
+      --glass-border: rgba(255, 255, 255, 0.5);
+      --text-dark: #2e2e3a;
+      --text-soft: #4a4a5c;
+      --shadow-sm: 0 10px 25px -8px rgba(0, 0, 0, 0.1);
+      --shadow-hover: 0 20px 30px -12px rgba(92, 107, 192, 0.25);
+      --radius-xl: 32px;
+      --radius-lg: 24px;
+      --radius-md: 18px;
+      --radius-sm: 14px;
+      --font-main: 'Segoe UI', 'Inter', system-ui, -apple-system, sans-serif;
+    }
+
+    body {
+      font-family: var(--font-main);
+      background: var(--bg-gradient);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.2rem;
+      margin: 0;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 650px;
+      background: var(--card-bg);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-sm), 0 0 0 1px rgba(255, 255, 255, 0.6) inset;
+      padding: 2rem 1.8rem 1.8rem;
+      transition: all 0.3s ease;
+      animation: fadeSlideUp 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    @keyframes fadeSlideUp {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+      40% { transform: translateY(-15px); }
+      60% { transform: translateY(-7px); }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h1 {
+      font-size: clamp(2rem, 7vw, 2.6rem);
+      font-weight: 700;
+      color: var(--text-dark);
+      text-align: center;
+      margin-bottom: 1.2rem;
+      background: linear-gradient(135deg, #5c6bc0, #7c4dff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* ===== LOGO KIRI ATAS (GLOBAL) ===== */
+    .main-logo {
+      position: absolute;
+      top: 1rem;
+      left: 1.5rem;
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #5c6bc0, #7c4dff);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.3rem;
+      font-weight: 700;
+      z-index: 10;
+      box-shadow: 0 4px 12px rgba(92, 107, 192, 0.3);
+      display: none;
+    }
+
+    /* ===== HERO PAGE ===== */
+    #heroPage {
+      animation: fadeSlideUp 0.8s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 60vh;
+      padding: 1rem 0;
+    }
+    .hero-icon {
+      font-size: 5.5rem;
+      animation: float 3s ease-in-out infinite;
+      margin-bottom: 1rem;
+    }
+    .hero-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+      background: linear-gradient(135deg, #5c6bc0, #7c4dff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-subtitle {
+      font-size: 1.1rem;
+      color: var(--text-soft);
+      margin-bottom: 2rem;
+      line-height: 1.6;
+      max-width: 400px;
+    }
+    .scroll-down-indicator {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 2rem;
+      cursor: pointer;
+      color: var(--primary);
+      font-weight: 600;
+      transition: 0.3s;
+    }
+    .scroll-down-indicator span {
+      font-size: 0.9rem;
+      margin-bottom: 0.4rem;
+    }
+    .scroll-down-arrow {
+      font-size: 2.2rem;
+      animation: bounce 2s infinite;
+    }
+
+    /* ===== INTRO SECOND ===== */
+    #introSecondPage {
+      animation: fadeSlideUp 0.6s ease;
+    }
+    .intro-second-icon {
+      font-size: 3.5rem;
+      margin-bottom: 0.8rem;
+    }
+    .intro-second-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 1rem;
+    }
+    .intro-second-desc {
+      font-size: 1rem;
+      color: var(--text-soft);
+      margin-bottom: 2rem;
+    }
+    .btn-start-quiz {
+      display: inline-block;
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 1rem 3rem;
+      border-radius: 60px;
+      font-weight: 700;
+      font-size: 1.2rem;
+      cursor: pointer;
+      box-shadow: 0 8px 25px rgba(92, 107, 192, 0.4);
+      animation: pulse 2s ease-in-out infinite;
+      text-transform: uppercase;
+    }
+    .features-row {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+    .feature-item {
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-soft);
+    }
+    .feature-item span {
+      display: block;
+      font-size: 2rem;
+    }
+
+    /* ===== NAME STEP ===== */
+    #nameStep {
+      text-align: center;
+    }
+    .name-input-card {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(12px);
+      border-radius: var(--radius-lg);
+      padding: 2rem 1.5rem;
+      margin: 1.5rem 0;
+    }
+    .name-input {
+      width: 100%;
+      padding: 1rem;
+      border-radius: 60px;
+      border: 1.5px solid rgba(92, 107, 192, 0.3);
+      font-size: 1.2rem;
+      text-align: center;
+    }
+    .btn-name-next {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 0.9rem 2.8rem;
+      border-radius: 60px;
+      font-weight: 700;
+      margin-top: 1.8rem;
+      cursor: pointer;
+    }
+
+    /* ===== QUIZ AREA (TANPA HEADER TERPISAH) ===== */
+    .progress-area {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .question-counter-center {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 0.6rem;
+      letter-spacing: 1px;
+    }
+    .progress-dots {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+    .dot {
+      width: 8px;
+      height: 8px;
+      background: #d1d1e9;
+      border-radius: 20px;
+      transition: 0.3s;
+    }
+    .dot.active {
+      width: 24px;
+      background: var(--primary);
+    }
+    .dot.completed {
+      background: var(--primary-soft);
+    }
+
+    .question {
+      animation: fadeInUp 0.4s ease;
+      padding: 0 0.3rem;
+    }
+    .question p {
+      font-size: 1.3rem;
+      font-weight: 650;
+      color: var(--text-dark);
+      margin-bottom: 1.8rem;
+      line-height: 1.5;
+      text-align: center;
+    }
+
+    .options-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      max-width: 500px;
+      margin: 0 auto 1rem;
+    }
+
+    .option-btn {
+      position: relative;
+      width: 100%;
+      min-height: 90px;
+      border: 2px solid rgba(92, 107, 192, 0.2);
+      border-radius: var(--radius-md);
+      font-size: 1rem;
+      font-weight: 600;
+      color: white;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      overflow: hidden;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 1.2rem;
+    }
+
+    .option-btn::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.35);
+      z-index: 1;
+      border-radius: var(--radius-md);
+      transition: background 0.3s ease;
+    }
+
+    .option-btn span {
+      position: relative;
+      z-index: 2;
+    }
+
+    .option-btn:hover:not(.selected) {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+      border-color: var(--primary-soft);
+    }
+
+    .option-btn.selected {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 4px rgba(92, 107, 192, 0.4), 0 12px 25px rgba(0, 0, 0, 0.25);
+      transform: scale(1.02);
+    }
+    .option-btn.selected::before {
+      background: rgba(92, 107, 192, 0.5);
+    }
+
+    .quiz-disclaimer {
+      margin-top: 1.8rem;
+      font-size: 0.8rem;
+      color: #9a9ab0;
+      text-align: center;
+      line-height: 1.5;
+      padding: 0 0.5rem;
+    }
+
+    /* ===== RESULT STYLES ===== */
+    .result-container {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      border-radius: var(--radius-lg);
+      min-height: 500px;
+      margin-top: 1.5rem;
+    }
+
+    .result-wrapper {
+      display: flex;
+      transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+      will-change: transform;
+      width: 200%;
+    }
+
+    .result-slide {
+      width: 50%;
+      flex-shrink: 0;
+      padding: 2rem 1.5rem;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      position: relative;
+      border-radius: var(--radius-lg);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 500px;
+    }
+
+    .result-slide::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(255, 255, 255, 0.85);
+      border-radius: var(--radius-lg);
+      z-index: 1;
+    }
+
+    .result-slide>* {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Logo kanan atas (khusus result) */
+    .result-logo-right {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      width: 45px;
+      height: 45px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #5c6bc0, #7c4dff);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.4rem;
+      font-weight: 700;
+      z-index: 3;
+      box-shadow: 0 4px 12px rgba(92, 107, 192, 0.3);
+    }
+
+    .user-greeting {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    .personality-type {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+      background: rgba(92, 107, 192, 0.15);
+      display: inline-block;
+      padding: 0.5rem 2rem;
+      border-radius: 40px;
+    }
+
+    .result-image {
+      max-width: 200px;
+      width: 65%;
+      margin: 0 auto 1.5rem;
+      display: block;
+      border-radius: var(--radius-lg);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .result-short-desc {
+      font-size: 1.1rem;
+      color: var(--text-soft);
+      text-align: center;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+      font-weight: 500;
+    }
+
+    /* Swipe hint (mobile) - bisa diklik */
+    .swipe-hint-mobile {
+      font-size: 0.9rem;
+      color: var(--primary);
+      margin-top: 0.5rem;
+      cursor: pointer;
+      font-weight: 600;
+      animation: pulse 2s infinite;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    /* Button next slide (desktop only) */
+    .btn-next-slide-desktop {
+      display: none;
+      background: white;
+      color: var(--primary);
+      border: 2px solid var(--primary);
+      padding: 0.7rem 1.8rem;
+      border-radius: 60px;
+      font-weight: 650;
+      cursor: pointer;
+      margin-top: 1rem;
+      z-index: 3;
+      position: relative;
+      transition: 0.25s;
+    }
+
+    .btn-next-slide-desktop:hover {
+      background: var(--primary);
+      color: white;
+    }
+
+    .result-full-desc {
+      font-size: 1.05rem;
+      color: var(--text-soft);
+      text-align: center;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+      background: rgba(255, 255, 255, 0.6);
+      padding: 1.2rem;
+      border-radius: var(--radius-md);
+    }
+
+    .result-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    .btn-result {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.9rem 1.5rem;
+      border-radius: 60px;
+      font-weight: 650;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      border: none;
+      text-decoration: none;
+      width: 100%;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+      z-index: 3;
+      position: relative;
+    }
+
+    .btn-result:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.18);
+    }
+
+    .btn-landing-1 {
+      background: linear-gradient(135deg, #5c6bc0, #7c4dff);
+      color: white;
+    }
+
+    .btn-landing-2 {
+      background: linear-gradient(135deg, #ff8a65, #ff7043);
+      color: white;
+    }
+
+    .btn-share-wa {
+      background: #25D366;
+      color: white;
+    }
+
+    .btn-share-ig {
+      background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+      color: white;
+    }
+
+    .btn-share-desktop {
+      background: #25D366;
+      color: white;
+    }
+
+    .btn-retake-small {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: 0.4rem 1.2rem;
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: #9a9ab0;
+      background: transparent;
+      border: 1px dashed #c5cae9;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: 0.2s;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      opacity: 0.6;
+      z-index: 3;
+      position: relative;
+    }
+
+    .btn-retake-small:hover {
+      opacity: 1;
+      border-color: var(--primary-soft);
+      color: var(--primary);
+      background: rgba(92, 107, 192, 0.05);
+    }
+
+    .toast-message {
+      margin-top: 1rem;
+      font-size: 0.85rem;
+      padding: 0.5rem 1.2rem;
+      border-radius: 30px;
+      display: inline-block;
+      opacity: 0;
+      transition: opacity 0.3s;
+      z-index: 3;
+      position: relative;
+    }
+
+    .slide-indicators-result {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .slide-indicator-result {
+      width: 10px;
+      height: 10px;
+      background: #d1d1e9;
+      border-radius: 20px;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+
+    .slide-indicator-result.active {
+      width: 28px;
+      background: var(--primary);
+    }
+
+    @media (min-width: 769px) {
+      .swipe-hint-mobile {
+        display: none;
+      }
+      .btn-next-slide-desktop {
+        display: inline-block;
+      }
+    }
+
+    @media (max-width: 550px) {
+      .container {
+        padding: 1.2rem 0.8rem;
+      }
+      .main-logo {
+        top: 0.8rem;
+        left: 1rem;
+        width: 34px;
+        height: 34px;
+        font-size: 1.1rem;
+      }
+      .option-btn {
+        min-height: 80px;
+        font-size: 0.95rem;
+      }
+      .btn-result {
+        padding: 0.8rem 1.2rem;
+        font-size: 0.9rem;
+      }
+      .result-slide {
+        padding: 1.5rem 1rem;
+        min-height: 450px;
+      }
+      .personality-type {
+        font-size: 1.4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="quiz1" class="container">
+
+    <!-- LOGO KIRI ATAS (GLOBAL) -->
+    <div class="main-logo" id="mainLogo">Q</div>
+
+    <!-- HERO PAGE -->
+    <div id="heroPage">
+      <div class="hero-icon">🧩</div>
+      <div class="hero-title">Temukan Dirimu</div>
+      <p class="hero-subtitle">Sebuah perjalanan singkat untuk mengenali karakter unik dalam dirimu.</p>
+      <div class="scroll-down-indicator" id="scrollDownTrigger">
+        <span>Kenali lebih lanjut</span>
+        <div class="scroll-down-arrow">↓</div>
+      </div>
+    </div>
+
+    <!-- INTRO SECOND -->
+    <div id="introSecondPage" style="display:none;">
+      <div class="intro-second-icon">✨</div>
+      <div class="intro-second-title">Ayo Mulai Kuisnya!</div>
+      <p class="intro-second-desc">7 pertanyaan seru, dapatkan tipe kepribadianmu!</p>
+      <button class="btn-start-quiz" id="btnStartQuiz">🚀 Mulai Kuis</button>
+      <div class="features-row">
+        <div class="feature-item"><span>❓</span> 7 Pertanyaan</div>
+        <div class="feature-item"><span>⏱️</span> ~2 Menit</div>
+        <div class="feature-item"><span>🎯</span> 4 Tipe</div>
+      </div>
+    </div>
+
+    <!-- NAME STEP -->
+    <div id="nameStep" style="display:none;">
+      <h1>Siapa Nama Kamu?</h1>
+      <div class="name-input-card">
+        <input type="text" id="userNameInput" class="name-input" placeholder="cth. Ara, Bimo..." />
+        <div class="error-message" id="nameError" style="color:#d32f2f;min-height:1.5rem;"></div>
+        <button class="btn-name-next" onclick="submitName()">Lanjut ke Kuis ✨</button>
+      </div>
+    </div>
+
+    <!-- QUIZ MODE -->
+    <div id="quizMode" style="display:none;">
+      <div class="progress-area">
+        <div class="question-counter-center" id="questionCounterCenter">1 / 7</div>
+        <div class="progress-dots" id="progressDots"></div>
+      </div>
+      <div id="quiz">
+        <div class="question" data-id="0">
+          <p>✨ Saat libur, kamu lebih suka...</p>
+          <div class="options-grid">
+            <button class="option-btn" style="background-image:url('https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=400');" onclick="selectAnswer(this,'A')"><span>📋 Mengatur rencana dan tujuan</span></button>
+            <button class="option-btn" style="background-image:url('https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=400');" onclick="selectAnswer(this,'B')"><span>❤️ Bersama keluarga/teman dekat</span></button>
+            <button class="option-btn" style="background-image:url('https://images.unsplash.com/photo-1512820790803-83ca734da794?w=400');" onclick="selectAnswer(this,'C')"><span>📚 Membaca atau menonton film</span></button>
+            <button class="option-btn" style="background-image:url('https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=400');" onclick="selectAnswer(this,'D')"><span>🌍 Keluar rumah tanpa rencana</span></button>
+          </div>
+        </div>
+        <div class="question" data-id="1" style="display:none;"><p>🧠 Ketika menghadapi masalah...</p><div class="options-grid"><button class="option-btn" style="background-image:url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400');" onclick="selectAnswer(this,'C')"><span>🔍 Analisis logis</span></button><button class="option-btn" style="background-image:url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=400');" onclick="selectAnswer(this,'B')"><span>💬 Tanya orang terdekat</span></button><button class="option-btn" style="background-image:url('https://images.unsplash.com/photo-1517849845537-4d257902454a?w=400');" onclick="selectAnswer(this,'D')"><span>⚡ Ikuti insting</span></button><button class="option-btn" style="background-image:url('https://images.unsplash.com/photo-1507537297725-24a1c029d3ca?w=400');" onclick="selectAnswer(this,'A')"><span>🧭 Ambil alih</span></button></div></div>
+        <div class="question" data-id="2" style="display:none;"><p>🌟 Orang lain melihatmu sebagai...</p><div class="options-grid"><button class="option-btn" style="background-image:url('https://images.unsplash.com/photo-1517486808906-6ca8b3f8e1c1?w=400');" onclick="selectAnswer(this,'B')"><span>🤗 Penuh perhatian</span></button><button class="option-btn" style="background-image:url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400');" onclick="selectAnswer(this,'A')"><span>🦅 Pemimpin tegas</span></button><button class="option-btn" style="background-image:url('https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=400');" onclick="selectAnswer(this,'D')"><span>🎉 Energik spontan</span></button><button class="option-btn" style="background-image:url('https://images.unsplash.com/photo-1512820790803-83ca734da794?w=400');" onclick="selectAnswer(this,'C')"><span>🌙 Tenang pemikir</span></button></div></div>
+        <div class="question" data-id="3" style="display:none;"><p>📅 Akhir pekan dipakai untuk...</p><div class="options-grid"><button class="option-btn" style="background-image:url('https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=400');" onclick="selectAnswer(this,'D')"><span>🏄‍♂️ Aktivitas outdoor</span></button><button class="option-btn" style="background-image:url('https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=400');" onclick="selectAnswer(this,'C')"><span>🎨 Kreativitas seni</span></button><button class="option-btn" style="background-image:url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400');" onclick="selectAnswer(this,'A')"><span>📈 Belajar skill baru</span></button><button class="option-btn" style="background-image:url('https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=400');" onclick="selectAnswer(this,'B')"><span>🍲 Quality time</span></button></div></div>
+        <div class="question" data-id="4" style="display:none;"><p>💬 Di kelompok baru kamu...</p><div class="options-grid"><button class="option-btn" style="background-image:url('https://images.unsplash.com/photo-1507537297725-24a1c029d3ca?w=400');" onclick="selectAnswer(this,'A')"><span>🎤 Memimpin percakapan</span></button><button class="option-btn" style="background-image:url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=400');" onclick="selectAnswer(this,'B')"><span>👂 Mendengarkan</span></button><button class="option-btn" style="background-image:url('https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=400');" onclick="selectAnswer(this,'D')"><span>🎭 Mencairkan suasana</span></button><button class="option-btn" style="background-image:url('https://images.unsplash.com/photo-1512820790803-83ca734da794?w=400');" onclick="selectAnswer(this,'C')"><span>👀 Mengamati dulu</span></button></div></div>
+        <div class="question" data-id="5" style="display:none;"><p>🎯 Motivasimu dalam hidup...</p><div class="options-grid"><button class="option-btn" style="background-image:url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400');" onclick="selectAnswer(this,'A')"><span>🏆 Prestasi</span></button><button class="option-btn" style="background-image:url('https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=400');" onclick="selectAnswer(this,'B')"><span>💞 Hubungan bermakna</span></button><button class="option-btn" style="background-image:url('https://images.unsplash.com/photo-1512820790803-83ca734da794?w=400');" onclick="selectAnswer(this,'C')"><span>🧘 Ketenangan batin</span></button><button class="option-btn" style="background-image:url('https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=400');" onclick="selectAnswer(this,'D')"><span>🌠 Kebebasan</span></button></div></div>
+        <div class="question" data-id="6" style="display:none;"><p>📚 Genre buku/film favorit...</p><div class="options-grid"><button class="option-btn" style="background-image:url('https://images.unsplash.com/photo-1512820790803-83ca734da794?w=400');" onclick="selectAnswer(this,'C')"><span>🔮 Fiksi ilmiah</span></button><button class="option-btn" style="background-image:url('https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=400');" onclick="selectAnswer(this,'B')"><span>💕 Drama romantis</span></button><button class="option-btn" style="background-image:url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400');" onclick="selectAnswer(this,'A')"><span>📊 Biografi tokoh</span></button><button class="option-btn" style="background-image:url('https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=400');" onclick="selectAnswer(this,'D')"><span>🗺️ Petualangan</span></button></div></div>
+      </div>
+      <div class="quiz-disclaimer">
+        <span>✨ Tidak ada jawaban benar atau salah. Pilih yang paling menggambarkan dirimu ya!</span><br>
+        <span style="font-size:0.7rem;">Hasil kuis ini hanya untuk hiburan, bukan penilaian psikologis resmi.</span>
+      </div>
+    </div>
+
+    <!-- RESULT MODE -->
+    <div id="resultMode" style="display:none;">
+      <h1>✨ Hasil Kepribadian</h1>
+      <div class="result-container" id="resultContainer">
+        <div class="result-wrapper" id="resultWrapper">
+
+          <!-- SLIDE 1: Nama user, hasil, text singkat -->
+          <div class="result-slide" id="resultSlide1" style="background-image:url('https://images.unsplash.com/photo-1557683316-973673baf926?w=800');">
+            <div class="result-logo-right">R</div>
+            <div class="user-greeting" id="userGreeting"></div>
+            <div class="personality-type" id="resultType"></div>
+            <img id="resultImage" class="result-image" alt="Ilustrasi Kepribadian" />
+            <p class="result-short-desc" id="resultShortDesc"></p>
+            <p class="swipe-hint-mobile" id="swipeHintMobile" onclick="goToResultSlide(1)">👉 Swipe kanan untuk info lengkap</p>
+            <button class="btn-next-slide-desktop" onclick="goToResultSlide(1)">Lihat Selengkapnya ›</button>
+          </div>
+
+          <!-- SLIDE 2: Deskripsi lengkap + buttons -->
+          <div class="result-slide" id="resultSlide2" style="background-image:url('https://images.unsplash.com/photo-1557682250-33bd709cbe85?w=800');">
+            <div class="result-logo-right">R</div>
+            <p class="result-full-desc" id="resultFullDesc"></p>
+            <div class="result-buttons" id="resultButtons">
+              <a class="btn-result btn-landing-1" id="btnLanding1" href="#" target="_blank">🔗 Kunjungi Landing Page 1</a>
+              <a class="btn-result btn-landing-2" id="btnLanding2" href="#" target="_blank">🌟 Kunjungi Landing Page 2</a>
+              <button class="btn-result" id="btnShareMain">💬 Bagikan</button>
+            </div>
+            <button class="btn-retake-small" onclick="retakeQuiz()">↺ Coba Lagi (Testing)</button>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="slide-indicators-result" id="slideIndicatorsResult">
+        <span class="slide-indicator-result active" data-index="0"></span>
+        <span class="slide-indicator-result" data-index="1"></span>
+      </div>
+
+      <div id="toast" class="toast-message"></div>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      const resultData = {
+        A: { type: "🦅 Tipe A · Si Pemimpin", shortDesc: "Kamu penuh ambisi, percaya diri, dan suka mengatur situasi.", fullDesc: "Sebagai seorang pemimpin alami, kamu unggul dalam situasi yang membutuhkan arah dan keputusan cepat. Kamu sering menjadi tempat teman-temanmu mencari saran karena kepercayaan dirimu yang menular. Orang lain melihatmu sebagai pribadi yang tegas dan bisa diandalkan. Teruslah memimpin dengan hati, ya! Karirmu cocok di bidang manajemen, entrepreneurship, atau public speaking.", img: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='40' r='22' fill='%235c6bc0'/%3E%3Cpath d='M22 75c0-15 13-28 28-28s28 13 28 28' fill='%235c6bc0'/%3E%3Ctext x='50' y='85' font-size='14' text-anchor='middle' fill='white'%3E🦅%3C/text%3E%3C/svg%3E" },
+        B: { type: "❤️ Tipe B · Si Perawat", shortDesc: "Kamu hangat, penuh empati, dan selalu peduli pada orang di sekitarmu.", fullDesc: "Kemampuanmu untuk memahami perasaan orang lain adalah anugerah. Kamu adalah pendengar yang baik dan sering menjadi 'rumah' bagi teman-teman yang sedang bersedih. Kehadiranmu bikin orang lain merasa nyaman. Jangan lupa untuk merawat dirimu sendiri juga ya, karena kamu sangat berharga! Kamu cocok di bidang psikologi, kesehatan, atau social work.", img: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='40' r='22' fill='%23e57373'/%3E%3Cpath d='M22 75c0-15 13-28 28-28s28 13 28 28' fill='%23e57373'/%3E%3Ctext x='50' y='85' font-size='14' text-anchor='middle' fill='white'%3E❤️%3C/text%3E%3C/svg%3E" },
+        C: { type: "🌙 Tipe C · Si Pemikir", shortDesc: "Kamu tenang, analitis, dan suka berpikir dalam.", fullDesc: "Pikiranmu yang tajam dan kemauan untuk menyelami kompleksitas membuatmu unggul dalam pemecahan masalah. Kamu sering menemukan solusi yang tidak terpikirkan orang lain. Lebih nyaman dengan ide-ide besar daripada obrolan ringan. Kadang-kadang, bagikan juga pemikiranmu yang brilian itu ke dunia! Kamu cocok di bidang research, programming, atau filosofi.", img: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='40' r='22' fill='%2342a5f5'/%3E%3Cpath d='M22 75c0-15 13-28 28-28s28 13 28 28' fill='%2342a5f5'/%3E%3Ctext x='50' y='85' font-size='14' text-anchor='middle' fill='white'%3E🌙%3C/text%3E%3C/svg%3E" },
+        D: { type: "🌍 Tipe D · Si Petualang", shortDesc: "Kamu energik, spontan, dan selalu siap eksplorasi hal baru.", fullDesc: "Semangat petualanganmu menular ke semua orang di sekitarmu! Kamu membawa energi positif dan selalu siap mencoba hal baru tanpa ragu. Hidupmu penuh warna dan kejutan. Ingatlah bahwa petualangan terbaik adalah yang dibagikan dengan orang-orang terdekat. Jelajahi terus! Kamu cocok di bidang travel, event organizer, atau industri kreatif.", img: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='40' r='22' fill='%23ff8a65'/%3E%3Cpath d='M22 75c0-15 13-28 28-28s28 13 28 28' fill='%23ff8a65'/%3E%3Ctext x='50' y='85' font-size='14' text-anchor='middle' fill='white'%3E🌍%3C/text%3E%3C/svg%3E" }
+      };
+
+      let currentQuestion = 0,
+        totalQuestions = 7,
+        answers = new Array(7).fill(null),
+        isTransitioning = false,
+        userName = "",
+        currentResultType = null,
+        currentResultSlide = 0;
+      const questions = document.querySelectorAll('.question'),
+        heroPage = document.getElementById('heroPage'),
+        introSecondPage = document.getElementById('introSecondPage'),
+        nameStep = document.getElementById('nameStep'),
+        quizMode = document.getElementById('quizMode'),
+        resultMode = document.getElementById('resultMode'),
+        mainLogo = document.getElementById('mainLogo');
+
+      let touchStartX = 0,
+        touchEndX = 0;
+
+      function isMobileDevice() {
+        return /Android|iPhone|iPad|iPod|webOS/i.test(navigator.userAgent) || ('ontouchstart' in window && window.innerWidth < 768);
+      }
+
+      function showMainLogo(show) {
+        mainLogo.style.display = show ? 'flex' : 'none';
+      }
+
+      // NAVIGASI
+      document.getElementById('scrollDownTrigger').addEventListener('click', () => {
+        heroPage.style.display = 'none';
+        introSecondPage.style.display = 'block';
+        showMainLogo(false);
+      });
+      window.addEventListener('wheel', e => {
+        if (heroPage.style.display !== 'none' && e.deltaY > 20) {
+          heroPage.style.display = 'none';
+          introSecondPage.style.display = 'block';
+          showMainLogo(false);
+        }
+      }, { passive: true });
+      document.getElementById('btnStartQuiz').addEventListener('click', () => {
+        introSecondPage.style.display = 'none';
+        nameStep.style.display = 'block';
+        showMainLogo(false);
+      });
+
+      window.submitName = () => {
+        const n = document.getElementById('userNameInput').value.trim();
+        if (!n || n.length < 2) {
+          document.getElementById('nameError').textContent = '✨ Nama minimal 2 karakter ya.';
+          return;
+        }
+        userName = n;
+        nameStep.style.display = 'none';
+        quizMode.style.display = 'block';
+        showMainLogo(true);
+        currentQuestion = 0;
+        answers.fill(null);
+        isTransitioning = false;
+        createDots();
+        showQuestion(0);
+      };
+
+      function createDots() {
+        const c = document.getElementById('progressDots');
+        c.innerHTML = '';
+        for (let i = 0; i < totalQuestions; i++) {
+          const d = document.createElement('span');
+          d.className = 'dot' + (i === 0 ? ' active' : '');
+          c.appendChild(d);
+        }
+        document.getElementById('questionCounterCenter').textContent = '1 / 7';
+      }
+
+      function updateDots() {
+        document.querySelectorAll('#quizMode .dot').forEach((d, i) => {
+          d.classList.remove('active', 'completed');
+          if (i < currentQuestion) d.classList.add('completed');
+          if (i === currentQuestion) d.classList.add('active');
+        });
+        document.getElementById('questionCounterCenter').textContent = `${currentQuestion+1} / ${totalQuestions}`;
+      }
+
+      window.selectAnswer = function(btn, type) {
+        if (isTransitioning || btn.classList.contains('selected')) return;
+        const q = questions[currentQuestion];
+        q.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
+        btn.classList.add('selected');
+        answers[currentQuestion] = type;
+        isTransitioning = true;
+        setTimeout(() => {
+          if (currentQuestion < totalQuestions - 1) {
+            currentQuestion++;
+            showQuestion(currentQuestion);
+            isTransitioning = false;
+          } else {
+            showResult();
+            isTransitioning = false;
+          }
+        }, 350);
+      };
+
+      function showQuestion(i) {
+        questions.forEach(q => q.style.display = 'none');
+        questions[i].style.display = 'block';
+        const saved = answers[i];
+        questions[i].querySelectorAll('.option-btn').forEach(b => {
+          b.classList.remove('selected');
+          if (saved && b.getAttribute('onclick').includes(`'${saved}'`)) b.classList.add('selected');
+        });
+        updateDots();
+      }
+
+      function showResult() {
+        const counts = { A: 0, B: 0, C: 0, D: 0 };
+        answers.forEach(t => { if (t) counts[t]++; });
+        const final = Object.keys(counts).reduce((a, b) => counts[a] >= counts[b] ? a : b);
+        currentResultType = final;
+        localStorage.setItem("quizCompleted", "true");
+        localStorage.setItem("quizResultType", final);
+        localStorage.setItem("quizUserName", userName);
+        displayResult(final);
+      }
+
+      function displayResult(t) {
+        const d = resultData[t];
+        quizMode.style.display = 'none';
+        resultMode.style.display = 'block';
+        showMainLogo(true);
+
+        currentResultSlide = 0;
+        goToResultSlide(0);
+
+        document.getElementById('userGreeting').textContent = userName ? `👋 Hai, ${userName}!` : '';
+        document.getElementById('resultType').textContent = d.type;
+        document.getElementById('resultImage').src = d.img;
+        document.getElementById('resultShortDesc').textContent = d.shortDesc;
+        document.getElementById('resultFullDesc').textContent = d.fullDesc;
+
+        const shareUrl = window.location.href;
+        const shareText = `✨ ${userName ? userName + ', ' : ''}Hasil Kuis Kepribadianku: ${d.type}\n"${d.shortDesc}"`;
+
+        document.getElementById('btnLanding1').href = '#';
+        document.getElementById('btnLanding2').href = '#';
+
+        const shareBtn = document.getElementById('btnShareMain');
+        shareBtn.className = 'btn-result';
+
+        if (isMobileDevice()) {
+          shareBtn.classList.add('btn-share-ig');
+          shareBtn.innerHTML = '📸 Share ke Sosial Media';
+          shareBtn.onclick = async function() { await shareImageToIG(d); };
+        } else {
+          shareBtn.classList.add('btn-share-desktop');
+          shareBtn.innerHTML = '💬 Share ke WhatsApp';
+          shareBtn.onclick = function() {
+            const waText = encodeURIComponent(`${shareText}\n\n✨ Coba kuisnya juga yuk! gratis kok 👉 ${shareUrl}`);
+            window.open(`https://wa.me/?text=${waText}`, '_blank');
+            showToast('✅ Membuka WhatsApp...', true);
+          };
+        }
+
+        setupResultSwipe();
+        document.getElementById('toast').style.opacity = '0';
+      }
+
+      function setupResultSwipe() {
+        const container = document.getElementById('resultContainer');
+        container.removeEventListener('touchstart', handleResultTouchStart);
+        container.removeEventListener('touchend', handleResultTouchEnd);
+        container.addEventListener('touchstart', handleResultTouchStart, { passive: true });
+        container.addEventListener('touchend', handleResultTouchEnd, { passive: true });
+
+        document.querySelectorAll('.slide-indicator-result').forEach(ind => {
+          ind.addEventListener('click', function() {
+            goToResultSlide(parseInt(this.dataset.index));
+          });
+        });
+      }
+
+      function handleResultTouchStart(e) { touchStartX = e.changedTouches[0].screenX; }
+
+      function handleResultTouchEnd(e) {
+        touchEndX = e.changedTouches[0].screenX;
+        if (!touchStartX) return;
+        const diff = touchStartX - touchEndX;
+        if (Math.abs(diff) > 50) {
+          if (diff > 0 && currentResultSlide === 0) goToResultSlide(1);
+          else if (diff < 0 && currentResultSlide === 1) goToResultSlide(0);
+        }
+        touchStartX = 0;
+        touchEndX = 0;
+      }
+
+      window.goToResultSlide = function(index) {
+        currentResultSlide = index;
+        document.getElementById('resultWrapper').style.transform = `translateX(-${currentResultSlide * 50}%)`;
+        updateResultIndicators();
+      };
+
+      function updateResultIndicators() {
+        document.querySelectorAll('.slide-indicator-result').forEach((ind, idx) => {
+          ind.classList.toggle('active', idx === currentResultSlide);
+        });
+      }
+
+      async function shareImageToIG(data) {
+        showToast('⏳ Menyiapkan gambar...', true);
+        try {
+          const resultCard = document.querySelector('#resultMode');
+          const canvas = await html2canvas(resultCard, { backgroundColor: '#f8f0ff', scale: 2, useCORS: true, allowTaint: true });
+          canvas.toBlob(async (blob) => {
+            const file = new File([blob], 'hasil-quiz-kepribadian.png', { type: 'image/png' });
+            if (navigator.share && navigator.canShare && navigator.canShare({ files: [file] })) {
+              try {
+                await navigator.share({ title: data.type, text: '✨ Coba kuis kepribadian ini juga yuk!', files: [file] });
+                showToast('✅ Pilih Instagram untuk share!', true);
+              } catch (err) {
+                if (err.name !== 'AbortError') { downloadImage(canvas);
+                  showToast('📥 Gambar diunduh! Buka IG & upload ke Story ya.', true); }
+              }
+            } else { downloadImage(canvas);
+              showToast('📥 Gambar diunduh! Buka IG & upload ke Story ya.', true); }
+          }, 'image/png');
+        } catch (err) { showToast('⚠️ Gagal membuat gambar. Coba screenshot manual.', false); }
+      }
+
+      function downloadImage(canvas) {
+        const link = document.createElement('a');
+        link.download = 'hasil-quiz-kepribadian.png';
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+      }
+
+      function showToast(text, isSuccess = true) {
+        const toastEl = document.getElementById('toast');
+        toastEl.textContent = text;
+        toastEl.style.opacity = '1';
+        toastEl.style.background = isSuccess ? '#e8f5e9' : '#ffebee';
+        toastEl.style.color = isSuccess ? '#2e7d32' : '#b71c1c';
+        setTimeout(() => { toastEl.style.opacity = '0'; }, 3000);
+      }
+
+      window.retakeQuiz = () => { localStorage.clear();
+        location.reload(); };
+
+      (function check() {
+        if (localStorage.getItem("quizCompleted") === "true") {
+          const t = localStorage.getItem("quizResultType");
+          if (t && resultData[t]) {
+            currentResultType = t;
+            userName = localStorage.getItem("quizUserName") || "";
+            heroPage.style.display = 'none';
+            introSecondPage.style.display = 'none';
+            nameStep.style.display = 'none';
+            quizMode.style.display = 'none';
+            resultMode.style.display = 'block';
+            showMainLogo(true);
+            displayResult(t);
+          }
+        }
+      })();
+    })();
+  </script>
+</body>
+</html>
