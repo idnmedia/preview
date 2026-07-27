@@ -804,6 +804,7 @@
 
       let touchStartX = 0,
         touchEndX = 0;
+      let touchStartYForHero = 0;
 
       function isMobileDevice() {
         return /Android|iPhone|iPad|iPod|webOS/i.test(navigator.userAgent) || ('ontouchstart' in window && window.innerWidth < 768);
@@ -813,19 +814,37 @@
         mainLogo.style.display = show ? 'flex' : 'none';
       }
 
-      // NAVIGASI
-      document.getElementById('scrollDownTrigger').addEventListener('click', () => {
+      // Fungsi untuk navigasi dari hero ke intro
+      function goToIntroSecond() {
+        if (heroPage.style.display === 'none') return;
         heroPage.style.display = 'none';
         introSecondPage.style.display = 'block';
         showMainLogo(false);
-      });
+      }
+
+      // NAVIGASI - Klik panah
+      document.getElementById('scrollDownTrigger').addEventListener('click', goToIntroSecond);
+
+      // NAVIGASI - Scroll mouse wheel (desktop)
       window.addEventListener('wheel', e => {
         if (heroPage.style.display !== 'none' && e.deltaY > 20) {
-          heroPage.style.display = 'none';
-          introSecondPage.style.display = 'block';
-          showMainLogo(false);
+          goToIntroSecond();
         }
       }, { passive: true });
+
+      // NAVIGASI - Swipe ke atas di mobile
+      document.getElementById('heroPage').addEventListener('touchstart', function(e) {
+        touchStartYForHero = e.touches[0].clientY;
+      }, { passive: true });
+
+      document.getElementById('heroPage').addEventListener('touchend', function(e) {
+        if (heroPage.style.display === 'none') return;
+        const touchEndY = e.changedTouches[0].clientY;
+        if (touchStartYForHero - touchEndY > 50) {
+          goToIntroSecond();
+        }
+      }, { passive: true });
+
       document.getElementById('btnStartQuiz').addEventListener('click', () => {
         introSecondPage.style.display = 'none';
         nameStep.style.display = 'block';
