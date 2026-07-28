@@ -7,8 +7,7 @@
 	<link href="https://fonts.googleapis.com" rel="preconnect">
 	<link href="https://fonts.gstatic.com" rel="preconnect">
 	<link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&display=swap" rel="stylesheet">
-	<!-- Tambahkan html2canvas library -->
-	<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+<!--	<link href="style.css" rel="stylesheet">-->
 </head>
 <body>
     <style>
@@ -36,8 +35,8 @@
     }
 @font-face {
   font-family: 'customFont';
-  src: url('fonts/Newstalgic.otf') format('opentype'),
-       url('fonts/Newstalgic.ttf') format('truetype');
+  src: url('fonts/Newstalgic.otf') format('opentype'), /* Gunakan 'opentype' untuk .otf */
+       url('fonts/Newstalgic.ttf') format('truetype'); /* Gunakan 'truetype' untuk .ttf */
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -240,6 +239,7 @@ img {
   background-repeat: no-repeat;
   background-position: center;
   background-size: 18px;
+}
     }
     .btn-name-next {
       background: var(--primary);
@@ -252,7 +252,7 @@ img {
       cursor: pointer;
     }
 
-    /* ===== QUIZ AREA ===== */
+    /* ===== QUIZ AREA (TANPA HEADER TERPISAH) ===== */
     .quiz-header {
       display: flex;
       flex-direction: column;
@@ -393,12 +393,11 @@ img {
       min-height: 500px;
     }
 
-    /* Overlay untuk membuat teks tetap terbaca */
     .result-slide::before {
       content: '';
       position: absolute;
       inset: 0;
-      background: rgba(0, 0, 0, 0.3);
+      background: rgba(255, 255, 255, 0.85);
       border-radius: var(--radius-lg);
       z-index: 1;
     }
@@ -408,6 +407,7 @@ img {
       z-index: 2;
     }
 
+    /* Logo kanan atas (khusus result) */
     .result-logo-right {
       position: absolute;
       top: 1rem;
@@ -429,18 +429,17 @@ img {
     .user-greeting {
       font-size: 1.4rem;
       font-weight: 700;
-      color: white;
+      color: var(--text-dark);
       margin-bottom: 1rem;
       text-align: center;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
     }
 
     .personality-type {
       font-size: 1.8rem;
       font-weight: 700;
-      color: #FFD533;
+      color: var(--primary);
       margin-bottom: 1.5rem;
-      background: rgba(0, 0, 0, 0.4);
+      background: rgba(92, 107, 192, 0.15);
       display: inline-block;
       padding: 0.5rem 2rem;
       border-radius: 40px;
@@ -452,22 +451,22 @@ img {
       margin: 0 auto 1.5rem;
       display: block;
       border-radius: var(--radius-lg);
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
     }
 
     .result-short-desc {
       font-size: 1.1rem;
-      color: white;
+      color: var(--text-soft);
       text-align: center;
       line-height: 1.6;
       margin-bottom: 1.5rem;
       font-weight: 500;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
     }
 
+    /* Swipe hint (mobile) - bisa diklik */
     .swipe-hint-mobile {
       font-size: 0.9rem;
-      color: #FFD533;
+      color: var(--primary);
       margin-top: 0.5rem;
       cursor: pointer;
       font-weight: 600;
@@ -476,6 +475,7 @@ img {
       text-underline-offset: 4px;
     }
 
+    /* Button next slide (desktop only) */
     .btn-next-slide-desktop {
       display: none;
       background: white;
@@ -498,14 +498,13 @@ img {
 
     .result-full-desc {
       font-size: 1.05rem;
-      color: white;
+      color: var(--text-soft);
       text-align: center;
       line-height: 1.8;
       margin-bottom: 1.5rem;
-      background: rgba(0, 0, 0, 0.5);
+      background: rgba(255, 255, 255, 0.6);
       padding: 1.2rem;
       border-radius: var(--radius-md);
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
     }
 
     .result-buttons {
@@ -533,14 +532,14 @@ img {
       border: none;
       text-decoration: none;
       width: 100%;
-      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
       z-index: 3;
       position: relative;
     }
 
     .btn-result:hover {
       transform: translateY(-2px);
-      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.18);
     }
 
     .btn-landing-1 {
@@ -550,6 +549,11 @@ img {
 
     .btn-landing-2 {
       background: linear-gradient(135deg, #ff8a65, #ff7043);
+      color: white;
+    }
+
+    .btn-share-wa {
+      background: #25D366;
       color: white;
     }
 
@@ -569,21 +573,24 @@ img {
       padding: 0.4rem 1.2rem;
       font-size: 0.7rem;
       font-weight: 500;
-      color: white;
-      background: rgba(0, 0, 0, 0.3);
-      border: 1px dashed rgba(255, 255, 255, 0.5);
+      color: #9a9ab0;
+      background: transparent;
+      border: 1px dashed #c5cae9;
       border-radius: 30px;
       cursor: pointer;
       transition: 0.2s;
       text-transform: uppercase;
       letter-spacing: 0.5px;
+      opacity: 0.6;
       z-index: 3;
       position: relative;
     }
 
     .btn-retake-small:hover {
-      background: rgba(0, 0, 0, 0.5);
-      border-color: white;
+      opacity: 1;
+      border-color: var(--primary-soft);
+      color: var(--primary);
+      background: rgba(92, 107, 192, 0.05);
     }
 
     .toast-message {
@@ -628,6 +635,7 @@ img {
       }
     }
 
+      /* responsive mobile */
     @media (max-width: 550px) {
         .container {
             height: 100vh;
@@ -694,44 +702,10 @@ img {
         font-size: 1.4rem;
       }
     }
-    
-    /* Share image container */
-    .share-image-container {
-        position: absolute;
-        left: -9999px;
-        top: 0;
-        width: 1080px;
-        height: 1920px;
-        background-size: cover;
-        background-position: center;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        padding: 100px;
-    }
-    
-    .share-image-container .user-name-share {
-        font-family: "Funnel Display", sans-serif;
-        font-size: 48px;
-        font-weight: 700;
-        color: white;
-        margin-top: 400px;
-        text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-    }
-    
-    .share-image-container .personality-type-share {
-        font-family: "Funnel Display", sans-serif;
-        font-size: 36px;
-        font-weight: 600;
-        color: #FFD533;
-        margin-top: 20px;
-        text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-    }
-    </style>
+  </style>
     
 	<div class="container" id="quiz1">
+		<!-- LOGO KIRI ATAS (GLOBAL) -->
 		<div class="main-logo" id="mainLogo"><img src="img/hero/logo-FYIType.png"></div>
         
 		<div id="heroPage">
@@ -742,11 +716,12 @@ img {
 			</div>
 		</div>
         
+        
 		<div id="introSecondPage" style="display:none;">
 			<img src="img/hero/yakin.png">
-			<p class="intro-second-desc">Seperti bidak catur, setiap investor juga punya gaya investasinya masing-masing.</p>
-			<button class="btn-start-quiz" id="btnStartQuiz"><img src="img/hero/letsmove-btn.png"> </button>
+			<p class="intro-second-desc">Seperti bidak catur, setiap investor juga punya gaya investasinya masing-masing.</p><button class="btn-start-quiz" id="btnStartQuiz"><img src="img/hero/letsmove-btn.png"> </button>
 		</div>
+        
         
 		<div id="nameStep" style="display:none;">
 			<div class="text">
@@ -754,18 +729,21 @@ img {
 			</div>
 			<div class="name-input-card">
 				<input class="name-input" id="userNameInput" placeholder="cth. Ara, Bimo..." type="text">
-				<div class="error-message" id="nameError" style="color:#d32f2f;min-height:1.5rem;"></div>
-				<button class="btn-name-next" onclick="submitName()">Lanjut ke Kuis ✨</button>
+				<div class="error-message" id="nameError" style="color:#d32f2f;min-height:1.5rem;"></div><button class="btn-name-next" onclick="submitName()">Lanjut ke Kuis ✨</button>
 			</div>
 		</div>
         
+        <!-- QUIZ MODE -->
+        
+        
 		<div id="quizMode" class="quiz-card" style="display:none;">
 			<div class="quiz-header">
-				<div class="question-counter-center" id="questionCounterCenter">1 / 7</div>
+				<div class="question-counter-center" id="questionCounterCenter">
+					1 / 7
+				</div>
 				<div class="progress-dots" id="progressDots"></div>
 			</div>
 			<div id="quiz">
-				<!-- Questions tetap sama -->
 				<div class="question" data-id="0">
 					<p>Ada investasi baru yang katanya cuan besar. Reaksimu?</p>
 					<div class="options-grid">
@@ -780,8 +758,7 @@ img {
 					<p>Kalau di akhir bulan masih ada sisa uang. Apa yang biasanya kamu lakukan? </p>
 					<div class="options-grid">
 						<button class="option-btn" onclick="selectAnswer(this,'A')"><span>Cari instrumen alternatif atau sektor baru</span></button> 
-                        <button class="option-btn" onclick="selectAnswer(this,'B')"><span>Masukkan langsung ke pos investasi rutin</span></button>
-                        <button class="option-btn" onclick="selectAnswer(this,'C')"><span>Manfaatkan untuk beli barang idaman atau tambah aset</span></button> 
+                        <button class="option-btn" onclick="selectAnswer(this,'B')"><span>Masukkan langsung ke pos investasi rutin</span></button> <button class="option-btn" onclick="selectAnswer(this,'C')"><span>Manfaatkan untuk beli barang idaman atau tambah aset</span></button> 
                         <button class="option-btn" onclick="selectAnswer(this,'D')"><span>Simpan di tabungan yang aman</span></button>
                         <button class="option-btn" onclick="selectAnswer(this,'E')"><span>Amankan di instrumen paling rendah risiko</span></button>
 					</div>
@@ -839,84 +816,48 @@ img {
 			</div>
 			<div class="quiz-disclaimer">
 				<span>Pilih saja sesuai gaya investasimu. Tak ada benar atau salah, kok!</span><br>
+				
 			</div>
-		</div>
-        
-        <!-- SHARE IMAGE TEMPLATE (hidden) -->
-        <div class="share-image-container" id="shareImageContainer">
-            <div class="user-name-share" id="shareUserName"></div>
-            <div class="personality-type-share" id="sharePersonalityType"></div>
-        </div>
-        
+		</div><!-- RESULT MODE -->
 		<div id="resultMode" style="display:none;">
 			<h1>✨ Hasil Kepribadian</h1>
 			<div class="result-container" id="resultContainer">
 				<div class="result-wrapper" id="resultWrapper">
-					<div class="result-slide" id="resultSlide1">
-						<div class="result-logo-right">R</div>
+					<!-- SLIDE 1: Nama user, hasil, text singkat -->
+					<div class="result-slide" id="resultSlide1" style="background-image:url('https://images.unsplash.com/photo-1557683316-973673baf926?w=800');">
+						<div class="result-logo-right">
+							R
+						</div>
 						<div class="user-greeting" id="userGreeting"></div>
-						<div class="personality-type" id="resultType"></div>
-						<img alt="Ilustrasi Kepribadian" class="result-image" id="resultImage">
+						<div class="personality-type" id="resultType"></div><img alt="Ilustrasi Kepribadian" class="result-image" id="resultImage">
 						<p class="result-short-desc" id="resultShortDesc"></p>
-						<p class="swipe-hint-mobile" id="swipeHintMobile" onclick="goToResultSlide(1)">👉 Swipe kanan untuk info lengkap</p>
-						<button class="btn-next-slide-desktop" onclick="goToResultSlide(1)">Lihat Selengkapnya ›</button>
-					</div>
-					<div class="result-slide" id="resultSlide2">
-						<div class="result-logo-right">R</div>
+						<p class="swipe-hint-mobile" id="swipeHintMobile" onclick="goToResultSlide(1)">👉 Swipe kanan untuk info lengkap</p><button class="btn-next-slide-desktop" onclick="goToResultSlide(1)">Lihat Selengkapnya ›</button>
+					</div><!-- SLIDE 2: Deskripsi lengkap + buttons -->
+					<div class="result-slide" id="resultSlide2" style="background-image:url('https://images.unsplash.com/photo-1557682250-33bd709cbe85?w=800');">
+						<div class="result-logo-right">
+							R
+						</div>
 						<p class="result-full-desc" id="resultFullDesc"></p>
 						<div class="result-buttons" id="resultButtons">
-							<a class="btn-result btn-landing-1" href="#" id="btnLanding1" target="_blank">🔗 Kunjungi Landing Page 1</a> 
-							<a class="btn-result btn-landing-2" href="#" id="btnLanding2" target="_blank">🌟 Kunjungi Landing Page 2</a> 
-							<button class="btn-result" id="btnShareMain">💬 Bagikan</button>
-						</div>
-						<button class="btn-retake-small" onclick="retakeQuiz()">↺ Coba Lagi (Testing)</button>
+							<a class="btn-result btn-landing-1" href="#" id="btnLanding1" target="_blank">🔗 Kunjungi Landing Page 1</a> <a class="btn-result btn-landing-2" href="#" id="btnLanding2" target="_blank">🌟 Kunjungi Landing Page 2</a> <button class="btn-result" id="btnShareMain">💬 Bagikan</button>
+						</div><button class="btn-retake-small" onclick="retakeQuiz()">↺ Coba Lagi (Testing)</button>
 					</div>
 				</div>
 			</div>
 			<div class="slide-indicators-result" id="slideIndicatorsResult">
-				<span class="slide-indicator-result active" data-index="0"></span> 
-				<span class="slide-indicator-result" data-index="1"></span>
+				<span class="slide-indicator-result active" data-index="0"></span> <span class="slide-indicator-result" data-index="1"></span>
 			</div>
 			<div class="toast-message" id="toast"></div>
 		</div>
 	</div>
-	
 	<script>
 	   (function() {
-	     const resultBackgrounds = {
-	       A: {
-	         slide1: 'img/results/result-king1.jpg',
-	         slide2: 'img/results/result-king2.jpg',
-	         share: 'img/results/result-queen1.jpg'
-	       },
-	       B: {
-	         slide1: 'img/results/type-b-slide1.jpg',
-	         slide2: 'img/results/type-b-slide2.jpg',
-	         share: 'img/results/type-b-share.jpg'
-	       },
-	       C: {
-	         slide1: 'img/results/type-c-slide1.jpg',
-	         slide2: 'img/results/type-c-slide2.jpg',
-	         share: 'img/results/type-c-share.jpg'
-	       },
-	       D: {
-	         slide1: 'img/results/type-d-slide1.jpg',
-	         slide2: 'img/results/type-d-slide2.jpg',
-	         share: 'img/results/type-d-share.jpg'
-	       },
-	       E: {
-	         slide1: 'img/results/type-e-slide1.jpg',
-	         slide2: 'img/results/type-e-slide2.jpg',
-	         share: 'img/results/type-e-share.jpg'
-	       }
-	     };
-
 	     const resultData = {
 	       A: { type: "🦅 Tipe A · Si Pemimpin", shortDesc: "Kamu penuh ambisi, percaya diri, dan suka mengatur situasi.", fullDesc: "Sebagai seorang pemimpin alami, kamu unggul dalam situasi yang membutuhkan arah dan keputusan cepat. Kamu sering menjadi tempat teman-temanmu mencari saran karena kepercayaan dirimu yang menular. Orang lain melihatmu sebagai pribadi yang tegas dan bisa diandalkan. Teruslah memimpin dengan hati, ya! Karirmu cocok di bidang manajemen, entrepreneurship, atau public speaking.", img: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='40' r='22' fill='%235c6bc0'/%3E%3Cpath d='M22 75c0-15 13-28 28-28s28 13 28 28' fill='%235c6bc0'/%3E%3Ctext x='50' y='85' font-size='14' text-anchor='middle' fill='white'%3E🦅%3C/text%3E%3C/svg%3E" },
 	       B: { type: "❤️ Tipe B · Si Perawat", shortDesc: "Kamu hangat, penuh empati, dan selalu peduli pada orang di sekitarmu.", fullDesc: "Kemampuanmu untuk memahami perasaan orang lain adalah anugerah. Kamu adalah pendengar yang baik dan sering menjadi 'rumah' bagi teman-teman yang sedang bersedih. Kehadiranmu bikin orang lain merasa nyaman. Jangan lupa untuk merawat dirimu sendiri juga ya, karena kamu sangat berharga! Kamu cocok di bidang psikologi, kesehatan, atau social work.", img: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='40' r='22' fill='%23e57373'/%3E%3Cpath d='M22 75c0-15 13-28 28-28s28 13 28 28' fill='%23e57373'/%3E%3Ctext x='50' y='85' font-size='14' text-anchor='middle' fill='white'%3E❤️%3C/text%3E%3C/svg%3E" },
 	       C: { type: "🌙 Tipe C · Si Pemikir", shortDesc: "Kamu tenang, analitis, dan suka berpikir dalam.", fullDesc: "Pikiranmu yang tajam dan kemauan untuk menyelami kompleksitas membuatmu unggul dalam pemecahan masalah. Kamu sering menemukan solusi yang tidak terpikirkan orang lain. Lebih nyaman dengan ide-ide besar daripada obrolan ringan. Kadang-kadang, bagikan juga pemikiranmu yang brilian itu ke dunia! Kamu cocok di bidang research, programming, atau filosofi.", img: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='40' r='22' fill='%2342a5f5'/%3E%3Cpath d='M22 75c0-15 13-28 28-28s28 13 28 28' fill='%2342a5f5'/%3E%3Ctext x='50' y='85' font-size='14' text-anchor='middle' fill='white'%3E🌙%3C/text%3E%3C/svg%3E" },
 	       D: { type: "🌍 Tipe D · Si Petualang", shortDesc: "Kamu energik, spontan, dan selalu siap eksplorasi hal baru.", fullDesc: "Semangat petualanganmu menular ke semua orang di sekitarmu! Kamu membawa energi positif dan selalu siap mencoba hal baru tanpa ragu. Hidupmu penuh warna dan kejutan. Ingatlah bahwa petualangan terbaik adalah yang dibagikan dengan orang-orang terdekat. Jelajahi terus! Kamu cocok di bidang travel, event organizer, atau industri kreatif.", img: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='40' r='22' fill='%23ff8a65'/%3E%3Cpath d='M22 75c0-15 13-28 28-28s28 13 28 28' fill='%23ff8a65'/%3E%3Ctext x='50' y='85' font-size='14' text-anchor='middle' fill='white'%3E🌍%3C/text%3E%3C/svg%3E" },
-	       E: { type: "🛡️ Tipe E · Si Pelindung", shortDesc: "Kamu hati-hati, protektif, dan selalu memprioritaskan keamanan.", fullDesc: "Kewaspadaanmu adalah kekuatan. Kamu selalu memastikan semuanya aman sebelum melangkah. Orang-orang di sekitarmu merasa terlindungi karena kamu selalu memikirkan risiko. Tetap bijak dalam setiap keputusan, tapi jangan takut untuk sesekali keluar dari zona nyaman. Kamu cocok di bidang keamanan, manajemen risiko, atau quality control.", img: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='40' r='22' fill='%2366bb6a'/%3E%3Cpath d='M22 75c0-15 13-28 28-28s28 13 28 28' fill='%2366bb6a'/%3E%3Ctext x='50' y='85' font-size='14' text-anchor='middle' fill='white'%3E🛡️%3C/text%3E%3C/svg%3E" }
+             E: { type: "🌍 Tipe E · Si Petualang", shortDesc: "Kamu energik, spontan, dan selalu siap eksplorasi hal baru.", fullDesc: "Semangat petualanganmu menular ke semua orang di sekitarmu! Kamu membawa energi positif dan selalu siap mencoba hal baru tanpa ragu. Hidupmu penuh warna dan kejutan. Ingatlah bahwa petualangan terbaik adalah yang dibagikan dengan orang-orang terdekat. Jelajahi terus! Kamu cocok di bidang travel, event organizer, atau industri kreatif.", img: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='40' r='22' fill='%23ff8a65'/%3E%3Cpath d='M22 75c0-15 13-28 28-28s28 13 28 28' fill='%23ff8a65'/%3E%3Ctext x='50' y='85' font-size='14' text-anchor='middle' fill='white'%3E🌍%3C/text%3E%3C/svg%3E" },
 	     };
 
 	     let currentQuestion = 0,
@@ -946,21 +887,25 @@ img {
 	       mainLogo.style.display = show ? 'flex' : 'none';
 	     }
 
+	     // Fungsi untuk navigasi dari hero ke intro
 	     function goToIntroSecond() {
 	       if (heroPage.style.display === 'none') return;
 	       heroPage.style.display = 'none';
 	       introSecondPage.style.display = 'block';
-	       showMainLogo(true);
+	       showMainLogo(true); // TAMPILKAN LOGO DI INTRO SECOND
 	     }
 
+	     // NAVIGASI - Klik panah
 	     document.getElementById('scrollDownTrigger').addEventListener('click', goToIntroSecond);
 
+	     // NAVIGASI - Scroll mouse wheel (desktop)
 	     window.addEventListener('wheel', e => {
 	       if (heroPage.style.display !== 'none' && e.deltaY > 20) {
 	         goToIntroSecond();
 	       }
 	     }, { passive: true });
 
+	     // NAVIGASI - Swipe ke atas di mobile
 	     document.getElementById('heroPage').addEventListener('touchstart', function(e) {
 	       touchStartYForHero = e.touches[0].clientY;
 	     }, { passive: true });
@@ -976,7 +921,7 @@ img {
 	     document.getElementById('btnStartQuiz').addEventListener('click', () => {
 	       introSecondPage.style.display = 'none';
 	       nameStep.style.display = 'block';
-	       showMainLogo(true);
+	       showMainLogo(true); // TETAP TAMPILKAN LOGO DI NAME STEP
 	     });
 
 	     window.submitName = () => {
@@ -988,7 +933,7 @@ img {
 	       userName = n;
 	       nameStep.style.display = 'none';
 	       quizMode.style.display = 'block';
-	       showMainLogo(true);
+	       showMainLogo(true); // TETAP TAMPILKAN LOGO DI QUIZ MODE
 	       currentQuestion = 0;
 	       answers.fill(null);
 	       isTransitioning = false;
@@ -1047,7 +992,7 @@ img {
 	     }
 
 	     function showResult() {
-	       const counts = { A: 0, B: 0, C: 0, D: 0, E: 0 };
+	       const counts = { A: 0, B: 0, C: 0, D: 0 };
 	       answers.forEach(t => { if (t) counts[t]++; });
 	       const final = Object.keys(counts).reduce((a, b) => counts[a] >= counts[b] ? a : b);
 	       currentResultType = final;
@@ -1059,21 +1004,11 @@ img {
 
 	     function displayResult(t) {
 	       const d = resultData[t];
-	       const bg = resultBackgrounds[t];
-	       
 	       quizMode.style.display = 'none';
 	       resultMode.style.display = 'block';
-	       showMainLogo(true);
+	       showMainLogo(true); // TETAP TAMPILKAN LOGO DI RESULT
 
 	       currentResultSlide = 0;
-	       
-	       document.getElementById('resultSlide1').style.backgroundImage = `url(${bg.slide1})`;
-	       document.getElementById('resultSlide2').style.backgroundImage = `url(${bg.slide2})`;
-	       
-	       document.getElementById('shareImageContainer').style.backgroundImage = `url(${bg.share})`;
-	       document.getElementById('shareUserName').textContent = userName;
-	       document.getElementById('sharePersonalityType').textContent = d.type;
-	       
 	       goToResultSlide(0);
 
 	       document.getElementById('userGreeting').textContent = userName ? `👋 Hai, ${userName}!` : '';
@@ -1094,7 +1029,7 @@ img {
 	       if (isMobileDevice()) {
 	         shareBtn.classList.add('btn-share-ig');
 	         shareBtn.innerHTML = '📸 Share ke Sosial Media';
-	         shareBtn.onclick = async function() { await shareImageWithTemplate(d); };
+	         shareBtn.onclick = async function() { await shareImageToIG(d); };
 	       } else {
 	         shareBtn.classList.add('btn-share-desktop');
 	         shareBtn.innerHTML = '💬 Share ke WhatsApp';
@@ -1109,7 +1044,6 @@ img {
 	       document.getElementById('toast').style.opacity = '0';
 	     }
 
-	     // Fungsi setupResultSwipe yang sebelumnya hilang
 	     function setupResultSwipe() {
 	       const container = document.getElementById('resultContainer');
 	       container.removeEventListener('touchstart', handleResultTouchStart);
@@ -1124,9 +1058,7 @@ img {
 	       });
 	     }
 
-	     function handleResultTouchStart(e) { 
-	       touchStartX = e.changedTouches[0].screenX; 
-	     }
+	     function handleResultTouchStart(e) { touchStartX = e.changedTouches[0].screenX; }
 
 	     function handleResultTouchEnd(e) {
 	       touchEndX = e.changedTouches[0].screenX;
@@ -1152,52 +1084,25 @@ img {
 	       });
 	     }
 
-	     async function shareImageWithTemplate(data) {
+	     async function shareImageToIG(data) {
 	       showToast('⏳ Menyiapkan gambar...', true);
 	       try {
-	         const shareContainer = document.getElementById('shareImageContainer');
-	         
-	         shareContainer.style.left = '0';
-	         shareContainer.style.position = 'fixed';
-	         shareContainer.style.zIndex = '9999';
-	         
-	         await new Promise(resolve => setTimeout(resolve, 500));
-	         
-	         const canvas = await html2canvas(shareContainer, { 
-	           backgroundColor: null, 
-	           scale: 2, 
-	           useCORS: true, 
-	           allowTaint: true 
-	         });
-	         
-	         shareContainer.style.left = '-9999px';
-	         shareContainer.style.position = 'absolute';
-	         shareContainer.style.zIndex = '';
-	         
+	         const resultCard = document.querySelector('#resultMode');
+	         const canvas = await html2canvas(resultCard, { backgroundColor: '#f8f0ff', scale: 2, useCORS: true, allowTaint: true });
 	         canvas.toBlob(async (blob) => {
-	           const file = new File([blob], 'hasil-quiz-investasi.png', { type: 'image/png' });
+	           const file = new File([blob], 'hasil-quiz-kepribadian.png', { type: 'image/png' });
 	           if (navigator.share && navigator.canShare && navigator.canShare({ files: [file] })) {
 	             try {
-	               await navigator.share({ 
-	                 title: data.type, 
-	                 text: '✨ Coba kuis kepribadian investasi ini juga yuk!', 
-	                 files: [file] 
-	               });
+	               await navigator.share({ title: data.type, text: '✨ Coba kuis kepribadian ini juga yuk!', files: [file] });
 	               showToast('✅ Pilih Instagram untuk share!', true);
 	             } catch (err) {
-	               if (err.name !== 'AbortError') { 
-	                 downloadImage(canvas);
-	                 showToast('📥 Gambar diunduh! Buka IG & upload ke Story ya.', true); 
-	               }
+	               if (err.name !== 'AbortError') { downloadImage(canvas);
+	                 showToast('📥 Gambar diunduh! Buka IG & upload ke Story ya.', true); }
 	             }
-	           } else { 
-	             downloadImage(canvas);
-	             showToast('📥 Gambar diunduh! Buka IG & upload ke Story ya.', true); 
-	           }
+	           } else { downloadImage(canvas);
+	             showToast('📥 Gambar diunduh! Buka IG & upload ke Story ya.', true); }
 	         }, 'image/png');
-	       } catch (err) { 
-	         showToast('⚠️ Gagal membuat gambar. Coba screenshot manual.', false); 
-	       }
+	       } catch (err) { showToast('⚠️ Gagal membuat gambar. Coba screenshot manual.', false); }
 	     }
 
 	     function downloadImage(canvas) {
@@ -1216,10 +1121,8 @@ img {
 	       setTimeout(() => { toastEl.style.opacity = '0'; }, 3000);
 	     }
 
-	     window.retakeQuiz = () => { 
-	       localStorage.clear();
-	       location.reload(); 
-	     };
+	     window.retakeQuiz = () => { localStorage.clear();
+	       location.reload(); };
 
 	     (function check() {
 	       if (localStorage.getItem("quizCompleted") === "true") {
