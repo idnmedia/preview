@@ -7,7 +7,6 @@
 	<link href="https://fonts.googleapis.com" rel="preconnect">
 	<link href="https://fonts.gstatic.com" rel="preconnect">
 	<link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&display=swap" rel="stylesheet">
-	<!-- Tambahkan html2canvas library -->
 	<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
 </head>
 <body>
@@ -45,11 +44,13 @@
     body {
       font-family: "Funnel Display", sans-serif;
       min-height: 100vh;
+      height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
       margin: 0;
-        background-color: #030b39;
+      background-color: #030b39;
+      overflow: hidden;
     }
 
 img {
@@ -58,13 +59,12 @@ img {
 
     .container {
       width: 100%;
+      height: 100vh;
       max-width: 650px;
-      transition: all 0.3s ease;
-      animation: fadeIn 0.6s cubic-bezier(0.23, 1, 0.32, 1);
       text-align: center;
       position: relative;
       overflow: hidden;
-        
+      background-color: #030b39;
     }
 
     @keyframes fadeSlideUp {
@@ -89,29 +89,59 @@ img {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
-      @keyframes fadeIn {
+    @keyframes fadeIn {
       from { opacity: 0;}
       to { opacity: 1;}
     }
 
-    h1 {
-      font-size: clamp(2rem, 7vw, 2.6rem);
-      font-weight: 700;
-      color: var(--text-dark);
-      text-align: center;
-      margin-bottom: 1.2rem;
-      background: linear-gradient(135deg, #5c6bc0, #7c4dff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+    /* ===== SEMUA PAGE FULLSCREEN ===== */
+    .page {
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: 0;
+      margin: 0;
+      overflow: hidden;
+      transition: opacity 0.6s cubic-bezier(0.25, 0.8, 0.25, 1), 
+                  transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+      will-change: transform, opacity;
+    }
+
+    .page-hidden {
+      opacity: 0 !important;
+      pointer-events: none !important;
+      transform: scale(0.95) !important;
+    }
+
+    .page-visible {
+      opacity: 1 !important;
+      pointer-events: auto !important;
+      transform: scale(1) !important;
+    }
+
+    /* Efek transisi khusus untuk hero ke intro */
+    .page-transition-out {
+      opacity: 0;
+      transform: translateY(-30px) scale(0.95);
+    }
+
+    .page-transition-in {
+      opacity: 1;
+      transform: translateY(0) scale(1);
     }
 
     /* ===== LOGO KIRI ATAS (GLOBAL) ===== */
     .main-logo {
       position: absolute;
-      top: 1rem;
+      top: 1.5rem;
       left: 1.5rem;
-      width: 90px;
+      width: 80px;
       height: auto;
       display: flex;
       align-items: center;
@@ -119,47 +149,62 @@ img {
       z-index: 10;
       display: none;
     }
+    
+    .main-logo img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* ===== LOGO KANAN (KHUSUS RESULT) ===== */
+    .result-logo-right {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      width: 80px;
+      height: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+      display: none;
+    }
+    
+    .result-logo-right img {
+      max-width: 100%;
+      height: auto;
+    }
 
     /* ===== HERO PAGE ===== */
     #heroPage {
-      animation: fadeIn 0.8s ease;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      background-image: url(img/bg1.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
       justify-content: flex-start;
-    }
-    .hero-icon {
-      font-size: 5.5rem;
-      animation: float 3s ease-in-out infinite;
-      margin-bottom: 1rem;
-    }
-    .hero-title {
-      font-size: 2.2rem;
-      font-weight: 700;
-      margin-bottom: 0.8rem;
-      background: linear-gradient(135deg, #5c6bc0, #7c4dff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      padding-top: 20vh;
+      z-index: 5;
     }
     .hero-subtitle {
-        position: relative;
-        top: 32vh;
-      font-size: .8rem;
+      font-size: clamp(0.7rem, 2vw, 1rem);
       color: white;
       line-height: 1.6;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+      max-width: 80%;
+      animation: fadeSlideUp 1s ease 0.3s both;
     }
-    .scroll-down-indicator {
+    .bottom-section {
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin-top: 2rem;
       cursor: pointer;
       color: #FFD01A;
       font-weight: 600;
       transition: 0.3s;
+      position: absolute;
+      bottom: 10vh;
+      animation: fadeSlideUp 1s ease 0.6s both;
     }
-    .scroll-down-indicator span {
+    .bottom-section span {
       font-size: 0.9rem;
       margin-bottom: 0.4rem;
     }
@@ -167,105 +212,197 @@ img {
       font-size: 2.2rem;
       animation: bounce 2s infinite;
     }
+    .scroll-down-arrow img {
+      width: 12px;
+      height: auto;
+    }
 
-    /* ===== INTRO SECOND ===== */
+    /* ===== INTRO SECOND PAGE ===== */
     #introSecondPage {
-      animation: fadeSlideUp 0.6s ease;
-        
+      background-image: url(img/bg2.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      gap: 1rem;
+      z-index: 4;
+      opacity: 0;
+      transform: scale(0.95);
+      pointer-events: none;
     }
-    .intro-second-icon {
-      font-size: 3.5rem;
-      margin-bottom: 0.8rem;
+    #introSecondPage.active {
+      opacity: 1;
+      transform: scale(1);
+      pointer-events: auto;
     }
-    .intro-second-title {
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: var(--text-dark);
-      margin-bottom: 1rem;
+    #introSecondPage img {
+      max-width: 200px;
+      width: 100%;
+      height: auto;
+      animation: fadeSlideUp 0.8s ease 0.2s both;
     }
+        .top-img {
+            position: absolute;
+        }
     .intro-second-desc {
-      font-size: 1rem;
-      color: var(--text-soft);
-      margin-bottom: 2rem;
+      font-size: clamp(0.9rem, 2.5vw, 1.2rem);
+      color: #FFD01A;
+      max-width: 80%;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+      animation: fadeSlideUp 0.8s ease 0.4s both;
     }
     .btn-start-quiz {
-      display: inline-block;
       background: transparent;
       color: white;
       border: none;
       font-weight: 700;
       cursor: pointer;
-    } 
-.btn-start-quiz img {
-    max-width: 165px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.btn-start-quiz img:hover {
-        transform: scale(1.1);
-}
-    .features-row {
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
       margin-top: 2.5rem;
+      animation: fadeSlideUp 0.8s ease 0.6s both;
+    } 
+    .btn-start-quiz img {
+      max-width: 165px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    .feature-item {
-      text-align: center;
-      font-size: 0.85rem;
-      color: var(--text-soft);
-    }
-    .feature-item span {
-      display: block;
-      font-size: 2rem;
+    .btn-start-quiz img:hover {
+      transform: scale(1.1);
     }
 
     /* ===== NAME STEP ===== */
     #nameStep {
-      text-align: center;
+      background-image: url(img/name-bg.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      gap: 1rem;
+      padding: 0 2rem;
+      z-index: 3;
+      opacity: 0;
+      transform: scale(0.95);
+      pointer-events: none;
     }
-    .name-input-card {
-      background-image: url('img/hero/box-name-bg.png');
-  background-repeat: no-repeat;
-  background-position: 12px center;
-      margin: 1.5rem 0;
+    #nameStep.active {
+      opacity: 1;
+      transform: scale(1);
+      pointer-events: auto;
     }
-    .name-input {
-      width: 100%;
-      padding: 1rem;
-      border-radius: 60px;
-      border: 1.5px solid rgba(92, 107, 192, 0.3);
-      font-size: 1.2rem;
-      text-align: center;
-        background-image: url('svg/input-name-bg.svg');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 18px;
+    #nameStep .text {
+      max-width: 80%;
+      margin-bottom: 0.5rem;
     }
-    .btn-name-next {
-      background: var(--primary);
-      color: white;
-      border: none;
-      padding: 0.9rem 2.8rem;
-      border-radius: 60px;
-      font-weight: 700;
-      margin-top: 1.8rem;
-      cursor: pointer;
+    #nameStep h2 {
+      color: #FFD533;
+      font-size: clamp(1rem, 3vw, 1.4rem);
+      line-height: 1.6;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.5);
     }
 
-    /* ===== QUIZ AREA ===== */
-    .quiz-header {
+    /* ===== NAME INPUT CARD (dengan background image) ===== */
+    .name-input-card {
+      width: 100%;
+      max-width: 400px;
+      aspect-ratio: 1 / 1;
+      background-image: url('img/box-name-bg.png');
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin-top: 1rem;
-      margin-bottom: 1.5rem;
+      justify-content: center;
+      padding: 2rem 2.5rem;
+      position: relative;
+    }
+
+    .name-input-card p {
+      color: #fff;
+      font-size: clamp(0.8rem, 2vw, 1rem);
+      font-weight: 600;
+      text-align: center;
+      line-height: 1.5;
+      margin-bottom: 2rem;
+      max-width: 90%;
+    }
+
+    .name-input {
+      width: 100%;
+      padding: 0.8rem 1.2rem;
+      border: none;
+        font-family: "Funnel Display", sans-serif;
+      font-size: 1.4rem;
+      text-align: center;
+      color: #fff;
+      outline: none;
+      transition: 0.3s;
+      background-image: url('svg/input-name-bg.svg');
+      background-size: 100% 100%;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-color: transparent;
+      min-height: 60px;
+    }
+
+    .name-input:focus {
+      filter: brightness(1.05);
+      transform: scale(1.02);
+    }
+
+    .name-input::placeholder {
+      color: #fff;
+    }
+
+    .error-message {
+      color: #d32f2f;
+      min-height: 1.5rem;
+      font-size: 0.8rem;
+      margin-top: 0.2rem;
+      font-weight: 600;
+    }
+
+    .btn-name-next {
+      margin-top: 0.3rem;
+      cursor: pointer;
+      transition: 0.3s;
+      background: none;
+      border: none;
+    }
+    .btn-name-next img {
+      max-width: 140px;
+      height: auto;
+    }
+    .btn-name-next:hover {
+      transform: scale(1.05);
+    }
+
+    /* ===== QUIZ AREA ===== */
+    #quizMode {
+      background-image: url(img/question-bg.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      padding: 0 1.5rem;
+      justify-content: center;
+      gap: 0.5rem;
+      z-index: 2;
+      opacity: 0;
+      transform: scale(0.95);
+      pointer-events: none;
+    }
+    #quizMode.active {
+      opacity: 1;
+      transform: scale(1);
+      pointer-events: auto;
+    }
+    .quiz-header {
+      position: absolute;
+        top: 8vh;
+      width: 100%;
     }
     .question-counter-center {
       font-size: 1rem;
       font-weight: 700;
-      color: var(--primary);
+      color: #FFD533;
       margin-bottom: 0.6rem;
-      letter-spacing: 1px;
+      letter-spacing: 2px;
     }
     .progress-dots {
       display: flex;
@@ -275,52 +412,57 @@ img {
     .dot {
       width: 8px;
       height: 8px;
-      background: #d1d1e9;
+      background: rgba(255, 255, 255, 0.2);
       border-radius: 20px;
       transition: 0.3s;
     }
     .dot.active {
       width: 24px;
-      background: var(--primary);
+      background: #FFD533;
     }
     .dot.completed {
-      background: var(--primary-soft);
+      background: rgba(255, 213, 51, 0.5);
     }
 
     .question {
-        font-family: "customFont", sans-serif;
+      font-family: "customFont", sans-serif;
       animation: fadeInUp 0.4s ease;
-      padding: 0 0.3rem;
+      width: 100%;
+      max-width: 500px;
+      margin: 0 auto;
     }
     .question p {
-      font-size: 2rem;
+      font-size: clamp(1.6rem, 5vw, 2.2rem);
       font-weight: 650;
       color: #FFD533;
-      margin-bottom: 1.8rem;
+      margin-bottom: 1.5rem;
       text-align: center;
+      line-height: 1.3;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.3);
     }
 
     .options-grid {
       display: flex;
       flex-direction: column;
-      gap: 0.8rem;
+      gap: 0.7rem;
+      width: 100%;
       max-width: 500px;
-      margin: 0 auto 1rem;
+      margin: 0 auto;
     }
 
     .option-btn {
       position: relative;
       width: 100%;
-      min-height: 90px;
-      font-size: 1rem;
+      min-height: 80px;
+      font-size: clamp(0.85rem, 2vw, 1rem);
       font-weight: 600;
-        border: none;
+      border: none;
       color: #2e2507;
       cursor: pointer;
       transition: all 0.3s ease;
-        background-color: transparent;
+      background-color: transparent;
       background-image: url('svg/option-bg.svg') !important; 
-      background-size: 100%;
+      background-size: 100% 100%;
       background-position: center;
       background-repeat: no-repeat;
       overflow: hidden;
@@ -328,7 +470,7 @@ img {
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 1.2rem;
+      padding: 1rem 1.5rem;
     }
 
     .option-btn span {
@@ -337,37 +479,45 @@ img {
     }
 
     .option-btn:hover:not(.selected) {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
-      border-color: var(--primary-soft);
+      transform: translateY(-3px) scale(1.02);
+      filter: brightness(1.1);
     }
 
     .option-btn.selected {
-      border-color: var(--primary);
-      box-shadow: 0 0 0 4px rgba(92, 107, 192, 0.4), 0 12px 25px rgba(0, 0, 0, 0.25);
-      transform: scale(1.02);
-    }
-    .option-btn.selected::before {
-      background: rgba(92, 107, 192, 0.5);
+      transform: scale(1.05);
+      filter: brightness(1.2);
+      box-shadow: 0 0 30px rgba(255, 213, 51, 0.3);
     }
 
     .quiz-disclaimer {
-      margin-top: 1.8rem;
-      font-size: 0.8rem;
-      color: #9a9ab0;
+      position: absolute;
+        bottom: 10vh;
+      font-size: 0.7rem;
+      color: rgba(255, 255, 255, 0.8);
       text-align: center;
-      line-height: 1.5;
-      padding: 0 0.5rem;
     }
 
     /* ===== RESULT STYLES ===== */
+    #resultMode {
+      padding: 0;
+      background: #030b39;
+      z-index: 1;
+      opacity: 0;
+      transform: scale(0.95);
+      pointer-events: none;
+    }
+    #resultMode.active {
+      opacity: 1;
+      transform: scale(1);
+      pointer-events: auto;
+    }
     .result-container {
       position: relative;
       width: 100%;
+      height: 100vh;
       overflow: hidden;
-      border-radius: var(--radius-lg);
-      min-height: 500px;
-      margin-top: 1.5rem;
+      border-radius: 0;
+      margin-top: 0;
     }
 
     .result-wrapper {
@@ -375,32 +525,23 @@ img {
       transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
       will-change: transform;
       width: 200%;
+      height: 100%;
     }
 
     .result-slide {
       width: 50%;
       flex-shrink: 0;
-      padding: 2rem 1.5rem;
-      background-size: cover;
+      padding: 0;
+      background-size: contain;
       background-position: center;
       background-repeat: no-repeat;
       position: relative;
-      border-radius: var(--radius-lg);
+      border-radius: 0;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      min-height: 500px;
-    }
-
-    /* Overlay untuk membuat teks tetap terbaca */
-    .result-slide::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.3);
-      border-radius: var(--radius-lg);
-      z-index: 1;
+      height: 100vh;
     }
 
     .result-slide>* {
@@ -408,72 +549,55 @@ img {
       z-index: 2;
     }
 
-    .result-logo-right {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      width: 45px;
-      height: 45px;
-      border-radius: 12px;
-      background: linear-gradient(135deg, #5c6bc0, #7c4dff);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 1.4rem;
-      font-weight: 700;
-      z-index: 3;
-      box-shadow: 0 4px 12px rgba(92, 107, 192, 0.3);
-    }
-
+    /* ===== USER GREETING DENGAN BACKGROUND IMAGE ===== */
     .user-greeting {
-      font-size: 1.4rem;
-      font-weight: 700;
-      color: white;
-      margin-bottom: 1rem;
-      text-align: center;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
-    }
-
-    .personality-type {
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: #FFD533;
-      margin-bottom: 1.5rem;
-      background: rgba(0, 0, 0, 0.4);
+      position: absolute;
+      top: 8vh;
+      left: 1.5rem;
+      z-index: 4;
       display: inline-block;
-      padding: 0.5rem 2rem;
+      padding: 0.6rem 2rem;
+      color: black;
+      font-size: clamp(1.2rem, 3.5vw, 2rem);
+      font-weight: 700;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      white-space: nowrap;
+      /* Background image via ::before */
+    }
+
+    .user-greeting::before {
+      content: '';
+      position: absolute;
+      inset: -8px -12px;
+      background-image: url('img/username-bg.png');
+      background-size: 100% 100%;
+      background-position: center;
+      background-repeat: no-repeat;
       border-radius: 40px;
+      z-index: -1;
+      opacity: 0.95;
+      filter: drop-shadow(0 4px 15px rgba(0,0,0,0.3));
+        min-width: 80px;
     }
 
-    .result-image {
-      max-width: 200px;
-      width: 65%;
-      margin: 0 auto 1.5rem;
-      display: block;
-      border-radius: var(--radius-lg);
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-    }
-
-    .result-short-desc {
-      font-size: 1.1rem;
-      color: white;
-      text-align: center;
-      line-height: 1.6;
-      margin-bottom: 1.5rem;
-      font-weight: 500;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    .user-greeting span {
+      position: relative;
+      z-index: 1;
+      display: inline-block;
     }
 
     .swipe-hint-mobile {
       font-size: 0.9rem;
-      color: #FFD533;
-      margin-top: 0.5rem;
+      color: #fff;
       cursor: pointer;
       font-weight: 600;
       animation: pulse 2s infinite;
-      text-decoration: underline;
-      text-underline-offset: 4px;
+      position: absolute;
+      bottom: 10vh;
+      z-index: 4;
+      padding: 0.5rem 1.5rem;
+      border-radius: 30px;
+      backdrop-filter: blur(4px);
     }
 
     .btn-next-slide-desktop {
@@ -485,27 +609,15 @@ img {
       border-radius: 60px;
       font-weight: 650;
       cursor: pointer;
-      margin-top: 1rem;
       z-index: 3;
-      position: relative;
+      position: absolute;
+      bottom: 10vh;
       transition: 0.25s;
     }
 
     .btn-next-slide-desktop:hover {
       background: var(--primary);
       color: white;
-    }
-
-    .result-full-desc {
-      font-size: 1.05rem;
-      color: white;
-      text-align: center;
-      line-height: 1.8;
-      margin-bottom: 1.5rem;
-      background: rgba(0, 0, 0, 0.5);
-      padding: 1.2rem;
-      border-radius: var(--radius-md);
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
     }
 
     .result-buttons {
@@ -515,57 +627,41 @@ img {
       width: 100%;
       max-width: 400px;
       margin: 0 auto;
+      position: absolute;
+      bottom: 10vh;
+      z-index: 4;
+      padding: 0 1.5rem;
     }
 
     .btn-result {
+      position: relative;
+      width: 100%;
+      min-height: 40px;
+      font-size: clamp(0.85rem, 2vw, 1rem);
+      font-weight: 600;
+      border: none;
+      color: #000D45;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      background-color: transparent;
+      background-image: url('svg/option-bg.svg') !important; 
+      background-size: 100% 100%;
+      background-position: center;
+      background-repeat: no-repeat;
+      overflow: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 0.5rem;
-      padding: 0.9rem 1.5rem;
-      border-radius: 60px;
-      font-weight: 650;
-      font-size: 1rem;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      cursor: pointer;
-      transition: all 0.25s ease;
-      border: none;
-      text-decoration: none;
-      width: 100%;
-      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.3);
-      z-index: 3;
-      position: relative;
+      text-align: center;
+      padding: 1rem 1.5rem;
     }
 
     .btn-result:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
-    }
-
-    .btn-landing-1 {
-      background: linear-gradient(135deg, #5c6bc0, #7c4dff);
-      color: white;
-    }
-
-    .btn-landing-2 {
-      background: linear-gradient(135deg, #ff8a65, #ff7043);
-      color: white;
-    }
-
-    .btn-share-ig {
-      background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
-      color: white;
-    }
-
-    .btn-share-desktop {
-      background: #25D366;
-      color: white;
+      transform: translateY(-2px) scale(1.02);
     }
 
     .btn-retake-small {
       display: inline-block;
-      margin-top: 1.5rem;
       padding: 0.4rem 1.2rem;
       font-size: 0.7rem;
       font-weight: 500;
@@ -578,7 +674,10 @@ img {
       text-transform: uppercase;
       letter-spacing: 0.5px;
       z-index: 3;
-      position: relative;
+      position: absolute;
+      bottom: 3vh;
+      left: 50%;
+      transform: translateX(-50%);
     }
 
     .btn-retake-small:hover {
@@ -587,28 +686,40 @@ img {
     }
 
     .toast-message {
-      margin-top: 1rem;
+      position: fixed;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
       font-size: 0.85rem;
-      padding: 0.5rem 1.2rem;
+      padding: 0.8rem 1.5rem;
       border-radius: 30px;
       display: inline-block;
       opacity: 0;
       transition: opacity 0.3s;
-      z-index: 3;
-      position: relative;
+      z-index: 999;
+      background: rgba(0,0,0,0.8);
+      backdrop-filter: blur(8px);
+      color: white;
+      font-weight: 500;
+      text-align: center;
+      max-width: 90%;
     }
 
     .slide-indicators-result {
       display: flex;
       justify-content: center;
       gap: 0.5rem;
-      margin-top: 1rem;
+      position: absolute;
+      bottom: 5vh;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 5;
     }
 
     .slide-indicator-result {
       width: 10px;
       height: 10px;
-      background: #d1d1e9;
+      background: rgba(255, 255, 255, 0.3);
       border-radius: 20px;
       transition: 0.3s;
       cursor: pointer;
@@ -616,7 +727,7 @@ img {
 
     .slide-indicator-result.active {
       width: 28px;
-      background: var(--primary);
+      background: #FFD533;
     }
 
     @media (min-width: 769px) {
@@ -624,78 +735,125 @@ img {
         display: none;
       }
       .btn-next-slide-desktop {
-        display: inline-block;
+        display: block;
       }
     }
 
+    /* responsive mobile */  
     @media (max-width: 550px) {
-        .container {
-            height: 100vh;
-        }
-        #heroPage {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            background-image: url(img/hero/bg1.jpg);
-            background-repeat: no-repeat;
-            background-size: cover;
-            height: 100%;
-        }
-        #introSecondPage {
-            height: 100vh;
-            background-image: url(img/hero/bg2.jpg);
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-        #nameStep {
-            height: 100vh;
-            background-image: url(img/hero/name-bg.jpg);
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-        #nameStep .text {
-            max-width: 80%;
-            margin: auto;
-        }
-        #nameStep h2 {
-            color: #FFD533;
-            font-size: 1.2rem;
-        }
       .main-logo {
-        top: 2.8rem;
-        left: 1.5rem;
-        width: 60px;
+        top: 1.5rem;
+        left: 1rem;
+        width: 50px;
       }
-        .hero-subtitle {
-            font-size: .8rem;
-            top: 32vh;
-        }
-        .scroll-down-indicator {
-            position: absolute;
-            bottom: 10vh;
-        }
-        .question p {
-            font-size: 2.1rem;
-        }
+      .result-logo-right {
+        top: 1.5rem;
+        right: 1rem;
+        width: 50px;
+      }
+      #heroPage {
+        padding-top: 31vh;
+      }
+      .hero-subtitle {
+        font-size: 0.8rem;
+      }
+      #introSecondPage img {
+        max-width: 75%;
+      }
+      .top-img {
+        top: 20vh;
+      }
+      .btn-start-quiz {
+        margin-top: 2.5rem;
+      }
+      .intro-second-desc {
+        font-size: .8rem;
+      }
+      #nameStep {
+        padding: 0 1rem;
+      }
+      #nameStep .text {
+        max-width: 90%;
+      }
+      #nameStep h2 {
+        font-size: 1.4rem;
+      }
+      .name-input-card {
+        padding: 1.5rem 1.2rem;
+        max-width: 320px;
+      }
+      .name-input-card p {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+      }
+      .name-input {
+        font-size: 1.2rem;
+        padding: 0.6rem 1rem;
+      }
+      .btn-name-next img {
+        max-width: 150px;
+      }
+      .error-message {
+        font-size: 0.7rem;
+        min-height: 1.2rem;
+      }
+      #quizMode {
+        padding: 0 1rem;
+      }
+        .quiz-header {
+      position: absolute;
+        top: 8vh;
+      width: 100%;
+    }
+      .question p {
+        font-size: 1.6rem;
+      }
       .option-btn {
-        min-height: 80px;
-        font-size: 0.95rem;
+        min-height: 65px;
+        font-size: 0.85rem;
+        padding: 0.8rem 1rem;
+      }
+      .user-greeting {
+        top: 11vh;
+        left: 2rem;
+        padding: 0.4rem 1.2rem;
+        font-size: clamp(1rem, 3vw, 1.3rem);
+        white-space: normal;
+      }
+      .user-greeting::before {
+        inset: -6px -10px;
+      }
+      .result-buttons {
+        bottom: 8vh;
+        padding: 0 1rem;
+        gap: 0.6rem;
       }
       .btn-result {
-        padding: 0.8rem 1.2rem;
-        font-size: 0.9rem;
+        padding: 0.7rem 1rem;
+        font-size: 0.8rem;
       }
-      .result-slide {
-        padding: 1.5rem 1rem;
-        min-height: 450px;
+      .btn-retake-small {
+        bottom: 2vh;
+        font-size: 0.6rem;
+        padding: 0.3rem 1rem;
       }
-      .personality-type {
-        font-size: 1.4rem;
+      .swipe-hint-mobile {
+        bottom: 8vh;
+        font-size: 0.75rem;
+        padding: 0.3rem 1rem;
+      }
+      .btn-next-slide-desktop {
+        bottom: 8vh;
+        padding: 0.5rem 1.2rem;
+        font-size: 0.8rem;
+      }
+      .toast-message {
+        font-size: 0.75rem;
+        padding: 0.6rem 1rem;
+        bottom: 1rem;
       }
     }
     
-    /* Share image container */
     .share-image-container {
         position: absolute;
         left: -9999px;
@@ -732,40 +890,52 @@ img {
     </style>
     
 	<div class="container" id="quiz1">
-		<div class="main-logo" id="mainLogo"><img src="img/hero/logo-FYIType.png"></div>
+		<!-- Logo Kiri -->
+		<div class="main-logo" id="mainLogo"><img src="img/logo-FYIType.png" alt="Logo"></div>
+		
+		<!-- Logo Kanan (khusus result) -->
+		<div class="result-logo-right" id="resultLogoRight"><img src="img/logo-FYIType.png" alt="Logo"></div>
         
-		<div id="heroPage">
+		<!-- HERO PAGE -->
+		<div id="heroPage" class="page page-visible">
 			<p class="hero-subtitle">Every Moves Reflects A Different Strategy</p>
-			<div class="scroll-down-indicator" id="scrollDownTrigger">
+			<div class="bottom-section" id="scrollDownTrigger">
 				<span>Make Your First Move</span>
-				<div class="scroll-down-arrow"><img src="img/hero/arrow.png"></div>
+				<div class="scroll-down-arrow"><img src="img/arrow.png" alt="Arrow"></div>
 			</div>
 		</div>
         
-		<div id="introSecondPage" style="display:none;">
-			<img src="img/hero/yakin.png">
-			<p class="intro-second-desc">Seperti bidak catur, setiap investor juga punya gaya investasinya masing-masing.</p>
-			<button class="btn-start-quiz" id="btnStartQuiz"><img src="img/hero/letsmove-btn.png"> </button>
+		<!-- INTRO PAGE -->
+		<div id="introSecondPage" class="page">
+			<img src="img/yakin.png" class="top-img" alt="Yakin">
+            <div class="bottom-section">
+                <p class="intro-second-desc">Seperti bidak catur, setiap investor juga punya gaya investasinya masing-masing.</p>
+                <button class="btn-start-quiz" id="btnStartQuiz"><img src="img/letsmove-btn.png" alt="Mulai Kuis"></button>
+            </div>
 		</div>
         
-		<div id="nameStep" style="display:none;">
+		<!-- NAME PAGE -->
+		<div id="nameStep" class="page">
 			<div class="text">
 				<h2>F.Y.I. Type bantu kamu kenali strategi investasi yang sesuai dengan langkah investasi</h2>
 			</div>
+			
+			<!-- NAME INPUT CARD dengan background image -->
 			<div class="name-input-card">
+				<p>Yuk, mainkan F.Y.I. Type dan kenali strategi investasi apa yang pas untukmu!</p>
 				<input class="name-input" id="userNameInput" placeholder="cth. Ara, Bimo..." type="text">
-				<div class="error-message" id="nameError" style="color:#d32f2f;min-height:1.5rem;"></div>
-				<button class="btn-name-next" onclick="submitName()">Lanjut ke Kuis ✨</button>
+				<div class="error-message" id="nameError"></div>
+				<button class="btn-name-next" onclick="submitName()"><img src="img/play-btn.png" alt="Mulai Kuis"></button>
 			</div>
 		</div>
         
-		<div id="quizMode" class="quiz-card" style="display:none;">
+		<!-- QUIZ PAGE -->
+		<div id="quizMode" class="page">
 			<div class="quiz-header">
 				<div class="question-counter-center" id="questionCounterCenter">1 / 7</div>
 				<div class="progress-dots" id="progressDots"></div>
 			</div>
-			<div id="quiz">
-				<!-- Questions tetap sama -->
+			<div id="quiz" style="width:100%;display:flex;flex-direction:column;align-items:center;">
 				<div class="question" data-id="0">
 					<p>Ada investasi baru yang katanya cuan besar. Reaksimu?</p>
 					<div class="options-grid">
@@ -838,38 +1008,31 @@ img {
 				</div>
 			</div>
 			<div class="quiz-disclaimer">
-				<span>Pilih saja sesuai gaya investasimu. Tak ada benar atau salah, kok!</span><br>
+				<span>Pilih jawaban yang paling sesuai dengan dirimu.</span>
 			</div>
 		</div>
         
-        <!-- SHARE IMAGE TEMPLATE (hidden) -->
         <div class="share-image-container" id="shareImageContainer">
             <div class="user-name-share" id="shareUserName"></div>
             <div class="personality-type-share" id="sharePersonalityType"></div>
         </div>
         
-		<div id="resultMode" style="display:none;">
-			<h1>✨ Hasil Kepribadian</h1>
+		<!-- RESULT PAGE -->
+		<div id="resultMode" class="page">
 			<div class="result-container" id="resultContainer">
 				<div class="result-wrapper" id="resultWrapper">
 					<div class="result-slide" id="resultSlide1">
-						<div class="result-logo-right">R</div>
-						<div class="user-greeting" id="userGreeting"></div>
-						<div class="personality-type" id="resultType"></div>
-						<img alt="Ilustrasi Kepribadian" class="result-image" id="resultImage">
-						<p class="result-short-desc" id="resultShortDesc"></p>
-						<p class="swipe-hint-mobile" id="swipeHintMobile" onclick="goToResultSlide(1)">👉 Swipe kanan untuk info lengkap</p>
+						<div class="user-greeting" id="userGreeting"><span id="userGreetingText"></span></div>
+						<p class="swipe-hint-mobile" id="swipeHintMobile" onclick="goToResultSlide(1)">Swipe left to see more</p>
 						<button class="btn-next-slide-desktop" onclick="goToResultSlide(1)">Lihat Selengkapnya ›</button>
 					</div>
 					<div class="result-slide" id="resultSlide2">
-						<div class="result-logo-right">R</div>
-						<p class="result-full-desc" id="resultFullDesc"></p>
 						<div class="result-buttons" id="resultButtons">
-							<a class="btn-result btn-landing-1" href="#" id="btnLanding1" target="_blank">🔗 Kunjungi Landing Page 1</a> 
-							<a class="btn-result btn-landing-2" href="#" id="btnLanding2" target="_blank">🌟 Kunjungi Landing Page 2</a> 
-							<button class="btn-result" id="btnShareMain">💬 Bagikan</button>
+							<a class="btn-result" href="#" id="btnLanding1" target="_blank">Investment Strategy The Knight</a> 
+							<a class="btn-result" href="#" id="btnLanding2" target="_blank">Upgrade skill-mu di Sucorwave</a> 
+							<button class="btn-result" id="btnShareMain">Share Result ke Media Social</button>
 						</div>
-						<button class="btn-retake-small" onclick="retakeQuiz()">↺ Coba Lagi (Testing)</button>
+						<button class="btn-retake-small" onclick="retakeQuiz()">↺ Coba Lagi</button>
 					</div>
 				</div>
 			</div>
@@ -885,38 +1048,38 @@ img {
 	   (function() {
 	     const resultBackgrounds = {
 	       A: {
-	         slide1: 'img/results/result-king1.jpg',
-	         slide2: 'img/results/result-king2.jpg',
-	         share: 'img/results/result-queen1.jpg'
+	         slide1: 'img/results/result-knight1.jpg',
+	         slide2: 'img/results/result-knight2.jpg',
+	         share: 'img/results/dummy-sosmed.jpg'
 	       },
 	       B: {
-	         slide1: 'img/results/type-b-slide1.jpg',
-	         slide2: 'img/results/type-b-slide2.jpg',
-	         share: 'img/results/type-b-share.jpg'
+	         slide1: 'img/results/result-rook1.jpg',
+	         slide2: 'img/results/result-rook2.jpg',
+	         share: 'img/results/dummy-sosmed.jpg'
 	       },
 	       C: {
-	         slide1: 'img/results/type-c-slide1.jpg',
-	         slide2: 'img/results/type-c-slide2.jpg',
-	         share: 'img/results/type-c-share.jpg'
+	         slide1: 'img/results/result-queen1.jpg',
+	         slide2: 'img/results/result-queen2.jpg',
+	         share: 'img/results/dummy-sosmed.jpg'
 	       },
 	       D: {
-	         slide1: 'img/results/type-d-slide1.jpg',
-	         slide2: 'img/results/type-d-slide2.jpg',
-	         share: 'img/results/type-d-share.jpg'
+	         slide1: 'img/results/result-pawn1.jpg',
+	         slide2: 'img/results/result-pawn2.jpg',
+	         share: 'img/results/dummy-sosmed.jpg'
 	       },
 	       E: {
-	         slide1: 'img/results/type-e-slide1.jpg',
-	         slide2: 'img/results/type-e-slide2.jpg',
-	         share: 'img/results/type-e-share.jpg'
+	         slide1: 'img/results/result-king1.jpg',
+	         slide2: 'img/results/result-king2.jpg',
+	         share: 'img/results/dummy-sosmed.jpg'
 	       }
 	     };
 
 	     const resultData = {
-	       A: { type: "🦅 Tipe A · Si Pemimpin", shortDesc: "Kamu penuh ambisi, percaya diri, dan suka mengatur situasi.", fullDesc: "Sebagai seorang pemimpin alami, kamu unggul dalam situasi yang membutuhkan arah dan keputusan cepat. Kamu sering menjadi tempat teman-temanmu mencari saran karena kepercayaan dirimu yang menular. Orang lain melihatmu sebagai pribadi yang tegas dan bisa diandalkan. Teruslah memimpin dengan hati, ya! Karirmu cocok di bidang manajemen, entrepreneurship, atau public speaking.", img: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='40' r='22' fill='%235c6bc0'/%3E%3Cpath d='M22 75c0-15 13-28 28-28s28 13 28 28' fill='%235c6bc0'/%3E%3Ctext x='50' y='85' font-size='14' text-anchor='middle' fill='white'%3E🦅%3C/text%3E%3C/svg%3E" },
-	       B: { type: "❤️ Tipe B · Si Perawat", shortDesc: "Kamu hangat, penuh empati, dan selalu peduli pada orang di sekitarmu.", fullDesc: "Kemampuanmu untuk memahami perasaan orang lain adalah anugerah. Kamu adalah pendengar yang baik dan sering menjadi 'rumah' bagi teman-teman yang sedang bersedih. Kehadiranmu bikin orang lain merasa nyaman. Jangan lupa untuk merawat dirimu sendiri juga ya, karena kamu sangat berharga! Kamu cocok di bidang psikologi, kesehatan, atau social work.", img: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='40' r='22' fill='%23e57373'/%3E%3Cpath d='M22 75c0-15 13-28 28-28s28 13 28 28' fill='%23e57373'/%3E%3Ctext x='50' y='85' font-size='14' text-anchor='middle' fill='white'%3E❤️%3C/text%3E%3C/svg%3E" },
-	       C: { type: "🌙 Tipe C · Si Pemikir", shortDesc: "Kamu tenang, analitis, dan suka berpikir dalam.", fullDesc: "Pikiranmu yang tajam dan kemauan untuk menyelami kompleksitas membuatmu unggul dalam pemecahan masalah. Kamu sering menemukan solusi yang tidak terpikirkan orang lain. Lebih nyaman dengan ide-ide besar daripada obrolan ringan. Kadang-kadang, bagikan juga pemikiranmu yang brilian itu ke dunia! Kamu cocok di bidang research, programming, atau filosofi.", img: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='40' r='22' fill='%2342a5f5'/%3E%3Cpath d='M22 75c0-15 13-28 28-28s28 13 28 28' fill='%2342a5f5'/%3E%3Ctext x='50' y='85' font-size='14' text-anchor='middle' fill='white'%3E🌙%3C/text%3E%3C/svg%3E" },
-	       D: { type: "🌍 Tipe D · Si Petualang", shortDesc: "Kamu energik, spontan, dan selalu siap eksplorasi hal baru.", fullDesc: "Semangat petualanganmu menular ke semua orang di sekitarmu! Kamu membawa energi positif dan selalu siap mencoba hal baru tanpa ragu. Hidupmu penuh warna dan kejutan. Ingatlah bahwa petualangan terbaik adalah yang dibagikan dengan orang-orang terdekat. Jelajahi terus! Kamu cocok di bidang travel, event organizer, atau industri kreatif.", img: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='40' r='22' fill='%23ff8a65'/%3E%3Cpath d='M22 75c0-15 13-28 28-28s28 13 28 28' fill='%23ff8a65'/%3E%3Ctext x='50' y='85' font-size='14' text-anchor='middle' fill='white'%3E🌍%3C/text%3E%3C/svg%3E" },
-	       E: { type: "🛡️ Tipe E · Si Pelindung", shortDesc: "Kamu hati-hati, protektif, dan selalu memprioritaskan keamanan.", fullDesc: "Kewaspadaanmu adalah kekuatan. Kamu selalu memastikan semuanya aman sebelum melangkah. Orang-orang di sekitarmu merasa terlindungi karena kamu selalu memikirkan risiko. Tetap bijak dalam setiap keputusan, tapi jangan takut untuk sesekali keluar dari zona nyaman. Kamu cocok di bidang keamanan, manajemen risiko, atau quality control.", img: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='40' r='22' fill='%2366bb6a'/%3E%3Cpath d='M22 75c0-15 13-28 28-28s28 13 28 28' fill='%2366bb6a'/%3E%3Ctext x='50' y='85' font-size='14' text-anchor='middle' fill='white'%3E🛡️%3C/text%3E%3C/svg%3E" }
+	       A: { type: "🦅 Tipe A · Si Pemimpin" },
+	       B: { type: "❤️ Tipe B · Si Perawat" },
+	       C: { type: "🌙 Tipe C · Si Pemikir" },
+	       D: { type: "🌍 Tipe D · Si Petualang" },
+	       E: { type: "🛡️ Tipe E · Si Pelindung" }
 	     };
 
 	     let currentQuestion = 0,
@@ -926,13 +1089,13 @@ img {
 	       userName = "",
 	       currentResultType = null,
 	       currentResultSlide = 0;
-	     const questions = document.querySelectorAll('.question'),
-	       heroPage = document.getElementById('heroPage'),
-	       introSecondPage = document.getElementById('introSecondPage'),
-	       nameStep = document.getElementById('nameStep'),
-	       quizMode = document.getElementById('quizMode'),
-	       resultMode = document.getElementById('resultMode'),
-	       mainLogo = document.getElementById('mainLogo');
+	     const heroPage = document.getElementById('heroPage'),
+	       introPage = document.getElementById('introSecondPage'),
+	       namePage = document.getElementById('nameStep'),
+	       quizPage = document.getElementById('quizMode'),
+	       resultPage = document.getElementById('resultMode'),
+	       mainLogo = document.getElementById('mainLogo'),
+	       resultLogoRight = document.getElementById('resultLogoRight');
 
 	     let touchStartX = 0,
 	       touchEndX = 0;
@@ -942,21 +1105,35 @@ img {
 	       return /Android|iPhone|iPad|iPod|webOS/i.test(navigator.userAgent) || ('ontouchstart' in window && window.innerWidth < 768);
 	     }
 
-	     function showMainLogo(show) {
-	       mainLogo.style.display = show ? 'flex' : 'none';
+	     function showLogos(showMain, showResultRight) {
+	       mainLogo.style.display = showMain ? 'flex' : 'none';
+	       resultLogoRight.style.display = showResultRight ? 'flex' : 'none';
+	     }
+
+	     // === PAGE TRANSITION SYSTEM ===
+	     function transitionToPage(currentPage, nextPage, callback) {
+	       // Sembunyikan current dengan efek
+	       currentPage.classList.remove('page-visible');
+	       currentPage.classList.add('page-hidden');
+	       
+	       // Tampilkan next dengan efek setelah delay
+	       setTimeout(() => {
+	         nextPage.classList.remove('page-hidden');
+	         nextPage.classList.add('page-visible', 'active');
+	         if (callback) callback();
+	       }, 350);
 	     }
 
 	     function goToIntroSecond() {
-	       if (heroPage.style.display === 'none') return;
-	       heroPage.style.display = 'none';
-	       introSecondPage.style.display = 'block';
-	       showMainLogo(true);
+	       if (heroPage.classList.contains('page-hidden')) return;
+	       transitionToPage(heroPage, introPage);
+	       showLogos(true, false);
 	     }
 
 	     document.getElementById('scrollDownTrigger').addEventListener('click', goToIntroSecond);
 
 	     window.addEventListener('wheel', e => {
-	       if (heroPage.style.display !== 'none' && e.deltaY > 20) {
+	       if (!heroPage.classList.contains('page-hidden') && e.deltaY > 20) {
 	         goToIntroSecond();
 	       }
 	     }, { passive: true });
@@ -966,7 +1143,7 @@ img {
 	     }, { passive: true });
 
 	     document.getElementById('heroPage').addEventListener('touchend', function(e) {
-	       if (heroPage.style.display === 'none') return;
+	       if (heroPage.classList.contains('page-hidden')) return;
 	       const touchEndY = e.changedTouches[0].clientY;
 	       if (touchStartYForHero - touchEndY > 50) {
 	         goToIntroSecond();
@@ -974,9 +1151,8 @@ img {
 	     }, { passive: true });
 
 	     document.getElementById('btnStartQuiz').addEventListener('click', () => {
-	       introSecondPage.style.display = 'none';
-	       nameStep.style.display = 'block';
-	       showMainLogo(true);
+	       transitionToPage(introPage, namePage);
+	       showLogos(true, false);
 	     });
 
 	     window.submitName = () => {
@@ -986,9 +1162,8 @@ img {
 	         return;
 	       }
 	       userName = n;
-	       nameStep.style.display = 'none';
-	       quizMode.style.display = 'block';
-	       showMainLogo(true);
+	       transitionToPage(namePage, quizPage);
+	       showLogos(true, false);
 	       currentQuestion = 0;
 	       answers.fill(null);
 	       isTransitioning = false;
@@ -1018,7 +1193,7 @@ img {
 
 	     window.selectAnswer = function(btn, type) {
 	       if (isTransitioning || btn.classList.contains('selected')) return;
-	       const q = questions[currentQuestion];
+	       const q = document.querySelectorAll('.question')[currentQuestion];
 	       q.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
 	       btn.classList.add('selected');
 	       answers[currentQuestion] = type;
@@ -1036,6 +1211,7 @@ img {
 	     };
 
 	     function showQuestion(i) {
+	       const questions = document.querySelectorAll('.question');
 	       questions.forEach(q => q.style.display = 'none');
 	       questions[i].style.display = 'block';
 	       const saved = answers[i];
@@ -1054,16 +1230,16 @@ img {
 	       localStorage.setItem("quizCompleted", "true");
 	       localStorage.setItem("quizResultType", final);
 	       localStorage.setItem("quizUserName", userName);
-	       displayResult(final);
+	       
+	       transitionToPage(quizPage, resultPage, () => {
+	         displayResult(final);
+	       });
+	       showLogos(true, true);
 	     }
 
 	     function displayResult(t) {
 	       const d = resultData[t];
 	       const bg = resultBackgrounds[t];
-	       
-	       quizMode.style.display = 'none';
-	       resultMode.style.display = 'block';
-	       showMainLogo(true);
 
 	       currentResultSlide = 0;
 	       
@@ -1076,14 +1252,11 @@ img {
 	       
 	       goToResultSlide(0);
 
-	       document.getElementById('userGreeting').textContent = userName ? `👋 Hai, ${userName}!` : '';
-	       document.getElementById('resultType').textContent = d.type;
-	       document.getElementById('resultImage').src = d.img;
-	       document.getElementById('resultShortDesc').textContent = d.shortDesc;
-	       document.getElementById('resultFullDesc').textContent = d.fullDesc;
+	       // Set user greeting dengan background image
+	       document.getElementById('userGreetingText').textContent = userName;
 
 	       const shareUrl = window.location.href;
-	       const shareText = `✨ ${userName ? userName + ', ' : ''}Hasil Kuis Kepribadianku: ${d.type}\n"${d.shortDesc}"`;
+	       const shareText = `✨ ${userName ? userName + ', ' : ''}Hasil Kuis Kepribadianku: ${d.type}`;
 
 	       document.getElementById('btnLanding1').href = '#';
 	       document.getElementById('btnLanding2').href = '#';
@@ -1094,7 +1267,7 @@ img {
 	       if (isMobileDevice()) {
 	         shareBtn.classList.add('btn-share-ig');
 	         shareBtn.innerHTML = '📸 Share ke Sosial Media';
-	         shareBtn.onclick = async function() { await shareImageWithTemplate(d); };
+	         shareBtn.onclick = async function() { await shareImageWithTemplate(); };
 	       } else {
 	         shareBtn.classList.add('btn-share-desktop');
 	         shareBtn.innerHTML = '💬 Share ke WhatsApp';
@@ -1109,7 +1282,6 @@ img {
 	       document.getElementById('toast').style.opacity = '0';
 	     }
 
-	     // Fungsi setupResultSwipe yang sebelumnya hilang
 	     function setupResultSwipe() {
 	       const container = document.getElementById('resultContainer');
 	       container.removeEventListener('touchstart', handleResultTouchStart);
@@ -1152,7 +1324,7 @@ img {
 	       });
 	     }
 
-	     async function shareImageWithTemplate(data) {
+	     async function shareImageWithTemplate() {
 	       showToast('⏳ Menyiapkan gambar...', true);
 	       try {
 	         const shareContainer = document.getElementById('shareImageContainer');
@@ -1179,7 +1351,7 @@ img {
 	           if (navigator.share && navigator.canShare && navigator.canShare({ files: [file] })) {
 	             try {
 	               await navigator.share({ 
-	                 title: data.type, 
+	                 title: 'Hasil Kuis Kepribadian', 
 	                 text: '✨ Coba kuis kepribadian investasi ini juga yuk!', 
 	                 files: [file] 
 	               });
@@ -1211,8 +1383,8 @@ img {
 	       const toastEl = document.getElementById('toast');
 	       toastEl.textContent = text;
 	       toastEl.style.opacity = '1';
-	       toastEl.style.background = isSuccess ? '#e8f5e9' : '#ffebee';
-	       toastEl.style.color = isSuccess ? '#2e7d32' : '#b71c1c';
+	       toastEl.style.background = isSuccess ? 'rgba(46,125,50,0.9)' : 'rgba(183,28,28,0.9)';
+	       toastEl.style.color = 'white';
 	       setTimeout(() => { toastEl.style.opacity = '0'; }, 3000);
 	     }
 
@@ -1221,18 +1393,27 @@ img {
 	       location.reload(); 
 	     };
 
+	     // === INITIAL STATE ===
+	     // Hanya hero yang terlihat
+	     heroPage.classList.add('page-visible');
+	     [introPage, namePage, quizPage, resultPage].forEach(p => {
+	       p.classList.add('page-hidden');
+	     });
+
 	     (function check() {
 	       if (localStorage.getItem("quizCompleted") === "true") {
 	         const t = localStorage.getItem("quizResultType");
 	         if (t && resultData[t]) {
 	           currentResultType = t;
 	           userName = localStorage.getItem("quizUserName") || "";
-	           heroPage.style.display = 'none';
-	           introSecondPage.style.display = 'none';
-	           nameStep.style.display = 'none';
-	           quizMode.style.display = 'none';
-	           resultMode.style.display = 'block';
-	           showMainLogo(true);
+	           // Sembunyikan semua page, tampilkan result
+	           [heroPage, introPage, namePage, quizPage].forEach(p => {
+	             p.classList.add('page-hidden');
+	             p.classList.remove('page-visible', 'active');
+	           });
+	           resultPage.classList.remove('page-hidden');
+	           resultPage.classList.add('page-visible', 'active');
+	           showLogos(true, true);
 	           displayResult(t);
 	         }
 	       }
