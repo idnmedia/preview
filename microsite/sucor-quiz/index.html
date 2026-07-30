@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-	<meta charset="UTF-8">
-	<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover" name="viewport">
-	<title>Kuis Kepribadian – Temukan Dirimu</title>
-	<link href="https://fonts.googleapis.com" rel="preconnect">
-	<link href="https://fonts.gstatic.com" rel="preconnect">
-	<link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&display=swap" rel="stylesheet">
-	<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover" name="viewport">
+    <title>Kuis Kepribadian – Temukan Dirimu</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&display=swap" rel="stylesheet">
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
 </head>
 <body>
     <style>
@@ -44,13 +44,13 @@
     body {
       font-family: "Funnel Display", sans-serif;
       min-height: 100vh;
-      height: 100vh;
+      height: auto;
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       justify-content: center;
       margin: 0;
       background-color: #030b39;
-      overflow: hidden;
+      overflow-y: auto;
     }
 
 img {
@@ -58,14 +58,18 @@ img {
 }
 
     .container {
-      width: 100%;
-      height: 100vh;
-      max-width: 650px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-      background-color: #030b39;
-    }
+  width: 100%;
+  max-width: 650px;
+  text-align: center;
+  position: relative;
+  overflow-y: hidden; /* UBAH: dari auto ke hidden */
+  overflow-x: hidden;
+  background-color: #030b39;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  height: 100vh; /* UBAH: dari auto ke 100vh */
+  min-height: 100vh;
+}
 
     @keyframes fadeSlideUp {
       0% { opacity: 0; transform: translateY(30px); }
@@ -94,46 +98,32 @@ img {
       to { opacity: 1;}
     }
 
-    /* ===== SEMUA PAGE FULLSCREEN ===== */
+    /* ===== SEMUA PAGE PAKAI RATIO SAMA ===== */
     .page {
-      width: 100%;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      position: absolute;
-      top: 0;
-      left: 0;
-      padding: 0;
-      margin: 0;
-      overflow: hidden;
-      transition: opacity 0.6s cubic-bezier(0.25, 0.8, 0.25, 1), 
-                  transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
-      will-change: transform, opacity;
-    }
+  width: 100%;
+  min-height: 100vh;
+  height: 100vh; /* TAMBAH: fixed height */
+  aspect-ratio: auto; /* UBAH: dari 9/19 ke auto, atau hapus aja */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  transition: opacity 0.6s cubic-bezier(0.25, 0.8, 0.25, 1), 
+              transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+  will-change: transform, opacity;
+  flex-shrink: 0;
+  overflow: hidden; /* TAMBAH: biar konten gak bocor */
+}
 
     .page-hidden {
-      opacity: 0 !important;
-      pointer-events: none !important;
-      transform: scale(0.95) !important;
+      display: none !important;
     }
 
     .page-visible {
-      opacity: 1 !important;
-      pointer-events: auto !important;
-      transform: scale(1) !important;
-    }
-
-    /* Efek transisi khusus untuk hero ke intro */
-    .page-transition-out {
-      opacity: 0;
-      transform: translateY(-30px) scale(0.95);
-    }
-
-    .page-transition-in {
-      opacity: 1;
-      transform: translateY(0) scale(1);
+      display: flex !important;
     }
 
     /* ===== LOGO KIRI ATAS (GLOBAL) ===== */
@@ -182,7 +172,6 @@ img {
       background-position: center;
       justify-content: flex-start;
       padding-top: 20vh;
-      z-index: 5;
     }
     .hero-subtitle {
       font-size: clamp(0.7rem, 2vw, 1rem);
@@ -224,15 +213,7 @@ img {
       background-size: cover;
       background-position: center;
       gap: 1rem;
-      z-index: 4;
-      opacity: 0;
-      transform: scale(0.95);
-      pointer-events: none;
-    }
-    #introSecondPage.active {
-      opacity: 1;
-      transform: scale(1);
-      pointer-events: auto;
+      justify-content: center;
     }
     #introSecondPage img {
       max-width: 200px;
@@ -240,9 +221,10 @@ img {
       height: auto;
       animation: fadeSlideUp 0.8s ease 0.2s both;
     }
-        .top-img {
-            position: absolute;
-        }
+    .top-img {
+      position: absolute;
+      top: 15vh;
+    }
     .intro-second-desc {
       font-size: clamp(0.9rem, 2.5vw, 1.2rem);
       color: #FFD01A;
@@ -275,15 +257,7 @@ img {
       background-position: center;
       gap: 1rem;
       padding: 0 2rem;
-      z-index: 3;
-      opacity: 0;
-      transform: scale(0.95);
-      pointer-events: none;
-    }
-    #nameStep.active {
-      opacity: 1;
-      transform: scale(1);
-      pointer-events: auto;
+      justify-content: center;
     }
     #nameStep .text {
       max-width: 80%;
@@ -296,22 +270,24 @@ img {
       text-shadow: 0 2px 8px rgba(0,0,0,0.5);
     }
 
-    /* ===== NAME INPUT CARD (dengan background image) ===== */
+    /* ===== NAME INPUT CARD ===== */
     .name-input-card {
-      width: 100%;
-      max-width: 400px;
-      aspect-ratio: 1 / 1;
-      background-image: url('img/box-name-bg.png');
-      background-size: 100% 100%;
-      background-position: center;
-      background-repeat: no-repeat;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 2rem 2.5rem;
-      position: relative;
-    }
+  width: 100%;
+  max-width: 400px;
+  /* HAPUS aspect-ratio: 9/19; */
+  background-image: url('img/box-name-bg.png');
+  background-size: contain; /* UBAH: dari 100% auto ke contain */
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 2.5rem;
+  position: relative;
+  /* TAMBAH: biar card ngikutin rasio asli gambar */
+  aspect-ratio: 1/1; /* atau 4/5, 3/4 tergantung rasio gambar asli */
+}
 
     .name-input-card p {
       color: #fff;
@@ -319,7 +295,7 @@ img {
       font-weight: 600;
       text-align: center;
       line-height: 1.5;
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
       max-width: 90%;
     }
 
@@ -327,7 +303,7 @@ img {
       width: 100%;
       padding: 0.8rem 1.2rem;
       border: none;
-        font-family: "Funnel Display", sans-serif;
+      font-family: "Funnel Display", sans-serif;
       font-size: 1.4rem;
       text-align: center;
       color: #fff;
@@ -351,7 +327,7 @@ img {
     }
 
     .error-message {
-      color: #d32f2f;
+      color: #ff6b6b;
       min-height: 1.5rem;
       font-size: 0.8rem;
       margin-top: 0.2rem;
@@ -382,19 +358,10 @@ img {
       padding: 0 1.5rem;
       justify-content: center;
       gap: 0.5rem;
-      z-index: 2;
-      opacity: 0;
-      transform: scale(0.95);
-      pointer-events: none;
-    }
-    #quizMode.active {
-      opacity: 1;
-      transform: scale(1);
-      pointer-events: auto;
     }
     .quiz-header {
       position: absolute;
-        top: 8vh;
+      top: 8vh;
       width: 100%;
     }
     .question-counter-center {
@@ -491,7 +458,7 @@ img {
 
     .quiz-disclaimer {
       position: absolute;
-        bottom: 10vh;
+      bottom: 10vh;
       font-size: 0.7rem;
       color: rgba(255, 255, 255, 0.8);
       text-align: center;
@@ -499,23 +466,21 @@ img {
 
     /* ===== RESULT STYLES ===== */
     #resultMode {
-      padding: 0;
-      background: #030b39;
-      z-index: 1;
-      opacity: 0;
-      transform: scale(0.95);
-      pointer-events: none;
-      overflow-y: auto;
-    }
-    #resultMode.active {
-      opacity: 1;
-      transform: scale(1);
-      pointer-events: auto;
-    }
+  padding: 0;
+  background: #030b39;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  aspect-ratio: auto; /* UBAH: dari 9/19 ke auto */
+  overflow: hidden;
+  height: 100vh; /* TAMBAH */
+}
+
     .result-container {
       position: relative;
       width: 100%;
-      min-height: 100vh;
+      height: 100%;
       overflow: hidden;
       border-radius: 0;
       margin-top: 0;
@@ -526,32 +491,32 @@ img {
       transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
       will-change: transform;
       width: 200%;
-      min-height: 100vh;
+      height: 100%;
     }
 
     .result-slide {
-      width: 50%;
-      flex-shrink: 0;
-      padding: 0;
-      background-size: 100% 100%;
-      background-position: center;
-      background-repeat: no-repeat;
-      position: relative;
-      border-radius: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      height: auto;
-    }
+  width: 50%;
+  flex-shrink: 0;
+  padding: 0;
+  background-size: 100% auto;
+  background-position: center top;
+  background-repeat: no-repeat;
+  position: relative;
+  border-radius: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100%; /* tetap */
+  aspect-ratio: auto; /* UBAH: dari 9/19 ke auto */
+}
 
     .result-slide>* {
       position: relative;
       z-index: 2;
     }
 
-    /* ===== USER GREETING DENGAN BACKGROUND IMAGE ===== */
+    /* ===== USER GREETING ===== */
     .user-greeting {
       position: absolute;
       top: 8vh;
@@ -564,7 +529,6 @@ img {
       font-weight: 700;
       text-shadow: 0 2px 8px rgba(0,0,0,0.3);
       white-space: nowrap;
-      /* Background image via ::before */
     }
 
     .user-greeting::before {
@@ -579,7 +543,7 @@ img {
       z-index: -1;
       opacity: 0.95;
       filter: drop-shadow(0 4px 15px rgba(0,0,0,0.3));
-        min-width: 80px;
+      min-width: 80px;
     }
 
     .user-greeting span {
@@ -763,7 +727,7 @@ img {
         max-width: 75%;
       }
       .top-img {
-        top: 20vh;
+        top: 15vh;
       }
       .btn-start-quiz {
         margin-top: 2.5rem;
@@ -778,15 +742,16 @@ img {
         max-width: 90%;
       }
       #nameStep h2 {
-        font-size: 1.4rem;
-      }
-      .name-input-card {
-        padding: 1.5rem 1.2rem;
-        max-width: 320px;
-      }
-      .name-input-card p {
         font-size: 1rem;
-        margin-bottom: 2rem;
+      }
+          .name-input-card {
+    padding: 1.5rem 1.2rem;
+    max-width: 320px;
+    aspect-ratio: 1/1; /* SAMA: square ratio */
+  }
+      .name-input-card p {
+        font-size: 0.85rem;
+        margin-bottom: 1.5rem;
       }
       .name-input {
         font-size: 1.2rem;
@@ -802,11 +767,11 @@ img {
       #quizMode {
         padding: 0 1rem;
       }
-        .quiz-header {
-      position: absolute;
+      .quiz-header {
+        position: absolute;
         top: 8vh;
-      width: 100%;
-    }
+        width: 100%;
+      }
       .question p {
         font-size: 1.6rem;
       }
@@ -891,544 +856,537 @@ img {
     }
     </style>
     
-	<div class="container" id="quiz1">
-		<!-- Logo Kiri -->
-		<div class="main-logo" id="mainLogo"><img src="img/logo-FYIType.png" alt="Logo"></div>
-		
-		<!-- Logo Kanan (khusus result) -->
-		<div class="result-logo-right" id="resultLogoRight"><img src="img/logo-FYIType.png" alt="Logo"></div>
+    <div class="container" id="quiz1">
+        <!-- Logo Kiri -->
+        <div class="main-logo" id="mainLogo"><img src="img/logo-FYIType.png" alt="Logo"></div>
         
-		<!-- HERO PAGE -->
-		<div id="heroPage" class="page page-visible">
-			<p class="hero-subtitle">Every Moves Reflects A Different Strategy</p>
-			<div class="bottom-section" id="scrollDownTrigger">
-				<span>Make Your First Move</span>
-				<div class="scroll-down-arrow"><img src="img/arrow.png" alt="Arrow"></div>
-			</div>
-		</div>
+        <!-- Logo Kanan (khusus result) -->
+        <div class="result-logo-right" id="resultLogoRight"><img src="img/logo-FYIType.png" alt="Logo"></div>
         
-		<!-- INTRO PAGE -->
-		<div id="introSecondPage" class="page">
-			<img src="img/yakin.png" class="top-img" alt="Yakin">
+        <!-- HERO PAGE -->
+        <div id="heroPage" class="page page-visible">
+            <p class="hero-subtitle">Every Moves Reflects A Different Strategy</p>
+            <div class="bottom-section" id="scrollDownTrigger">
+                <span>Make Your First Move</span>
+                <div class="scroll-down-arrow"><img src="img/arrow.png" alt="Arrow"></div>
+            </div>
+        </div>
+        
+        <!-- INTRO PAGE -->
+        <div id="introSecondPage" class="page page-hidden">
+            <img src="img/yakin.png" class="top-img" alt="Yakin">
             <div class="bottom-section">
                 <p class="intro-second-desc">Seperti bidak catur, setiap investor juga punya gaya investasinya masing-masing.</p>
                 <button class="btn-start-quiz" id="btnStartQuiz"><img src="img/letsmove-btn.png" alt="Mulai Kuis"></button>
             </div>
-		</div>
+        </div>
         
-		<!-- NAME PAGE -->
-		<div id="nameStep" class="page">
-			<div class="text">
-				<h2>F.Y.I. Type bantu kamu kenali strategi investasi yang sesuai dengan langkah investasi</h2>
-			</div>
-			
-			<!-- NAME INPUT CARD dengan background image -->
-			<div class="name-input-card">
-				<p>Yuk, mainkan F.Y.I. Type dan kenali strategi investasi apa yang pas untukmu!</p>
-				<input class="name-input" id="userNameInput" placeholder="cth. Ara, Bimo..." type="text" maxlength="10">
-				<div class="error-message" id="nameError"></div>
-				<button class="btn-name-next" onclick="submitName()"><img src="img/play-btn.png" alt="Mulai Kuis"></button>
-			</div>
-		</div>
+        <!-- NAME PAGE -->
+        <div id="nameStep" class="page page-hidden">
+            <div class="text">
+                <h2>F.Y.I. Type bantu kamu kenali strategi investasi yang sesuai dengan langkah investasi</h2>
+            </div>
+            
+            <div class="name-input-card">
+                <p>Yuk, mainkan F.Y.I. Type dan kenali strategi investasi apa yang pas untukmu!</p>
+                <input class="name-input" id="userNameInput" placeholder="cth. Ara, Bimo..." type="text" maxlength="10">
+                <div class="error-message" id="nameError"></div>
+                <button class="btn-name-next" onclick="submitName()"><img src="img/play-btn.png" alt="Mulai Kuis"></button>
+            </div>
+        </div>
         
-		<!-- QUIZ PAGE -->
-		<div id="quizMode" class="page">
-			<div class="quiz-header">
-				<div class="question-counter-center" id="questionCounterCenter">1 / 7</div>
-				<div class="progress-dots" id="progressDots"></div>
-			</div>
-			<div id="quiz" style="width:100%;display:flex;flex-direction:column;align-items:center;">
-				<div class="question" data-id="0">
-					<p>Ada investasi baru yang katanya cuan besar. Reaksimu?</p>
-					<div class="options-grid">
-						<button class="option-btn" onclick="selectAnswer(this,'A')"><span>Langsung riset mendalam</span></button> 
+        <!-- QUIZ PAGE -->
+        <div id="quizMode" class="page page-hidden">
+            <div class="quiz-header">
+                <div class="question-counter-center" id="questionCounterCenter">1 / 7</div>
+                <div class="progress-dots" id="progressDots"></div>
+            </div>
+            <div id="quiz" style="width:100%;display:flex;flex-direction:column;align-items:center;">
+                <div class="question" data-id="0">
+                    <p>Ada investasi baru yang katanya cuan besar. Reaksimu?</p>
+                    <div class="options-grid">
+                        <button class="option-btn" onclick="selectAnswer(this,'A')"><span>Langsung riset mendalam</span></button> 
                         <button class="option-btn" onclick="selectAnswer(this,'B')"><span>Cek dulu kecocokannya dengan rencana keuangan</span></button>
                         <button class="option-btn" onclick="selectAnswer(this,'C')"><span>Ambil peluangnya sekarang juga</span></button> 
                         <button class="option-btn" onclick="selectAnswer(this,'D')"><span>Cari testimoni teman atau saran ahli yang tepercaya</span></button>
                         <button class="option-btn" onclick="selectAnswer(this,'E')"><span>Tolak dan pilih bertahan di aset aman</span></button>
-					</div>
-				</div>
-				<div class="question" data-id="1" style="display:none;">
-					<p>Kalau di akhir bulan masih ada sisa uang. Apa yang biasanya kamu lakukan? </p>
-					<div class="options-grid">
-						<button class="option-btn" onclick="selectAnswer(this,'A')"><span>Cari instrumen alternatif atau sektor baru</span></button> 
+                    </div>
+                </div>
+                <div class="question" data-id="1" style="display:none;">
+                    <p>Kalau di akhir bulan masih ada sisa uang. Apa yang biasanya kamu lakukan? </p>
+                    <div class="options-grid">
+                        <button class="option-btn" onclick="selectAnswer(this,'A')"><span>Cari instrumen alternatif atau sektor baru</span></button> 
                         <button class="option-btn" onclick="selectAnswer(this,'B')"><span>Masukkan langsung ke pos investasi rutin</span></button>
                         <button class="option-btn" onclick="selectAnswer(this,'C')"><span>Manfaatkan untuk beli barang idaman atau tambah aset</span></button> 
                         <button class="option-btn" onclick="selectAnswer(this,'D')"><span>Simpan di tabungan yang aman</span></button>
                         <button class="option-btn" onclick="selectAnswer(this,'E')"><span>Amankan di instrumen paling rendah risiko</span></button>
-					</div>
-				</div>
-				<div class="question" data-id="2" style="display:none;">
-					<p>Ketika kondisi pasar sedang dinamis. Gimana caramu menentukan instrumen investasi?</p>
-					<div class="options-grid">
-						<button class="option-btn" onclick="selectAnswer(this,'A')"><span>Incar instrumen baru yang inovatif dan punya potensi</span></button> 
+                    </div>
+                </div>
+                <div class="question" data-id="2" style="display:none;">
+                    <p>Ketika kondisi pasar sedang dinamis. Gimana caramu menentukan instrumen investasi?</p>
+                    <div class="options-grid">
+                        <button class="option-btn" onclick="selectAnswer(this,'A')"><span>Incar instrumen baru yang inovatif dan punya potensi</span></button> 
                         <button class="option-btn" onclick="selectAnswer(this,'B')"><span>Pilih yang <i>track record</i>-nya paling konsisten</span></button>
                         <button class="option-btn" onclick="selectAnswer(this,'C')"><span>Cari yang potensi pertumbuhannya paling tinggi</span></button> 
                         <button class="option-btn" onclick="selectAnswer(this,'D')"><span>Pilih produk yang populer</span></button>
                         <button class="option-btn" onclick="selectAnswer(this,'E')"><span>Pilih yang risikonya paling rendah</span></button>
-					</div>
-				</div>
-				<div class="question" data-id="3" style="display:none;">
-					<p>Media sosial lagi ramai bahas tren investasi. Bagaimana kamu menyikapinya?</p>
-					<div class="options-grid">
-						<button class="option-btn" onclick="selectAnswer(this,'A')"><span>Penasaran buat pelajari celah dan peluang barunya</span></button> 
+                    </div>
+                </div>
+                <div class="question" data-id="3" style="display:none;">
+                    <p>Media sosial lagi ramai bahas tren investasi. Bagaimana kamu menyikapinya?</p>
+                    <div class="options-grid">
+                        <button class="option-btn" onclick="selectAnswer(this,'A')"><span>Penasaran buat pelajari celah dan peluang barunya</span></button> 
                         <button class="option-btn" onclick="selectAnswer(this,'B')"><span>Tidak terlalu pengaruh. fokus jalani komitmen investasi sendiri</span></button> 
                         <button class="option-btn" onclick="selectAnswer(this,'C')"><span>Ikutan kepo kalau ada potensi bisa cuan cepat</span></button> 
                         <button class="option-btn" onclick="selectAnswer(this,'D')"><span>Baru percaya kalau banyak orang dan ahli ikut bahas</span></button>
                         <button class="option-btn" onclick="selectAnswer(this,'E')"><span>Langsung panik dan cemas tiap ada berita miring</span></button>
-					</div>
-				</div>
-				<div class="question" data-id="4" style="display:none;">
-					<p>Sesuai dengan strategi kamu, mana waktu yang paling ideal untuk memanen hasil investasi?</p>
-					<div class="options-grid">
-						<button class="option-btn" onclick="selectAnswer(this,'A')"><span>Sekitar 3-5 tahun</span></button> 
+                    </div>
+                </div>
+                <div class="question" data-id="4" style="display:none;">
+                    <p>Sesuai dengan strategi kamu, mana waktu yang paling ideal untuk memanen hasil investasi?</p>
+                    <div class="options-grid">
+                        <button class="option-btn" onclick="selectAnswer(this,'A')"><span>Sekitar 3-5 tahun</span></button> 
                         <button class="option-btn" onclick="selectAnswer(this,'B')"><span>Di atas 5-10 tahun</span></button> 
                         <button class="option-btn" onclick="selectAnswer(this,'C')"><span>Kurang dari 2 tahun</span></button> 
                         <button class="option-btn" onclick="selectAnswer(this,'D')"><span>Fleksibel</span></button>
                         <button class="option-btn" onclick="selectAnswer(this,'E')"><span>Secepat mungkin</span></button>
-					</div>
-				</div>
-				<div class="question" data-id="5" style="display:none;">
-					<p>Pasar lagi merah dan nilai asetmu turun 10%. Langkah apa yang kamu ambil?</p>
-					<div class="options-grid">
-						<button class="option-btn" onclick="selectAnswer(this,'A')"><span>Analisis situasinya, lalu berburu aset lain yang punya celah buat naik</span></button> 
+                    </div>
+                </div>
+                <div class="question" data-id="5" style="display:none;">
+                    <p>Pasar lagi merah dan nilai asetmu turun 10%. Langkah apa yang kamu ambil?</p>
+                    <div class="options-grid">
+                        <button class="option-btn" onclick="selectAnswer(this,'A')"><span>Analisis situasinya, lalu berburu aset lain yang punya celah buat naik</span></button> 
                         <button class="option-btn" onclick="selectAnswer(this,'B')"><span>Tetap tenang dan setia pada rencana awal</span></button> 
                         <button class="option-btn" onclick="selectAnswer(this,'C')"><span>Waktunya untuk menambah aset</span></button> 
                         <button class="option-btn" onclick="selectAnswer(this,'D')"><span>Pantau dulu situasi pasar sambil nunggu saran dari para ahli</span></button>
                         <button class="option-btn" onclick="selectAnswer(this,'E')"><span>Langsung mempertimbangkan <i>cut loss</i> demi keamanan</span></button>
-					</div>
-				</div>
-				<div class="question" data-id="6" style="display:none;">
-					<p>Barang <i>wishlist</i>-mu lagi diskon, tapi besok harganya balik normal. Apa yang kamu lakukan?</p>
-					<div class="options-grid">
-						<button class="option-btn" onclick="selectAnswer(this,'A')"><span>Pikirkan ulang apakah barang ini bernilai untuk dibeli</span></button> 
+                    </div>
+                </div>
+                <div class="question" data-id="6" style="display:none;">
+                    <p>Barang <i>wishlist</i>-mu lagi diskon, tapi besok harganya balik normal. Apa yang kamu lakukan?</p>
+                    <div class="options-grid">
+                        <button class="option-btn" onclick="selectAnswer(this,'A')"><span>Pikirkan ulang apakah barang ini bernilai untuk dibeli</span></button> 
                         <button class="option-btn" onclick="selectAnswer(this,'B')"><span>Skip dulu, karena gak masuk budget bulan ini</span></button> 
                         <button class="option-btn" onclick="selectAnswer(this,'C')"><span>Langsung <i>checkout</i>!</span></button> 
                         <button class="option-btn" onclick="selectAnswer(this,'D')"><span>Cek <i>review</i> orang dulu</span></button>
                         <button class="option-btn" onclick="selectAnswer(this,'E')"><span>Dilema terus sampai waktunya habis</span></button>
-					</div>
-				</div>
-			</div>
-			<div class="quiz-disclaimer">
-				<span>Pilih jawaban yang paling sesuai dengan dirimu.</span>
-			</div>
-		</div>
+                    </div>
+                </div>
+            </div>
+            <div class="quiz-disclaimer">
+                <span>Pilih jawaban yang paling sesuai dengan dirimu.</span>
+            </div>
+        </div>
         
         <div class="share-image-container" id="shareImageContainer">
             <div class="user-name-share" id="shareUserName"></div>
             <div class="personality-type-share" id="sharePersonalityType"></div>
         </div>
         
-		<!-- RESULT PAGE -->
-		<div id="resultMode" class="page">
-			<div class="result-container" id="resultContainer">
-				<div class="result-wrapper" id="resultWrapper">
-					<div class="result-slide" id="resultSlide1">
-						<div class="user-greeting" id="userGreeting"><span id="userGreetingText"></span></div>
-						<p class="swipe-hint-mobile" id="swipeHintMobile" onclick="goToResultSlide(1)">Swipe left to see more</p>
-						<button class="btn-next-slide-desktop" onclick="goToResultSlide(1)">Lihat Selengkapnya ›</button>
-					</div>
-					<div class="result-slide" id="resultSlide2">
-						<div class="result-buttons" id="resultButtons">
-							<a class="btn-result" href="#" id="btnLanding1" target="_blank">Investment Strategy The Knight</a> 
-							<a class="btn-result" href="#" id="btnLanding2" target="_blank">Upgrade skill-mu di Sucorwave</a> 
-							<button class="btn-result" id="btnShareMain">Share Result ke Media Social</button>
-						</div>
-						<button class="btn-retake-small" onclick="retakeQuiz()">↺ Coba Lagi</button>
-					</div>
-				</div>
-			</div>
-			<div class="slide-indicators-result" id="slideIndicatorsResult">
-				<span class="slide-indicator-result active" data-index="0"></span> 
-				<span class="slide-indicator-result" data-index="1"></span>
-			</div>
-			<div class="toast-message" id="toast"></div>
-		</div>
-	</div>
-	
-	<script>
-	   (function() {
-	     const resultBackgrounds = {
-	       A: {
-	         slide1: 'img/results/result-knight1.jpg',
-	         slide2: 'img/results/result-knight2.jpg',
-	         share: 'img/results/dummy-sosmed.jpg'
-	       },
-	       B: {
-	         slide1: 'img/results/result-rook1.jpg',
-	         slide2: 'img/results/result-rook2.jpg',
-	         share: 'img/results/dummy-sosmed.jpg'
-	       },
-	       C: {
-	         slide1: 'img/results/result-queen1.jpg',
-	         slide2: 'img/results/result-queen2.jpg',
-	         share: 'img/results/dummy-sosmed.jpg'
-	       },
-	       D: {
-	         slide1: 'img/results/result-pawn1.jpg',
-	         slide2: 'img/results/result-pawn2.jpg',
-	         share: 'img/results/dummy-sosmed.jpg'
-	       },
-	       E: {
-	         slide1: 'img/results/result-king1.jpg',
-	         slide2: 'img/results/result-king2.jpg',
-	         share: 'img/results/dummy-sosmed.jpg'
-	       }
-	     };
+        <!-- RESULT PAGE -->
+        <div id="resultMode" class="page page-hidden">
+            <div class="result-container" id="resultContainer">
+                <div class="result-wrapper" id="resultWrapper">
+                    <div class="result-slide" id="resultSlide1">
+                        <div class="user-greeting" id="userGreeting"><span id="userGreetingText"></span></div>
+                        <p class="swipe-hint-mobile" id="swipeHintMobile" onclick="goToResultSlide(1)">Swipe left to see more</p>
+                        <button class="btn-next-slide-desktop" onclick="goToResultSlide(1)">Lihat Selengkapnya ›</button>
+                    </div>
+                    <div class="result-slide" id="resultSlide2">
+                        <div class="result-buttons" id="resultButtons">
+                            <a class="btn-result" href="#" id="btnLanding1" target="_blank">Investment Strategy The Knight</a> 
+                            <a class="btn-result" href="#" id="btnLanding2" target="_blank">Upgrade skill-mu di Sucorwave</a> 
+                            <button class="btn-result" id="btnShareMain">Share Result ke Media Social</button>
+                        </div>
+                        <button class="btn-retake-small" onclick="retakeQuiz()">↺ Coba Lagi</button>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-indicators-result" id="slideIndicatorsResult">
+                <span class="slide-indicator-result active" data-index="0"></span> 
+                <span class="slide-indicator-result" data-index="1"></span>
+            </div>
+            <div class="toast-message" id="toast"></div>
+        </div>
+    </div>
+    
+    <script>
+       (function() {
+         const resultBackgrounds = {
+           A: {
+             slide1: 'img/results/result-knight1.jpg',
+             slide2: 'img/results/result-knight2.jpg',
+             share: 'img/results/dummy-sosmed.jpg'
+           },
+           B: {
+             slide1: 'img/results/result-rook1.jpg',
+             slide2: 'img/results/result-rook2.jpg',
+             share: 'img/results/dummy-sosmed.jpg'
+           },
+           C: {
+             slide1: 'img/results/result-queen1.jpg',
+             slide2: 'img/results/result-queen2.jpg',
+             share: 'img/results/dummy-sosmed.jpg'
+           },
+           D: {
+             slide1: 'img/results/result-pawn1.jpg',
+             slide2: 'img/results/result-pawn2.jpg',
+             share: 'img/results/dummy-sosmed.jpg'
+           },
+           E: {
+             slide1: 'img/results/result-king1.jpg',
+             slide2: 'img/results/result-king2.jpg',
+             share: 'img/results/dummy-sosmed.jpg'
+           }
+         };
 
-	     const resultData = {
-	       A: { type: "🦅 Tipe A · Si Pemimpin" },
-	       B: { type: "❤️ Tipe B · Si Perawat" },
-	       C: { type: "🌙 Tipe C · Si Pemikir" },
-	       D: { type: "🌍 Tipe D · Si Petualang" },
-	       E: { type: "🛡️ Tipe E · Si Pelindung" }
-	     };
+         const resultData = {
+           A: { type: "🦅 Tipe A · Si Pemimpin" },
+           B: { type: "❤️ Tipe B · Si Perawat" },
+           C: { type: "🌙 Tipe C · Si Pemikir" },
+           D: { type: "🌍 Tipe D · Si Petualang" },
+           E: { type: "🛡️ Tipe E · Si Pelindung" }
+         };
 
-	     let currentQuestion = 0,
-	       totalQuestions = 7,
-	       answers = new Array(7).fill(null),
-	       isTransitioning = false,
-	       userName = "",
-	       currentResultType = null,
-	       currentResultSlide = 0;
-	     const heroPage = document.getElementById('heroPage'),
-	       introPage = document.getElementById('introSecondPage'),
-	       namePage = document.getElementById('nameStep'),
-	       quizPage = document.getElementById('quizMode'),
-	       resultPage = document.getElementById('resultMode'),
-	       mainLogo = document.getElementById('mainLogo'),
-	       resultLogoRight = document.getElementById('resultLogoRight');
+         let currentQuestion = 0,
+           totalQuestions = 7,
+           answers = new Array(7).fill(null),
+           isTransitioning = false,
+           userName = "",
+           currentResultType = null,
+           currentResultSlide = 0;
+         const heroPage = document.getElementById('heroPage'),
+           introPage = document.getElementById('introSecondPage'),
+           namePage = document.getElementById('nameStep'),
+           quizPage = document.getElementById('quizMode'),
+           resultPage = document.getElementById('resultMode'),
+           mainLogo = document.getElementById('mainLogo'),
+           resultLogoRight = document.getElementById('resultLogoRight');
 
-	     let touchStartX = 0,
-	       touchEndX = 0;
-	     let touchStartYForHero = 0;
+         let touchStartX = 0,
+           touchEndX = 0;
+         let touchStartYForHero = 0;
 
-	     function isMobileDevice() {
-	       return /Android|iPhone|iPad|iPod|webOS/i.test(navigator.userAgent) || ('ontouchstart' in window && window.innerWidth < 768);
-	     }
+         function isMobileDevice() {
+           return /Android|iPhone|iPad|iPod|webOS/i.test(navigator.userAgent) || ('ontouchstart' in window && window.innerWidth < 768);
+         }
 
-	     function showLogos(showMain, showResultRight) {
-	       mainLogo.style.display = showMain ? 'flex' : 'none';
-	       resultLogoRight.style.display = showResultRight ? 'flex' : 'none';
-	     }
+         function showLogos(showMain, showResultRight) {
+           mainLogo.style.display = showMain ? 'flex' : 'none';
+           resultLogoRight.style.display = showResultRight ? 'flex' : 'none';
+         }
 
-	     // === PAGE TRANSITION SYSTEM ===
-	     function transitionToPage(currentPage, nextPage, callback) {
-	       // Sembunyikan current dengan efek
-	       currentPage.classList.remove('page-visible');
-	       currentPage.classList.add('page-hidden');
-	       
-	       // Tampilkan next dengan efek setelah delay
-	       setTimeout(() => {
-	         nextPage.classList.remove('page-hidden');
-	         nextPage.classList.add('page-visible', 'active');
-	         if (callback) callback();
-	       }, 350);
-	     }
+         // === PAGE TRANSITION SYSTEM ===
+         function transitionToPage(currentPage, nextPage, callback) {
+           currentPage.classList.remove('page-visible');
+           currentPage.classList.add('page-hidden');
+           
+           setTimeout(() => {
+             nextPage.classList.remove('page-hidden');
+             nextPage.classList.add('page-visible');
+             document.querySelector('.container').scrollTop = 0;
+             if (callback) callback();
+           }, 350);
+         }
 
-	     function goToIntroSecond() {
-	       if (heroPage.classList.contains('page-hidden')) return;
-	       transitionToPage(heroPage, introPage);
-	       showLogos(true, false);
-	     }
+         function goToIntroSecond() {
+           if (heroPage.classList.contains('page-hidden')) return;
+           transitionToPage(heroPage, introPage);
+           showLogos(true, false);
+         }
 
-	     document.getElementById('scrollDownTrigger').addEventListener('click', goToIntroSecond);
+         document.getElementById('scrollDownTrigger').addEventListener('click', goToIntroSecond);
 
-	     window.addEventListener('wheel', e => {
-	       if (!heroPage.classList.contains('page-hidden') && e.deltaY > 20) {
-	         goToIntroSecond();
-	       }
-	     }, { passive: true });
+         window.addEventListener('wheel', e => {
+           if (!heroPage.classList.contains('page-hidden') && e.deltaY > 20) {
+             goToIntroSecond();
+           }
+         }, { passive: true });
 
-	     document.getElementById('heroPage').addEventListener('touchstart', function(e) {
-	       touchStartYForHero = e.touches[0].clientY;
-	     }, { passive: true });
+         document.getElementById('heroPage').addEventListener('touchstart', function(e) {
+           touchStartYForHero = e.touches[0].clientY;
+         }, { passive: true });
 
-	     document.getElementById('heroPage').addEventListener('touchend', function(e) {
-	       if (heroPage.classList.contains('page-hidden')) return;
-	       const touchEndY = e.changedTouches[0].clientY;
-	       if (touchStartYForHero - touchEndY > 50) {
-	         goToIntroSecond();
-	       }
-	     }, { passive: true });
+         document.getElementById('heroPage').addEventListener('touchend', function(e) {
+           if (heroPage.classList.contains('page-hidden')) return;
+           const touchEndY = e.changedTouches[0].clientY;
+           if (touchStartYForHero - touchEndY > 50) {
+             goToIntroSecond();
+           }
+         }, { passive: true });
 
-	     document.getElementById('btnStartQuiz').addEventListener('click', () => {
-	       transitionToPage(introPage, namePage);
-	       showLogos(true, false);
-	     });
+         document.getElementById('btnStartQuiz').addEventListener('click', () => {
+           transitionToPage(introPage, namePage);
+           showLogos(true, false);
+         });
 
-	     window.submitName = () => {
+         window.submitName = () => {
           const n = document.getElementById('userNameInput').value.trim();
 
-          // Validasi minimal 2 karakter
           if (!n || n.length < 2) {
             document.getElementById('nameError').textContent = '✨ Nama minimal 2 karakter ya.';
             return;
           }
 
-          // Validasi maksimal 10 karakter
           if (n.length > 10) {
             document.getElementById('nameError').textContent = '⚠️ Nama maksimal 10 karakter ya.';
             return;
           }
-	       userName = n;
-	       transitionToPage(namePage, quizPage);
-	       showLogos(true, false);
-	       currentQuestion = 0;
-	       answers.fill(null);
-	       isTransitioning = false;
-	       createDots();
-	       showQuestion(0);
-	     };
+           userName = n;
+           transitionToPage(namePage, quizPage);
+           showLogos(true, false);
+           currentQuestion = 0;
+           answers.fill(null);
+           isTransitioning = false;
+           createDots();
+           showQuestion(0);
+         };
 
-	     function createDots() {
-	       const c = document.getElementById('progressDots');
-	       c.innerHTML = '';
-	       for (let i = 0; i < totalQuestions; i++) {
-	         const d = document.createElement('span');
-	         d.className = 'dot' + (i === 0 ? ' active' : '');
-	         c.appendChild(d);
-	       }
-	       document.getElementById('questionCounterCenter').textContent = '1 / 7';
-	     }
+         function createDots() {
+           const c = document.getElementById('progressDots');
+           c.innerHTML = '';
+           for (let i = 0; i < totalQuestions; i++) {
+             const d = document.createElement('span');
+             d.className = 'dot' + (i === 0 ? ' active' : '');
+             c.appendChild(d);
+           }
+           document.getElementById('questionCounterCenter').textContent = '1 / 7';
+         }
 
-	     function updateDots() {
-	       document.querySelectorAll('#quizMode .dot').forEach((d, i) => {
-	         d.classList.remove('active', 'completed');
-	         if (i < currentQuestion) d.classList.add('completed');
-	         if (i === currentQuestion) d.classList.add('active');
-	       });
-	       document.getElementById('questionCounterCenter').textContent = `${currentQuestion+1} / ${totalQuestions}`;
-	     }
+         function updateDots() {
+           document.querySelectorAll('#quizMode .dot').forEach((d, i) => {
+             d.classList.remove('active', 'completed');
+             if (i < currentQuestion) d.classList.add('completed');
+             if (i === currentQuestion) d.classList.add('active');
+           });
+           document.getElementById('questionCounterCenter').textContent = `${currentQuestion+1} / ${totalQuestions}`;
+         }
 
-	     window.selectAnswer = function(btn, type) {
-	       if (isTransitioning || btn.classList.contains('selected')) return;
-	       const q = document.querySelectorAll('.question')[currentQuestion];
-	       q.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
-	       btn.classList.add('selected');
-	       answers[currentQuestion] = type;
-	       isTransitioning = true;
-	       setTimeout(() => {
-	         if (currentQuestion < totalQuestions - 1) {
-	           currentQuestion++;
-	           showQuestion(currentQuestion);
-	           isTransitioning = false;
-	         } else {
-	           showResult();
-	           isTransitioning = false;
-	         }
-	       }, 350);
-	     };
+         window.selectAnswer = function(btn, type) {
+           if (isTransitioning || btn.classList.contains('selected')) return;
+           const q = document.querySelectorAll('.question')[currentQuestion];
+           q.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
+           btn.classList.add('selected');
+           answers[currentQuestion] = type;
+           isTransitioning = true;
+           setTimeout(() => {
+             if (currentQuestion < totalQuestions - 1) {
+               currentQuestion++;
+               showQuestion(currentQuestion);
+               isTransitioning = false;
+             } else {
+               showResult();
+               isTransitioning = false;
+             }
+           }, 350);
+         };
 
-	     function showQuestion(i) {
-	       const questions = document.querySelectorAll('.question');
-	       questions.forEach(q => q.style.display = 'none');
-	       questions[i].style.display = 'block';
-	       const saved = answers[i];
-	       questions[i].querySelectorAll('.option-btn').forEach(b => {
-	         b.classList.remove('selected');
-	         if (saved && b.getAttribute('onclick').includes(`'${saved}'`)) b.classList.add('selected');
-	       });
-	       updateDots();
-	     }
+         function showQuestion(i) {
+           const questions = document.querySelectorAll('.question');
+           questions.forEach(q => q.style.display = 'none');
+           questions[i].style.display = 'block';
+           const saved = answers[i];
+           questions[i].querySelectorAll('.option-btn').forEach(b => {
+             b.classList.remove('selected');
+             if (saved && b.getAttribute('onclick').includes(`'${saved}'`)) b.classList.add('selected');
+           });
+           updateDots();
+         }
 
-	     function showResult() {
-	       const counts = { A: 0, B: 0, C: 0, D: 0, E: 0 };
-	       answers.forEach(t => { if (t) counts[t]++; });
-	       const final = Object.keys(counts).reduce((a, b) => counts[a] >= counts[b] ? a : b);
-	       currentResultType = final;
-	       localStorage.setItem("quizCompleted", "true");
-	       localStorage.setItem("quizResultType", final);
-	       localStorage.setItem("quizUserName", userName);
-	       
-	       transitionToPage(quizPage, resultPage, () => {
-	         displayResult(final);
-	       });
-	       showLogos(true, true);
-	     }
+         function showResult() {
+           const counts = { A: 0, B: 0, C: 0, D: 0, E: 0 };
+           answers.forEach(t => { if (t) counts[t]++; });
+           const final = Object.keys(counts).reduce((a, b) => counts[a] >= counts[b] ? a : b);
+           currentResultType = final;
+           localStorage.setItem("quizCompleted", "true");
+           localStorage.setItem("quizResultType", final);
+           localStorage.setItem("quizUserName", userName);
+           
+           transitionToPage(quizPage, resultPage, () => {
+             displayResult(final);
+           });
+           showLogos(true, true);
+         }
 
-	     function displayResult(t) {
-	       const d = resultData[t];
-	       const bg = resultBackgrounds[t];
+         function displayResult(t) {
+           const d = resultData[t];
+           const bg = resultBackgrounds[t];
 
-	       currentResultSlide = 0;
-	       
-	       document.getElementById('resultSlide1').style.backgroundImage = `url(${bg.slide1})`;
-	       document.getElementById('resultSlide2').style.backgroundImage = `url(${bg.slide2})`;
-	       
-	       document.getElementById('shareImageContainer').style.backgroundImage = `url(${bg.share})`;
-	       document.getElementById('shareUserName').textContent = userName;
-	       document.getElementById('sharePersonalityType').textContent = d.type;
-	       
-	       goToResultSlide(0);
+           currentResultSlide = 0;
+           
+           document.getElementById('resultSlide1').style.backgroundImage = `url(${bg.slide1})`;
+           document.getElementById('resultSlide2').style.backgroundImage = `url(${bg.slide2})`;
+           
+           document.getElementById('shareImageContainer').style.backgroundImage = `url(${bg.share})`;
+           document.getElementById('shareUserName').textContent = userName;
+           document.getElementById('sharePersonalityType').textContent = d.type;
+           
+           goToResultSlide(0);
 
-	       // Set user greeting dengan background image
-	       document.getElementById('userGreetingText').textContent = userName;
+           document.getElementById('userGreetingText').textContent = userName;
 
-	       const shareUrl = window.location.href;
-	       const shareText = `✨ ${userName ? userName + ', ' : ''}Hasil Kuis Kepribadianku: ${d.type}`;
+           const shareUrl = window.location.href;
+           const shareText = `✨ ${userName ? userName + ', ' : ''}Hasil Kuis Kepribadianku: ${d.type}`;
 
-	       document.getElementById('btnLanding1').href = '#';
-	       document.getElementById('btnLanding2').href = '#';
+           document.getElementById('btnLanding1').href = '#';
+           document.getElementById('btnLanding2').href = '#';
 
-	       const shareBtn = document.getElementById('btnShareMain');
-	       shareBtn.className = 'btn-result';
+           const shareBtn = document.getElementById('btnShareMain');
+           shareBtn.className = 'btn-result';
 
-	       if (isMobileDevice()) {
-	         shareBtn.classList.add('btn-share-ig');
-	         shareBtn.innerHTML = '📸 Share ke Sosial Media';
-	         shareBtn.onclick = async function() { await shareImageWithTemplate(); };
-	       } else {
-	         shareBtn.classList.add('btn-share-desktop');
-	         shareBtn.innerHTML = '💬 Share ke WhatsApp';
-	         shareBtn.onclick = function() {
-	           const waText = encodeURIComponent(`${shareText}\n\n✨ Coba kuisnya juga yuk! gratis kok 👉 ${shareUrl}`);
-	           window.open(`https://wa.me/?text=${waText}`, '_blank');
-	           showToast('✅ Membuka WhatsApp...', true);
-	         };
-	       }
+           if (isMobileDevice()) {
+             shareBtn.classList.add('btn-share-ig');
+             shareBtn.innerHTML = '📸 Share ke Sosial Media';
+             shareBtn.onclick = async function() { await shareImageWithTemplate(); };
+           } else {
+             shareBtn.classList.add('btn-share-desktop');
+             shareBtn.innerHTML = '💬 Share ke WhatsApp';
+             shareBtn.onclick = function() {
+               const waText = encodeURIComponent(`${shareText}\n\n✨ Coba kuisnya juga yuk! gratis kok 👉 ${shareUrl}`);
+               window.open(`https://wa.me/?text=${waText}`, '_blank');
+               showToast('✅ Membuka WhatsApp...', true);
+             };
+           }
 
-	       setupResultSwipe();
-	       document.getElementById('toast').style.opacity = '0';
-	     }
+           setupResultSwipe();
+           document.getElementById('toast').style.opacity = '0';
+         }
 
-	     function setupResultSwipe() {
-	       const container = document.getElementById('resultContainer');
-	       container.removeEventListener('touchstart', handleResultTouchStart);
-	       container.removeEventListener('touchend', handleResultTouchEnd);
-	       container.addEventListener('touchstart', handleResultTouchStart, { passive: true });
-	       container.addEventListener('touchend', handleResultTouchEnd, { passive: true });
+         function setupResultSwipe() {
+           const container = document.getElementById('resultContainer');
+           container.removeEventListener('touchstart', handleResultTouchStart);
+           container.removeEventListener('touchend', handleResultTouchEnd);
+           container.addEventListener('touchstart', handleResultTouchStart, { passive: true });
+           container.addEventListener('touchend', handleResultTouchEnd, { passive: true });
 
-	       document.querySelectorAll('.slide-indicator-result').forEach(ind => {
-	         ind.addEventListener('click', function() {
-	           goToResultSlide(parseInt(this.dataset.index));
-	         });
-	       });
-	     }
+           document.querySelectorAll('.slide-indicator-result').forEach(ind => {
+             ind.addEventListener('click', function() {
+               goToResultSlide(parseInt(this.dataset.index));
+             });
+           });
+         }
 
-	     function handleResultTouchStart(e) { 
-	       touchStartX = e.changedTouches[0].screenX; 
-	     }
+         function handleResultTouchStart(e) { 
+           touchStartX = e.changedTouches[0].screenX; 
+         }
 
-	     function handleResultTouchEnd(e) {
-	       touchEndX = e.changedTouches[0].screenX;
-	       if (!touchStartX) return;
-	       const diff = touchStartX - touchEndX;
-	       if (Math.abs(diff) > 50) {
-	         if (diff > 0 && currentResultSlide === 0) goToResultSlide(1);
-	         else if (diff < 0 && currentResultSlide === 1) goToResultSlide(0);
-	       }
-	       touchStartX = 0;
-	       touchEndX = 0;
-	     }
+         function handleResultTouchEnd(e) {
+           touchEndX = e.changedTouches[0].screenX;
+           if (!touchStartX) return;
+           const diff = touchStartX - touchEndX;
+           if (Math.abs(diff) > 50) {
+             if (diff > 0 && currentResultSlide === 0) goToResultSlide(1);
+             else if (diff < 0 && currentResultSlide === 1) goToResultSlide(0);
+           }
+           touchStartX = 0;
+           touchEndX = 0;
+         }
 
-	     window.goToResultSlide = function(index) {
-	       currentResultSlide = index;
-	       document.getElementById('resultWrapper').style.transform = `translateX(-${currentResultSlide * 50}%)`;
-	       updateResultIndicators();
-	     };
+         window.goToResultSlide = function(index) {
+           currentResultSlide = index;
+           document.getElementById('resultWrapper').style.transform = `translateX(-${currentResultSlide * 50}%)`;
+           updateResultIndicators();
+         };
 
-	     function updateResultIndicators() {
-	       document.querySelectorAll('.slide-indicator-result').forEach((ind, idx) => {
-	         ind.classList.toggle('active', idx === currentResultSlide);
-	       });
-	     }
+         function updateResultIndicators() {
+           document.querySelectorAll('.slide-indicator-result').forEach((ind, idx) => {
+             ind.classList.toggle('active', idx === currentResultSlide);
+           });
+         }
 
-	     async function shareImageWithTemplate() {
-	       showToast('⏳ Menyiapkan gambar...', true);
-	       try {
-	         const shareContainer = document.getElementById('shareImageContainer');
-	         
-	         shareContainer.style.left = '0';
-	         shareContainer.style.position = 'fixed';
-	         shareContainer.style.zIndex = '9999';
-	         
-	         await new Promise(resolve => setTimeout(resolve, 500));
-	         
-	         const canvas = await html2canvas(shareContainer, { 
-	           backgroundColor: null, 
-	           scale: 2, 
-	           useCORS: true, 
-	           allowTaint: true 
-	         });
-	         
-	         shareContainer.style.left = '-9999px';
-	         shareContainer.style.position = 'absolute';
-	         shareContainer.style.zIndex = '';
-	         
-	         canvas.toBlob(async (blob) => {
-	           const file = new File([blob], 'hasil-quiz-investasi.png', { type: 'image/png' });
-	           if (navigator.share && navigator.canShare && navigator.canShare({ files: [file] })) {
-	             try {
-	               await navigator.share({ 
-	                 title: 'Hasil Kuis Kepribadian', 
-	                 text: '✨ Coba kuis kepribadian investasi ini juga yuk!', 
-	                 files: [file] 
-	               });
-	               showToast('✅ Pilih Instagram untuk share!', true);
-	             } catch (err) {
-	               if (err.name !== 'AbortError') { 
-	                 downloadImage(canvas);
-	                 showToast('📥 Gambar diunduh! Buka IG & upload ke Story ya.', true); 
-	               }
-	             }
-	           } else { 
-	             downloadImage(canvas);
-	             showToast('📥 Gambar diunduh! Buka IG & upload ke Story ya.', true); 
-	           }
-	         }, 'image/png');
-	       } catch (err) { 
-	         showToast('⚠️ Gagal membuat gambar. Coba screenshot manual.', false); 
-	       }
-	     }
+         async function shareImageWithTemplate() {
+           showToast('⏳ Menyiapkan gambar...', true);
+           try {
+             const shareContainer = document.getElementById('shareImageContainer');
+             
+             shareContainer.style.left = '0';
+             shareContainer.style.position = 'fixed';
+             shareContainer.style.zIndex = '9999';
+             
+             await new Promise(resolve => setTimeout(resolve, 500));
+             
+             const canvas = await html2canvas(shareContainer, { 
+               backgroundColor: null, 
+               scale: 2, 
+               useCORS: true, 
+               allowTaint: true 
+             });
+             
+             shareContainer.style.left = '-9999px';
+             shareContainer.style.position = 'absolute';
+             shareContainer.style.zIndex = '';
+             
+             canvas.toBlob(async (blob) => {
+               const file = new File([blob], 'hasil-quiz-investasi.png', { type: 'image/png' });
+               if (navigator.share && navigator.canShare && navigator.canShare({ files: [file] })) {
+                 try {
+                   await navigator.share({ 
+                     title: 'Hasil Kuis Kepribadian', 
+                     text: '✨ Coba kuis kepribadian investasi ini juga yuk!', 
+                     files: [file] 
+                   });
+                   showToast('✅ Pilih Instagram untuk share!', true);
+                 } catch (err) {
+                   if (err.name !== 'AbortError') { 
+                     downloadImage(canvas);
+                     showToast('📥 Gambar diunduh! Buka IG & upload ke Story ya.', true); 
+                   }
+                 }
+               } else { 
+                 downloadImage(canvas);
+                 showToast('📥 Gambar diunduh! Buka IG & upload ke Story ya.', true); 
+               }
+             }, 'image/png');
+           } catch (err) { 
+             showToast('⚠️ Gagal membuat gambar. Coba screenshot manual.', false); 
+           }
+         }
 
-	     function downloadImage(canvas) {
-	       const link = document.createElement('a');
-	       link.download = 'hasil-quiz-kepribadian.png';
-	       link.href = canvas.toDataURL('image/png');
-	       link.click();
-	     }
+         function downloadImage(canvas) {
+           const link = document.createElement('a');
+           link.download = 'hasil-quiz-kepribadian.png';
+           link.href = canvas.toDataURL('image/png');
+           link.click();
+         }
 
-	     function showToast(text, isSuccess = true) {
-	       const toastEl = document.getElementById('toast');
-	       toastEl.textContent = text;
-	       toastEl.style.opacity = '1';
-	       toastEl.style.background = isSuccess ? 'rgba(46,125,50,0.9)' : 'rgba(183,28,28,0.9)';
-	       toastEl.style.color = 'white';
-	       setTimeout(() => { toastEl.style.opacity = '0'; }, 3000);
-	     }
+         function showToast(text, isSuccess = true) {
+           const toastEl = document.getElementById('toast');
+           toastEl.textContent = text;
+           toastEl.style.opacity = '1';
+           toastEl.style.background = isSuccess ? 'rgba(46,125,50,0.9)' : 'rgba(183,28,28,0.9)';
+           toastEl.style.color = 'white';
+           setTimeout(() => { toastEl.style.opacity = '0'; }, 3000);
+         }
 
-	     window.retakeQuiz = () => { 
-	       localStorage.clear();
-	       location.reload(); 
-	     };
+         window.retakeQuiz = () => { 
+           localStorage.clear();
+           location.reload(); 
+         };
 
-	     // === INITIAL STATE ===
-	     // Hanya hero yang terlihat
-	     heroPage.classList.add('page-visible');
-	     [introPage, namePage, quizPage, resultPage].forEach(p => {
-	       p.classList.add('page-hidden');
-	     });
+         // === INITIAL STATE ===
+         heroPage.classList.add('page-visible');
+         [introPage, namePage, quizPage, resultPage].forEach(p => {
+           p.classList.add('page-hidden');
+         });
 
-	     (function check() {
-	       if (localStorage.getItem("quizCompleted") === "true") {
-	         const t = localStorage.getItem("quizResultType");
-	         if (t && resultData[t]) {
-	           currentResultType = t;
-	           userName = localStorage.getItem("quizUserName") || "";
-	           // Sembunyikan semua page, tampilkan result
-	           [heroPage, introPage, namePage, quizPage].forEach(p => {
-	             p.classList.add('page-hidden');
-	             p.classList.remove('page-visible', 'active');
-	           });
-	           resultPage.classList.remove('page-hidden');
-	           resultPage.classList.add('page-visible', 'active');
-	           showLogos(true, true);
-	           displayResult(t);
-	         }
-	       }
-	     })();
-	   })();
-	</script>
+         (function check() {
+           if (localStorage.getItem("quizCompleted") === "true") {
+             const t = localStorage.getItem("quizResultType");
+             if (t && resultData[t]) {
+               currentResultType = t;
+               userName = localStorage.getItem("quizUserName") || "";
+               [heroPage, introPage, namePage, quizPage].forEach(p => {
+                 p.classList.add('page-hidden');
+                 p.classList.remove('page-visible');
+               });
+               resultPage.classList.remove('page-hidden');
+               resultPage.classList.add('page-visible');
+               showLogos(true, true);
+               displayResult(t);
+             }
+           }
+         })();
+       })();
+    </script>
 </body>
 </html>
