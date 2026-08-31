@@ -3,7 +3,7 @@
 
 
  
-#idntimes, #popbela, #popmama, #yummy, #fortune, #ggwp, #duniaku, #idnapp, #idnpictures {
+#idntimes, #popbela, #popmama, #yummy, #fortune, #ggwp, #duniaku, #idnapp, #idnpictures, #colours {
     background-color: #fff;
 }
 #page-content-wrapper {
@@ -121,8 +121,12 @@
 }
 
 
+
+
+
+
 /* ===== style untuk kolom spesifikasi ===== */
-/* -- style umum -- */
+/* -- style umum global -- */
 .spec-box {
     background-color: #fff;
 	-webkit-box-shadow: 0 0 6px rgba(0, 0, 0, 0.15);
@@ -272,6 +276,9 @@
 #idntimes .spec-box h1, #ggwp .spec-box h1, #duniaku .spec-box h1, #idnapp .spec-box h1, #idnpictures .spec-box h1 {
     background-color: #ed2028;
 }
+#colours .spec-box h1 {
+    background: linear-gradient(to right, #068998, #1e2d5f)
+}
 #popbela .spec-box h1 {
     background-color: #d41968;
 }
@@ -378,27 +385,12 @@
     background-color: bisque;
     font-style: italic;
 }
-
-
-/*
-.upload-file-2-label {
-    height: 30px;
+.note3 {
+    background-color: #f0f0f0;
+    padding: 5px 10px;
+    font-weight: bold;
+    border: 1px solid #ccc;
 }
-.custom-file-label::after {
-    height: 28px;
-}
-*/
-
-
-
-
-
-
-
-
-
-
-
 .newtag span {
     position: absolute;
     font-family: 'Outfit', sans-serif;
@@ -430,10 +422,74 @@
 }
 
 
+/* -- specbox khusus colour -- */
 
+/* Title */
+.series-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #1e2d5f;
+}
 
+/* Container */
+ul.series-discount-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+    margin-bottom: 12px;
+}
 
+/* Setiap item card */
+li.series-item {
+  background: linear-gradient(to right, #068998, #1e2d5f);
+  padding: 5px;
+  border-radius: 30px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease;
+}
 
+/* Badge jumlah insertions */
+.series-badge {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+/* Angka diskon */
+.series-discount {
+  font-size: 20px;
+  font-weight: 800;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 2px 16px;
+  border-radius: 30px;
+    margin-right: 7px;
+}
+
+/* Panah antar level */
+.series-arrow {
+  font-size: 18px;
+  opacity: 0.7;
+  margin-left: auto;
+  margin-right: 4px;
+}
+
+/* Bintang di level terakhir (opsional) */
+.series-star {
+  font-size: 18px;
+  margin-left: auto;
+  margin-right: 4px;
+  color: #ffd700;
+}
 
 
 
@@ -700,12 +756,13 @@ body, html {
 	color: #e93f33;
 	padding: .6rem 1.3rem;
 	font-family: 'Outfit', sans-serif;
-	letter-spacing: 1px;
+	letter-spacing: .3px;
 	font-size: 1.4rem;
 	-webkit-box-shadow: none;
 	box-shadow: none;
 	-webkit-transition: all 0.3s ease;
 	transition: all 0.3s ease;
+    margin-left: 5px;
 }
 .navbar a.contact-us:hover {
 	text-decoration: none;
@@ -901,18 +958,64 @@ th, td {
 
 
 
+/* Page Download Logo */
+.logo-box {
+    margin-bottom: 3rem;
+    font-family: 'Outfit', sans-serif;
+}
+.logo-preview {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px; 
+    background: #eee; 
+    padding: 50px;
+}
+.logo-preview img {
+    max-width: 100%;
+    height: auto;
+}
+.card-body .gap5 {
+    gap: 6px;
+}
+.card-body .btn {
+    font-size: 12px;
+}
+.card-body .btn:hover {
+    border-color: #808080;
+}
+.btn.focus, .btn:focus {
+    box-shadow: none;
+}
+.card-body .btn-active {
+    background-color: #808080  !important; 
+    color: #fff !important;
+    border-color: #808080;
+}
+.card-body a.downloadBtn {
+    background-color: #ed2028;
+    padding: 3px 15px;
+    border-radius: 3px;
+    font-size: 14px;
+    color: white;
+    border: 2px solid #ed2028;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    margin-top: 5px;
+    display: inline-block;
+}
+.card-body a.downloadBtn:hover {
+    text-decoration: none;
+    background-color: white;
+    color: #ed2028;
+}
+.pad100 {
+    padding: 10px 110px!important;
+}
 
 
 
 
-
-
-
-
-
-
-
-
+/* Page Contact Us */
 .contact-us-page {
 	background-color: #fff;
 	-webkit-box-shadow: 1px 2px 10px #1e1e1e80;
@@ -1013,6 +1116,8 @@ th, td {
 
 
 
+
+
 @media screen and (max-width: 480px) {
     
     .preview-desktop {
@@ -1035,18 +1140,7 @@ th, td {
         height: 550px;
         top: 13px;
         border-radius: 15px;
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    }  
     
 	#home_awal {
 		background-attachment: fixed;
