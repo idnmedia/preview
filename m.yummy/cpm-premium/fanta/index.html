@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Preview Banner IDN</title>
+    <meta name="description" content="Preview banner IDN" />
+    <meta name="author" content="" />
+
+    <style>
+        *, ::before, ::after { box-sizing: border-box; }
+
+        body {
+            position: relative;
+            margin: 0;
+        }
+
+        .container-fluid {
+            width: 100%;
+            margin-right: auto;
+            margin-left: auto;
+            text-align: center;
+        }
+
+        .img-fluid {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .ads {
+            text-align: center;
+            margin: 0;
+            background-color: #FAFAFA;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            text-align: center;
+            z-index: 5;
+        }
+
+        .bodytop {
+            margin-top: 0;
+            text-align: center;
+        }
+
+        #myDiv {
+            position: fixed;
+            z-index: 9;
+            bottom: 0;
+            width: 100%;
+        }
+
+        #stickybottom {
+            position: relative;
+            max-width: 320px;
+            margin: 0 auto;
+        }
+
+        #closeBtn {
+            background: none;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+            position: absolute;
+            right: 0;
+            top: -30px;
+        }
+
+        #closeBtn img {
+            max-width: 25px;
+            display: block;
+        }
+
+        #inarticle1 { padding: 5px; }
+    </style>
+</head>
+
+<body>
+
+    <section class="container-fluid ads" aria-label="Mega Billboard">
+        <a href="#" target="_blank" rel="noopener">
+            <img src="320x480.jpg" width="320" height="480" alt="DBS Treasures Banner">
+        </a>
+    </section>
+
+    <div id="myDiv" class="container-fluid ads">
+        <div id="stickybottom">
+            <button id="closeBtn" type="button" aria-label="Tutup banner">
+                <img src="https://ads.idn.media/products/cdn/button/close-black-white.png" alt="Tutup">
+            </button>
+            <a href="#" target="_blank" rel="noopener">
+                <img src="320x100.jpg" width="320" alt="DBS Sticky Banner">
+            </a>
+        </div>
+    </div>
+
+    <header>
+        <div class="container-fluid">
+            <img src="../web/header.jpg" class="img-fluid" alt="Header">
+        </div>
+    </header>
+
+    <section class="container-fluid bodytop">
+        <img src="../web/body1.jpg" class="img-fluid" alt="Body 1">
+    </section>
+
+    <section id="inarticle1" class="container-fluid ads">
+        <a href="#" target="_blank" rel="noopener">
+            <img src="300x250.jpg" width="300" height="250" alt="In-Article Banner">
+        </a>
+    </section>
+
+    <section class="container-fluid bodytop">
+        <img src="../web/body2.jpg" class="img-fluid" alt="Body 2">
+    </section>
+
+    <script>
+        document.getElementById('closeBtn').addEventListener('click', function () {
+            document.getElementById('myDiv').style.display = 'none';
+        });
+    </script>
+
+</body>
+</html>
