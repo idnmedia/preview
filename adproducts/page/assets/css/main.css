@@ -391,6 +391,11 @@
     font-weight: bold;
     border: 1px solid #ccc;
 }
+.note4 {
+    background-color: #eee;
+    padding: 8px;
+    margin-top: 5px;
+}
 .newtag span {
     position: absolute;
     font-family: 'Outfit', sans-serif;
