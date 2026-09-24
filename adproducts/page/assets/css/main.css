@@ -395,6 +395,7 @@
     background-color: #eee;
     padding: 8px;
     margin-top: 5px;
+    font-style: italic;
 }
 .newtag span {
     position: absolute;
