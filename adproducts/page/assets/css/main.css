@@ -429,6 +429,11 @@
 
 /* -- specbox unik khusus colours -- */
 
+#colours .pad20 {
+    max-height: 500px;
+    overflow-y: scroll;
+}
+
 /* Title */
 .series-title {
   font-size: 18px;
