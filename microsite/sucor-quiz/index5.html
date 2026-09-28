@@ -1,0 +1,1545 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover" name="viewport">
+    <title>Investor Personality – Temukan Profil Investasimu</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js">
+    </script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js">
+    </script>
+</head>
+<body>
+    <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #5c6bc0;
+      --primary-soft: #8e99d6;
+      --accent: #ff8a65;
+      --bg-gradient: linear-gradient(145deg, #f8f0ff 0%, #e8eaf6 100%);
+      --card-bg: rgba(255, 255, 255, 0.85);
+      --glass-border: rgba(255, 255, 255, 0.5);
+      --text-dark: #2e2e3a;
+      --text-soft: #4a4a5c;
+      --shadow-sm: 0 10px 25px -8px rgba(0, 0, 0, 0.1);
+      --shadow-hover: 0 20px 30px -12px rgba(92, 107, 192, 0.25);
+      --radius-xl: 32px;
+      --radius-lg: 24px;
+      --radius-md: 18px;
+      --radius-sm: 14px;
+    }
+@font-face {
+  font-family: 'customFont';
+  src: url('fonts/Newstalgic.otf') format('opentype'),
+       url('fonts/Newstalgic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+    body {
+      font-family: "Funnel Display", sans-serif;
+      min-height: 100vh;
+      height: auto;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      margin: 0;
+      background-color: #030b39;
+      overflow-y: auto;
+    }
+
+img {
+    max-width: 100%;
+}
+
+    .container {
+  width: 100%;
+  max-width: 650px;
+  text-align: center;
+  position: relative;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  background-color: #030b39;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  height: 100vh;
+  min-height: 100vh;
+}
+
+    @keyframes fadeSlideUp {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+      40% { transform: translateY(-15px); }
+      60% { transform: translateY(-7px); }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0;}
+      to { opacity: 1;}
+    }
+
+    .page {
+  width: 100%;
+  min-height: 100vh;
+  height: 100vh;
+  aspect-ratio: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  transition: opacity 0.6s cubic-bezier(0.25, 0.8, 0.25, 1), 
+              transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+  will-change: transform, opacity;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+    .page-hidden {
+      display: none !important;
+    }
+
+    .page-visible {
+      display: flex !important;
+    }
+
+    .main-logo {
+      position: absolute;
+      top: 1.5rem;
+      left: 1.5rem;
+      width: 80px;
+      height: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+      display: none;
+    }
+    
+    .main-logo img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .result-logo-right {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      width: 80px;
+      height: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+      display: none;
+    }
+    
+    .result-logo-right img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    #heroPage {
+      background-image: url(img/bg1.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      justify-content: flex-start;
+      padding-top: 20vh;
+    }
+    .hero-subtitle {
+      font-size: clamp(0.7rem, 2vw, 1rem);
+      color: white;
+      line-height: 1.6;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+      max-width: 80%;
+      animation: fadeSlideUp 1s ease 0.3s both;
+    }
+    .bottom-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      cursor: pointer;
+      color: #FFD01A;
+      font-weight: 600;
+      transition: 0.3s;
+      position: absolute;
+      bottom: 10vh;
+      animation: fadeSlideUp 1s ease 0.6s both;
+    }
+    .bottom-section span {
+      font-size: 0.9rem;
+      margin-bottom: 0.4rem;
+    }
+    .scroll-down-arrow {
+      font-size: 2.2rem;
+      animation: bounce 2s infinite;
+    }
+    .scroll-down-arrow img {
+      width: 12px;
+      height: auto;
+    }
+
+    #introSecondPage {
+      background-image: url(img/bg2.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      gap: 1rem;
+      justify-content: center;
+    }
+    #introSecondPage img {
+      max-width: 200px;
+      width: 100%;
+      height: auto;
+      animation: fadeSlideUp 0.8s ease 0.2s both;
+    }
+    .top-img {
+      position: absolute;
+      top: 15vh;
+    }
+    .intro-second-desc {
+      font-size: clamp(0.9rem, 2.5vw, 1.2rem);
+      color: #FFD01A;
+      max-width: 80%;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+      animation: fadeSlideUp 0.8s ease 0.4s both;
+    }
+    .btn-start-quiz {
+      background: transparent;
+      color: white;
+      border: none;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 2.5rem;
+      animation: fadeSlideUp 0.8s ease 0.6s both;
+    } 
+    .btn-start-quiz img {
+      max-width: 165px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .btn-start-quiz img:hover {
+      transform: scale(1.1);
+    }
+
+    #nameStep {
+      background-image: url(img/name-bg.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      gap: 1rem;
+      padding: 0 2rem;
+      justify-content: center;
+    }
+    #nameStep .text {
+      max-width: 80%;
+      margin-bottom: 0.5rem;
+    }
+    #nameStep h2 {
+      color: #FFD533;
+      font-size: clamp(1rem, 3vw, 1.4rem);
+      line-height: 1.6;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    }
+
+    .name-input-card {
+  width: 100%;
+  max-width: 400px;
+  background-image: url('img/box-name-bg.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 2.5rem;
+  position: relative;
+  aspect-ratio: 1/1;
+}
+
+    .name-input-card p {
+      color: #fff;
+      font-size: clamp(0.8rem, 2vw, 1rem);
+      font-weight: 600;
+      text-align: center;
+      line-height: 1.5;
+      margin-bottom: 1.5rem;
+      max-width: 90%;
+    }
+
+    .name-input {
+      width: 100%;
+      padding: 0.8rem 1.2rem;
+      border: none;
+      font-family: "Funnel Display", sans-serif;
+      font-size: 1.4rem;
+      text-align: center;
+      color: #fff;
+      outline: none;
+      transition: 0.3s;
+      background-image: url('svg/input-name-bg.svg');
+      background-size: 100% 100%;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-color: transparent;
+      min-height: 60px;
+    }
+
+    .name-input:focus {
+      filter: brightness(1.05);
+      transform: scale(1.02);
+    }
+
+    .name-input::placeholder {
+      color: #fff;
+    }
+
+    .error-message {
+      color: #ff6b6b;
+      min-height: 1.5rem;
+      font-size: 0.8rem;
+      margin-top: 0.2rem;
+      font-weight: 600;
+    }
+
+    .btn-name-next {
+      margin-top: 0.3rem;
+      cursor: pointer;
+      transition: 0.3s;
+      background: none;
+      border: none;
+    }
+    .btn-name-next img {
+      max-width: 140px;
+      height: auto;
+    }
+    .btn-name-next:hover {
+      transform: scale(1.05);
+    }
+
+    #quizMode {
+      background-image: url(img/question-bg.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      padding: 0 1.5rem;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+    .quiz-header {
+      position: absolute;
+      top: 8vh;
+      width: 100%;
+    }
+    .question-counter-center {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #FFD533;
+      margin-bottom: 0.6rem;
+      letter-spacing: 2px;
+    }
+    .progress-dots {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+    .dot {
+      width: 8px;
+      height: 8px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 20px;
+      transition: 0.3s;
+    }
+    .dot.active {
+      width: 24px;
+      background: #FFD533;
+    }
+    .dot.completed {
+      background: rgba(255, 213, 51, 0.5);
+    }
+
+    .question {
+      font-family: "customFont", sans-serif;
+      animation: fadeInUp 0.4s ease;
+      width: 100%;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    .question p {
+      font-size: clamp(1.6rem, 5vw, 2.2rem);
+      font-weight: 650;
+      color: #FFD533;
+      margin-bottom: 1.5rem;
+      text-align: center;
+      line-height: 1.3;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    }
+
+    .options-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+      width: 100%;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .option-btn {
+      position: relative;
+      width: 100%;
+      min-height: 80px;
+      font-size: clamp(0.85rem, 2vw, 1rem);
+      font-weight: 600;
+      border: none;
+      color: #2e2507;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      background-color: transparent;
+      background-image: url('svg/option-bg.svg') !important; 
+      background-size: 100% 100%;
+      background-position: center;
+      background-repeat: no-repeat;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 1rem 1.5rem;
+    }
+
+    .option-btn span {
+      position: relative;
+      z-index: 2;
+    }
+
+    .option-btn:hover:not(.selected) {
+      transform: translateY(-3px) scale(1.02);
+      filter: brightness(1.1);
+    }
+
+    .option-btn.selected {
+      transform: scale(1.05);
+      filter: brightness(1.2);
+      box-shadow: 0 0 30px rgba(255, 213, 51, 0.3);
+    }
+
+    .quiz-disclaimer {
+      position: absolute;
+      bottom: 10vh;
+      font-size: 0.7rem;
+      color: rgba(255, 255, 255, 0.8);
+      text-align: center;
+    }
+
+    /* ===== RESULT STYLES - REDESIGNED ===== */
+    #resultMode {
+  padding: 0;
+  background: #030b39;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  aspect-ratio: auto;
+  overflow: hidden;
+  height: 100vh;
+}
+
+    .result-container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      border-radius: 0;
+      margin-top: 0;
+    }
+
+    .result-wrapper {
+      display: flex;
+      transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+      will-change: transform;
+      width: 200%;
+      height: 100%;
+    }
+
+    .result-slide {
+  width: 50%;
+  flex-shrink: 0;
+  padding: 0;
+  background: #030b39;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100%;
+  aspect-ratio: auto;
+}
+
+    .result-slide>* {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* ---- SLIDE 1: RADAR CHART + DOMINANT LABEL ---- */
+    .result-header-slide1 {
+      padding-top: 8vh;
+      width: 100%;
+    }
+
+    .dominant-label {
+      font-family: "customFont", sans-serif;
+      font-size: clamp(1.4rem, 4vw, 2rem);
+      font-weight: 700;
+      color: #FFD533;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+      margin-bottom: 0.5rem;
+    }
+
+    .dominant-subtitle {
+      font-size: clamp(0.85rem, 2vw, 1rem);
+      color: rgba(255, 255, 255, 0.85);
+      max-width: 85%;
+      margin: 0 auto 1rem auto;
+      line-height: 1.5;
+    }
+
+    .radar-chart-wrapper {
+      width: 90%;
+      max-width: 380px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .score-summary {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+      padding: 0 1rem;
+    }
+
+    .score-pill {
+      background: rgba(255, 213, 51, 0.15);
+      border: 1px solid rgba(255, 213, 51, 0.3);
+      border-radius: 30px;
+      padding: 0.4rem 1rem;
+      font-size: 0.75rem;
+      color: #FFD533;
+      font-weight: 600;
+      backdrop-filter: blur(4px);
+    }
+
+    /* ---- SLIDE 2: DETAIL SCORES + CTA ---- */
+    .result-header-slide2 {
+      padding-top: 12vh;
+      width: 100%;
+      text-align: center;
+    }
+
+    .result-header-slide2 h2 {
+      font-family: "customFont", sans-serif;
+      font-size: clamp(1.3rem, 3.5vw, 1.8rem);
+      color: #FFD533;
+      margin-bottom: 1.5rem;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    }
+
+    .personality-bars {
+      width: 85%;
+      max-width: 420px;
+      margin: 0 auto 1.5rem auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .personality-bar-row {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .personality-bar-label {
+      width: 90px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: white;
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    .personality-bar-track {
+      flex: 1;
+      height: 18px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .personality-bar-fill {
+      height: 100%;
+      border-radius: 20px;
+      transition: width 1s ease;
+      background: linear-gradient(90deg, #FFD533, #ff8a65);
+    }
+
+    .personality-bar-score {
+      width: 35px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: #FFD533;
+      text-align: left;
+      flex-shrink: 0;
+    }
+
+    .result-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      width: 100%;
+      max-width: 400px;
+      margin: 1rem auto 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .btn-result {
+      position: relative;
+      width: 100%;
+      min-height: 40px;
+      font-size: clamp(0.85rem, 2vw, 1rem);
+      font-weight: 600;
+      border: none;
+      color: #000D45;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      background-color: transparent;
+      background-image: url('svg/option-bg.svg') !important; 
+      background-size: 100% 100%;
+      background-position: center;
+      background-repeat: no-repeat;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 1rem 1.5rem;
+    }
+
+    .btn-result:hover {
+      transform: translateY(-2px) scale(1.02);
+    }
+
+    .btn-retake-small {
+      display: inline-block;
+      padding: 0.4rem 1.2rem;
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: white;
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px dashed rgba(255, 255, 255, 0.5);
+      border-radius: 30px;
+      cursor: pointer;
+      transition: 0.2s;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      z-index: 3;
+      margin: 1rem auto;
+    }
+
+    .btn-retake-small:hover {
+      background: rgba(0, 0, 0, 0.5);
+      border-color: white;
+    }
+
+    .toast-message {
+      position: fixed;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.85rem;
+      padding: 0.8rem 1.5rem;
+      border-radius: 30px;
+      display: inline-block;
+      opacity: 0;
+      transition: opacity 0.3s;
+      z-index: 999;
+      background: rgba(0,0,0,0.8);
+      backdrop-filter: blur(8px);
+      color: white;
+      font-weight: 500;
+      text-align: center;
+      max-width: 90%;
+    }
+
+    .slide-indicators-result {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .slide-indicator-result {
+      width: 10px;
+      height: 10px;
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 20px;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+
+    .slide-indicator-result.active {
+      width: 28px;
+      background: #FFD533;
+    }
+
+    .swipe-hint {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.7);
+      margin-top: 0.5rem;
+      cursor: pointer;
+      font-weight: 500;
+    }
+
+    @media (max-width: 550px) {
+      .main-logo {
+        top: 1.5rem;
+        left: 1rem;
+        width: 50px;
+      }
+      .result-logo-right {
+        top: 1.5rem;
+        right: 1rem;
+        width: 50px;
+      }
+      #heroPage {
+        padding-top: 31vh;
+      }
+      .hero-subtitle {
+        font-size: 0.8rem;
+      }
+      #introSecondPage img {
+        max-width: 75%;
+      }
+      .top-img {
+        top: 15vh;
+      }
+      .btn-start-quiz {
+        margin-top: 2.5rem;
+      }
+      .intro-second-desc {
+        font-size: .8rem;
+      }
+      #nameStep {
+        padding: 0 1rem;
+      }
+      #nameStep .text {
+        max-width: 90%;
+      }
+      #nameStep h2 {
+        font-size: 1rem;
+      }
+      .name-input-card {
+        padding: 1.5rem 1.2rem;
+        max-width: 320px;
+        aspect-ratio: 1/1;
+      }
+      .name-input-card p {
+        font-size: 0.85rem;
+        margin-bottom: 1.5rem;
+      }
+      .name-input {
+        font-size: 1.2rem;
+        padding: 0.6rem 1rem;
+      }
+      .btn-name-next img {
+        max-width: 150px;
+      }
+      .error-message {
+        font-size: 0.7rem;
+        min-height: 1.2rem;
+      }
+      #quizMode {
+        padding: 0 1rem;
+      }
+      .quiz-header {
+        position: absolute;
+        top: 8vh;
+        width: 100%;
+      }
+      .question p {
+        font-size: 1.4rem;
+      }
+      .option-btn {
+        min-height: 65px;
+        font-size: 0.8rem;
+        padding: 0.8rem 1rem;
+      }
+      .dominant-label {
+        font-size: 1.3rem;
+      }
+      .dominant-subtitle {
+        font-size: 0.8rem;
+        max-width: 90%;
+      }
+      .radar-chart-wrapper {
+        width: 95%;
+        max-width: 300px;
+      }
+      .personality-bar-label {
+        width: 70px;
+        font-size: 0.65rem;
+      }
+      .personality-bar-score {
+        width: 28px;
+        font-size: 0.65rem;
+      }
+      .personality-bars {
+        width: 92%;
+      }
+      .btn-result {
+        padding: 0.7rem 1rem;
+        font-size: 0.8rem;
+      }
+      .toast-message {
+        font-size: 0.75rem;
+        padding: 0.6rem 1rem;
+        bottom: 1rem;
+      }
+    }
+    </style>
+    
+    <div class="container" id="quiz1">
+        <div class="main-logo" id="mainLogo"><img src="img/logo-FYIType.png" alt="Logo"></div>
+        <div class="result-logo-right" id="resultLogoRight"><img src="img/logo-FYIType.png" alt="Logo"></div>
+        
+        <!-- HERO PAGE -->
+        <div id="heroPage" class="page page-visible">
+            <p class="hero-subtitle">Every Personality Shapes Your Investment Strategy</p>
+            <div class="bottom-section" id="scrollDownTrigger">
+                <span>Discover Your Investor Profile</span>
+                <div class="scroll-down-arrow"><img src="img/arrow.png" alt="Arrow"></div>
+            </div>
+        </div>
+        
+        <!-- INTRO PAGE -->
+        <div id="introSecondPage" class="page page-hidden">
+            <img src="img/yakin.png" class="top-img" alt="Yakin">
+            <div class="bottom-section">
+                <p class="intro-second-desc">Seperti bidak catur, kepribadianmu membentuk cara kamu berinvestasi.</p>
+                <button class="btn-start-quiz" id="btnStartQuiz"><img src="img/letsmove-btn.png" alt="Mulai Kuis"></button>
+            </div>
+        </div>
+        
+        <!-- NAME PAGE -->
+        <div id="nameStep" class="page page-hidden">
+            <div class="text">
+                <h2>F.Y.I. Type bantu kamu kenali kepribadian investasi berdasarkan 5 dimensi psikologis</h2>
+            </div>
+            <div class="name-input-card">
+                <p>Yuk, mainkan F.Y.I. Type dan temukan profil kepribadian investasimu!</p>
+                <input class="name-input" id="userNameInput" placeholder="cth. Ara, Bimo..." type="text" maxlength="10">
+                <div class="error-message" id="nameError"></div>
+                <button class="btn-name-next" onclick="submitName()"><img src="img/play-btn.png" alt="Mulai Kuis"></button>
+            </div>
+        </div>
+        
+        <!-- QUIZ PAGE -->
+        <div id="quizMode" class="page page-hidden">
+            <div class="quiz-header">
+                <div class="question-counter-center" id="questionCounterCenter">1 / 10</div>
+                <div class="progress-dots" id="progressDots"></div>
+            </div>
+            <div id="quiz" style="width:100%;display:flex;flex-direction:column;align-items:center;">
+                <!-- Questions will be injected by JS -->
+            </div>
+            <div class="quiz-disclaimer">
+                <span>Tidak ada jawaban benar atau salah. Pilih yang paling menggambarkan dirimu.</span>
+            </div>
+        </div>
+        
+        <!-- RESULT PAGE -->
+        <div id="resultMode" class="page page-hidden">
+            <div class="result-container" id="resultContainer">
+                <div class="result-wrapper" id="resultWrapper">
+                    <!-- SLIDE 1: Radar Chart + Dominant -->
+                    <div class="result-slide" id="resultSlide1">
+                        <div class="result-header-slide1">
+                            <div class="dominant-label" id="dominantLabel"></div>
+                            <p class="dominant-subtitle" id="dominantSubtitle"></p>
+                        </div>
+                        <div class="radar-chart-wrapper">
+                            <canvas id="radarChart" width="350" height="350"></canvas>
+                        </div>
+                        <div class="score-summary" id="scoreSummary"></div>
+                        <div class="slide-indicators-result">
+                            <span class="slide-indicator-result active" data-index="0"></span>
+                            <span class="slide-indicator-result" data-index="1"></span>
+                        </div>
+                        <p class="swipe-hint" onclick="goToResultSlide(1)">Swipe untuk detail skor ›</p>
+                    </div>
+                    
+                    <!-- SLIDE 2: Detailed Bars + CTA -->
+                    <div class="result-slide" id="resultSlide2">
+                        <div class="result-header-slide2">
+                            <h2>Profil Kepribadian Investasimu</h2>
+                        </div>
+                        <div class="personality-bars" id="personalityBars"></div>
+                        <div class="slide-indicators-result">
+                            <span class="slide-indicator-result" data-index="0"></span>
+                            <span class="slide-indicator-result active" data-index="1"></span>
+                        </div>
+                        <div class="result-buttons" id="resultButtons">
+                            <button class="btn-result" id="btnShareResult">📤 Share Hasil</button>
+                        </div>
+                        <button class="btn-retake-small" onclick="retakeQuiz()">↺ Coba Lagi</button>
+                        <p class="swipe-hint" onclick="goToResultSlide(0)">‹ Swipe kembali ke chart</p>
+                    </div>
+                </div>
+            </div>
+            <div class="toast-message" id="toast"></div>
+        </div>
+    </div>
+    
+    <script>
+       (function() {
+         // =============================================
+         // BIG FIVE PERSONALITY QUIZ ENGINE
+         // =============================================
+         
+         const TOTAL_QUESTIONS = 10;
+         
+         // Pertanyaan baru yang mengukur 5 dimensi kepribadian
+         const questions = [
+           {
+             text: "Saat menghadapi situasi baru yang belum pernah kamu alami, bagaimana reaksi pertamamu?",
+             options: [
+               { label: "A", text: "Langsung penasaran dan excited mencoba", weights: { O: 1.0, C: 0.1, E: 0.7, A: 0.1, N: 0.0 } },
+               { label: "B", text: "Hati-hati, perlu waktu untuk observasi dulu", weights: { O: 0.2, C: 0.8, E: 0.1, A: 0.3, N: 0.4 } },
+               { label: "C", text: "Semangat tapi tetap butuh panduan atau mentor", weights: { O: 0.6, C: 0.4, E: 0.5, A: 0.6, N: 0.2 } },
+               { label: "D", text: "Agak cemas, tapi akan coba kalau banyak yang merekomendasikan", weights: { O: 0.1, C: 0.3, E: 0.1, A: 0.9, N: 0.6 } },
+               { label: "E", text: "Cenderung menghindari dan memilih yang sudah familiar", weights: { O: 0.0, C: 0.5, E: 0.0, A: 0.2, N: 0.8 } }
+             ]
+           },
+           {
+             text: "Dalam mengelola keuangan sehari-hari, mana yang paling menggambarkanmu?",
+             options: [
+               { label: "A", text: "Suka eksplorasi cara baru mengatur keuangan (aplikasi, metode investasi baru)", weights: { O: 1.0, C: 0.3, E: 0.5, A: 0.1, N: 0.1 } },
+               { label: "B", text: "Punya sistem budgeting ketat dan disiplin mencatat setiap pengeluaran", weights: { O: 0.1, C: 1.0, E: 0.1, A: 0.2, N: 0.2 } },
+               { label: "C", text: "Santai, yang penting ada tabungan dan investasi jalan", weights: { O: 0.3, C: 0.2, E: 0.8, A: 0.2, N: 0.1 } },
+               { label: "D", text: "Ikut saran keluarga atau teman soal cara atur duit", weights: { O: 0.1, C: 0.3, E: 0.1, A: 1.0, N: 0.3 } },
+               { label: "E", text: "Sering khawatir uang kurang, jadi simpan sebanyak mungkin di tabungan aman", weights: { O: 0.0, C: 0.5, E: 0.0, A: 0.2, N: 1.0 } }
+             ]
+           },
+           {
+             text: "Saat ada keputusan finansial besar (beli rumah, investasi besar), kamu...",
+             options: [
+               { label: "A", text: "Riset mendalam berbagai opsi, bandingkan data, baru putuskan", weights: { O: 0.8, C: 0.9, E: 0.3, A: 0.1, N: 0.1 } },
+               { label: "B", text: "Ikuti rencana yang sudah dibuat sejak awal, tidak mudah tergoda opsi lain", weights: { O: 0.1, C: 1.0, E: 0.1, A: 0.2, N: 0.2 } },
+               { label: "C", text: "Ambil keputusan cepat, percaya insting, eksekusi sekarang juga", weights: { O: 0.4, C: 0.1, E: 1.0, A: 0.0, N: 0.3 } },
+               { label: "D", text: "Konsultasi ke banyak orang dulu: keluarga, teman, ahli keuangan", weights: { O: 0.2, C: 0.4, E: 0.2, A: 1.0, N: 0.3 } },
+               { label: "E", text: "Cenderung menunda karena takut salah, butuh waktu lama untuk yakin", weights: { O: 0.0, C: 0.2, E: 0.0, A: 0.3, N: 1.0 } }
+             ]
+           },
+           {
+             text: "Bagaimana caramu menghadapi tekanan atau stres?",
+             options: [
+               { label: "A", text: "Cari solusi kreatif atau perspektif baru untuk menyelesaikan masalah", weights: { O: 1.0, C: 0.4, E: 0.4, A: 0.1, N: 0.1 } },
+               { label: "B", text: "Tetap tenang dan ikuti rencana, stres gak akan mengubah strategi", weights: { O: 0.1, C: 0.9, E: 0.1, A: 0.2, N: 0.3 } },
+               { label: "C", text: "Langsung action! Semakin cepat bertindak, semakin cepat stres hilang", weights: { O: 0.3, C: 0.2, E: 1.0, A: 0.1, N: 0.4 } },
+               { label: "D", text: "Curhat atau cari support system, butuh orang lain untuk tenangkan diri", weights: { O: 0.1, C: 0.2, E: 0.2, A: 1.0, N: 0.5 } },
+               { label: "E", text: "Overthinking dan cemas berlebihan, sulit move on sampai masalah selesai", weights: { O: 0.0, C: 0.1, E: 0.0, A: 0.3, N: 1.0 } }
+             ]
+           },
+           {
+             text: "Saat mendengar tren atau hobi baru (bukan cuma investasi), reaksimu...",
+             options: [
+               { label: "A", text: "Wah menarik! Langsung cari tahu dan mungkin ikut nyoba", weights: { O: 1.0, C: 0.2, E: 0.6, A: 0.1, N: 0.0 } },
+               { label: "B", text: "Evaluasi dulu: bermanfaat gak buat jangka panjang? Kalau tidak, skip", weights: { O: 0.3, C: 1.0, E: 0.1, A: 0.2, N: 0.1 } },
+               { label: "C", text: "Kalau seru dan bisa jadi bahan obrolan, ikut aja!", weights: { O: 0.5, C: 0.1, E: 0.9, A: 0.4, N: 0.1 } },
+               { label: "D", text: "Tunggu teman atau influencer favorit yang nyobain dulu, baru ikut", weights: { O: 0.2, C: 0.2, E: 0.2, A: 1.0, N: 0.3 } },
+               { label: "E", text: "Merasa ragu dan khawatir buang waktu/uang, lebih baik stay di zona nyaman", weights: { O: 0.0, C: 0.3, E: 0.0, A: 0.2, N: 1.0 } }
+             ]
+           },
+           {
+             text: "Ketika target yang kamu tetapkan tidak tercapai, apa yang kamu lakukan?",
+             options: [
+               { label: "A", text: "Analisis apa yang salah, lalu cari strategi baru yang lebih inovatif", weights: { O: 0.9, C: 0.6, E: 0.3, A: 0.1, N: 0.1 } },
+               { label: "B", text: "Evaluasi dengan tenang, revisi rencana, dan tetap konsisten jalani", weights: { O: 0.2, C: 1.0, E: 0.1, A: 0.2, N: 0.2 } },
+               { label: "C", text: "Kecewa sebentar, tapi langsung cari target baru yang lebih menantang", weights: { O: 0.4, C: 0.2, E: 0.9, A: 0.1, N: 0.3 } },
+               { label: "D", text: "Curhat ke orang terdekat, minta saran dan masukan untuk bangkit lagi", weights: { O: 0.1, C: 0.3, E: 0.1, A: 1.0, N: 0.4 } },
+               { label: "E", text: "Merasa gagal total, butuh waktu lama untuk move on dan coba lagi", weights: { O: 0.0, C: 0.2, E: 0.0, A: 0.3, N: 1.0 } }
+             ]
+           },
+           {
+             text: "Dalam kerja tim atau kolaborasi, peran apa yang biasanya kamu ambil?",
+             options: [
+               { label: "A", text: "Pencetus ide baru, selalu bawa perspektif segar ke dalam tim", weights: { O: 1.0, C: 0.2, E: 0.6, A: 0.2, N: 0.0 } },
+               { label: "B", text: "Eksekutor yang terstruktur, pastikan semuanya berjalan sesuai rencana", weights: { O: 0.1, C: 1.0, E: 0.2, A: 0.3, N: 0.1 } },
+               { label: "C", text: "Pengambil keputusan cepat, berani ambil risiko untuk tim", weights: { O: 0.3, C: 0.2, E: 1.0, A: 0.1, N: 0.3 } },
+               { label: "D", text: "Harmonizer, pastikan semua anggota tim nyaman dan didengar", weights: { O: 0.2, C: 0.3, E: 0.2, A: 1.0, N: 0.2 } },
+               { label: "E", text: "Risk assessor, selalu ingatkan tim tentang potensi bahaya atau kegagalan", weights: { O: 0.0, C: 0.5, E: 0.0, A: 0.3, N: 0.9 } }
+             ]
+           },
+           {
+             text: "Saat kamu dapat bonus atau uang tak terduga, apa yang pertama kali terlintas?",
+             options: [
+               { label: "A", text: "Wah, bisa dipakai buat eksplorasi investasi baru yang selama ini kepikiran!", weights: { O: 1.0, C: 0.2, E: 0.6, A: 0.1, N: 0.0 } },
+               { label: "B", text: "Masukkan ke tabungan atau investasi rutin sesuai alokasi yang sudah direncanakan", weights: { O: 0.1, C: 1.0, E: 0.1, A: 0.2, N: 0.1 } },
+               { label: "C", text: "Beli barang idaman yang sudah lama diincar, reward untuk diri sendiri", weights: { O: 0.3, C: 0.1, E: 0.9, A: 0.1, N: 0.2 } },
+               { label: "D", text: "Tanya pasangan atau keluarga, enaknya dipakai buat apa ya?", weights: { O: 0.1, C: 0.2, E: 0.1, A: 1.0, N: 0.3 } },
+               { label: "E", text: "Simpan semuanya di deposito atau instrumen paling aman, siapa tahu nanti butuh", weights: { O: 0.0, C: 0.4, E: 0.0, A: 0.2, N: 1.0 } }
+             ]
+           },
+           {
+             text: "Bagaimana caramu mengatasi perbedaan pendapat dengan orang lain?",
+             options: [
+               { label: "A", text: "Diskusi terbuka, cari solusi kreatif yang bisa mengakomodasi kedua pihak", weights: { O: 0.9, C: 0.4, E: 0.5, A: 0.4, N: 0.0 } },
+               { label: "B", text: "Paparkan data dan fakta, kalau mereka gak setuju ya sudah, ikuti saja prosedur", weights: { O: 0.1, C: 0.9, E: 0.2, A: 0.1, N: 0.2 } },
+               { label: "C", text: "Debat sampai menang, karena aku yakin pendapatku yang paling benar", weights: { O: 0.2, C: 0.1, E: 1.0, A: 0.0, N: 0.3 } },
+               { label: "D", text: "Mengalah saja demi harmoni, yang penting hubungan tetap baik", weights: { O: 0.1, C: 0.2, E: 0.0, A: 1.0, N: 0.4 } },
+               { label: "E", text: "Merasa tidak nyaman, menghindari konflik, dan overthinking tentang apa yang salah", weights: { O: 0.0, C: 0.2, E: 0.0, A: 0.3, N: 1.0 } }
+             ]
+           },
+           {
+             text: "Secara umum, mana yang paling menggambarkan dirimu?",
+             options: [
+               { label: "A", text: "Aku orang yang selalu ingin tahu, suka belajar hal-hal baru, dan open-minded", weights: { O: 1.0, C: 0.3, E: 0.5, A: 0.2, N: 0.0 } },
+               { label: "B", text: "Aku orang yang terorganisir, disiplin, dan selalu menyelesaikan apa yang kumulai", weights: { O: 0.1, C: 1.0, E: 0.2, A: 0.3, N: 0.1 } },
+               { label: "C", text: "Aku orang yang energetik, suka jadi pusat perhatian, dan berani ambil risiko", weights: { O: 0.3, C: 0.1, E: 1.0, A: 0.2, N: 0.2 } },
+               { label: "D", text: "Aku orang yang mudah percaya, suka menolong, dan mengutamakan hubungan baik", weights: { O: 0.2, C: 0.3, E: 0.2, A: 1.0, N: 0.2 } },
+               { label: "E", text: "Aku orang yang hati-hati, kadang khawatir berlebihan, dan selalu siapkan rencana cadangan", weights: { O: 0.0, C: 0.4, E: 0.0, A: 0.3, N: 1.0 } }
+             ]
+           }
+         ];
+
+         const traitInfo = {
+           O: { 
+             name: "Explorer", 
+             fullName: "Openness – Keterbukaan",
+             emoji: "🔭",
+             description: "Kamu suka eksplorasi hal baru, kreatif, dan selalu penasaran. Dalam investasi, kamu tertarik pada instrumen inovatif dan berani mencoba strategi yang belum umum.",
+             lowDescription: "Kamu lebih nyaman dengan hal-hal yang sudah terbukti dan familiar. Konservatif dalam memilih investasi, tapi justru itu membuatmu stabil."
+           },
+           C: { 
+             name: "Planner", 
+             fullName: "Conscientiousness – Kedisiplinan",
+             emoji: "📋",
+             description: "Kamu sangat terorganisir, disiplin, dan punya perencanaan matang. Dalam investasi, kamu konsisten dengan strategi jangka panjang dan tidak mudah tergoda tren sesaat.",
+             lowDescription: "Kamu lebih fleksibel dan spontan dalam mengatur keuangan. Kadang kurang terencana, tapi bisa lebih adaptif terhadap perubahan."
+           },
+           E: { 
+             name: "Risk-Taker", 
+             fullName: "Extraversion – Keberanian",
+             emoji: "🚀",
+             description: "Kamu energetik, berani ambil keputusan cepat, dan tidak takut risiko. Dalam investasi, kamu agresif mencari peluang cuan tinggi meski risikonya besar.",
+             lowDescription: "Kamu lebih reflektif dan hati-hati. Tidak suka spekulasi, lebih memilih keputusan yang sudah dipikirkan matang-matang."
+           },
+           A: { 
+             name: "Follower", 
+             fullName: "Agreeableness – Kepercayaan Sosial",
+             emoji: "🤝",
+             description: "Kamu mengutamakan harmoni, mudah percaya pada rekomendasi, dan suka berkolaborasi. Dalam investasi, kamu sering ikut saran ahli atau komunitas.",
+             lowDescription: "Kamu lebih independen dan skeptis. Tidak mudah terpengaruh opini orang, lebih percaya pada riset dan analisis sendiri."
+           },
+           N: { 
+             name: "Guardian", 
+             fullName: "Neuroticism – Kehati-hatian",
+             emoji: "🛡️",
+             description: "Kamu sangat waspada terhadap risiko, cenderung cemas saat pasar bergejolak. Dalam investasi, kamu prioritaskan keamanan dan proteksi aset di atas segalanya.",
+             lowDescription: "Kamu stabil secara emosional. Tidak mudah panik saat pasar turun, bisa tetap tenang dan rasional dalam mengambil keputusan."
+           }
+         };
+
+         let currentQuestion = 0;
+         let answers = new Array(TOTAL_QUESTIONS).fill(null);
+         let isTransitioning = false;
+         let userName = "";
+         let currentResultSlide = 0;
+         let radarChartInstance = null;
+
+         const heroPage = document.getElementById('heroPage');
+         const introPage = document.getElementById('introSecondPage');
+         const namePage = document.getElementById('nameStep');
+         const quizPage = document.getElementById('quizMode');
+         const resultPage = document.getElementById('resultMode');
+         const mainLogo = document.getElementById('mainLogo');
+         const resultLogoRight = document.getElementById('resultLogoRight');
+
+         let touchStartX = 0;
+         let touchStartYForHero = 0;
+
+         function isMobileDevice() {
+           return /Android|iPhone|iPad|iPod|webOS/i.test(navigator.userAgent) || ('ontouchstart' in window && window.innerWidth < 768);
+         }
+
+         function showLogos(showMain, showResultRight) {
+           mainLogo.style.display = showMain ? 'flex' : 'none';
+           resultLogoRight.style.display = showResultRight ? 'flex' : 'none';
+         }
+
+         function transitionToPage(currentPage, nextPage, callback) {
+           currentPage.classList.remove('page-visible');
+           currentPage.classList.add('page-hidden');
+           setTimeout(() => {
+             nextPage.classList.remove('page-hidden');
+             nextPage.classList.add('page-visible');
+             document.querySelector('.container').scrollTop = 0;
+             if (callback) callback();
+           }, 350);
+         }
+
+         function goToIntroSecond() {
+           if (heroPage.classList.contains('page-hidden')) return;
+           transitionToPage(heroPage, introPage);
+           showLogos(true, false);
+         }
+
+         document.getElementById('scrollDownTrigger').addEventListener('click', goToIntroSecond);
+
+         window.addEventListener('wheel', e => {
+           if (!heroPage.classList.contains('page-hidden') && e.deltaY > 20) {
+             goToIntroSecond();
+           }
+         }, { passive: true });
+
+         document.getElementById('heroPage').addEventListener('touchstart', function(e) {
+           touchStartYForHero = e.touches[0].clientY;
+         }, { passive: true });
+
+         document.getElementById('heroPage').addEventListener('touchend', function(e) {
+           if (heroPage.classList.contains('page-hidden')) return;
+           const touchEndY = e.changedTouches[0].clientY;
+           if (touchStartYForHero - touchEndY > 50) {
+             goToIntroSecond();
+           }
+         }, { passive: true });
+
+         document.getElementById('btnStartQuiz').addEventListener('click', () => {
+           transitionToPage(introPage, namePage);
+           showLogos(true, false);
+         });
+
+         window.submitName = () => {
+           const n = document.getElementById('userNameInput').value.trim();
+           if (!n || n.length < 2) {
+             document.getElementById('nameError').textContent = '✨ Nama minimal 2 karakter ya.';
+             return;
+           }
+           if (n.length > 10) {
+             document.getElementById('nameError').textContent = '⚠️ Nama maksimal 10 karakter ya.';
+             return;
+           }
+           userName = n;
+           transitionToPage(namePage, quizPage);
+           showLogos(true, false);
+           currentQuestion = 0;
+           answers.fill(null);
+           isTransitioning = false;
+           renderQuizQuestions();
+           createDots();
+           showQuestion(0);
+         };
+
+         function renderQuizQuestions() {
+           const quizContainer = document.getElementById('quiz');
+           quizContainer.innerHTML = '';
+           questions.forEach((q, index) => {
+             const questionDiv = document.createElement('div');
+             questionDiv.className = 'question';
+             questionDiv.dataset.id = index;
+             questionDiv.style.display = 'none';
+             
+             const p = document.createElement('p');
+             p.textContent = q.text;
+             questionDiv.appendChild(p);
+             
+             const optionsGrid = document.createElement('div');
+             optionsGrid.className = 'options-grid';
+             
+             q.options.forEach(opt => {
+               const btn = document.createElement('button');
+               btn.className = 'option-btn';
+               btn.innerHTML = `<span>${opt.text}</span>`;
+               btn.onclick = function() { selectAnswer(this, index, opt.weights); };
+               optionsGrid.appendChild(btn);
+             });
+             
+             questionDiv.appendChild(optionsGrid);
+             quizContainer.appendChild(questionDiv);
+           });
+         }
+
+         function createDots() {
+           const c = document.getElementById('progressDots');
+           c.innerHTML = '';
+           for (let i = 0; i < TOTAL_QUESTIONS; i++) {
+             const d = document.createElement('span');
+             d.className = 'dot' + (i === 0 ? ' active' : '');
+             c.appendChild(d);
+           }
+           document.getElementById('questionCounterCenter').textContent = `1 / ${TOTAL_QUESTIONS}`;
+         }
+
+         function updateDots() {
+           document.querySelectorAll('#quizMode .dot').forEach((d, i) => {
+             d.classList.remove('active', 'completed');
+             if (i < currentQuestion) d.classList.add('completed');
+             if (i === currentQuestion) d.classList.add('active');
+           });
+           document.getElementById('questionCounterCenter').textContent = `${currentQuestion+1} / ${TOTAL_QUESTIONS}`;
+         }
+
+         window.selectAnswer = function(btn, questionIndex, weights) {
+           if (isTransitioning || btn.classList.contains('selected')) return;
+           const q = document.querySelectorAll('.question')[questionIndex];
+           q.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
+           btn.classList.add('selected');
+           answers[questionIndex] = weights;
+           isTransitioning = true;
+           setTimeout(() => {
+             if (currentQuestion < TOTAL_QUESTIONS - 1) {
+               currentQuestion++;
+               showQuestion(currentQuestion);
+               isTransitioning = false;
+             } else {
+               showResult();
+               isTransitioning = false;
+             }
+           }, 350);
+         };
+
+         function showQuestion(i) {
+           const allQuestions = document.querySelectorAll('.question');
+           allQuestions.forEach(q => q.style.display = 'none');
+           allQuestions[i].style.display = 'block';
+           updateDots();
+         }
+
+         function calculateScores() {
+           let traitScores = { O: 0, C: 0, E: 0, A: 0, N: 0 };
+           answers.forEach(weights => {
+             if (weights) {
+               for (let trait in weights) {
+                 traitScores[trait] += weights[trait];
+               }
+             }
+           });
+           // Normalize to 0-100
+           const maxPerTrait = TOTAL_QUESTIONS; // max 1.0 per question
+           for (let trait in traitScores) {
+             traitScores[trait] = Math.round((traitScores[trait] / maxPerTrait) * 100);
+           }
+           return traitScores;
+         }
+
+         function getDominantTrait(scores) {
+           return Object.keys(scores).reduce((a, b) => scores[a] >= scores[b] ? a : b);
+         }
+
+         function showResult() {
+           const scores = calculateScores();
+           const dominant = getDominantTrait(scores);
+           
+           localStorage.setItem("quizCompleted", "true");
+           localStorage.setItem("quizScores", JSON.stringify(scores));
+           localStorage.setItem("quizDominant", dominant);
+           localStorage.setItem("quizUserName", userName);
+           
+           transitionToPage(quizPage, resultPage, () => {
+             renderResult(scores, dominant);
+           });
+           showLogos(true, true);
+         }
+
+         function renderResult(scores, dominant) {
+           currentResultSlide = 0;
+           
+           // SLIDE 1
+           const info = traitInfo[dominant];
+           document.getElementById('dominantLabel').textContent = `${info.emoji} ${info.name}`;
+           document.getElementById('dominantSubtitle').textContent = info.description;
+           
+           // Score pills
+           const summaryDiv = document.getElementById('scoreSummary');
+           summaryDiv.innerHTML = '';
+           const traitOrder = ['O', 'C', 'E', 'A', 'N'];
+           traitOrder.forEach(trait => {
+             const pill = document.createElement('span');
+             pill.className = 'score-pill';
+             pill.textContent = `${traitInfo[trait].emoji} ${traitInfo[trait].name}: ${scores[trait]}%`;
+             summaryDiv.appendChild(pill);
+           });
+           
+           // Radar chart
+           renderRadarChart(scores);
+           
+           // SLIDE 2
+           const barsDiv = document.getElementById('personalityBars');
+           barsDiv.innerHTML = '';
+           traitOrder.forEach(trait => {
+             const row = document.createElement('div');
+             row.className = 'personality-bar-row';
+             
+             const label = document.createElement('span');
+             label.className = 'personality-bar-label';
+             label.textContent = traitInfo[trait].name;
+             
+             const track = document.createElement('div');
+             track.className = 'personality-bar-track';
+             
+             const fill = document.createElement('div');
+             fill.className = 'personality-bar-fill';
+             fill.style.width = '0%';
+             
+             const scoreLabel = document.createElement('span');
+             scoreLabel.className = 'personality-bar-score';
+             scoreLabel.textContent = '0%';
+             
+             track.appendChild(fill);
+             row.appendChild(label);
+             row.appendChild(track);
+             row.appendChild(scoreLabel);
+             barsDiv.appendChild(row);
+             
+             // Animate
+             setTimeout(() => {
+               fill.style.width = scores[trait] + '%';
+               scoreLabel.textContent = scores[trait] + '%';
+             }, 200);
+           });
+           
+           // Share button
+           const shareBtn = document.getElementById('btnShareResult');
+           const shareUrl = window.location.href;
+           const shareText = `🧠 ${userName ? userName + ', ' : ''}Profil Kepribadian Investasiku:\n\n🔭 Explorer: ${scores.O}%\n📋 Planner: ${scores.C}%\n🚀 Risk-Taker: ${scores.E}%\n🤝 Follower: ${scores.A}%\n🛡️ Guardian: ${scores.N}%\n\nDominan: ${traitInfo[dominant].emoji} ${traitInfo[dominant].name}`;
+           
+           if (isMobileDevice()) {
+             shareBtn.innerHTML = '📸 Share ke Sosial Media';
+             shareBtn.onclick = async function() { await shareResultImage(scores, dominant); };
+           } else {
+             shareBtn.innerHTML = '💬 Share ke WhatsApp';
+             shareBtn.onclick = function() {
+               const waText = encodeURIComponent(`${shareText}\n\n✨ Coba kuisnya juga yuk! gratis kok 👉 ${shareUrl}`);
+               window.open(`https://wa.me/?text=${waText}`, '_blank');
+               showToast('✅ Membuka WhatsApp...', true);
+             };
+           }
+           
+           goToResultSlide(0);
+           setupResultSwipe();
+           document.getElementById('toast').style.opacity = '0';
+         }
+
+         function renderRadarChart(scores) {
+           const ctx = document.getElementById('radarChart').getContext('2d');
+           if (radarChartInstance) radarChartInstance.destroy();
+           
+           radarChartInstance = new Chart(ctx, {
+             type: 'radar',
+             data: {
+               labels: ['🔭 Explorer', '📋 Planner', '🚀 Risk-Taker', '🤝 Follower', '🛡️ Guardian'],
+               datasets: [{
+                 label: 'Profil Kepribadian',
+                 data: [scores.O, scores.C, scores.E, scores.A, scores.N],
+                 backgroundColor: 'rgba(255, 213, 51, 0.2)',
+                 borderColor: '#FFD533',
+                 borderWidth: 2,
+                 pointBackgroundColor: '#FFD533',
+                 pointBorderColor: '#fff',
+                 pointHoverBackgroundColor: '#fff',
+                 pointHoverBorderColor: '#FFD533',
+                 pointRadius: 5,
+                 pointHoverRadius: 7,
+               }]
+             },
+             options: {
+               responsive: true,
+               maintainAspectRatio: true,
+               scales: {
+                 r: {
+                   beginAtZero: true,
+                   max: 100,
+                   ticks: {
+                     stepSize: 20,
+                     display: false,
+                   },
+                   grid: {
+                     color: 'rgba(255, 255, 255, 0.1)',
+                   },
+                   pointLabels: {
+                     color: 'white',
+                     font: {
+                       size: 11,
+                       family: "'Funnel Display', sans-serif",
+                     }
+                   },
+                   angleLines: {
+                     color: 'rgba(255, 255, 255, 0.1)',
+                   }
+                 }
+               },
+               plugins: {
+                 legend: {
+                   display: false,
+                 }
+               }
+             }
+           });
+         }
+
+         async function shareResultImage(scores, dominant) {
+           showToast('⏳ Menyiapkan gambar...', true);
+           try {
+             // Hide UI elements temporarily
+             const indicators = document.querySelectorAll('.slide-indicators-result, .swipe-hint');
+             indicators.forEach(el => el.style.display = 'none');
+             
+             const slide1 = document.getElementById('resultSlide1');
+             const canvas = await html2canvas(slide1, { 
+               backgroundColor: '#030b39', 
+               scale: 2, 
+               useCORS: true, 
+               allowTaint: true 
+             });
+             
+             indicators.forEach(el => el.style.display = '');
+             
+             canvas.toBlob(async (blob) => {
+               const file = new File([blob], 'profil-investasi.png', { type: 'image/png' });
+               if (navigator.share && navigator.canShare && navigator.canShare({ files: [file] })) {
+                 try {
+                   await navigator.share({ 
+                     title: 'Profil Kepribadian Investasi', 
+                     text: '🧠 Cek profil kepribadian investasimu juga yuk!', 
+                     files: [file] 
+                   });
+                   showToast('✅ Pilih Instagram untuk share!', true);
+                 } catch (err) {
+                   if (err.name !== 'AbortError') { 
+                     downloadImage(canvas);
+                     showToast('📥 Gambar diunduh! Upload ke IG Story ya.', true); 
+                   }
+                 }
+               } else { 
+                 downloadImage(canvas);
+                 showToast('📥 Gambar diunduh! Upload ke IG Story ya.', true); 
+               }
+             }, 'image/png');
+           } catch (err) { 
+             showToast('⚠️ Gagal membuat gambar. Screenshot manual aja.', false); 
+           }
+         }
+
+         function downloadImage(canvas) {
+           const link = document.createElement('a');
+           link.download = 'profil-kepribadian-investasi.png';
+           link.href = canvas.toDataURL('image/png');
+           link.click();
+         }
+
+         function setupResultSwipe() {
+           const container = document.getElementById('resultContainer');
+           container.removeEventListener('touchstart', handleResultTouchStart);
+           container.removeEventListener('touchend', handleResultTouchEnd);
+           container.addEventListener('touchstart', handleResultTouchStart, { passive: true });
+           container.addEventListener('touchend', handleResultTouchEnd, { passive: true });
+
+           document.querySelectorAll('.slide-indicator-result').forEach(ind => {
+             ind.addEventListener('click', function() {
+               goToResultSlide(parseInt(this.dataset.index));
+             });
+           });
+         }
+
+         function handleResultTouchStart(e) { 
+           touchStartX = e.changedTouches[0].screenX; 
+         }
+
+         function handleResultTouchEnd(e) {
+           const touchEndX = e.changedTouches[0].screenX;
+           if (!touchStartX) return;
+           const diff = touchStartX - touchEndX;
+           if (Math.abs(diff) > 50) {
+             if (diff > 0 && currentResultSlide === 0) goToResultSlide(1);
+             else if (diff < 0 && currentResultSlide === 1) goToResultSlide(0);
+           }
+           touchStartX = 0;
+         }
+
+         window.goToResultSlide = function(index) {
+           currentResultSlide = index;
+           document.getElementById('resultWrapper').style.transform = `translateX(-${currentResultSlide * 50}%)`;
+           document.querySelectorAll('.slide-indicator-result').forEach((ind, idx) => {
+             ind.classList.toggle('active', idx === currentResultSlide);
+           });
+         };
+
+         function showToast(text, isSuccess = true) {
+           const toastEl = document.getElementById('toast');
+           toastEl.textContent = text;
+           toastEl.style.opacity = '1';
+           toastEl.style.background = isSuccess ? 'rgba(46,125,50,0.9)' : 'rgba(183,28,28,0.9)';
+           toastEl.style.color = 'white';
+           setTimeout(() => { toastEl.style.opacity = '0'; }, 3000);
+         }
+
+         window.retakeQuiz = () => { 
+           localStorage.clear();
+           location.reload(); 
+         };
+
+         // INIT
+         heroPage.classList.add('page-visible');
+         [introPage, namePage, quizPage, resultPage].forEach(p => {
+           p.classList.add('page-hidden');
+         });
+
+         (function checkPreviousResult() {
+           if (localStorage.getItem("quizCompleted") === "true") {
+             const scores = JSON.parse(localStorage.getItem("quizScores"));
+             const dominant = localStorage.getItem("quizDominant");
+             userName = localStorage.getItem("quizUserName") || "";
+             if (scores && dominant) {
+               [heroPage, introPage, namePage, quizPage].forEach(p => {
+                 p.classList.add('page-hidden');
+                 p.classList.remove('page-visible');
+               });
+               resultPage.classList.remove('page-hidden');
+               resultPage.classList.add('page-visible');
+               showLogos(true, true);
+               renderQuizQuestions();
+               renderResult(scores, dominant);
+             }
+           }
+         })();
+       })();
+    </script>
+</body>
+</html>
