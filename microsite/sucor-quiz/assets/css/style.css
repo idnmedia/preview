@@ -1,5 +1,4 @@
-<style>
-  * {
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -488,7 +487,7 @@
     content: '';
     position: absolute;
     inset: -6px -10px;
-    background-image: url('img/username-bg.png');
+    background-image: url('../img/username-bg.png');
     background-size: 100% 100%;
     background-position: center;
     background-repeat: no-repeat;
@@ -696,8 +695,7 @@
       min-height: 100%;
     }
 
-    /* ===== DESKTOP BACKGROUNDS =====
-       Ganti URL di bawah ini ke versi desktop/landscape. */
+    /* ===== DESKTOP BACKGROUNDS ===== */
     #heroPage {
       background-image: url('../img/desktop/bg/intro.jpg');
       background-position: top;
@@ -826,7 +824,7 @@
       bottom: 4vh;
     }
 
-    /* ===== RESULT ===== */
+    /* ===== RESULT (DESKTOP: 1 SLIDE ONLY) ===== */
     .user-greeting {
       top: 5vh;
       left: 2rem;
@@ -841,27 +839,45 @@
       display: none !important;
     }
     .btn-next-slide-desktop {
-      display: block;
-      bottom: 8vh;
-      padding: 0.7rem 1.8rem;
-      font-size: 0.9rem;
+      display: none !important; /* disembunyikan, tidak perlu slide 2 */
     }
-    .result-buttons {
-      max-width: 420px;
-      bottom: 8vh;
-      gap: 0.7rem;
-    }
-    .btn-result {
-      min-height: 50px;
-      font-size: 0.9rem;
-    }
-    .btn-retake-small {
-      bottom: 3vh;
-      font-size: 0.7rem;
+
+    /* Wrapper & slide full width karena hanya 1 slide */
+    .result-wrapper {
+      width: 100%;
     }
     .result-slide {
+      width: 100%;
       background-size: cover;
       background-position: center center;
     }
+    /* Slide 2 disembunyikan di desktop */
+    #resultSlide2 {
+      display: none !important;
+    }
+
+    /* 3 tombol .btn-result berjajar horizontal */
+    .result-buttons {
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-items: stretch;
+      max-width: 1100px;
+      width: 92%;
+      bottom: 12vh;
+      gap: 1rem;
+      padding: 0 1rem;
+    }
+    .btn-result {
+      flex: 1 1 0;
+      min-width: 0;
+      min-height: 60px;
+      font-size: 0.95rem;
+      padding: 0 1rem;
+      white-space: normal;
+      line-height: 1.2;
+    }
+    .btn-retake-small {
+      bottom: 5vh;
+      font-size: 0.7rem;
+    }
   }
-</style>

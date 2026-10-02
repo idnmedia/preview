@@ -12,7 +12,9 @@
     <link href="assets/css/style.css" rel="stylesheet">
 </head>
 <body>
-    
+    <style>
+  
+</style>
     
     <div class="container" id="quiz1">
         <!-- Logo Kiri -->
@@ -178,8 +180,7 @@
         share: 'assets/img/mobile/share/knight.jpg'
       },
       desktop: {
-        slide1: 'assets/img/desktop/results/knight-slide1.jpg',
-        slide2: 'assets/img/desktop/results/knight-slide2.jpg',
+        slide1: 'assets/img/desktop/results/knight.jpg',
         share: 'assets/img/desktop/share/knight.jpg'
       }
     },
@@ -190,8 +191,7 @@
         share: 'assets/img/mobile/share/rook.jpg'
       },
       desktop: {
-        slide1: 'assets/img/desktop/results/rook-slide1.jpg',
-        slide2: 'assets/img/desktop/results/rook-slide2.jpg',
+        slide1: 'assets/img/desktop/results/rook.jpg',
         share: 'assets/img/desktop/share/rook.jpg'
       }
     },
@@ -202,8 +202,7 @@
         share: 'assets/img/mobile/share/queen.jpg'
       },
       desktop: {
-        slide1: 'assets/img/desktop/results/queen-slide1.jpg',
-        slide2: 'assets/img/desktop/results/queen-slide2.jpg',
+        slide1: 'assets/img/desktop/results/queen.jpg',
         share: 'assets/img/desktop/share/queen.jpg'
       }
     },
@@ -214,8 +213,7 @@
         share: 'assets/img/mobile/share/pawn.jpg'
       },
       desktop: {
-        slide1: 'assets/img/desktop/results/pawn-slide1.jpg',
-        slide2: 'assets/img/desktop/results/pawn-slide2.jpg',
+        slide1: 'assets/img/desktop/results/pawn.jpg',
         share: 'assets/img/desktop/share/pawn.jpg'
       }
     },
@@ -226,19 +224,18 @@
         share: 'assets/img/mobile/share/king.jpg'
       },
       desktop: {
-        slide1: 'assets/img/desktop/results/king-slide1.jpg',
-        slide2: 'assets/img/desktop/results/king-slide2.jpg',
+        slide1: 'assets/img/desktop/results/king.jpg',
         share: 'assets/img/desktop/share/king.jpg'
       }
     }
   };
 
   const resultData = {
-    A: { type: "🦅 Tipe A · Si Pemimpin" },
-    B: { type: "❤️ Tipe B · Si Perawat" },
-    C: { type: "🌙 Tipe C · Si Pemikir" },
-    D: { type: "🌍 Tipe D · Si Petualang" },
-    E: { type: "🛡️ Tipe E · Si Pelindung" }
+    A: { type: "🦅 Tipe A · Si Pemimpin", label: "Investment Strategy The Knight" },
+    B: { type: "❤️ Tipe B · Si Perawat",  label: "Investment Strategy The Rook"   },
+    C: { type: "🌙 Tipe C · Si Pemikir",  label: "Investment Strategy The Queen"  },
+    D: { type: "🌍 Tipe D · Si Petualang",label: "Investment Strategy The Pawn"   },
+    E: { type: "🛡️ Tipe E · Si Pelindung", label: "Investment Strategy The King"   }
   };
 
   let currentQuestion = 0,
@@ -260,7 +257,6 @@
     touchEndX = 0;
   let touchStartYForHero = 0;
 
-  // Batas lebar di mana kita anggap "desktop" — samakan dengan breakpoint CSS
   const DESKTOP_BREAKPOINT = 769;
 
   function isDesktopViewport() {
@@ -304,7 +300,6 @@
   document.getElementById('scrollDownTrigger').addEventListener('click', goToIntroSecond);
 
   window.addEventListener('wheel', e => {
-    // Hanya aktif untuk mobile / tablet portrait
     if (window.innerWidth >= DESKTOP_BREAKPOINT) return;
     if (!heroPage.classList.contains('page-hidden') && e.deltaY > 20) {
       goToIntroSecond();
@@ -417,13 +412,38 @@
   }
 
   // Terapkan hanya background (tanpa reset slide / greeting / dsb)
-  // — dipakai juga saat resize biar ganti device langsung switch asset.
   function applyResultBackgrounds(t) {
     const bg = getResultBgSet(t);
     if (!bg) return;
     document.getElementById('resultSlide1').style.backgroundImage = `url(${bg.slide1})`;
-    document.getElementById('resultSlide2').style.backgroundImage = `url(${bg.slide2})`;
+    // slide2 hanya dipakai di mobile
+    if (bg.slide2) {
+      document.getElementById('resultSlide2').style.backgroundImage = `url(${bg.slide2})`;
+    }
     document.getElementById('shareImageContainer').style.backgroundImage = `url(${bg.share})`;
+  }
+
+  // === DESKTOP ADJUST: pindahkan tombol ke slide 1 & buang slide 2 ===
+  function adjustResultLayout() {
+    const slide1 = document.getElementById('resultSlide1');
+    const slide2 = document.getElementById('resultSlide2');
+    const resultButtons = document.getElementById('resultButtons');
+    const retakeBtn = document.querySelector('#resultMode .btn-retake-small');
+    if (!slide1 || !slide2 || !resultButtons || !retakeBtn) return;
+
+    if (isDesktopViewport()) {
+      // Desktop: tombol tinggal di slide 1
+      if (resultButtons.parentElement !== slide1) {
+        slide1.appendChild(resultButtons);
+        slide1.appendChild(retakeBtn);
+      }
+    } else {
+      // Mobile: kembalikan ke slide 2 (kondisi original)
+      if (resultButtons.parentElement !== slide2) {
+        slide2.appendChild(resultButtons);
+        slide2.appendChild(retakeBtn);
+      }
+    }
   }
 
   function displayResult(t) {
@@ -435,6 +455,7 @@
     document.getElementById('shareUserName').textContent = userName;
     document.getElementById('sharePersonalityType').textContent = d.type;
     
+    adjustResultLayout();  // desktop: pindah tombol ke slide 1
     goToResultSlide(0);
 
     document.getElementById('userGreetingText').textContent = userName;
@@ -442,7 +463,10 @@
     const shareUrl = window.location.href;
     const shareText = `✨ ${userName ? userName + ', ' : ''}Hasil Kuis Kepribadianku: ${d.type}`;
 
-    document.getElementById('btnLanding1').href = '#';
+    // Label tombol pertama mengikuti tipe hasil (dinamis)
+    const btnLanding1 = document.getElementById('btnLanding1');
+    btnLanding1.textContent = d.label;
+    btnLanding1.href = '#';
     document.getElementById('btnLanding2').href = '#';
 
     const shareBtn = document.getElementById('btnShareMain');
@@ -466,8 +490,6 @@
     document.getElementById('toast').style.opacity = '0';
   }
 
-  // === RESIZE: kalau user resize / rotate device dan hasil sudah ada,
-  // switch asset background mobile <-> desktop tanpa reset state lain.
   let resizeTimer = null;
   window.addEventListener('resize', () => {
     if (!currentResultType) return;
@@ -475,6 +497,12 @@
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(() => {
       applyResultBackgrounds(currentResultType);
+      adjustResultLayout();
+      // Reset posisi slide ke slide 1 kalau pindah ke desktop
+      if (isDesktopViewport()) {
+        currentResultSlide = 0;
+        document.getElementById('resultWrapper').style.transform = 'translateX(0)';
+      }
     }, 200);
   });
 
@@ -497,6 +525,8 @@
   }
 
   function handleResultTouchEnd(e) {
+    // Desktop tidak pakai swipe
+    if (isDesktopViewport()) return;
     touchEndX = e.changedTouches[0].screenX;
     if (!touchStartX) return;
     const diff = touchStartX - touchEndX;
@@ -509,6 +539,13 @@
   }
 
   window.goToResultSlide = function(index) {
+    // Desktop: hanya 1 slide, selalu stay di slide 1
+    if (isDesktopViewport()) {
+      currentResultSlide = 0;
+      document.getElementById('resultWrapper').style.transform = 'translateX(0)';
+      updateResultIndicators();
+      return;
+    }
     currentResultSlide = index;
     document.getElementById('resultWrapper').style.transform = `translateX(-${currentResultSlide * 50}%)`;
     updateResultIndicators();
