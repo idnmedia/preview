@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title itemprop="name">Preview Yummy IDN</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+    </head>
+    
+    <style>
+        *, ::before, ::after {
+          box-sizing: border-box;
+        }
+        .container, .container-fluid{
+          --bs-gutter-x: 1.5rem;
+          --bs-gutter-y: 0;
+          width: 100%;
+          margin-right: auto;
+          margin-left: auto;
+            text-align: center;
+        }
+        .img-fluid {
+          max-width: 100%;
+          height: auto;
+        }
+        header {
+            position: sticky;
+            top: 0;
+            text-align: center;
+            left: 0;
+            right: 0;
+            margin: auto;
+        }
+        .bodytop {
+            margin-top: 0px;
+            text-align: center;
+        }
+        .ads {
+            text-align: center;
+            margin: 0;
+            background-color: #FAFAFA;
+        }
+    </style>
+    
+    
+    <body style="position: relative; margin: 0;">
+        
+        <section>
+            <div id="leaderboard" class="container-fluid ads">
+                <a href="#" target="_blank">
+                    <img src="web/728x90.jpg" width="728" height="100">    
+                </a>
+            </div>
+        </section>
+        
+        <section>
+            <div id="myDiv" class="container-fluid ads" style="position: fixed; z-index: 9; bottom: 0; width: 100%;">
+                <div id="stickybottom" style="position: relative; max-width: 728px; left: 0; right: 0; margin: auto">
+                    <img src="https://ads.idn.media/products/cdn/button/close-black-white.png" id="closeBtn" style="max-width: 25px; position: absolute; right: 0; top: -30px;">
+                    <a href="#" target="_blank">
+                        <img src="web/728x90.jpg" width="728" height="100">
+                    </a>
+                </div>
+                
+            </div>
+        </section>
+        
+        <div style="position: fixed; left: 0;">
+            <img src="web/120x500.jpg">
+        </div>
+        
+        <div style="position: fixed; right: 0;">
+            <img src="web/120x500.jpg">
+        </div>
+        
+        <header>
+            <div class="container-fluid">
+                <img src="web/header.jpg" class="img-fluid">
+            </div>
+        </header>
+    
+        <section>
+            <div id="billboard" class="container-fluid ads" style="padding: 5px;">
+                <a href="#" target="_blank">
+                    <img src="web/970x250.jpg" width="970" height="250">
+                        
+                </a>
+            </div>
+        </section>
+        
+        <section>
+            <div class="container-fluid bodytop">
+                <img src="web/body.jpg" class="img-fluid">
+            </div>
+        </section>
+        
+
+        
+        
+        
+        
+       
+    </body>
+    <script>
+        document.getElementById('closeBtn').addEventListener('click', function() {
+            document.getElementById('myDiv').style.display = 'none';
+        });
+
+    </script>
+</html>
