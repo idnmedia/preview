@@ -12,9 +12,7 @@
     <link href="assets/css/style.css" rel="stylesheet">
 </head>
 <body>
-    <style>
-  
-</style>
+    
     
     <div class="container" id="quiz1">
         <!-- Logo Kiri -->
@@ -287,6 +285,7 @@
       nextPage.classList.remove('page-hidden');
       nextPage.classList.add('page-visible');
       document.querySelector('.container').scrollTop = 0;
+      if (nextPage === resultPage) nextPage.scrollTop = 0;
       if (callback) callback();
     }, 350);
   }
@@ -488,6 +487,9 @@
 
     setupResultSwipe();
     document.getElementById('toast').style.opacity = '0';
+
+    // Reset scroll result page ke atas saat pertama kali tampil
+    resultPage.scrollTop = 0;
   }
 
   let resizeTimer = null;

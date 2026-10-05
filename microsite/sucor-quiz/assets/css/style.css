@@ -1,4 +1,5 @@
-* {
+<style>
+  * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -824,10 +825,69 @@
       bottom: 4vh;
     }
 
-    /* ===== RESULT (DESKTOP: 1 SLIDE ONLY) ===== */
+    /* =======================================================
+       ===== RESULT (DESKTOP: 1 SLIDE + SCROLLABLE) =========
+       ======================================================= */
+    /* Halaman result jadi scrollable internal (kalau gambar lebih tinggi dari viewport) */
+    #resultMode {
+      height: 100vh;
+      min-height: 100vh;
+      overflow-y: auto;
+      overflow-x: hidden;
+      justify-content: flex-start;
+      align-items: center;
+    }
+
+    /* Container tidak lagi dipaksa 100vh — biarkan mengikuti tinggi slide */
+    .result-container {
+      width: 100%;
+      height: auto;
+      min-height: 100vh;
+      overflow: visible;
+      border-radius: 0;
+      margin-top: 0;
+    }
+
+    /* Wrapper full width karena hanya 1 slide */
+    .result-wrapper {
+      width: 100%;
+      height: auto;
+      min-height: 100vh;
+    }
+
+    /*
+     * Slide: pakai aspect-ratio 16/9 supaya tinggi mengikuti lebar viewport.
+     * Kalau tingginya > viewport → scroll. Kalau < viewport → ada gap di bawah
+     * yang diisi oleh background gelap container (tidak masalah).
+     * background-size: 100% 100% supaya gambar persis mengisi slide (tidak crop).
+     */
+    .result-slide {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      height: auto;
+      min-height: 0; /* override dari base, biar aspect-ratio yang menentukan */
+      background-size: 100% 100%;
+      background-position: center top;
+      background-repeat: no-repeat;
+    }
+
+    /* Slide 2 disembunyikan di desktop */
+    #resultSlide2 {
+      display: none !important;
+    }
+
+    .swipe-hint-mobile {
+      display: none !important;
+    }
+    .btn-next-slide-desktop {
+      display: none !important;
+    }
+
+    /* ===== OVERLAY POSITIONS (pakai % dari slide, bukan vh) ===== */
+    /* Nama user — area kiri atas gambar */
     .user-greeting {
-      top: 5vh;
-      left: 2rem;
+      top: 10%;           /* sesuaikan kalau perlu naik/turun */
+      left: 18rem;
       font-size: 1.35rem;
       padding: 0.5rem 1.6rem;
       white-space: nowrap;
@@ -835,35 +895,15 @@
     .user-greeting::before {
       inset: -8px -12px;
     }
-    .swipe-hint-mobile {
-      display: none !important;
-    }
-    .btn-next-slide-desktop {
-      display: none !important; /* disembunyikan, tidak perlu slide 2 */
-    }
 
-    /* Wrapper & slide full width karena hanya 1 slide */
-    .result-wrapper {
-      width: 100%;
-    }
-    .result-slide {
-      width: 100%;
-      background-size: cover;
-      background-position: center center;
-    }
-    /* Slide 2 disembunyikan di desktop */
-    #resultSlide2 {
-      display: none !important;
-    }
-
-    /* 3 tombol .btn-result berjajar horizontal */
+    /* 3 tombol berjajar horizontal — di area bawah gambar */
     .result-buttons {
       flex-direction: row;
       flex-wrap: nowrap;
       align-items: stretch;
       max-width: 1100px;
       width: 92%;
-      bottom: 12vh;
+      bottom: 8%;       /* sesuaikan: makin besar = makin naik dari bawah gambar */
       gap: 1rem;
       padding: 0 1rem;
     }
@@ -876,8 +916,11 @@
       white-space: normal;
       line-height: 1.2;
     }
+
+    /* Tombol retake — pojok bawah-tengah gambar */
     .btn-retake-small {
-      bottom: 5vh;
+      bottom: 3%;        /* sesuaikan kalau perlu naik/turun */
       font-size: 0.7rem;
     }
   }
+</style>
