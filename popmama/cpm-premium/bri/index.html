@@ -1286,6 +1286,7 @@
 									</div></button>
 									<div class="css-mkj7m6" id="nav-profile">
 										<div class="css-mkj7m6">
+<!--
 											<div class="css-1i344v0">
 												<button aria-label="login" class="css-zbn4hq" id="idn-account-button">
 												<div class="css-pop3zj">
@@ -1296,6 +1297,7 @@
 													</div><span class="css-1risirt">Masuk/Daftar</span>
 												</div></button>
 											</div>
+-->
 										</div>
 									</div>
 								</div>
@@ -4827,5 +4829,36 @@
 	<div style="display: none;">
 		<iframe height="1" src="https://scripts.jixie.media/jx-load-cookie.html?accountid=Po313bpnWz"></iframe>
 	</div><iframe frameborder="0" height="0" id="137ea09a7344c78" marginheight="0" marginwidth="0" name="__pb_locator__" scrolling="no" src="about:blank" style="display: none; height: 0px; width: 0px; border: 0px;" width="0"></iframe>
+    
+    
+    
+    <!-- script custom js unik -->
+    
+    <script>
+      window.addEventListener('scroll', function () {
+        const target = document.getElementById('for-you');
+        if (window.scrollY > 400) {
+          target.style.display = 'none';
+        } else {
+          target.style.display = '';
+        }
+      });
+    </script>
+    
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const sticky = document.getElementById('idn_ads_bottom_sticky');
+        const closeBtn = document.getElementById('idn_ads_bottom_sticky_close_button');
+
+        if (sticky && closeBtn) {
+          closeBtn.addEventListener('click', function () {
+            const isHidden = sticky.style.bottom === '-116px';
+            sticky.style.bottom = isHidden ? '0' : '-116px';
+          });
+        }
+      });
+    </script>
+    
+    
 </body>
 </html>
