@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sumatera Pulih Widget</title>
+    <!-- Import Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            margin: 0;
+            background-color: #f0f0f0; 
+            display: flex;
+            justify-content: center;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Container Utama - Dibatasi 300x250 */
+        .sp-widget {
+            width: 300px;
+            height: 250px;
+            box-sizing: border-box;
+             background-image: url(bg.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* Bagian Header (Logo & Teks) */
+        .sp-header {
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .sp-logo {
+            max-width: 140px;
+            height: auto;
+        }
+
+        .sp-description {
+            color: #dbe6f0;
+            font-size: 9px;
+            line-height: 1.2;
+            margin: 0;
+        }
+
+        /* Tombol Utama */
+        .sp-btn-wrapper {
+            text-align: center;
+            margin: 2px 0;
+            flex-shrink: 0;
+        }
+
+        .sp-main-btn {
+            display: inline-block;
+            background-color: #e8b85b;
+            color: #4a3b1a;
+            font-weight: 600;
+            font-size: 9px;
+            text-decoration: none;
+            padding: 2px 14px;
+            border-radius: 12px;
+            transition: background-color 0.2s;
+        }
+
+        .sp-main-btn:hover {
+            background-color: #d4a548;
+        }
+
+        /* Bagian Carousel */
+        .sp-carousel-container {
+            position: relative;
+            padding: 0 20px; 
+            height: 110px; /* Tinggi dikunci agar pas */
+            flex-shrink: 0;
+            margin-top: auto;
+        }
+
+        .sp-carousel-viewport {
+            overflow: hidden;
+            border-radius: 6px;
+            height: 100%;
+        }
+
+        .sp-carousel-track {
+            display: flex;
+            transition: transform 0.3s ease-in-out;
+            height: 100%;
+        }
+
+        .sp-slide {
+            min-width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px;
+            box-sizing: border-box;
+            height: 100%;
+        }
+
+        /* Kartu Artikel */
+        .sp-card {
+            background-color: #ffffff;
+            border-radius: 6px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+            color: inherit;
+            height: 100%;
+        }
+
+        .sp-card-img {
+            width: 100%;
+            height: 50px; /* Gambar diperkecil */
+            object-fit: cover;
+        }
+
+        .sp-card-title {
+            padding: 4px;
+            font-size: 9px; /* Font sangat kecil agar muat */
+            font-weight: 700;
+            color: #111;
+            line-height: 1.2;
+            margin: 0;
+            display: -webkit-box;
+            -webkit-line-clamp: 4; /* Maksimal 4 baris */
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        /* Tombol Navigasi Carousel */
+        .sp-nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 16px;
+            height: 16px;
+            background-color: #1a1a1a;
+            color: #ffffff;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 8px;
+            z-index: 10;
+            transition: background-color 0.2s, opacity 0.2s;
+            padding: 0;
+        }
+
+        .sp-nav-btn:hover {
+            background-color: #333;
+        }
+
+        .sp-nav-btn.prev {
+            left: 0px;
+        }
+
+        .sp-nav-btn.next {
+            right: 0px;
+        }
+
+        .sp-nav-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        /* Ornamen Dekorasi Bunga diperkecil */
+        .sp-widget::before, .sp-widget::after {
+            content: '';
+            position: absolute;
+            bottom: 4px;
+            width: 20px;
+            height: 20px;
+            background-image: radial-gradient(#f4d03f 1px, transparent 1px);
+            background-size: 6px 6px;
+            opacity: 0.4;
+            pointer-events: none;
+        }
+
+        .sp-widget::before { left: 4px; }
+        .sp-widget::after { right: 4px; }
+    </style>
+</head>
+<body>
+
+    <div class="sp-widget">
+        <!-- Header -->
+        <div class="sp-header">
+            <img src="logo-sumatera-pulih.png" alt="Sumatera Pulih" class="sp-logo">
+            <p class="sp-description">
+                Menghadirkan informasi terkini dan perkembangan pemulihan pascabencana di Sumatera. Mengawal setiap langkah Sumatera untuk bangkit dan pulih kembali.
+            </p>
+        </div>
+
+        <!-- Tombol Selengkapnya -->
+        <div class="sp-btn-wrapper">
+            <a href="#" class="sp-main-btn">Selengkapnya</a>
+        </div>
+
+        <!-- Carousel Artikel -->
+        <div class="sp-carousel-container">
+            <button class="sp-nav-btn prev" id="prevBtn" aria-label="Sebelumnya">❮</button>
+            
+            <div class="sp-carousel-viewport">
+                <div class="sp-carousel-track" id="track">
+                    
+                    <!-- Slide 1 -->
+                    <div class="sp-slide">
+                        <a href="https://jogja.idntimes.com/news/jogja/kemendagri-siapkan-platform-data-terpadu-untuk-atasi-banjir-00-mfbww-gfqgw5?_gl=1*1k4at2x*_ga*OTA5NzE2MDYyLjE3NzkzMzYyNjc.*_ga_LMCN4HPTSQ*czE3OTE4NjE0MDYkbzYyJGcxJHQxNzkxODYxNDI0JGo0MiRsMCRoMCRkSmdVSEpJY2pVc1NrQjBOQUFKTXhlaUdRaXZNYmxuaklldw.." class="sp-card">
+                            <img src="https://image.idntimes.com/post/20260930/whatsapp-image-2026-09-30-at-07_5bec5c94-7265-4dea-a062-f18c44eefd5c_watermarked_idntimes-2.jpeg?tr=w-1200,f-webp,q-75&width=1200&format=webp&quality=75" alt="Thumbnail" class="sp-card-img">
+                            <h3 class="sp-card-title">Kemendagri Siapkan Platform Data Terpadu untuk Atasi Banjir</h3>
+                        </a>
+                        <a href="https://www.idntimes.com/news/indonesia/cek-fakta-kemendagri-ubah-definisi-orang-asli-papua-00-jkxzp-4q6qt2" class="sp-card">
+                            <img src="https://image.idntimes.com/post/20250509/manokwari-600x400-7de2dfe68c2b13d6292d54ed1fbfc547.jpg?tr=w-1200,f-webp,q-75&width=1200&format=webp&quality=75" alt="Thumbnail" class="sp-card-img">
+                            <h3 class="sp-card-title">Cek Fakta: Kemendagri Ubah Definisi Orang Asli Papua?</h3>
+                        </a>
+                    </div>
+
+                    <!-- Slide 2 -->
+                    <div class="sp-slide">
+                        <a href="https://www.idntimes.com/news/indonesia/kemendagri-imbau-daerah-terdampak-erupsi-anak-krakatau-wfh-sebagian-00-vdzm7-xm34g5" class="sp-card">
+                            <img src="https://image.idntimes.com/post/20260906/gunung-anak-krakatau-erupsi2_ec898b50-d900-4c99-a4a5-2bcc7f4b9184.png?tr=w-1200,f-webp,q-75&width=1200&format=webp&quality=75" alt="Thumbnail" class="sp-card-img">
+                            <h3 class="sp-card-title">Kemendagri Imbau Daerah Terdampak Erupsi Anak Krakatau WFH Sebagian</h3>
+                        </a>
+                        <a href="https://www.idntimes.com/news/indonesia/kemendagri-siapkan-isu-strategis-dalam-ruu-pemilu-00-xvwcc-sqylpt" class="sp-card">
+                            <img src="https://image.idntimes.com/post/20261005/20261005_151722_fa55b1f0-e09f-42bf-b160-10468ce9d6f1.jpg?tr=w-1200,f-webp,q-75&width=1200&format=webp&quality=75" alt="Thumbnail" class="sp-card-img">
+                            <h3 class="sp-card-title">Kemendagri Siapkan Isu Strategis, Siap Dibahas Bareng Panja Pemilu DPR</h3>
+                        </a>
+                    </div>
+
+                    <!-- Slide 3 -->
+                    <div class="sp-slide">
+                        <a href="https://sulsel.idntimes.com/news/sulawesi-selatan/andi-sudirman-pj-sekda-sulsel-sudah-diusulkan-ke-kemendagri-00-ghkwk-v05zb2?_gl=1*q6ccft*_ga*OTA5NzE2MDYyLjE3NzkzMzYyNjc.*_ga_LMCN4HPTSQ*czE3OTE4NjE0MDYkbzYyJGcxJHQxNzkxODYxNDE4JGo0OCRsMCRoMCRkSmdVSEpJY2pVc1NrQjBOQUFKTXhlaUdRaXZNYmxuaklldw.." class="sp-card">
+                            <img src="https://image.idntimes.com/post/20261001/img_20261001_151231_8c852355-913e-4ea0-8784-b8ddcb99a55a_watermarked_idntimes-1.jpg?tr=w-1200,f-webp,q-75&width=1200&format=webp&quality=75" alt="Thumbnail" class="sp-card-img">
+                            <h3 class="sp-card-title">Andi Sudirman: Pj Sekda Sulsel Sudah Diusulkan ke Kemendagri</h3>
+                        </a>
+                        <a href="https://www.idntimes.com/news/indonesia/kemendagri-perkuat-pembinaan-apbd-02-5kbmp-wt8r66" class="sp-card">
+                            <img src="https://image.idntimes.com/post/20260814/whatsapp-image-2026-08-14-at-21_88086db6-7137-4d75-8bea-d5da262bdc93.jpeg?tr=w-1200,f-webp,q-75&width=1200&format=webp&quality=75" alt="Thumbnail" class="sp-card-img">
+                            <h3 class="sp-card-title">Kemendagri Perkuat Pembinaan APBD, TKD Jadi Penopang Fiskal Daerah</h3>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
+            <button class="sp-nav-btn next" id="nextBtn" aria-label="Selanjutnya">❯</button>
+        </div>
+    </div>
+
+    <!-- Script Logika Slider (Tetap Sama) -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const track = document.getElementById('track');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const slides = document.querySelectorAll('.sp-slide');
+            
+            let currentIndex = 0;
+            const totalSlides = slides.length;
+
+            function updateCarousel() {
+                track.style.transform = `translateX(-${currentIndex * 100}%)`;
+                prevBtn.disabled = currentIndex === 0;
+                nextBtn.disabled = currentIndex === totalSlides - 1;
+            }
+
+            prevBtn.addEventListener('click', function() {
+                if (currentIndex > 0) {
+                    currentIndex--;
+                    updateCarousel();
+                }
+            });
+
+            nextBtn.addEventListener('click', function() {
+                if (currentIndex < totalSlides - 1) {
+                    currentIndex++;
+                    updateCarousel();
+                }
+            });
+
+            updateCarousel();
+        });
+    </script>
+</body>
+</html>
