@@ -21,7 +21,7 @@
             width: 300px;
             height: 250px;
             box-sizing: border-box;
-             background-image: url(bg.jpg);
+            background-image: url(https://idnmedia.github.io/preview/branded-article-box/idntimes/kemendagri/src/bg.jpg);
             background-repeat: no-repeat;
             background-size: cover;
             border-radius: 8px;
@@ -79,7 +79,7 @@
         .sp-carousel-container {
             position: relative;
             padding: 0 20px; 
-            height: 110px; /* Tinggi dikunci agar pas */
+            height: 110px; 
             flex-shrink: 0;
             margin-top: auto;
         }
@@ -92,7 +92,6 @@
 
         .sp-carousel-track {
             display: flex;
-            transition: transform 0.3s ease-in-out;
             height: 100%;
         }
 
@@ -119,19 +118,19 @@
 
         .sp-card-img {
             width: 100%;
-            height: 50px; /* Gambar diperkecil */
+            height: 50px; 
             object-fit: cover;
         }
 
         .sp-card-title {
             padding: 4px;
-            font-size: 9px; /* Font sangat kecil agar muat */
+            font-size: 9px; 
             font-weight: 700;
             color: #111;
             line-height: 1.2;
             margin: 0;
             display: -webkit-box;
-            -webkit-line-clamp: 4; /* Maksimal 4 baris */
+            -webkit-line-clamp: 4; 
             -webkit-box-orient: vertical;
             overflow: hidden;
         }
@@ -161,30 +160,12 @@
             background-color: #333;
         }
 
-        .sp-nav-btn.prev {
-            left: 0px;
-        }
-
-        .sp-nav-btn.next {
-            right: 0px;
-        }
+        .sp-nav-btn.prev { left: 0px; }
+        .sp-nav-btn.next { right: 0px; }
 
         .sp-nav-btn:disabled {
             opacity: 0.3;
             cursor: not-allowed;
-        }
-
-        /* Ornamen Dekorasi Bunga diperkecil */
-        .sp-widget::before, .sp-widget::after {
-            content: '';
-            position: absolute;
-            bottom: 4px;
-            width: 20px;
-            height: 20px;
-            background-image: radial-gradient(#f4d03f 1px, transparent 1px);
-            background-size: 6px 6px;
-            opacity: 0.4;
-            pointer-events: none;
         }
 
         .sp-widget::before { left: 4px; }
@@ -196,7 +177,7 @@
     <div class="sp-widget">
         <!-- Header -->
         <div class="sp-header">
-            <img src="logo-sumatera-pulih.png" alt="Sumatera Pulih" class="sp-logo">
+            <img src="https://idnmedia.github.io/preview/branded-article-box/idntimes/kemendagri/src/logo-sumatera-pulih.png" alt="Sumatera Pulih" class="sp-logo">
             <p class="sp-description">
                 Menghadirkan informasi terkini dan perkembangan pemulihan pascabencana di Sumatera. Mengawal setiap langkah Sumatera untuk bangkit dan pulih kembali.
             </p>
@@ -208,7 +189,7 @@
         </div>
 
         <!-- Carousel Artikel -->
-        <div class="sp-carousel-container">
+        <div class="sp-carousel-container" id="carouselContainer">
             <button class="sp-nav-btn prev" id="prevBtn" aria-label="Sebelumnya">❮</button>
             
             <div class="sp-carousel-viewport">
@@ -216,7 +197,7 @@
                     
                     <!-- Slide 1 -->
                     <div class="sp-slide">
-                        <a href="https://jogja.idntimes.com/news/jogja/kemendagri-siapkan-platform-data-terpadu-untuk-atasi-banjir-00-mfbww-gfqgw5?_gl=1*1k4at2x*_ga*OTA5NzE2MDYyLjE3NzkzMzYyNjc.*_ga_LMCN4HPTSQ*czE3OTE4NjE0MDYkbzYyJGcxJHQxNzkxODYxNDI0JGo0MiRsMCRoMCRkSmdVSEpJY2pVc1NrQjBOQUFKTXhlaUdRaXZNYmxuaklldw.." class="sp-card">
+                        <a href="https://jogja.idntimes.com/news/jogja/kemendagri-siapkan-platform-data-terpadu-untuk-atasi-banjir-00-mfbww-gfqgw5" class="sp-card">
                             <img src="https://image.idntimes.com/post/20260930/whatsapp-image-2026-09-30-at-07_5bec5c94-7265-4dea-a062-f18c44eefd5c_watermarked_idntimes-2.jpeg?tr=w-1200,f-webp,q-75&width=1200&format=webp&quality=75" alt="Thumbnail" class="sp-card-img">
                             <h3 class="sp-card-title">Kemendagri Siapkan Platform Data Terpadu untuk Atasi Banjir</h3>
                         </a>
@@ -240,7 +221,7 @@
 
                     <!-- Slide 3 -->
                     <div class="sp-slide">
-                        <a href="https://sulsel.idntimes.com/news/sulawesi-selatan/andi-sudirman-pj-sekda-sulsel-sudah-diusulkan-ke-kemendagri-00-ghkwk-v05zb2?_gl=1*q6ccft*_ga*OTA5NzE2MDYyLjE3NzkzMzYyNjc.*_ga_LMCN4HPTSQ*czE3OTE4NjE0MDYkbzYyJGcxJHQxNzkxODYxNDE4JGo0OCRsMCRoMCRkSmdVSEpJY2pVc1NrQjBOQUFKTXhlaUdRaXZNYmxuaklldw.." class="sp-card">
+                        <a href="https://sulsel.idntimes.com/news/sulawesi-selatan/andi-sudirman-pj-sekda-sulsel-sudah-diusulkan-ke-kemendagri-00-ghkwk-v05zb2" class="sp-card">
                             <img src="https://image.idntimes.com/post/20261001/img_20261001_151231_8c852355-913e-4ea0-8784-b8ddcb99a55a_watermarked_idntimes-1.jpg?tr=w-1200,f-webp,q-75&width=1200&format=webp&quality=75" alt="Thumbnail" class="sp-card-img">
                             <h3 class="sp-card-title">Andi Sudirman: Pj Sekda Sulsel Sudah Diusulkan ke Kemendagri</h3>
                         </a>
@@ -257,38 +238,111 @@
         </div>
     </div>
 
-    <!-- Script Logika Slider (Tetap Sama) -->
+    <!-- Script Logika Slider dengan Infinite Loop -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const track = document.getElementById('track');
             const prevBtn = document.getElementById('prevBtn');
             const nextBtn = document.getElementById('nextBtn');
             const slides = document.querySelectorAll('.sp-slide');
+            const carouselContainer = document.getElementById('carouselContainer');
             
             let currentIndex = 0;
             const totalSlides = slides.length;
+            let slideTimer;
+            let isAnimating = false; // Mencegah spam klik saat animasi berjalan
 
-            function updateCarousel() {
+            // 1. DUPLIKASI SLIDE PERTAMA UNTUK LOOPING MULUS
+            const firstSlideClone = slides[0].cloneNode(true);
+            track.appendChild(firstSlideClone);
+
+            // Fungsi untuk menggerakkan carousel
+            function updateCarousel(animate = true) {
+                if (animate) {
+                    track.style.transition = 'transform 0.3s ease-in-out';
+                } else {
+                    track.style.transition = 'none'; // Pindah instan tanpa animasi
+                }
                 track.style.transform = `translateX(-${currentIndex * 100}%)`;
-                prevBtn.disabled = currentIndex === 0;
-                nextBtn.disabled = currentIndex === totalSlides - 1;
             }
 
-            prevBtn.addEventListener('click', function() {
-                if (currentIndex > 0) {
-                    currentIndex--;
-                    updateCarousel();
+            // Logika Geser ke Kanan (Next / Autoslide)
+            function nextSlide() {
+                if (isAnimating) return;
+                isAnimating = true;
+
+                // Jika sudah di slide terakhir, geser ke kloningan slide pertama
+                if (currentIndex >= totalSlides - 1) {
+                    currentIndex++;
+                    updateCarousel(true); // Animasi geser ke kiri
+                    
+                    // Setelah animasi selesai (300ms), reset ke slide pertama asli secara instan
+                    setTimeout(() => {
+                        currentIndex = 0;
+                        updateCarousel(false); // Pindah instan tanpa animasi
+                        void track.offsetWidth; // Paksa browser untuk render ulang (reflow)
+                        isAnimating = false;
+                    }, 300);
+                } else {
+                    currentIndex++;
+                    updateCarousel(true);
+                    setTimeout(() => { isAnimating = false; }, 300);
                 }
+            }
+
+            // Logika Geser ke Kiri (Prev)
+            function prevSlide() {
+                if (isAnimating) return;
+                isAnimating = true;
+
+                if (currentIndex <= 0) {
+                    // Jika di slide pertama, lompat instan ke kloningan di akhir, lalu geser ke kiri
+                    currentIndex = totalSlides; 
+                    updateCarousel(false); // Pindah instan
+                    void track.offsetWidth; // Paksa reflow
+                    
+                    currentIndex--;
+                    updateCarousel(true);
+                    setTimeout(() => { isAnimating = false; }, 300);
+                } else {
+                    currentIndex--;
+                    updateCarousel(true);
+                    setTimeout(() => { isAnimating = false; }, 300);
+                }
+            }
+
+            // Fungsi Autoslide
+            function startAutoSlide() {
+                slideTimer = setInterval(nextSlide, 3000); // 3000ms = 3 detik
+            }
+
+            function stopAutoSlide() {
+                clearInterval(slideTimer);
+            }
+
+            function resetAutoSlide() {
+                stopAutoSlide();
+                startAutoSlide();
+            }
+
+            // Event Listener Tombol
+            prevBtn.addEventListener('click', function() {
+                prevSlide();
+                resetAutoSlide();
             });
 
             nextBtn.addEventListener('click', function() {
-                if (currentIndex < totalSlides - 1) {
-                    currentIndex++;
-                    updateCarousel();
-                }
+                nextSlide();
+                resetAutoSlide();
             });
 
-            updateCarousel();
+            // Pause autoslide saat mouse diarahkan ke area carousel (agar user sempat baca)
+            carouselContainer.addEventListener('mouseenter', stopAutoSlide);
+            carouselContainer.addEventListener('mouseleave', startAutoSlide);
+
+            // Inisialisasi awal
+            updateCarousel(false);
+            startAutoSlide(); 
         });
     </script>
 </body>

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sumatera Pulih Widget 300x600 Scrollable</title>
+    <!-- Import Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Container Utama - 300x600 */
+        .sp-widget {
+            width: 300px;
+            height: 600px;
+            box-sizing: border-box;
+            background-image: url(300x600.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+            padding: 20px 15px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Bagian Header (Logo & Teks) */
+        .sp-header {
+            text-align: center;
+            flex-shrink: 0;
+            margin-bottom: 12px;
+        }
+
+        .sp-logo {
+            max-width: 160px;
+            height: auto;
+            margin-bottom: 8px;
+        }
+
+        .sp-description {
+            color: #dbe6f0;
+            font-size: 11px;
+            line-height: 1.4;
+            margin: 0;
+        }
+
+        /* Tombol Utama */
+        .sp-btn-wrapper {
+            text-align: center;
+            margin-bottom: 15px;
+            flex-shrink: 0;
+        }
+
+        .sp-main-btn {
+            display: inline-block;
+            background-color: #e8b85b;
+            color: #4a3b1a;
+            font-weight: 600;
+            font-size: 12px;
+            text-decoration: none;
+            padding: 6px 20px;
+            border-radius: 20px;
+            transition: background-color 0.2s, transform 0.2s;
+        }
+
+        .sp-main-btn:hover {
+            background-color: #d4a548;
+            transform: translateY(-1px);
+        }
+
+        /* Bagian List Artikel (Scrollable) */
+        .sp-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px; /* Jarak antar artikel */
+            flex-grow: 1; /* Mengisi sisa ruang */
+            overflow-y: auto; /* Membuat scrollable */
+            padding-right: 6px; /* Ruang untuk scrollbar */
+            margin-right: -6px; /* Menarik scrollbar agar sejajar */
+        }
+
+        /* Custom Scrollbar (Webkit) */
+        .sp-list::-webkit-scrollbar {
+            width: 4px;
+        }
+        .sp-list::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+        }
+        .sp-list::-webkit-scrollbar-thumb {
+            background: #e8b85b;
+            border-radius: 4px;
+        }
+        .sp-list::-webkit-scrollbar-thumb:hover {
+            background: #d4a548;
+        }
+
+        /* Kartu Artikel Horizontal */
+        .sp-card {
+            background-color: #ffffff;
+            border-radius: 6px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: row;
+            text-decoration: none;
+            color: inherit;
+            height: 100px; /* Tinggi tetap untuk setiap kartu */
+            flex-shrink: 0; /* Mencegah kartu mengecil saat di dalam container flex */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .sp-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        .sp-card-img {
+            width: 100px; /* Lebar gambar */
+            height: 100%;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .sp-card-content {
+            padding: 8px 10px;
+            display: flex;
+            align-items: center;
+            height: 100%;
+            box-sizing: border-box;
+        }
+
+        .sp-card-title {
+            font-size: 11px;
+            font-weight: 700;
+            color: #111;
+            line-height: 1.3;
+            margin: 0;
+            display: -webkit-box;
+            -webkit-line-clamp: 4; /* Maksimal 4 baris teks */
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="sp-widget">
+        <!-- Header -->
+        <div class="sp-header">
+            <img src="https://idnmedia.github.io/preview/branded-article-box/idntimes/kemendagri/src/logo-sumatera-pulih.png" alt="Sumatera Pulih" class="sp-logo">
+            <p class="sp-description">
+                Menghadirkan informasi terkini dan perkembangan pemulihan pascabencana di Sumatera. Mengawal setiap langkah Sumatera untuk bangkit dan pulih kembali.
+            </p>
+        </div>
+
+        <!-- Tombol Selengkapnya -->
+        <div class="sp-btn-wrapper">
+            <a href="#" class="sp-main-btn">Selengkapnya</a>
+        </div>
+
+        <!-- List Artikel (6 Artikel Vertikal Scrollable) -->
+        <div class="sp-list">
+            
+            <!-- Artikel 1 -->
+            <a href="https://jogja.idntimes.com/news/jogja/kemendagri-siapkan-platform-data-terpadu-untuk-atasi-banjir-00-mfbww-gfqgw5" class="sp-card">
+                <img src="https://image.idntimes.com/post/20260930/whatsapp-image-2026-09-30-at-07_5bec5c94-7265-4dea-a062-f18c44eefd5c_watermarked_idntimes-2.jpeg?tr=w-1200,f-webp,q-75&width=1200&format=webp&quality=75" alt="Thumbnail" class="sp-card-img">
+                <div class="sp-card-content">
+                    <h3 class="sp-card-title">Kemendagri Siapkan Platform Data Terpadu untuk Atasi Banjir</h3>
+                </div>
+            </a>
+
+            <!-- Artikel 2 -->
+            <a href="https://www.idntimes.com/news/indonesia/cek-fakta-kemendagri-ubah-definisi-orang-asli-papua-00-jkxzp-4q6qt2" class="sp-card">
+                <img src="https://image.idntimes.com/post/20250509/manokwari-600x400-7de2dfe68c2b13d6292d54ed1fbfc547.jpg?tr=w-1200,f-webp,q-75&width=1200&format=webp&quality=75" alt="Thumbnail" class="sp-card-img">
+                <div class="sp-card-content">
+                    <h3 class="sp-card-title">Cek Fakta: Kemendagri Ubah Definisi Orang Asli Papua?</h3>
+                </div>
+            </a>
+
+            <!-- Artikel 3 -->
+            <a href="https://www.idntimes.com/news/indonesia/kemendagri-imbau-daerah-terdampak-erupsi-anak-krakatau-wfh-sebagian-00-vdzm7-xm34g5" class="sp-card">
+                <img src="https://image.idntimes.com/post/20260906/gunung-anak-krakatau-erupsi2_ec898b50-d900-4c99-a4a5-2bcc7f4b9184.png?tr=w-1200,f-webp,q-75&width=1200&format=webp&quality=75" alt="Thumbnail" class="sp-card-img">
+                <div class="sp-card-content">
+                    <h3 class="sp-card-title">Kemendagri Imbau Daerah Terdampak Erupsi Anak Krakatau WFH Sebagian</h3>
+                </div>
+            </a>
+
+            <!-- Artikel 4 -->
+            <a href="https://www.idntimes.com/news/indonesia/kemendagri-siapkan-isu-strategis-dalam-ruu-pemilu-00-xvwcc-sqylpt" class="sp-card">
+                <img src="https://image.idntimes.com/post/20261005/20261005_151722_fa55b1f0-e09f-42bf-b160-10468ce9d6f1.jpg?tr=w-1200,f-webp,q-75&width=1200&format=webp&quality=75" alt="Thumbnail" class="sp-card-img">
+                <div class="sp-card-content">
+                    <h3 class="sp-card-title">Kemendagri Siapkan Isu Strategis, Siap Dibahas Bareng Panja Pemilu DPR</h3>
+                </div>
+            </a>
+
+            <!-- Artikel 5 (Tambahan) -->
+            <a href="https://sulsel.idntimes.com/news/sulawesi-selatan/andi-sudirman-pj-sekda-sulsel-sudah-diusulkan-ke-kemendagri-00-ghkwk-v05zb2" class="sp-card">
+                <img src="https://image.idntimes.com/post/20261001/img_20261001_151231_8c852355-913e-4ea0-8784-b8ddcb99a55a_watermarked_idntimes-1.jpg?tr=w-1200,f-webp,q-75&width=1200&format=webp&quality=75" alt="Thumbnail" class="sp-card-img">
+                <div class="sp-card-content">
+                    <h3 class="sp-card-title">Andi Sudirman: Pj Sekda Sulsel Sudah Diusulkan ke Kemendagri</h3>
+                </div>
+            </a>
+
+            <!-- Artikel 6 (Tambahan) -->
+            <a href="https://www.idntimes.com/news/indonesia/kemendagri-perkuat-pembinaan-apbd-02-5kbmp-wt8r66" class="sp-card">
+                <img src="https://image.idntimes.com/post/20260814/whatsapp-image-2026-08-14-at-21_88086db6-7137-4d75-8bea-d5da262bdc93.jpeg?tr=w-1200,f-webp,q-75&width=1200&format=webp&quality=75" alt="Thumbnail" class="sp-card-img">
+                <div class="sp-card-content">
+                    <h3 class="sp-card-title">Kemendagri Perkuat Pembinaan APBD, TKD Jadi Penopang Fiskal Daerah</h3>
+                </div>
+            </a>
+
+        </div>
+    </div>
+
+</body>
+</html>
