@@ -2,7 +2,7 @@
    VERSI BREAKDOWN BERDASARKAN JADWAL MANUAL YANG SUDAH DITENTUKAN
 ================================= */
 
-const RAMADAN_START = new Date(2026, 1, 19); // 19 Feb 2026
+const RAMADAN_START = new Date(2026, 10, 1); // 19 Feb 2026
 let currentRamadanDay = null;
 let currentSchedule = null;
 
