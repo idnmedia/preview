@@ -37,19 +37,16 @@
               <img src="assets/img/mobile/yakin.png" class="top-img" alt="Yakin">
             </picture>
             <div class="bottom-section">
-                <p class="intro-second-desc">Seperti bidak catur, setiap investor juga punya gaya investasinya masing-masing.</p>
+                <p class="intro-second-desc">Seperti bidak catur, setiap investor punya cara berbeda dalam mengambil langkah.</p>
+                <p class="intro-second-desc">Mainkan F.Y.I Type dan kenali profil risiko investasimu.</p>
                 <button class="btn-start-quiz" id="btnStartQuiz"><img src="assets/img/letsmove-btn.png" alt="Mulai Kuis"></button>
             </div>
         </div>
         
         <!-- NAME PAGE -->
         <div id="nameStep" class="page page-hidden">
-            <div class="text">
-                <h2>F.Y.I. Type bantu kamu kenali strategi investasi yang sesuai dengan langkah investasi</h2>
-            </div>
-            
             <div class="name-input-card">
-                <p>Yuk, mainkan F.Y.I. Type dan kenali strategi investasi apa yang pas untukmu!</p>
+                <p>Masukkan Nama</p>
                 <input class="name-input" id="userNameInput" placeholder="cth. Ara, Bimo..." type="text" maxlength="10">
                 <div class="error-message" id="nameError"></div>
                 <button class="btn-name-next" onclick="submitName()"><img src="assets/img/play-btn.png" alt="Mulai Kuis"></button>
@@ -64,85 +61,103 @@
             </div>
             <div id="quiz" style="width:100%;display:flex;flex-direction:column;align-items:center;">
                 <div class="question" data-id="0">
-                    <p>Ada investasi baru yang katanya cuan besar. Reaksimu?</p>
+                    <p>Bagaimana kamu menilai pengalamanmu dalam berinvestasi?</p>
                     <div class="options-grid">
-                        <button class="option-btn" onclick="selectAnswer(this,'A')"><span>Langsung riset mendalam</span></button> 
-                        <button class="option-btn" onclick="selectAnswer(this,'B')"><span>Cek dulu kecocokannya dengan rencana keuangan</span></button>
-                        <button class="option-btn" onclick="selectAnswer(this,'C')"><span>Ambil peluangnya sekarang juga</span></button> 
-                        <button class="option-btn" onclick="selectAnswer(this,'D')"><span>Cari testimoni teman atau saran ahli yang tepercaya</span></button>
-                        <button class="option-btn" onclick="selectAnswer(this,'E')"><span>Tolak dan pilih bertahan di aset aman</span></button>
+                        <button class="option-btn" onclick="selectAnswer(this,'A')"><span>Masih belajar tentang produk investasi</span></button> 
+                        <button class="option-btn" onclick="selectAnswer(this,'B')"><span>Mengenal deposito atau reksa dana</span></button>
+                        <button class="option-btn" onclick="selectAnswer(this,'C')"><span>Memahami reksa dana, obligasi, dan saham</span></button> 
+                        <button class="option-btn" onclick="selectAnswer(this,'D')"><span>Terbiasa berinvestasi di berbagai instrumen dan memahami risikonya</span></button>
+                        <button class="option-btn" onclick="selectAnswer(this,'E')"><span>Berpengalaman dengan instrumen berisiko dan kompleks</span></button>
                     </div>
                 </div>
                 <div class="question" data-id="1" style="display:none;">
-                    <p>Kalau di akhir bulan masih ada sisa uang. Apa yang biasanya kamu lakukan? </p>
+                    <p>Kalau ada sisa uang di akhir bulan, instrumen apa yang kamu pilih?</p>
                     <div class="options-grid">
-                        <button class="option-btn" onclick="selectAnswer(this,'A')"><span>Cari instrumen alternatif atau sektor baru</span></button> 
-                        <button class="option-btn" onclick="selectAnswer(this,'B')"><span>Masukkan langsung ke pos investasi rutin</span></button>
-                        <button class="option-btn" onclick="selectAnswer(this,'C')"><span>Manfaatkan untuk beli barang idaman atau tambah aset</span></button> 
-                        <button class="option-btn" onclick="selectAnswer(this,'D')"><span>Simpan di tabungan yang aman</span></button>
-                        <button class="option-btn" onclick="selectAnswer(this,'E')"><span>Amankan di instrumen paling rendah risiko</span></button>
+                        <button class="option-btn" onclick="selectAnswer(this,'A')"><span>Tabungan/Deposito.</span></button> 
+                        <button class="option-btn" onclick="selectAnswer(this,'B')"><span>Tabungan/Deposito, Emas</span></button>
+                        <button class="option-btn" onclick="selectAnswer(this,'C')"><span>Tabungan/Deposito, Emas, Obligasi, Reksa Dana</span></button> 
+                        <button class="option-btn" onclick="selectAnswer(this,'D')"><span>Tabungan/Deposito, Emas, Obligasi, Reksa Dana, Saham</span></button>
+                        <button class="option-btn" onclick="selectAnswer(this,'E')"><span>Beragam instrumen, termasuk instrumen berisiko tinggi</span></button>
                     </div>
                 </div>
                 <div class="question" data-id="2" style="display:none;">
                     <p>Ketika kondisi pasar sedang dinamis. Gimana caramu menentukan instrumen investasi?</p>
                     <div class="options-grid">
-                        <button class="option-btn" onclick="selectAnswer(this,'A')"><span>Incar instrumen baru yang inovatif dan punya potensi</span></button> 
-                        <button class="option-btn" onclick="selectAnswer(this,'B')"><span>Pilih yang <i>track record</i>-nya paling konsisten</span></button>
-                        <button class="option-btn" onclick="selectAnswer(this,'C')"><span>Cari yang potensi pertumbuhannya paling tinggi</span></button> 
-                        <button class="option-btn" onclick="selectAnswer(this,'D')"><span>Pilih produk yang populer</span></button>
-                        <button class="option-btn" onclick="selectAnswer(this,'E')"><span>Pilih yang risikonya paling rendah</span></button>
+                        <button class="option-btn" onclick="selectAnswer(this,'A')"><span>Pilih yang risikonya paling rendah</span></button> 
+                        <button class="option-btn" onclick="selectAnswer(this,'B')"><span>Pilih instrumen dengan risiko yang dapat ditoleransi sambil memantau pasar</span></button>
+                        <button class="option-btn" onclick="selectAnswer(this,'C')"><span>Pilih risiko dan imbal hasil yang seimbang</span></button> 
+                        <button class="option-btn" onclick="selectAnswer(this,'D')"><span>Pilih potensi imbal hasil lebih tinggi</span></button>
+                        <button class="option-btn" onclick="selectAnswer(this,'E')"><span>Cari yang potensi pertumbuhannya paling maksimal</span></button>
                     </div>
                 </div>
                 <div class="question" data-id="3" style="display:none;">
                     <p>Media sosial lagi ramai bahas tren investasi. Bagaimana kamu menyikapinya?</p>
                     <div class="options-grid">
-                        <button class="option-btn" onclick="selectAnswer(this,'A')"><span>Penasaran buat pelajari celah dan peluang barunya</span></button> 
-                        <button class="option-btn" onclick="selectAnswer(this,'B')"><span>Tidak terlalu pengaruh. fokus jalani komitmen investasi sendiri</span></button> 
-                        <button class="option-btn" onclick="selectAnswer(this,'C')"><span>Ikutan kepo kalau ada potensi bisa cuan cepat</span></button> 
-                        <button class="option-btn" onclick="selectAnswer(this,'D')"><span>Baru percaya kalau banyak orang dan ahli ikut bahas</span></button>
-                        <button class="option-btn" onclick="selectAnswer(this,'E')"><span>Langsung panik dan cemas tiap ada berita miring</span></button>
+                        <button class="option-btn" onclick="selectAnswer(this,'A')"><span>Tidak langsung mengikuti tren dan tetap memilih instrumen yang sudah dipahami</span></button> 
+                        <button class="option-btn" onclick="selectAnswer(this,'B')"><span>Baru percaya kalau banyak orang dan ahli ikut bahas</span></button> 
+                        <button class="option-btn" onclick="selectAnswer(this,'C')"><span>Tetap fokus pada strategi, tapi terbuka untuk mempelajari informasi baru</span></button> 
+                        <button class="option-btn" onclick="selectAnswer(this,'D')"><span>Penasaran buat pelajari celah dan peluang barunya</span></button>
+                        <button class="option-btn" onclick="selectAnswer(this,'E')"><span>Tertarik pada peluang baru dan siap mengambil risiko lebih tinggi</span></button>
                     </div>
                 </div>
                 <div class="question" data-id="4" style="display:none;">
                     <p>Sesuai dengan strategi kamu, mana waktu yang paling ideal untuk memanen hasil investasi?</p>
                     <div class="options-grid">
-                        <button class="option-btn" onclick="selectAnswer(this,'A')"><span>Sekitar 3-5 tahun</span></button> 
-                        <button class="option-btn" onclick="selectAnswer(this,'B')"><span>Di atas 5-10 tahun</span></button> 
-                        <button class="option-btn" onclick="selectAnswer(this,'C')"><span>Kurang dari 2 tahun</span></button> 
-                        <button class="option-btn" onclick="selectAnswer(this,'D')"><span>Fleksibel</span></button>
-                        <button class="option-btn" onclick="selectAnswer(this,'E')"><span>Secepat mungkin</span></button>
+                        <button class="option-btn" onclick="selectAnswer(this,'A')"><span>Kurang dari 1 tahun</span></button> 
+                        <button class="option-btn" onclick="selectAnswer(this,'B')"><span>1–3 tahun</span></button> 
+                        <button class="option-btn" onclick="selectAnswer(this,'C')"><span>3–5 tahun</span></button> 
+                        <button class="option-btn" onclick="selectAnswer(this,'D')"><span>5–10 tahun</span></button>
+                        <button class="option-btn" onclick="selectAnswer(this,'E')"><span>Di atas 10 tahun </span></button>
                     </div>
                 </div>
                 <div class="question" data-id="5" style="display:none;">
-                    <p>Pasar lagi merah dan nilai asetmu turun 10%. Langkah apa yang kamu ambil?</p>
+                    <p>Saat pasar sedang turun dan portofolio kamu merah. Langkah apa yang kamu ambil?</p>
                     <div class="options-grid">
-                        <button class="option-btn" onclick="selectAnswer(this,'A')"><span>Analisis situasinya, lalu berburu aset lain yang punya celah buat naik</span></button> 
-                        <button class="option-btn" onclick="selectAnswer(this,'B')"><span>Tetap tenang dan setia pada rencana awal</span></button> 
-                        <button class="option-btn" onclick="selectAnswer(this,'C')"><span>Waktunya untuk menambah aset</span></button> 
-                        <button class="option-btn" onclick="selectAnswer(this,'D')"><span>Pantau dulu situasi pasar sambil nunggu saran dari para ahli</span></button>
-                        <button class="option-btn" onclick="selectAnswer(this,'E')"><span>Langsung mempertimbangkan <i>cut loss</i> demi keamanan</span></button>
+                        <button class="option-btn" onclick="selectAnswer(this,'A')"><span>Langsung jual</span></button> 
+                        <button class="option-btn" onclick="selectAnswer(this,'B')"><span>Jual jika rugi mencapai 5%</span></button> 
+                        <button class="option-btn" onclick="selectAnswer(this,'C')"><span>Pantau kondisi sebelum menjual</span></button> 
+                        <button class="option-btn" onclick="selectAnswer(this,'D')"><span>Tunggu hingga kondisi membaik</span></button>
+                        <button class="option-btn" onclick="selectAnswer(this,'E')"><span>Tetap tenang, karena kerugian bersifat sementara</span></button>
                     </div>
                 </div>
                 <div class="question" data-id="6" style="display:none;">
-                    <p>Barang <i>wishlist</i>-mu lagi diskon, tapi besok harganya balik normal. Apa yang kamu lakukan?</p>
+                    <p>Seberapa nyaman kamu dengan fluktuasi nilai investasi?</p>
                     <div class="options-grid">
-                        <button class="option-btn" onclick="selectAnswer(this,'A')"><span>Pikirkan ulang apakah barang ini bernilai untuk dibeli</span></button> 
-                        <button class="option-btn" onclick="selectAnswer(this,'B')"><span>Skip dulu, karena gak masuk budget bulan ini</span></button> 
-                        <button class="option-btn" onclick="selectAnswer(this,'C')"><span>Langsung <i>checkout</i>!</span></button> 
-                        <button class="option-btn" onclick="selectAnswer(this,'D')"><span>Cek <i>review</i> orang dulu</span></button>
-                        <button class="option-btn" onclick="selectAnswer(this,'E')"><span>Dilema terus sampai waktunya habis</span></button>
+                        <button class="option-btn" onclick="selectAnswer(this,'A')"><span>Tidak nyaman dengan perubahan nilai</span></button> 
+                        <button class="option-btn" onclick="selectAnswer(this,'B')"><span>Bisa menerima sedikit perubahan nilai</span></button> 
+                        <button class="option-btn" onclick="selectAnswer(this,'C')"><span>Cukup nyaman dengan naik-turun yang wajar</span></button> 
+                        <button class="option-btn" onclick="selectAnswer(this,'D')"><span>Nyaman dengan fluktuasi yang cukup besar</span></button>
+                        <button class="option-btn" onclick="selectAnswer(this,'E')"><span>Siap menghadapi fluktuasi besar untuk potensi jangka panjang </span></button>
                     </div>
                 </div>
             </div>
             <div class="quiz-disclaimer">
-                <span>Pilih jawaban yang paling sesuai dengan dirimu.</span>
+                <span>Pilih saja sesuai gaya investasimu.<br>Tak ada benar atau salah, kok!</span>
             </div>
         </div>
         
+        <!-- Share image container — hanya nama user, result sudah ada di background -->
         <div class="share-image-container" id="shareImageContainer">
             <div class="user-name-share" id="shareUserName"></div>
-            <div class="personality-type-share" id="sharePersonalityType"></div>
         </div>
+        
+        <!-- ═══════════════════════════════════════════════════════════
+             HIDDEN SCORING DATA — UNTUK BACKEND / DATABASE SAJA
+             - piece_score : skor dari piece hasil (Knight=4, dll)
+             - total_score : jumlah skor dari SEMUA 7 jawaban
+             - answers     : jawaban mentah, mis. "A,A,B,A,A,C,B"
+             ═══════════════════════════════════════════════════════════ -->
+        <div id="resultScoreData"
+             data-quiz-completed="false"
+             data-quiz-result-type=""
+             data-quiz-piece=""
+             data-quiz-piece-score=""
+             data-quiz-total-score=""
+             data-quiz-answers=""
+             data-quiz-user-name=""
+             data-quiz-timestamp=""
+             style="display:none;"
+             aria-hidden="true"></div>
         
         <!-- RESULT PAGE -->
         <div id="resultMode" class="page page-hidden">
@@ -169,7 +184,7 @@
     </div>
     
     <script>
-       (function() {
+(function() {
   const resultBackgrounds = {
     A: {
       mobile: {
@@ -228,12 +243,19 @@
     }
   };
 
+  // ═══════════════════════════════════════════════════════════════
+  //  RESULT DATA
+  //  - score = skor per-jawaban untuk piece tersebut
+  //    (dipakai untuk SUM di total_score)
+  //  - piece = nama bidak hasil
+  //  (field 'type' dihapus — tidak ditampilkan, diganti 'piece')
+  // ═══════════════════════════════════════════════════════════════
   const resultData = {
-    A: { type: "🦅 Tipe A · Si Pemimpin", label: "Investment Strategy The Knight" },
-    B: { type: "❤️ Tipe B · Si Perawat",  label: "Investment Strategy The Rook"   },
-    C: { type: "🌙 Tipe C · Si Pemikir",  label: "Investment Strategy The Queen"  },
-    D: { type: "🌍 Tipe D · Si Petualang",label: "Investment Strategy The Pawn"   },
-    E: { type: "🛡️ Tipe E · Si Pelindung", label: "Investment Strategy The King"   }
+    A: { label: "Investment Strategy The Knight", piece: "Knight", score: 4 },
+    B: { label: "Investment Strategy The Rook",   piece: "Rook",   score: 3 },
+    C: { label: "Investment Strategy The Queen",  piece: "Queen",  score: 5 },
+    D: { label: "Investment Strategy The Pawn",   piece: "Pawn",   score: 2 },
+    E: { label: "Investment Strategy The King",   piece: "King",   score: 1 }
   };
 
   let currentQuestion = 0,
@@ -400,10 +422,23 @@
     answers.forEach(t => { if (t) counts[t]++; });
     const final = Object.keys(counts).reduce((a, b) => counts[a] >= counts[b] ? a : b);
     currentResultType = final;
+
+    const d = resultData[final];
+
+    // ═══════════ HITUNG TOTAL SKOR DARI SEMUA JAWABAN ═══════════
+    let totalScore = 0;
+    answers.forEach(a => {
+      if (a && resultData[a]) totalScore += resultData[a].score;
+    });
+
     localStorage.setItem("quizCompleted", "true");
     localStorage.setItem("quizResultType", final);
     localStorage.setItem("quizUserName", userName);
-    
+    localStorage.setItem("quizPiece", d.piece);
+    localStorage.setItem("quizPieceScore", String(d.score));      // skor piece hasil
+    localStorage.setItem("quizTotalScore", String(totalScore));   // TOTAL skor semua jawaban
+    localStorage.setItem("quizAnswers", answers.join(','));       // jawaban mentah
+
     transitionToPage(quizPage, resultPage, () => {
       displayResult(final);
     });
@@ -415,14 +450,12 @@
     const bg = getResultBgSet(t);
     if (!bg) return;
     document.getElementById('resultSlide1').style.backgroundImage = `url(${bg.slide1})`;
-    // slide2 hanya dipakai di mobile
     if (bg.slide2) {
       document.getElementById('resultSlide2').style.backgroundImage = `url(${bg.slide2})`;
     }
     document.getElementById('shareImageContainer').style.backgroundImage = `url(${bg.share})`;
   }
 
-  // === DESKTOP ADJUST: pindahkan tombol ke slide 1 & buang slide 2 ===
   function adjustResultLayout() {
     const slide1 = document.getElementById('resultSlide1');
     const slide2 = document.getElementById('resultSlide2');
@@ -431,13 +464,11 @@
     if (!slide1 || !slide2 || !resultButtons || !retakeBtn) return;
 
     if (isDesktopViewport()) {
-      // Desktop: tombol tinggal di slide 1
       if (resultButtons.parentElement !== slide1) {
         slide1.appendChild(resultButtons);
         slide1.appendChild(retakeBtn);
       }
     } else {
-      // Mobile: kembalikan ke slide 2 (kondisi original)
       if (resultButtons.parentElement !== slide2) {
         slide2.appendChild(resultButtons);
         slide2.appendChild(retakeBtn);
@@ -449,20 +480,66 @@
     const d = resultData[t];
 
     currentResultSlide = 0;
-    
+
+    // ═══════════════════════════════════════════════════════════════
+    //  BACKEND SCORING DATA (HIDDEN FROM USER)
+    // ═══════════════════════════════════════════════════════════════
+    const timestamp = new Date().toISOString();
+
+    // Ambil dari localStorage (disimpan di showResult)
+    const savedAnswersStr = localStorage.getItem('quizAnswers') || '';
+    const savedAnswersArr = savedAnswersStr ? savedAnswersStr.split(',') : [];
+    const totalScore = parseInt(localStorage.getItem('quizTotalScore') || '0', 10)
+                       || (d.score * 7); // fallback: kalau localStorage hilang
+    const pieceScore = d.score;
+
+    const scoreEl = document.getElementById('resultScoreData');
+    if (scoreEl) {
+      scoreEl.dataset.quizCompleted  = 'true';
+      scoreEl.dataset.quizResultType = t;
+      scoreEl.dataset.quizPiece      = d.piece;
+      scoreEl.dataset.quizPieceScore = pieceScore;
+      scoreEl.dataset.quizTotalScore = totalScore;
+      scoreEl.dataset.quizAnswers    = savedAnswersStr;
+      scoreEl.dataset.quizUserName   = userName;
+      scoreEl.dataset.quizTimestamp  = timestamp;
+    }
+
+    // Expose ke window → backend / GTM / analytics bisa akses langsung
+    window.quizResultData = {
+      completed:  true,
+      resultType: t,
+      piece:      d.piece,
+      pieceScore: pieceScore,   // skor dari piece (Knight=4, dst)
+      totalScore: totalScore,   // SUM semua 7 jawaban
+      answers:    savedAnswersArr,
+      userName:   userName,
+      timestamp:  timestamp
+    };
+
+    // Kirim ke backend (AKTIFKAN kalau endpoint sudah siap)
+    // fetch('https://api.domainkamu.com/quiz-submit', {
+    //   method: 'POST',
+    //   headers: { 'Content-Type': 'application/json' },
+    //   body: JSON.stringify(window.quizResultData)
+    // }).catch(err => console.warn('⚠️ Gagal kirim ke backend:', err));
+    // ═══════════════════════════════════════════════════════════════
+
     applyResultBackgrounds(t);
+
+    // Share image: cukup nama user (result sudah ada di background)
     document.getElementById('shareUserName').textContent = userName;
-    document.getElementById('sharePersonalityType').textContent = d.type;
-    
-    adjustResultLayout();  // desktop: pindah tombol ke slide 1
+
+    adjustResultLayout();
     goToResultSlide(0);
 
     document.getElementById('userGreetingText').textContent = userName;
 
     const shareUrl = window.location.href;
-    const shareText = `✨ ${userName ? userName + ', ' : ''}Hasil Kuis Kepribadianku: ${d.type}`;
 
-    // Label tombol pertama mengikuti tipe hasil (dinamis)
+    // WA share pakai piece (karena type sudah dihapus)
+    const shareText = `✨ ${userName ? userName + ', ' : ''}Hasil Kuis Kepribadianku: ${d.piece}`;
+
     const btnLanding1 = document.getElementById('btnLanding1');
     btnLanding1.textContent = d.label;
     btnLanding1.href = '#';
@@ -488,7 +565,6 @@
     setupResultSwipe();
     document.getElementById('toast').style.opacity = '0';
 
-    // Reset scroll result page ke atas saat pertama kali tampil
     resultPage.scrollTop = 0;
   }
 
@@ -500,7 +576,6 @@
     resizeTimer = setTimeout(() => {
       applyResultBackgrounds(currentResultType);
       adjustResultLayout();
-      // Reset posisi slide ke slide 1 kalau pindah ke desktop
       if (isDesktopViewport()) {
         currentResultSlide = 0;
         document.getElementById('resultWrapper').style.transform = 'translateX(0)';
@@ -527,7 +602,6 @@
   }
 
   function handleResultTouchEnd(e) {
-    // Desktop tidak pakai swipe
     if (isDesktopViewport()) return;
     touchEndX = e.changedTouches[0].screenX;
     if (!touchStartX) return;
@@ -541,7 +615,6 @@
   }
 
   window.goToResultSlide = function(index) {
-    // Desktop: hanya 1 slide, selalu stay di slide 1
     if (isDesktopViewport()) {
       currentResultSlide = 0;
       document.getElementById('resultWrapper').style.transform = 'translateX(0)';
