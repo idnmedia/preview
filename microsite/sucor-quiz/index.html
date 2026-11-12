@@ -143,9 +143,6 @@
         
         <!-- ═══════════════════════════════════════════════════════════
              HIDDEN SCORING DATA — UNTUK BACKEND / DATABASE SAJA
-             - piece_score : skor dari piece hasil (Knight=4, dll)
-             - total_score : jumlah skor dari SEMUA 7 jawaban
-             - answers     : jawaban mentah, mis. "A,A,B,A,A,C,B"
              ═══════════════════════════════════════════════════════════ -->
         <div id="resultScoreData"
              data-quiz-completed="false"
@@ -174,7 +171,7 @@
                             <a class="btn-result" href="#" id="btnLanding2" target="_blank">Upgrade skill-mu di Sucorwave</a> 
                             <button class="btn-result" id="btnShareMain">Share Result ke Media Social</button>
                         </div>
-                        <button class="btn-retake-small" onclick="retakeQuiz()">↺ Coba Lagi</button>
+                        <button class="btn-retake-small" onclick="retakeQuiz()">Coba Lagi</button>
                     </div>
                 </div>
             </div>
@@ -188,57 +185,57 @@
   const resultBackgrounds = {
     A: {
       mobile: {
-        slide1: 'assets/img/mobile/results/knight-slide1.jpg',
-        slide2: 'assets/img/mobile/results/knight-slide2.jpg',
-        share: 'assets/img/mobile/share/knight.jpg'
+        slide1: 'assets/img/mobile/results/king-slide1.jpg',
+        slide2: 'assets/img/mobile/results/king-slide2.jpg',
+        share: 'assets/img/share/socmed-king.jpg'
       },
       desktop: {
-        slide1: 'assets/img/desktop/results/knight.jpg',
-        share: 'assets/img/desktop/share/knight.jpg'
+        slide1: 'assets/img/desktop/results/king.jpg',
+        share: 'assets/img/share/socmed-king.jpg'
       }
     },
     B: {
       mobile: {
-        slide1: 'assets/img/mobile/results/rook-slide1.jpg',
-        slide2: 'assets/img/mobile/results/rook-slide2.jpg',
-        share: 'assets/img/mobile/share/rook.jpg'
+        slide1: 'assets/img/mobile/results/pawn-slide1.jpg',
+        slide2: 'assets/img/mobile/results/pawn-slide2.jpg',
+        share: 'assets/img/share/socmed-pawn.jpg'
       },
       desktop: {
-        slide1: 'assets/img/desktop/results/rook.jpg',
-        share: 'assets/img/desktop/share/rook.jpg'
+        slide1: 'assets/img/desktop/results/pawn.jpg',
+        share: 'assets/img/share/socmed-pawn.jpg'
       }
     },
     C: {
       mobile: {
-        slide1: 'assets/img/mobile/results/queen-slide1.jpg',
-        slide2: 'assets/img/mobile/results/queen-slide2.jpg',
-        share: 'assets/img/mobile/share/queen.jpg'
+        slide1: 'assets/img/mobile/results/rook-slide1.jpg',
+        slide2: 'assets/img/mobile/results/rook-slide2.jpg',
+        share: 'assets/img/share/socmed-rook.jpg'
       },
       desktop: {
-        slide1: 'assets/img/desktop/results/queen.jpg',
-        share: 'assets/img/desktop/share/queen.jpg'
+        slide1: 'assets/img/desktop/results/rook.jpg',
+        share: 'assets/img/share/socmed-rook.jpg'
       }
     },
     D: {
       mobile: {
-        slide1: 'assets/img/mobile/results/pawn-slide1.jpg',
-        slide2: 'assets/img/mobile/results/pawn-slide2.jpg',
-        share: 'assets/img/mobile/share/pawn.jpg'
+        slide1: 'assets/img/mobile/results/knight-slide1.jpg',
+        slide2: 'assets/img/mobile/results/knight-slide2.jpg',
+        share: 'assets/img/share/socmed-knight.jpg'
       },
       desktop: {
-        slide1: 'assets/img/desktop/results/pawn.jpg',
-        share: 'assets/img/desktop/share/pawn.jpg'
+        slide1: 'assets/img/desktop/results/knight.jpg',
+        share: 'assets/img/share/socmed-knight.jpg'
       }
     },
     E: {
       mobile: {
-        slide1: 'assets/img/mobile/results/king-slide1.jpg',
-        slide2: 'assets/img/mobile/results/king-slide2.jpg',
-        share: 'assets/img/mobile/share/king.jpg'
+        slide1: 'assets/img/mobile/results/queen-slide1.jpg',
+        slide2: 'assets/img/mobile/results/queen-slide2.jpg',
+        share: 'assets/img/share/socmed-queen.jpg'
       },
       desktop: {
-        slide1: 'assets/img/desktop/results/king.jpg',
-        share: 'assets/img/desktop/share/king.jpg'
+        slide1: 'assets/img/desktop/results/queen.jpg',
+        share: 'assets/img/share/socmed-queen.jpg'
       }
     }
   };
@@ -246,17 +243,41 @@
   // ═══════════════════════════════════════════════════════════════
   //  RESULT DATA
   //  - score = skor per-jawaban untuk piece tersebut
-  //    (dipakai untuk SUM di total_score)
+  //    (A=1, B=2, C=3, D=4, E=5) → dipakai untuk SUM total_score
   //  - piece = nama bidak hasil
-  //  (field 'type' dihapus — tidak ditampilkan, diganti 'piece')
   // ═══════════════════════════════════════════════════════════════
   const resultData = {
-    A: { label: "Investment Strategy The Knight", piece: "Knight", score: 4 },
-    B: { label: "Investment Strategy The Rook",   piece: "Rook",   score: 3 },
-    C: { label: "Investment Strategy The Queen",  piece: "Queen",  score: 5 },
-    D: { label: "Investment Strategy The Pawn",   piece: "Pawn",   score: 2 },
-    E: { label: "Investment Strategy The King",   piece: "King",   score: 1 }
+    A: { label: "Investment Strategy The King",   piece: "King",   score: 1 },
+    B: { label: "Investment Strategy The Pawn",   piece: "Pawn",   score: 2 },
+    C: { label: "Investment Strategy The Rook",   piece: "Rook",   score: 3 },
+    D: { label: "Investment Strategy The Knight", piece: "Knight", score: 4 },
+    E: { label: "Investment Strategy The Queen",  piece: "Queen",  score: 5 }
   };
+
+  // ═══════════════════════════════════════════════════════════════
+  //  SCORE → RESULT MAPPING
+  //  7  - 12  → King   (A)
+  //  13 - 18  → Pawn   (B)
+  //  19 - 24  → Rook   (C)
+  //  25 - 30  → Knight (D)
+  //  31 - 35  → Queen  (E)
+  //  (min 7 = 7 jawaban × 1, max 35 = 7 jawaban × 5)
+  // ═══════════════════════════════════════════════════════════════
+  const SCORE_RANGES = [
+    { min: 7,  max: 12, type: 'A' }, // King
+    { min: 13, max: 18, type: 'B' }, // Pawn
+    { min: 19, max: 24, type: 'C' }, // Rook
+    { min: 25, max: 30, type: 'D' }, // Knight
+    { min: 31, max: 35, type: 'E' }  // Queen
+  ];
+
+  function getResultTypeFromScore(totalScore) {
+    const found = SCORE_RANGES.find(r => totalScore >= r.min && totalScore <= r.max);
+    if (found) return found.type;
+    // Fallback aman: skor di bawah 7 → King, di atas 35 → Queen
+    if (totalScore < 7) return 'A';
+    return 'E';
+  }
 
   let currentQuestion = 0,
     totalQuestions = 7,
@@ -265,6 +286,7 @@
     userName = "",
     currentResultType = null,
     currentResultSlide = 0;
+
   const heroPage = document.getElementById('heroPage'),
     introPage = document.getElementById('introSecondPage'),
     namePage = document.getElementById('nameStep'),
@@ -348,12 +370,12 @@
     const n = document.getElementById('userNameInput').value.trim();
 
     if (!n || n.length < 2) {
-      document.getElementById('nameError').textContent = '✨ Nama minimal 2 karakter ya.';
+      document.getElementById('nameError').textContent = 'Nama minimal 2 karakter ya.';
       return;
     }
 
     if (n.length > 10) {
-      document.getElementById('nameError').textContent = '⚠️ Nama maksimal 10 karakter ya.';
+      document.getElementById('nameError').textContent = 'Nama maksimal 10 karakter ya.';
       return;
     }
     userName = n;
@@ -417,26 +439,30 @@
     updateDots();
   }
 
+  // ═══════════════════════════════════════════════════════════════
+  //  HITUNG HASIL BERDASARKAN TOTAL SCORE (BUKAN MAYORITAS)
+  //  Setiap jawaban: A=1, B=2, C=3, D=4, E=5
+  //  Total 7 jawaban → skor 7 s/d 35
+  // ═══════════════════════════════════════════════════════════════
   function showResult() {
-    const counts = { A: 0, B: 0, C: 0, D: 0, E: 0 };
-    answers.forEach(t => { if (t) counts[t]++; });
-    const final = Object.keys(counts).reduce((a, b) => counts[a] >= counts[b] ? a : b);
-    currentResultType = final;
-
-    const d = resultData[final];
-
-    // ═══════════ HITUNG TOTAL SKOR DARI SEMUA JAWABAN ═══════════
+    // 1) Hitung total skor dari SEMUA jawaban
     let totalScore = 0;
     answers.forEach(a => {
       if (a && resultData[a]) totalScore += resultData[a].score;
     });
 
+    // 2) Tentukan tipe hasil dari range skor
+    const final = getResultTypeFromScore(totalScore);
+    currentResultType = final;
+
+    const d = resultData[final];
+
     localStorage.setItem("quizCompleted", "true");
     localStorage.setItem("quizResultType", final);
     localStorage.setItem("quizUserName", userName);
     localStorage.setItem("quizPiece", d.piece);
-    localStorage.setItem("quizPieceScore", String(d.score));      // skor piece hasil
-    localStorage.setItem("quizTotalScore", String(totalScore));   // TOTAL skor semua jawaban
+    localStorage.setItem("quizPieceScore", String(d.score));      // skor piece hasil (King=1 ... Queen=5)
+    localStorage.setItem("quizTotalScore", String(totalScore));   // TOTAL skor semua jawaban (7-35)
     localStorage.setItem("quizAnswers", answers.join(','));       // jawaban mentah
 
     transitionToPage(quizPage, resultPage, () => {
@@ -510,8 +536,8 @@
       completed:  true,
       resultType: t,
       piece:      d.piece,
-      pieceScore: pieceScore,   // skor dari piece (Knight=4, dst)
-      totalScore: totalScore,   // SUM semua 7 jawaban
+      pieceScore: pieceScore,   // skor piece hasil (King=1 ... Queen=5)
+      totalScore: totalScore,   // SUM semua 7 jawaban (7-35)
       answers:    savedAnswersArr,
       userName:   userName,
       timestamp:  timestamp
@@ -537,8 +563,8 @@
 
     const shareUrl = window.location.href;
 
-    // WA share pakai piece (karena type sudah dihapus)
-    const shareText = `✨ ${userName ? userName + ', ' : ''}Hasil Kuis Kepribadianku: ${d.piece}`;
+    // WA share pakai piece
+    const shareText = `${userName ? userName + ', ' : ''}Hasil Kuis Kepribadianku: ${d.piece}`;
 
     const btnLanding1 = document.getElementById('btnLanding1');
     btnLanding1.textContent = d.label;
@@ -550,13 +576,13 @@
 
     if (isMobileDevice()) {
       shareBtn.classList.add('btn-share-ig');
-      shareBtn.innerHTML = '📸 Share ke Sosial Media';
+      shareBtn.innerHTML = 'Share ke Sosial Media';
       shareBtn.onclick = async function() { await shareImageWithTemplate(); };
     } else {
       shareBtn.classList.add('btn-share-desktop');
-      shareBtn.innerHTML = '💬 Share ke WhatsApp';
+      shareBtn.innerHTML = 'Share ke WhatsApp';
       shareBtn.onclick = function() {
-        const waText = encodeURIComponent(`${shareText}\n\n✨ Coba kuisnya juga yuk! gratis kok 👉 ${shareUrl}`);
+        const waText = encodeURIComponent(`${shareText}\n\n Mainkan F.Y.I Type dan kenali profil risiko investasimu yuk!  ${shareUrl}`);
         window.open(`https://wa.me/?text=${waText}`, '_blank');
         showToast('✅ Membuka WhatsApp...', true);
       };
@@ -660,7 +686,7 @@
           try {
             await navigator.share({ 
               title: 'Hasil Kuis Kepribadian', 
-              text: '✨ Coba kuis kepribadian investasi ini juga yuk!', 
+              text: 'Mainkan F.Y.I Type dan kenali profil risiko investasimu yuk!', 
               files: [file] 
             });
             showToast('✅ Pilih Instagram untuk share!', true);

@@ -543,20 +543,20 @@
   .result-buttons {
     display: flex;
     flex-direction: column;
-    gap: 0.6rem;
+    gap: 0.4rem;
     width: 100%;
     max-width: 400px;
     margin: 0 auto;
     position: absolute;
-    bottom: 8vh;
+    bottom: 6vh;
     z-index: 4;
     padding: 0 1rem;
   }
   .btn-result {
     position: relative;
     width: 100%;
-    min-height: 40px;
-    font-size: 0.8rem;
+    min-height: 35px;
+    font-size: 0.7rem;
     font-weight: 600;
     border: none;
     color: #000D45;
@@ -572,6 +572,7 @@
     align-items: center;
     justify-content: center;
     text-align: center;
+      text-decoration: none;
   }
   .btn-result:hover {
     transform: translateY(-2px) scale(1.02);
@@ -644,7 +645,13 @@
     background: #FFD533;
   }
 
-  /* ===== SHARE IMAGE (offscreen render) ===== */
+    /* =========================================================
+     SHARE IMAGE — Username badge (mirror .user-greeting)
+     Kanvas fixed 1080×1920 (portrait, kayak mobile).
+     - Styling & posisi disamakan dengan .user-greeting
+     - Badge pakai username-bg.png via ::before → auto-stretch
+       mengikuti panjang nama (responsive)
+     ========================================================= */
   .share-image-container {
     position: absolute;
     left: -9999px;
@@ -653,35 +660,40 @@
     height: 1920px;
     background-size: cover;
     background-position: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 100px;
+    background-repeat: no-repeat;
+    overflow: hidden;
   }
-.user-name-share {
+
+  .user-name-share {
     position: absolute;
-    top: 120px;
-    left: 40px;
-    transform: none;            
-    text-align: center;          
-}
-  .share-image-container .user-name-share {
+    top: 11%;                    /* ≈ 211px — analog top:11vh di mobile */
+    left: 8%;                    /* ≈ 86px  — analog left:2rem di mobile */
+    z-index: 4;
+    display: inline-block;
+    padding: 18px 54px;          /* 0.4rem 1.2rem × scale ~2.77 */
     font-family: "Funnel Display", sans-serif;
-    font-size: 48px;
+    font-size: 44px;             /* clamp(1rem,3vw,1.3rem) × scale ~2.77 */
     font-weight: 700;
-    color: white;
-    margin-top: 400px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    color: #000;                 /* teks hitam — sama seperti .user-greeting */
+    text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    line-height: 1.2;
+    white-space: nowrap;         /* nama tetap 1 baris supaya badge rapi */
   }
-  .share-image-container .personality-type-share {
-    font-family: "Funnel Display", sans-serif;
-    font-size: 36px;
-    font-weight: 600;
-    color: #FFD533;
-    margin-top: 20px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+
+  /* Badge responsive — pakai username-bg.png (sama seperti .user-greeting) */
+  .user-name-share::before {
+    content: '';
+    position: absolute;
+    inset: -17px -28px;          /* -6px -10px × scale ~2.77 */
+    background-image: url('../img/username-bg.png');
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 110px;        /* 40px × scale ~2.77 */
+    z-index: -1;
+    opacity: 0.95;
+    filter: drop-shadow(0 4px 15px rgba(0,0,0,0.3));
+    min-width: 220px;            /* 80px × scale ~2.77 */
   }
 
   /* =========================================================
