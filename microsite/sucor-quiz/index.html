@@ -47,7 +47,7 @@
         <div id="nameStep" class="page page-hidden">
             <div class="name-input-card">
                 <p>Masukkan Nama</p>
-                <input class="name-input" id="userNameInput" placeholder="cth. Ara, Bimo..." type="text" maxlength="10">
+                <input class="name-input" id="userNameInput" placeholder="cth. Ara, Bimo..." type="text" maxlength="15">
                 <div class="error-message" id="nameError"></div>
                 <button class="btn-name-next" onclick="submitName()"><img src="assets/img/play-btn.png" alt="Mulai Kuis"></button>
             </div>
@@ -374,8 +374,8 @@
       return;
     }
 
-    if (n.length > 10) {
-      document.getElementById('nameError').textContent = 'Nama maksimal 10 karakter ya.';
+    if (n.length > 15) {
+      document.getElementById('nameError').textContent = 'Nama maksimal 15 karakter ya.';
       return;
     }
     userName = n;
@@ -681,7 +681,7 @@
       shareContainer.style.zIndex = '';
       
       canvas.toBlob(async (blob) => {
-        const file = new File([blob], 'hasil-quiz-investasi.png', { type: 'image/png' });
+        const file = new File([blob], 'FYI-Result.png', { type: 'image/png' });
         if (navigator.share && navigator.canShare && navigator.canShare({ files: [file] })) {
           try {
             await navigator.share({ 
@@ -689,7 +689,7 @@
               text: 'Mainkan F.Y.I Type dan kenali profil risiko investasimu yuk!', 
               files: [file] 
             });
-            showToast('✅ Pilih Instagram untuk share!', true);
+            showToast('Pilih Instagram untuk share!', true);
           } catch (err) {
             if (err.name !== 'AbortError') { 
               downloadImage(canvas);
