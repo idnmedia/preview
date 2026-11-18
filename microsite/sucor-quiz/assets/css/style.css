@@ -190,7 +190,7 @@
     font-weight: 600;
     transition: 0.3s;
     position: absolute;
-    bottom: 5vh;
+    bottom: 4vh;
     animation: fadeSlideUp 1s ease 0.6s both;
   }
   .bottom-section span {
@@ -198,7 +198,7 @@
     margin-bottom: 0.4rem;
   }
   .scroll-down-arrow {
-    font-size: 2.2rem;
+    font-size: 1.2rem;
     animation: bounce 2s infinite;
   }
   .scroll-down-arrow img {
@@ -216,7 +216,7 @@
 
   .top-img {
     position: absolute;
-    top: 24vh;
+    top: 22vh;
       left: 0;
       right: 0;
       margin: auto;
@@ -548,7 +548,7 @@
     max-width: 400px;
     margin: 0 auto;
     position: absolute;
-    bottom: 3vh;
+/*    bottom: 3vh;*/
     z-index: 4;
     padding: 0 1rem;
   }
@@ -700,6 +700,25 @@
     min-width: 220px;            /* 80px × scale ~2.77 */
   }
 
+
+@media (max-height: 700px) {
+    .result-buttons {
+        bottom: 3vh;
+    }
+}
+@media (max-height: 810px) {
+    .result-buttons {
+        bottom: 7vh;
+    }
+}
+@media (max-height: 870px) {
+    .result-buttons {
+        bottom: 10vh;
+    }
+    .btn-result {
+        min-height: 45px;
+    }
+}
   /* =========================================================
      STYLE UNTUK DESKTOP / FULLSCREEN LAYOUT
      ========================================================= */
