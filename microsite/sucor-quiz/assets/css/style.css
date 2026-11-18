@@ -701,24 +701,31 @@
   }
 
 
-@media (max-height: 700px) {
+@media (max-height: 920px) {
     .result-buttons {
-        bottom: 3vh;
+        bottom: 6vh;
+    }
+    .btn-result {
+        min-height: 50px;
     }
 }
 @media (max-height: 810px) {
     .result-buttons {
-        bottom: 7vh;
-    }
-}
-@media (max-height: 870px) {
-    .result-buttons {
-        bottom: 10vh;
+        bottom: 5vh;
     }
     .btn-result {
         min-height: 45px;
     }
 }
+@media (max-height: 700px) {
+    .result-buttons {
+        bottom: 2vh;
+    }
+    .btn-result {
+        min-height: 35px;
+    }
+}
+
   /* =========================================================
      STYLE UNTUK DESKTOP / FULLSCREEN LAYOUT
      ========================================================= */
