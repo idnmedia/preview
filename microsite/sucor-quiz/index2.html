@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover" name="viewport">
+    <title>Kuis Kepribadian – Temukan Dirimu</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&display=swap" rel="stylesheet">
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    
+    <link href="assets/css/style.css" rel="stylesheet">
+</head>
+<body>
+    
+    
+    <div class="container" id="quiz1">
+        <!-- Logo Kiri -->
+        <div class="main-logo" id="mainLogo"><img src="assets/img/logo-FYIType.png" alt="Logo"></div>
+        
+        <!-- Logo Kanan (khusus result) -->
+        <div class="result-logo-right" id="resultLogoRight"><img src="assets/img/logo-SAM.png" alt="Logo"></div>
+        
+        <!-- HERO PAGE -->
+        <div id="heroPage" class="page page-visible">
+            <p class="hero-subtitle">Every Moves Reflects A Different Strategy</p>
+            <div class="bottom-section" id="scrollDownTrigger">
+                <span>Make Your First Move</span>
+                <div class="scroll-down-arrow"><img src="assets/img/arrow.png" alt="Arrow"></div>
+            </div>
+        </div>
+        
+        <!-- INTRO PAGE -->
+        <div id="introSecondPage" class="page page-hidden">
+            <picture>
+              <source media="(min-width: 769px)" srcset="assets/img/desktop/yakin.png">
+              <img src="assets/img/mobile/yakin.png" class="top-img" alt="Yakin">
+            </picture>
+            <div class="bottom-section">
+                <p class="intro-second-desc">Seperti bidak catur, setiap investor punya cara berbeda dalam mengambil langkah.</p>
+                <p class="intro-second-desc">Mainkan F.Y.I Type dan kenali profil risiko investasimu.</p>
+                <button class="btn-start-quiz" id="btnStartQuiz"><img src="assets/img/letsmove-btn.png" alt="Mulai Kuis"></button>
+            </div>
+        </div>
+        
+        <!-- NAME PAGE -->
+        <div id="nameStep" class="page page-hidden">
+            <div class="name-input-card">
+                <p>Masukkan Nama</p>
+                <input class="name-input" id="userNameInput" placeholder="cth. Ara, Bimo..." type="text" maxlength="15">
+                <div class="error-message" id="nameError"></div>
+                <button class="btn-name-next" onclick="submitName()"><img src="assets/img/play-btn.png" alt="Mulai Kuis"></button>
+            </div>
+        </div>
+        
+        <!-- QUIZ PAGE -->
+        <div id="quizMode" class="page page-hidden">
+            <div class="quiz-header">
+                <div class="question-counter-center" id="questionCounterCenter">1 / 7</div>
+                <div class="progress-dots" id="progressDots"></div>
+            </div>
+            <div id="quiz" style="width:100%;display:flex;flex-direction:column;align-items:center;">
+                <div class="question" data-id="0">
+                    <p>Bagaimana kamu menilai pengalamanmu dalam berinvestasi?</p>
+                    <div class="options-grid">
+                        <button class="option-btn" onclick="selectAnswer(this,'A')"><span>Masih belajar tentang produk investasi</span></button> 
+                        <button class="option-btn" onclick="selectAnswer(this,'B')"><span>Mengenal deposito atau reksa dana</span></button>
+                        <button class="option-btn" onclick="selectAnswer(this,'C')"><span>Memahami reksa dana, obligasi, dan saham</span></button> 
+                        <button class="option-btn" onclick="selectAnswer(this,'D')"><span>Terbiasa berinvestasi di berbagai instrumen dan memahami risikonya</span></button>
+                        <button class="option-btn" onclick="selectAnswer(this,'E')"><span>Berpengalaman dengan instrumen berisiko dan kompleks</span></button>
+                    </div>
+                </div>
+                <div class="question" data-id="1" style="display:none;">
+                    <p>Kalau di akhir bulan masih ada sisa uang. Apa yang biasanya kamu lakukan?</p>
+                    <div class="options-grid">
+                        <button class="option-btn" onclick="selectAnswer(this,'A')"><span>Pilih instrumen dengan tingkat risiko paling rendah</span></button> 
+                        <button class="option-btn" onclick="selectAnswer(this,'B')"><span>Simpan di tabungan yang mudah diakses</span></button>
+                        <button class="option-btn" onclick="selectAnswer(this,'C')"><span>Masukkan langsung ke pos investasi rutin</span></button> 
+                        <button class="option-btn" onclick="selectAnswer(this,'D')"><span>Cari instrumen alternatif atau sektor baru</span></button>
+                        <button class="option-btn" onclick="selectAnswer(this,'E')"><span>Manfaatkan untuk beli barang idaman atau tambah aset</span></button>
+                    </div>
+                </div>
+                <div class="question" data-id="2" style="display:none;">
+                    <p>Ketika kondisi pasar sedang dinamis. Gimana cara kamu menentukan instrumen investasi?</p>
+                    <div class="options-grid">
+                        <button class="option-btn" onclick="selectAnswer(this,'A')"><span>Pilih yang risikonya paling rendah</span></button> 
+                        <button class="option-btn" onclick="selectAnswer(this,'B')"><span>Pilih instrumen dengan risiko yang dapat ditoleransi sambil memantau pasar</span></button>
+                        <button class="option-btn" onclick="selectAnswer(this,'C')"><span>Pilih risiko dan imbal hasil yang seimbang</span></button> 
+                        <button class="option-btn" onclick="selectAnswer(this,'D')"><span>Pilih potensi imbal hasil lebih tinggi</span></button>
+                        <button class="option-btn" onclick="selectAnswer(this,'E')"><span>Cari yang potensi pertumbuhannya paling tinggi</span></button>
+                    </div>
+                </div>
+                <div class="question" data-id="3" style="display:none;">
+                    <p>Media sosial lagi ramai bahas tren investasi. Bagaimana kamu menyikapinya?</p>
+                    <div class="options-grid">
+                        <button class="option-btn" onclick="selectAnswer(this,'A')"><span>Tidak langsung mengikuti tren dan tetap memilih instrumen yang sudah dipahami</span></button> 
+                        <button class="option-btn" onclick="selectAnswer(this,'B')"><span>Baru percaya kalau banyak orang dan ahli ikut bahas</span></button> 
+                        <button class="option-btn" onclick="selectAnswer(this,'C')"><span>Tetap fokus pada strategi, tapi terbuka untuk mempelajari informasi baru</span></button> 
+                        <button class="option-btn" onclick="selectAnswer(this,'D')"><span>Penasaran buat pelajari celah dan peluang barunya</span></button>
+                        <button class="option-btn" onclick="selectAnswer(this,'E')"><span>Tertarik pada peluang baru dan siap mengambil risiko lebih tinggi</span></button>
+                    </div>
+                </div>
+                <div class="question" data-id="4" style="display:none;">
+                    <p>Sesuai dengan strategi kamu, mana waktu yang paling ideal untuk memanen hasil investasi?</p>
+                    <div class="options-grid">
+                        <button class="option-btn" onclick="selectAnswer(this,'A')"><span>&lt;1 tahun</span></button> 
+                        <button class="option-btn" onclick="selectAnswer(this,'B')"><span>1–3 tahun</span></button> 
+                        <button class="option-btn" onclick="selectAnswer(this,'C')"><span>3–5 tahun</span></button> 
+                        <button class="option-btn" onclick="selectAnswer(this,'D')"><span>5–10 tahun</span></button>
+                        <button class="option-btn" onclick="selectAnswer(this,'E')"><span>Di atas 10 tahun </span></button>
+                    </div>
+                </div>
+                <div class="question" data-id="5" style="display:none;">
+                    <p>Saat pasar sedang turun dan portofolio kamu merah. Langkah apa yang kamu ambil?</p>
+                    <div class="options-grid">
+                        <button class="option-btn" onclick="selectAnswer(this,'A')"><span>Langsung jual</span></button> 
+                        <button class="option-btn" onclick="selectAnswer(this,'B')"><span>Jual jika rugi mencapai 5%</span></button> 
+                        <button class="option-btn" onclick="selectAnswer(this,'C')"><span>Jual jika rugi mencapai 10%</span></button> 
+                        <button class="option-btn" onclick="selectAnswer(this,'D')"><span>Tunggu hingga kondisi membaik</span></button>
+                        <button class="option-btn" onclick="selectAnswer(this,'E')"><span>Tetap tenang, karena kerugian bersifat sementara</span></button>
+                    </div>
+                </div>
+                <div class="question" data-id="6" style="display:none;">
+                    <p>Seberapa nyaman kamu dengan fluktuasi nilai investasi?</p>
+                    <div class="options-grid">
+                        <button class="option-btn" onclick="selectAnswer(this,'A')"><span>Tidak nyaman dengan fluktuasi</span></button> 
+                        <button class="option-btn" onclick="selectAnswer(this,'B')"><span>Bisa menerima sedikit perubahan nilai</span></button> 
+                        <button class="option-btn" onclick="selectAnswer(this,'C')"><span>Cukup nyaman dengan naik-turun yang wajar</span></button> 
+                        <button class="option-btn" onclick="selectAnswer(this,'D')"><span>Nyaman dengan fluktuasi yang cukup besar</span></button>
+                        <button class="option-btn" onclick="selectAnswer(this,'E')"><span>Siap menghadapi fluktuasi besar untuk potensi jangka panjang </span></button>
+                    </div>
+                </div>
+            </div>
+            <div class="quiz-disclaimer">
+                <span>Pilih jawaban yang paling sesuai dengan dirimu.</span>
+            </div>
+        </div>
+        
+        <!-- Share image container — hanya nama user, result sudah ada di background -->
+        <div class="share-image-container" id="shareImageContainer">
+            <div class="user-name-share" id="shareUserName"></div>
+        </div>
+        
+        <!-- ═══════════════════════════════════════════════════════════
+             HIDDEN SCORING DATA — UNTUK BACKEND / DATABASE SAJA
+             ═══════════════════════════════════════════════════════════ -->
+        <div id="resultScoreData"
+             data-quiz-completed="false"
+             data-quiz-result-type=""
+             data-quiz-piece=""
+             data-quiz-piece-score=""
+             data-quiz-total-score=""
+             data-quiz-answers=""
+             data-quiz-user-name=""
+             data-quiz-timestamp=""
+             style="display:none;"
+             aria-hidden="true"></div>
+        
+        <!-- RESULT PAGE -->
+        <div id="resultMode" class="page page-hidden">
+            <div class="result-container" id="resultContainer">
+                <div class="result-wrapper" id="resultWrapper">
+                    <div class="result-slide" id="resultSlide1">
+                        <div class="user-greeting" id="userGreeting"><span id="userGreetingText"></span></div>
+                        <p class="swipe-hint-mobile" id="swipeHintMobile" onclick="goToResultSlide(1)">Swipe left to see more</p>
+                        <button class="btn-next-slide-desktop" onclick="goToResultSlide(1)">Lihat Selengkapnya ›</button>
+                    </div>
+                    <div class="result-slide" id="resultSlide2">
+                        <div class="result-buttons" id="resultButtons">
+                            <a class="btn-result" href="#" id="btnLanding1" target="_blank">Investment Strategy The Knight</a> 
+                            <a class="btn-result" href="#" id="btnLanding2" target="_blank">Upgrade skill-mu di Sucorwave</a> 
+                            <button class="btn-result" id="btnShareMain">Share Result ke Media Social</button>
+                            <img src="assets/img/mobile/disclaimer.png">
+                        </div>
+                        <button class="btn-retake-small" onclick="retakeQuiz()">Coba Lagi</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="toast-message" id="toast"></div>
+        </div>
+    </div>
+    
+    <script>
+(function() {
+  // ═══════════════════════════════════════════════════════════════
+  //  RESULT BACKGROUNDS
+  //  Key A/B/C/D/E dipetakan dari character.code API:
+  //  KING→A, PAWN→B, ROOK→C, KNIGHT→D, QUEEN→E
+  // ═══════════════════════════════════════════════════════════════
+  const resultBackgrounds = {
+    A: {
+      mobile: {
+        slide1: 'assets/img/mobile/results/king-slide1.jpg',
+        slide2: 'assets/img/mobile/results/king-slide2.jpg',
+        share: 'assets/img/share/socmed-king.jpg'
+      },
+      desktop: {
+        slide1: 'assets/img/desktop/results/king.jpg',
+        share: 'assets/img/share/socmed-king.jpg'
+      }
+    },
+    B: {
+      mobile: {
+        slide1: 'assets/img/mobile/results/pawn-slide1.jpg',
+        slide2: 'assets/img/mobile/results/pawn-slide2.jpg',
+        share: 'assets/img/share/socmed-pawn.jpg'
+      },
+      desktop: {
+        slide1: 'assets/img/desktop/results/pawn.jpg',
+        share: 'assets/img/share/socmed-pawn.jpg'
+      }
+    },
+    C: {
+      mobile: {
+        slide1: 'assets/img/mobile/results/rook-slide1.jpg',
+        slide2: 'assets/img/mobile/results/rook-slide2.jpg',
+        share: 'assets/img/share/socmed-rook.jpg'
+      },
+      desktop: {
+        slide1: 'assets/img/desktop/results/rook.jpg',
+        share: 'assets/img/share/socmed-rook.jpg'
+      }
+    },
+    D: {
+      mobile: {
+        slide1: 'assets/img/mobile/results/knight-slide1.jpg',
+        slide2: 'assets/img/mobile/results/knight-slide2.jpg',
+        share: 'assets/img/share/socmed-knight.jpg'
+      },
+      desktop: {
+        slide1: 'assets/img/desktop/results/knight.jpg',
+        share: 'assets/img/share/socmed-knight.jpg'
+      }
+    },
+    E: {
+      mobile: {
+        slide1: 'assets/img/mobile/results/queen-slide1.jpg',
+        slide2: 'assets/img/mobile/results/queen-slide2.jpg',
+        share: 'assets/img/share/socmed-queen.jpg'
+      },
+      desktop: {
+        slide1: 'assets/img/desktop/results/queen.jpg',
+        share: 'assets/img/share/socmed-queen.jpg'
+      }
+    }
+  };
+
+  // ═══════════════════════════════════════════════════════════════
+  //  API CONFIG
+  // ═══════════════════════════════════════════════════════════════
+  const API_BASE = 'https://api.findyourinvestingtype.com';
+
+  // character.code dari API → key background (A/B/C/D/E)
+  const CODE_TO_TYPE = {
+    KING:   'A',
+    PAWN:   'B',
+    ROOK:   'C',
+    KNIGHT: 'D',
+    QUEEN:  'E'
+  };
+
+  // ═══════════════════════════════════════════════════════════════
+  //  STATE
+  // ═══════════════════════════════════════════════════════════════
+  let currentQuestion = 0,
+    totalQuestions = 7,
+    answers = new Array(7).fill(null),
+    isTransitioning = false,
+    userName = "",
+    currentResultType = null,   // A/B/C/D/E (untuk background)
+    currentResultSlide = 0;
+
+  // ═══════════════════════════════════════════════════════════════
+  //  DOM REFS
+  // ═══════════════════════════════════════════════════════════════
+  const heroPage       = document.getElementById('heroPage'),
+    introPage          = document.getElementById('introSecondPage'),
+    namePage           = document.getElementById('nameStep'),
+    quizPage           = document.getElementById('quizMode'),
+    resultPage         = document.getElementById('resultMode'),
+    mainLogo           = document.getElementById('mainLogo'),
+    resultLogoRight    = document.getElementById('resultLogoRight');
+
+  let touchStartX = 0,
+    touchEndX = 0;
+  let touchStartYForHero = 0;
+
+  const DESKTOP_BREAKPOINT = 769;
+
+  // ═══════════════════════════════════════════════════════════════
+  //  DEVICE / VIEWPORT HELPERS
+  // ═══════════════════════════════════════════════════════════════
+  function isDesktopViewport() {
+    return window.innerWidth >= DESKTOP_BREAKPOINT;
+  }
+
+  function isMobileDevice() {
+    return /Android|iPhone|iPad|iPod|webOS/i.test(navigator.userAgent)
+      || ('ontouchstart' in window && window.innerWidth < 768);
+  }
+
+  function getResultBgSet(t) {
+    const set = resultBackgrounds[t];
+    if (!set) return null;
+    return isDesktopViewport() ? set.desktop : set.mobile;
+  }
+
+  function showLogos(showMain, showResultRight) {
+    mainLogo.style.display = showMain ? 'flex' : 'none';
+    resultLogoRight.style.display = showResultRight ? 'flex' : 'none';
+  }
+
+  // ═══════════════════════════════════════════════════════════════
+  //  PAGE TRANSITION
+  // ═══════════════════════════════════════════════════════════════
+  function transitionToPage(currentPage, nextPage, callback) {
+    currentPage.classList.remove('page-visible');
+    currentPage.classList.add('page-hidden');
+
+    setTimeout(() => {
+      nextPage.classList.remove('page-hidden');
+      nextPage.classList.add('page-visible');
+      document.querySelector('.container').scrollTop = 0;
+      if (nextPage === resultPage) nextPage.scrollTop = 0;
+      if (callback) callback();
+    }, 350);
+  }
+
+  function goToIntroSecond() {
+    if (heroPage.classList.contains('page-hidden')) return;
+    transitionToPage(heroPage, introPage);
+    showLogos(true, false);
+  }
+
+  document.getElementById('scrollDownTrigger').addEventListener('click', goToIntroSecond);
+
+  window.addEventListener('wheel', e => {
+    if (window.innerWidth >= DESKTOP_BREAKPOINT) return;
+    if (!heroPage.classList.contains('page-hidden') && e.deltaY > 20) {
+      goToIntroSecond();
+    }
+  }, { passive: true });
+
+  document.getElementById('heroPage').addEventListener('touchstart', function(e) {
+    touchStartYForHero = e.touches[0].clientY;
+  }, { passive: true });
+
+  document.getElementById('heroPage').addEventListener('touchend', function(e) {
+    if (heroPage.classList.contains('page-hidden')) return;
+    const touchEndY = e.changedTouches[0].clientY;
+    if (touchStartYForHero - touchEndY > 50) {
+      goToIntroSecond();
+    }
+  }, { passive: true });
+
+  document.getElementById('btnStartQuiz').addEventListener('click', () => {
+    transitionToPage(introPage, namePage);
+    showLogos(true, false);
+  });
+
+  // ═══════════════════════════════════════════════════════════════
+  //  NAME STEP
+  // ═══════════════════════════════════════════════════════════════
+  window.submitName = () => {
+    const n = document.getElementById('userNameInput').value.trim();
+
+    if (!n || n.length < 2) {
+      document.getElementById('nameError').textContent = 'Nama minimal 2 karakter ya.';
+      return;
+    }
+
+    if (n.length > 15) {
+      document.getElementById('nameError').textContent = 'Nama maksimal 15 karakter ya.';
+      return;
+    }
+    document.getElementById('nameError').textContent = '';
+    userName = n;
+    transitionToPage(namePage, quizPage);
+    showLogos(true, false);
+    currentQuestion = 0;
+    answers.fill(null);
+    isTransitioning = false;
+    createDots();
+    showQuestion(0);
+  };
+
+  // ═══════════════════════════════════════════════════════════════
+  //  PROGRESS DOTS
+  // ═══════════════════════════════════════════════════════════════
+  function createDots() {
+    const c = document.getElementById('progressDots');
+    c.innerHTML = '';
+    for (let i = 0; i < totalQuestions; i++) {
+      const d = document.createElement('span');
+      d.className = 'dot' + (i === 0 ? ' active' : '');
+      c.appendChild(d);
+    }
+    document.getElementById('questionCounterCenter').textContent = '1 / 7';
+  }
+
+  function updateDots() {
+    document.querySelectorAll('#quizMode .dot').forEach((d, i) => {
+      d.classList.remove('active', 'completed');
+      if (i < currentQuestion) d.classList.add('completed');
+      if (i === currentQuestion) d.classList.add('active');
+    });
+    document.getElementById('questionCounterCenter').textContent = `${currentQuestion + 1} / ${totalQuestions}`;
+  }
+
+  // ═══════════════════════════════════════════════════════════════
+  //  ANSWER SELECTION
+  //  - Non-last question: maju ke soal berikutnya
+  //  - Last question: submit ke API
+  //  - Setelah error submit, user boleh klik ulang pilihan
+  //    (termasuk pilihan yang sudah terpilih) untuk retry.
+  // ═══════════════════════════════════════════════════════════════
+  window.selectAnswer = function(btn, type) {
+    if (isTransitioning) return;
+
+    const q = document.querySelectorAll('.question')[currentQuestion];
+    q.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
+    btn.classList.add('selected');
+    answers[currentQuestion] = type;
+    isTransitioning = true;
+
+    setTimeout(() => {
+      if (currentQuestion < totalQuestions - 1) {
+        currentQuestion++;
+        showQuestion(currentQuestion);
+        isTransitioning = false;
+      } else {
+        // Soal terakhir → submit. isTransitioning tetap true selama
+        // request berlangsung. Reset hanya di error handler.
+        showResult();
+      }
+    }, 350);
+  };
+
+  function showQuestion(i) {
+    const questions = document.querySelectorAll('.question');
+    questions.forEach(q => q.style.display = 'none');
+    questions[i].style.display = 'block';
+    const saved = answers[i];
+    questions[i].querySelectorAll('.option-btn').forEach(b => {
+      b.classList.remove('selected');
+      if (saved && b.getAttribute('onclick').includes(`'${saved}'`)) b.classList.add('selected');
+    });
+    updateDots();
+  }
+
+  // ═══════════════════════════════════════════════════════════════
+  //  API CALLS
+  // ═══════════════════════════════════════════════════════════════
+  async function submitQuizAnswers(answersArr) {
+    // Sanity check: semua soal harus terjawab
+    if (answersArr.some(a => !a)) {
+      throw new Error('Ada soal yang belum dijawab.');
+    }
+
+    const payload = {
+      answers: answersArr.map((answer, i) => ({
+        questionId: i + 1,  // 1..7
+        answer: answer      // 'A'..'E'
+      }))
+    };
+
+    const res = await fetch(`${API_BASE}/api/quiz/submit`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+
+    if (!res.ok) {
+      let msg = 'Gagal mengirim jawaban.';
+      try { const j = await res.json(); if (j && j.message) msg = j.message; } catch (e) {}
+      throw new Error(msg);
+    }
+
+    const json = await res.json();
+    if (!json.success || !json.data || !json.data.resultId) {
+      throw new Error(json.message || 'Response tidak valid.');
+    }
+    return json.data.resultId;
+  }
+
+  async function getQuizResult(resultId) {
+    const res = await fetch(`${API_BASE}/api/quiz/results/${encodeURIComponent(resultId)}`);
+    if (!res.ok) {
+      let msg = 'Gagal memuat hasil.';
+      try { const j = await res.json(); if (j && j.message) msg = j.message; } catch (e) {}
+      const err = new Error(msg);
+      err.status = res.status;
+      throw err;
+    }
+    const json = await res.json();
+    if (!json.success || !json.data) {
+      throw new Error(json.message || 'Response tidak valid.');
+    }
+    return json.data;
+  }
+
+  // ═══════════════════════════════════════════════════════════════
+  //  LOADING OVERLAY (sederhana, tanpa perlu ubah CSS)
+  // ═══════════════════════════════════════════════════════════════
+  function showQuizLoading(text) {
+    let el = document.getElementById('quizLoading');
+    if (!el) {
+      el = document.createElement('div');
+      el.id = 'quizLoading';
+      el.style.cssText =
+        'position:fixed;inset:0;background:rgba(0,0,0,0.65);' +
+        'display:flex;align-items:center;justify-content:center;' +
+        'color:#fff;font-family:inherit;font-size:16px;' +
+        'text-align:center;padding:20px;z-index:99999;';
+      document.body.appendChild(el);
+    }
+    el.textContent = text || 'Memproses...';
+    el.style.display = 'flex';
+  }
+
+  function hideQuizLoading() {
+    const el = document.getElementById('quizLoading');
+    if (el) el.style.display = 'none';
+  }
+
+  // ═══════════════════════════════════════════════════════════════
+  //  SHOW RESULT — submit ke API lalu tampilkan
+  // ═══════════════════════════════════════════════════════════════
+  async function showResult() {
+    showQuizLoading('Mengirim jawaban...');
+    document.querySelectorAll('.option-btn').forEach(b => b.disabled = true);
+
+    try {
+      // 1) Submit → dapat resultId
+      const resultId = await submitQuizAnswers(answers);
+
+      // 2) Simpan di URL + localStorage (untuk refresh)
+      const url = new URL(window.location.href);
+      url.searchParams.set('resultId', resultId);
+      window.history.replaceState({}, '', url.toString());
+
+      localStorage.setItem('quizResultId', resultId);
+      localStorage.setItem('quizUserName', userName);
+
+      // 3) Ambil hasil lengkap dari API
+      showQuizLoading('Menyiapkan hasil...');
+      const apiData = await getQuizResult(resultId);
+
+      // 4) Tampilkan
+      transitionToPage(quizPage, resultPage, () => {
+        displayResult(apiData);
+      });
+      showLogos(true, true);
+      hideQuizLoading();
+
+      // Catatan: isTransitioning sengaja tidak di-reset
+      // karena kita sudah di halaman result.
+
+    } catch (err) {
+      hideQuizLoading();
+      document.querySelectorAll('.option-btn').forEach(b => b.disabled = false);
+      isTransitioning = false;   // biarkan user retry
+      console.error('[Quiz] Submit/Get result gagal:', err);
+      alert(err.message || 'Terjadi kesalahan. Coba lagi ya.');
+    }
+  }
+
+  // ═══════════════════════════════════════════════════════════════
+  //  APPLY RESULT BACKGROUNDS
+  // ═══════════════════════════════════════════════════════════════
+  function applyResultBackgrounds(t) {
+    const bg = getResultBgSet(t);
+    if (!bg) return;
+    document.getElementById('resultSlide1').style.backgroundImage = `url(${bg.slide1})`;
+    if (bg.slide2) {
+      document.getElementById('resultSlide2').style.backgroundImage = `url(${bg.slide2})`;
+    }
+    document.getElementById('shareImageContainer').style.backgroundImage = `url(${bg.share})`;
+  }
+
+  // ═══════════════════════════════════════════════════════════════
+  //  LAYOUT (desktop: tombol di slide1, mobile: tombol di slide2)
+  // ═══════════════════════════════════════════════════════════════
+  function adjustResultLayout() {
+    const slide1 = document.getElementById('resultSlide1');
+    const slide2 = document.getElementById('resultSlide2');
+    const resultButtons = document.getElementById('resultButtons');
+    const retakeBtn = document.querySelector('#resultMode .btn-retake-small');
+    if (!slide1 || !slide2 || !resultButtons || !retakeBtn) return;
+
+    if (isDesktopViewport()) {
+      if (resultButtons.parentElement !== slide1) {
+        slide1.appendChild(resultButtons);
+        slide1.appendChild(retakeBtn);
+      }
+    } else {
+      if (resultButtons.parentElement !== slide2) {
+        slide2.appendChild(resultButtons);
+        slide2.appendChild(retakeBtn);
+      }
+    }
+  }
+
+  // ═══════════════════════════════════════════════════════════════
+  //  DISPLAY RESULT — pakai data dari API
+  // ═══════════════════════════════════════════════════════════════
+  function displayResult(apiData) {
+    const character = apiData.character || {};
+    const code = (character.code || '').toUpperCase();
+    const type = CODE_TO_TYPE[code] || 'D';   // fallback ke Knight
+    currentResultType = type;
+    currentResultSlide = 0;
+
+    // ── Hidden scoring data untuk analytics / backend / GTM ──
+    const timestamp = new Date().toISOString();
+    const scoreEl = document.getElementById('resultScoreData');
+    if (scoreEl) {
+      scoreEl.dataset.quizCompleted  = 'true';
+      scoreEl.dataset.quizResultType = code;
+      scoreEl.dataset.quizPiece      = character.name || '';
+      scoreEl.dataset.quizTotalScore = String(apiData.totalScore ?? '');
+      scoreEl.dataset.quizAnswers    = answers.join(',');
+      scoreEl.dataset.quizUserName   = userName;
+      scoreEl.dataset.quizTimestamp  = timestamp;
+    }
+
+    // Expose ke window (untuk analytics/GTM)
+    window.quizResultData = {
+      userName: userName,
+      resultId: apiData.resultId,
+      totalScore: apiData.totalScore,
+      riskProfile: apiData.riskProfile,
+      character: character,
+      answers: answers.slice(),
+      timestamp: timestamp
+    };
+
+    // ── Background + greeting ──
+    applyResultBackgrounds(type);
+    document.getElementById('shareUserName').textContent = userName;
+    adjustResultLayout();
+    goToResultSlide(0);
+    document.getElementById('userGreetingText').textContent = userName;
+
+    // ── Tombol landing ──
+    const btnLanding1 = document.getElementById('btnLanding1');
+    btnLanding1.textContent = character.name
+      ? `Investment Strategy ${character.name}`
+      : 'Investment Strategy';
+    btnLanding1.href = '#';
+    document.getElementById('btnLanding2').href = '#';
+
+    // ── Tombol share ──
+    const shareBtn = document.getElementById('btnShareMain');
+    shareBtn.className = 'btn-result';
+
+    const shareUrl = window.location.href;
+    const pieceName = character.name || 'Investor';
+    const shareText = `${userName ? userName + ', ' : ''}Hasil Kuis Kepribadianku: ${pieceName}`;
+
+    if (isMobileDevice()) {
+      shareBtn.classList.add('btn-share-ig');
+      shareBtn.innerHTML = 'Share ke Sosial Media';
+      shareBtn.onclick = async function () { await shareImageWithTemplate(); };
+    } else {
+      shareBtn.classList.add('btn-share-desktop');
+      shareBtn.innerHTML = 'Share ke WhatsApp';
+      shareBtn.onclick = function () {
+        const waText = encodeURIComponent(
+          `${shareText}\n\nMainkan F.Y.I Type dan kenali profil risiko investasimu yuk! ${shareUrl}`
+        );
+        window.open(`https://wa.me/?text=${waText}`, '_blank');
+        showToast('✅ Membuka WhatsApp...', true);
+      };
+    }
+
+    setupResultSwipe();
+    document.getElementById('toast').style.opacity = '0';
+    resultPage.scrollTop = 0;
+  }
+
+  // ═══════════════════════════════════════════════════════════════
+  //  RESIZE HANDLER
+  // ═══════════════════════════════════════════════════════════════
+  let resizeTimer = null;
+  window.addEventListener('resize', () => {
+    if (!currentResultType) return;
+    if (resultPage.classList.contains('page-hidden')) return;
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      applyResultBackgrounds(currentResultType);
+      adjustResultLayout();
+      if (isDesktopViewport()) {
+        currentResultSlide = 0;
+        document.getElementById('resultWrapper').style.transform = 'translateX(0)';
+      }
+    }, 200);
+  });
+
+  // ═══════════════════════════════════════════════════════════════
+  //  SWIPE / SLIDE RESULT
+  // ═══════════════════════════════════════════════════════════════
+  function setupResultSwipe() {
+    const container = document.getElementById('resultContainer');
+    container.removeEventListener('touchstart', handleResultTouchStart);
+    container.removeEventListener('touchend', handleResultTouchEnd);
+    container.addEventListener('touchstart', handleResultTouchStart, { passive: true });
+    container.addEventListener('touchend', handleResultTouchEnd, { passive: true });
+
+    document.querySelectorAll('.slide-indicator-result').forEach(ind => {
+      ind.addEventListener('click', function() {
+        goToResultSlide(parseInt(this.dataset.index));
+      });
+    });
+  }
+
+  function handleResultTouchStart(e) {
+    touchStartX = e.changedTouches[0].screenX;
+  }
+
+  function handleResultTouchEnd(e) {
+    if (isDesktopViewport()) return;
+    touchEndX = e.changedTouches[0].screenX;
+    if (!touchStartX) return;
+    const diff = touchStartX - touchEndX;
+    if (Math.abs(diff) > 50) {
+      if (diff > 0 && currentResultSlide === 0) goToResultSlide(1);
+      else if (diff < 0 && currentResultSlide === 1) goToResultSlide(0);
+    }
+    touchStartX = 0;
+    touchEndX = 0;
+  }
+
+  window.goToResultSlide = function(index) {
+    if (isDesktopViewport()) {
+      currentResultSlide = 0;
+      document.getElementById('resultWrapper').style.transform = 'translateX(0)';
+      updateResultIndicators();
+      return;
+    }
+    currentResultSlide = index;
+    document.getElementById('resultWrapper').style.transform = `translateX(-${currentResultSlide * 50}%)`;
+    updateResultIndicators();
+  };
+
+  function updateResultIndicators() {
+    document.querySelectorAll('.slide-indicator-result').forEach((ind, idx) => {
+      ind.classList.toggle('active', idx === currentResultSlide);
+    });
+  }
+
+  // ═══════════════════════════════════════════════════════════════
+  //  SHARE IMAGE
+  // ═══════════════════════════════════════════════════════════════
+  async function shareImageWithTemplate() {
+    showToast('Menyiapkan gambar...', true);
+    try {
+      const shareContainer = document.getElementById('shareImageContainer');
+
+      shareContainer.style.left = '0';
+      shareContainer.style.position = 'fixed';
+      shareContainer.style.zIndex = '9999';
+
+      await new Promise(resolve => setTimeout(resolve, 500));
+
+      const canvas = await html2canvas(shareContainer, {
+        backgroundColor: null,
+        scale: 2,
+        useCORS: true,
+        allowTaint: true
+      });
+
+      shareContainer.style.left = '-9999px';
+      shareContainer.style.position = 'absolute';
+      shareContainer.style.zIndex = '';
+
+      canvas.toBlob(async (blob) => {
+        const file = new File([blob], 'FYI-Result.png', { type: 'image/png' });
+        if (navigator.share && navigator.canShare && navigator.canShare({ files: [file] })) {
+          try {
+            await navigator.share({
+              title: 'Hasil Kuis Kepribadian',
+              text: 'Mainkan F.Y.I Type dan kenali profil risiko investasimu yuk!',
+              files: [file]
+            });
+            showToast('Pilih Instagram untuk share!', true);
+          } catch (err) {
+            if (err.name !== 'AbortError') {
+              downloadImage(canvas);
+              showToast('📥 Gambar diunduh! Buka IG & upload ke Story ya.', true);
+            }
+          }
+        } else {
+          downloadImage(canvas);
+          showToast('📥 Gambar diunduh! Buka IG & upload ke Story ya.', true);
+        }
+      }, 'image/png');
+    } catch (err) {
+      console.error('[Share]', err);
+      showToast('⚠️ Gagal membuat gambar. Coba screenshot manual.', false);
+    }
+  }
+
+  function downloadImage(canvas) {
+    const link = document.createElement('a');
+    link.download = 'hasil-quiz-kepribadian.png';
+    link.href = canvas.toDataURL('image/png');
+    link.click();
+  }
+
+  function showToast(text, isSuccess = true) {
+    const toastEl = document.getElementById('toast');
+    toastEl.textContent = text;
+    toastEl.style.opacity = '1';
+    toastEl.style.background = isSuccess ? 'rgba(46,125,50,0.9)' : 'rgba(183,28,28,0.9)';
+    toastEl.style.color = 'white';
+    setTimeout(() => { toastEl.style.opacity = '0'; }, 3000);
+  }
+
+  // ═══════════════════════════════════════════════════════════════
+  //  RETAKE (dipakai untuk testing; tombolnya bisa di-hide di live)
+  // ═══════════════════════════════════════════════════════════════
+  window.retakeQuiz = () => {
+    const url = new URL(window.location.href);
+    url.searchParams.delete('resultId');
+    localStorage.removeItem('quizResultId');
+    localStorage.removeItem('quizUserName');
+    window.location.replace(url.toString());
+  };
+
+  // ═══════════════════════════════════════════════════════════════
+  //  INITIAL STATE
+  // ═══════════════════════════════════════════════════════════════
+  heroPage.classList.add('page-visible');
+  [introPage, namePage, quizPage, resultPage].forEach(p => {
+    p.classList.add('page-hidden');
+  });
+
+  // ═══════════════════════════════════════════════════════════════
+  //  RESTORE FROM URL (?resultId=xxx)
+  //  - Kalau ada resultId di URL / localStorage → GET dan tampilkan
+  //  - Kalau 404 / tidak valid → bersihkan URL, balik ke hero
+  // ═══════════════════════════════════════════════════════════════
+  (async function check() {
+    const url = new URL(window.location.href);
+    const urlResultId = url.searchParams.get('resultId');
+    const storedResultId = localStorage.getItem('quizResultId');
+    const resultId = urlResultId || storedResultId;
+
+    if (!resultId) return;
+
+    try {
+      const apiData = await getQuizResult(resultId);
+
+      // Name: prefer localStorage (hasil submit sebelumnya),
+      // kalau kosong pakai placeholder kosong (tidak error)
+      userName = localStorage.getItem('quizUserName') || '';
+
+      [heroPage, introPage, namePage, quizPage].forEach(p => {
+        p.classList.add('page-hidden');
+        p.classList.remove('page-visible');
+      });
+      resultPage.classList.remove('page-hidden');
+      resultPage.classList.add('page-visible');
+      showLogos(true, true);
+      displayResult(apiData);
+
+    } catch (err) {
+      console.warn('[Quiz] Restore result gagal:', err.message, 'status:', err.status);
+      // 404 / invalid → bersihkan URL supaya user bisa mulai lagi
+      url.searchParams.delete('resultId');
+      window.history.replaceState({}, '', url.toString());
+      localStorage.removeItem('quizResultId');
+      // heroPage tetap tampil (default)
+    }
+  })();
+})();
+</script>
+</body>
+</html>
