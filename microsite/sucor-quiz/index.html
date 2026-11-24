@@ -170,7 +170,11 @@
                             <a class="btn-result" href="#" id="btnLanding1" target="_blank">Investment Strategy The Knight</a> 
                             <a class="btn-result" href="#" id="btnLanding2" target="_blank">Upgrade skill-mu di Sucorwave</a> 
                             <button class="btn-result" id="btnShareMain">Share Result ke Media Social</button>
-                            <img src="assets/img/mobile/disclaimer.png">
+                            
+                        </div>
+                        <div class="disclaimer">
+                            <span class="first-text">Investasi melalui reksa dana mengandung risiko. Sebelum memutuskan berinvestasi, calon investor wajib membaca dan memahami prospektus. Kinerja masa lalu tidak menjamin/mencerminkan kinerja di masa yang akan datang.</span>
+                            <span class="second-text">PT Sucorinvest Asset Management berizin dan diawasi oleh<br>Otoritas Jasa Keuangan</span>
                         </div>
                         <button class="btn-retake-small" onclick="retakeQuiz()">Coba Lagi</button>
                     </div>
@@ -487,17 +491,20 @@
     const slide1 = document.getElementById('resultSlide1');
     const slide2 = document.getElementById('resultSlide2');
     const resultButtons = document.getElementById('resultButtons');
+    const disclaimer = document.querySelector('#resultMode .disclaimer');
     const retakeBtn = document.querySelector('#resultMode .btn-retake-small');
-    if (!slide1 || !slide2 || !resultButtons || !retakeBtn) return;
+    if (!slide1 || !slide2 || !resultButtons || !disclaimer || !retakeBtn) return;
 
     if (isDesktopViewport()) {
       if (resultButtons.parentElement !== slide1) {
         slide1.appendChild(resultButtons);
+        slide1.appendChild(disclaimer);
         slide1.appendChild(retakeBtn);
       }
     } else {
       if (resultButtons.parentElement !== slide2) {
         slide2.appendChild(resultButtons);
+        slide2.appendChild(disclaimer);
         slide2.appendChild(retakeBtn);
       }
     }

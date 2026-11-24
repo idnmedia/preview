@@ -24,8 +24,8 @@
 
   @font-face {
     font-family: 'customFont';
-    src: url('../fonts/Newstalgic.otf') format('opentype'),
-         url('../fonts/Newstalgic.ttf') format('truetype');
+    src: url('../fonts/Newstalgic-Black.otf') format('opentype'),
+         url('../fonts/Newstalgic-Black.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -367,7 +367,6 @@
   }
   .question p {
     font-size: 1.6rem;
-    font-weight: 650;
     color: #FFD533;
     margin-bottom: 1.5rem;
     text-align: center;
@@ -597,7 +596,7 @@
     letter-spacing: 0.5px;
     z-index: 3;
     position: absolute;
-    bottom: 0px;
+    top: 0px;
     left: 50%;
     transform: translateX(-50%);
   }
@@ -605,6 +604,25 @@
     background: rgba(0, 0, 0, 0.5);
     border-color: white;
   }
+.disclaimer {
+    /* existing */
+    color: white;
+    max-width: 70%;
+    position: absolute;
+    text-align: center;
+    bottom: 10px;
+
+    /* tambahan */
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.disclaimer .first-text {
+    font-size: 5px;
+}
+.disclaimer .second-text {
+    font-size: 6px;
+}
 
   .toast-message {
     position: fixed;
@@ -703,7 +721,7 @@
 
 @media (max-height: 920px) {
     .result-buttons {
-        bottom: 6vh;
+        bottom: 7vh;
     }
     .btn-result {
         min-height: 50px;
@@ -711,7 +729,7 @@
 }
 @media (max-height: 810px) {
     .result-buttons {
-        bottom: 5vh;
+        bottom: 8vh;
     }
     .btn-result {
         min-height: 45px;
@@ -719,7 +737,7 @@
 }
 @media (max-height: 700px) {
     .result-buttons {
-        bottom: 2vh;
+        bottom: 6vh;
     }
     .btn-result {
         min-height: 35px;
@@ -729,6 +747,7 @@
   /* =========================================================
      STYLE UNTUK DESKTOP / FULLSCREEN LAYOUT
      ========================================================= */
+
   @media (min-width: 769px) {
     body {
       align-items: stretch;
@@ -776,7 +795,7 @@
     /* ===== LOGOS ===== */
     .main-logo,
     .result-logo-right {
-      width: 150px;
+      width: 110px;
       top: 1.8rem;
     }
     .main-logo { left: 1.8rem; }
@@ -866,13 +885,14 @@
     .options-grid {
       max-width: 620px;
       gap: 0.55rem;
+        align-items: center;
     }
     .option-btn {
-      min-height: 52px;
-        
+      height: 58px;
+        width: 75%;
       font-size: 0.9rem;
-      padding: 0.6rem 1.2rem;
-        background-image: url(../svg/option-bg-desktop.svg)!important;
+      padding: 1rem 1.2rem;
+        background-image: url(../svg/option-bg-mobile.svg)!important;
     }
     .quiz-disclaimer {
       bottom: 4vh;
@@ -939,8 +959,8 @@
     /* ===== OVERLAY POSITIONS (pakai % dari slide, bukan vh) ===== */
     /* Nama user — area kiri atas gambar */
     .user-greeting {
-      top: 10%;           /* sesuaikan kalau perlu naik/turun */
-      left: 18rem;
+      top: 14%;           
+      left: 14%;
       font-size: 1.35rem;
       padding: 0.5rem 1.6rem;
       white-space: nowrap;
@@ -956,7 +976,7 @@
       align-items: stretch;
       max-width: 1100px;
       width: 92%;
-      bottom: 8%;       /* sesuaikan: makin besar = makin naik dari bawah gambar */
+      bottom: 9%;       /* sesuaikan: makin besar = makin naik dari bawah gambar */
       gap: 1rem;
       padding: 0 1rem;
     }
@@ -971,9 +991,26 @@
     }
 
     /* Tombol retake — pojok bawah-tengah gambar */
-    .btn-retake-small {
-      bottom: 3%;        /* sesuaikan kalau perlu naik/turun */
+    .btn-retake-small {       /* sesuaikan kalau perlu naik/turun */
       font-size: 0.7rem;
     }
+  .disclaimer {
+      max-width: 40%;
   }
+    .disclaimer .first-text {
+        font-size: 8px;
+    }
+    .disclaimer .second-text {
+        font-size: 9px;
+    }
+
+  }
+@media (min-width: 1400px) {
+    .result-buttons {
+        bottom: 8%;
+    }
+    .disclaimer {
+      max-width: 32%;
+  }
+}
 </style>
