@@ -559,7 +559,7 @@
     position: relative;
     width: 100%;
     min-height: 36px;
-    font-size: 0.7rem;
+    font-size: 0.8rem;
     font-weight: 600;
     border: none;
     color: #000D45;
@@ -576,6 +576,7 @@
     justify-content: center;
     text-align: center;
       text-decoration: none;
+      font-family: "Funnel Display", sans-serif;
   }
   .btn-result:hover {
     transform: translateY(-2px) scale(1.02);

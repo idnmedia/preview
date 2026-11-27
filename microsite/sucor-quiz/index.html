@@ -2,14 +2,63 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover" name="viewport">
-    <title>Kuis Kepribadian – Temukan Dirimu</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
+
+    <!-- SEO -->
+    <title>Kuis Kepribadian – Temukan Dirimu | F.Y.I Type</title>
+    <meta name="description" content="Ikuti kuis kepribadian F.Y.I Type dari Sucorinvest dan temukan profil risiko investasimu. Kenali dirimu dalam 7 pertanyaan singkat.">
+    <link rel="canonical" href="https://findyourinvestingtype.com/">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+
+    <!-- Open Graph  -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://findyourinvestingtype.com/">
+    <meta property="og:title" content="Kuis Kepribadian – Temukan Dirimu | F.Y.I Type">
+    <meta property="og:description" content="Setiap investor punya strategi berbeda. Mainkan kuis F.Y.I Type dan kenali profil risiko investasimu.">
+    <meta property="og:image" content="assets/img/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="F.Y.I Type by Sucorinvest">
+    <meta property="og:locale" content="id_ID">
+
+    <!-- Twitter / X Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Kuis Kepribadian – Temukan Dirimu">
+    <meta name="twitter:description" content="Mainkan F.Y.I Type dan kenali profil risiko investasimu dalam 7 pertanyaan.">
+    <meta name="twitter:image" content="assets/img/og-image.jpg">
+    <meta name="twitter:image:alt" content="Kuis Kepribadian F.Y.I Type">
+
+    <!-- Browser / Mobile -->
+    <meta name="theme-color" content="#0F1A2C">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="F.Y.I Type">
+
+    <!-- Font & Library  -->
     <link href="https://fonts.googleapis.com" rel="preconnect">
     <link href="https://fonts.gstatic.com" rel="preconnect">
     <link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&display=swap" rel="stylesheet">
     <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
-    
+
     <link href="assets/css/style.css" rel="stylesheet">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "F.Y.I Type – Kuis Kepribadian Investasi",
+      "description": "Kuis kepribadian untuk mengenali profil risiko investasimu.",
+      "url": "https://findyourinvestingtype.com/",
+      "applicationCategory": "GameApplication",
+      "operatingSystem": "Web",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "IDR"
+      }
+    }
+    </script>
 </head>
 <body>
     
@@ -168,8 +217,8 @@
                     <div class="result-slide" id="resultSlide2">
                         <div class="result-buttons" id="resultButtons">
                             <a class="btn-result" href="#" id="btnLanding1" target="_blank">Investment Strategy The Knight</a> 
-                            <a class="btn-result" href="#" id="btnLanding2" target="_blank">Upgrade skill-mu di Sucorwave</a> 
-                            <button class="btn-result" id="btnShareMain">Share Result ke Media Social</button>
+                            <a class="btn-result" href="#" id="btnLanding2" target="_blank">Upgrade skill di Sucorwave</a> 
+                            <button class="btn-result" id="btnShareMain">Share Result ke Social Media</button>
                             
                         </div>
                         <div class="disclaimer">
@@ -266,7 +315,6 @@
   //  19 - 24  → Rook   (C)
   //  25 - 30  → Knight (D)
   //  31 - 35  → Queen  (E)
-  //  (min 7 = 7 jawaban × 1, max 35 = 7 jawaban × 5)
   // ═══════════════════════════════════════════════════════════════
   const SCORE_RANGES = [
     { min: 7,  max: 12, type: 'A' }, // King
@@ -279,10 +327,14 @@
   function getResultTypeFromScore(totalScore) {
     const found = SCORE_RANGES.find(r => totalScore >= r.min && totalScore <= r.max);
     if (found) return found.type;
-    // Fallback aman: skor di bawah 7 → King, di atas 35 → Queen
     if (totalScore < 7) return 'A';
     return 'E';
   }
+
+  // ═══════════════════════════════════════════════════════════════
+  //  NEW: STORAGE KEY UNTUK PROGRESS QUIZ
+  // ═══════════════════════════════════════════════════════════════
+  const QUIZ_PROGRESS_KEY = 'quizProgress';
 
   let currentQuestion = 0,
     totalQuestions = 7,
@@ -323,6 +375,70 @@
   function showLogos(showMain, showResultRight) {
     mainLogo.style.display = showMain ? 'flex' : 'none';
     resultLogoRight.style.display = showResultRight ? 'flex' : 'none';
+  }
+
+  // ═══════════════════════════════════════════════════════════════
+  //  NEW: QUIZ PROGRESS PERSISTENCE
+  // ═══════════════════════════════════════════════════════════════
+  function saveQuizProgress() {
+    try {
+      localStorage.setItem(QUIZ_PROGRESS_KEY, JSON.stringify({
+        currentQuestion: currentQuestion,
+        answers: answers,
+        userName: userName
+      }));
+    } catch (e) {
+      // localStorage penuh / disabled → diamkan saja
+    }
+  }
+
+  function clearQuizProgress() {
+    try { localStorage.removeItem(QUIZ_PROGRESS_KEY); } catch (e) {}
+  }
+
+  /**
+   * Dipanggil saat init. Return true kalau berhasil restore,
+   * false kalau tidak ada progress / data tidak valid.
+   */
+  function restoreQuizProgress() {
+    try {
+      const raw = localStorage.getItem(QUIZ_PROGRESS_KEY);
+      if (!raw) return false;
+
+      const p = JSON.parse(raw);
+      if (!p || typeof p !== 'object') return false;
+      if (!p.userName || typeof p.userName !== 'string') return false;
+      if (!Array.isArray(p.answers)) return false;
+
+      // Rebuild answers array sesuai totalQuestions
+      const restored = new Array(totalQuestions).fill(null);
+      for (let i = 0; i < totalQuestions && i < p.answers.length; i++) {
+        if (typeof p.answers[i] === 'string') restored[i] = p.answers[i];
+      }
+
+      // Set state
+      userName = p.userName;
+      answers = restored;
+      const cq = Number(p.currentQuestion);
+      currentQuestion = Math.max(0, Math.min(isNaN(cq) ? 0 : cq, totalQuestions - 1));
+      isTransitioning = false;
+
+      // Pindah UI ke halaman quiz
+      [heroPage, introPage, namePage].forEach(pg => {
+        pg.classList.add('page-hidden');
+        pg.classList.remove('page-visible');
+      });
+      quizPage.classList.remove('page-hidden');
+      quizPage.classList.add('page-visible');
+      showLogos(true, false);
+
+      createDots();
+      showQuestion(currentQuestion);
+      return true;
+    } catch (e) {
+      console.warn('[Quiz] Restore progress gagal:', e);
+      return false;
+    }
   }
 
   // === PAGE TRANSITION SYSTEM ===
@@ -369,6 +485,12 @@
   document.getElementById('btnStartQuiz').addEventListener('click', () => {
     transitionToPage(introPage, namePage);
     showLogos(true, false);
+    // NEW: prefill nama kalau sebelumnya sudah pernah input
+    const savedName = localStorage.getItem('quizUserName');
+    if (savedName) {
+      const nameInput = document.getElementById('userNameInput');
+      if (nameInput) nameInput.value = savedName;
+    }
   });
 
   window.submitName = () => {
@@ -384,6 +506,10 @@
       return;
     }
     userName = n;
+
+    // NEW: simpan nama + progress awal
+    try { localStorage.setItem('quizUserName', n); } catch (e) {}
+
     transitionToPage(namePage, quizPage);
     showLogos(true, false);
     currentQuestion = 0;
@@ -391,6 +517,7 @@
     isTransitioning = false;
     createDots();
     showQuestion(0);
+    saveQuizProgress(); // NEW
   };
 
   function createDots() {
@@ -424,6 +551,7 @@
       if (currentQuestion < totalQuestions - 1) {
         currentQuestion++;
         showQuestion(currentQuestion);
+        saveQuizProgress(); // NEW: persist progress setiap pindah soal
         isTransitioning = false;
       } else {
         showResult();
@@ -450,6 +578,9 @@
   //  Total 7 jawaban → skor 7 s/d 35
   // ═══════════════════════════════════════════════════════════════
   function showResult() {
+    // NEW: simpan state terakhir sebelum render result
+    saveQuizProgress();
+
     // 1) Hitung total skor dari SEMUA jawaban
     let totalScore = 0;
     answers.forEach(a => {
@@ -466,9 +597,12 @@
     localStorage.setItem("quizResultType", final);
     localStorage.setItem("quizUserName", userName);
     localStorage.setItem("quizPiece", d.piece);
-    localStorage.setItem("quizPieceScore", String(d.score));      // skor piece hasil (King=1 ... Queen=5)
-    localStorage.setItem("quizTotalScore", String(totalScore));   // TOTAL skor semua jawaban (7-35)
-    localStorage.setItem("quizAnswers", answers.join(','));       // jawaban mentah
+    localStorage.setItem("quizPieceScore", String(d.score));
+    localStorage.setItem("quizTotalScore", String(totalScore));
+    localStorage.setItem("quizAnswers", answers.join(','));
+
+    // NEW: sudah sampai result → progress quiz tidak perlu lagi
+    clearQuizProgress();
 
     transitionToPage(quizPage, resultPage, () => {
       displayResult(final);
@@ -520,11 +654,10 @@
     // ═══════════════════════════════════════════════════════════════
     const timestamp = new Date().toISOString();
 
-    // Ambil dari localStorage (disimpan di showResult)
     const savedAnswersStr = localStorage.getItem('quizAnswers') || '';
     const savedAnswersArr = savedAnswersStr ? savedAnswersStr.split(',') : [];
     const totalScore = parseInt(localStorage.getItem('quizTotalScore') || '0', 10)
-                       || (d.score * 7); // fallback: kalau localStorage hilang
+                       || (d.score * 7);
     const pieceScore = d.score;
 
     const scoreEl = document.getElementById('resultScoreData');
@@ -539,29 +672,19 @@
       scoreEl.dataset.quizTimestamp  = timestamp;
     }
 
-    // Expose ke window → backend / GTM / analytics bisa akses langsung
     window.quizResultData = {
       completed:  true,
       resultType: t,
       piece:      d.piece,
-      pieceScore: pieceScore,   // skor piece hasil (King=1 ... Queen=5)
-      totalScore: totalScore,   // SUM semua 7 jawaban (7-35)
+      pieceScore: pieceScore,
+      totalScore: totalScore,
       answers:    savedAnswersArr,
       userName:   userName,
       timestamp:  timestamp
     };
 
-    // Kirim ke backend (AKTIFKAN kalau endpoint sudah siap)
-    // fetch('https://api.domainkamu.com/quiz-submit', {
-    //   method: 'POST',
-    //   headers: { 'Content-Type': 'application/json' },
-    //   body: JSON.stringify(window.quizResultData)
-    // }).catch(err => console.warn('⚠️ Gagal kirim ke backend:', err));
-    // ═══════════════════════════════════════════════════════════════
-
     applyResultBackgrounds(t);
 
-    // Share image: cukup nama user (result sudah ada di background)
     document.getElementById('shareUserName').textContent = userName;
 
     adjustResultLayout();
@@ -570,8 +693,6 @@
     document.getElementById('userGreetingText').textContent = userName;
 
     const shareUrl = window.location.href;
-
-    // WA share pakai piece
     const shareText = `${userName ? userName + ', ' : ''}Hasil Kuis Kepribadianku: ${d.piece}`;
 
     const btnLanding1 = document.getElementById('btnLanding1');
@@ -584,7 +705,7 @@
 
     if (isMobileDevice()) {
       shareBtn.classList.add('btn-share-ig');
-      shareBtn.innerHTML = 'Share ke Sosial Media';
+      shareBtn.innerHTML = 'Share Result ke Sosial Media';
       shareBtn.onclick = async function() { await shareImageWithTemplate(); };
     } else {
       shareBtn.classList.add('btn-share-desktop');
@@ -731,6 +852,7 @@
   }
 
   window.retakeQuiz = () => { 
+    // localStorage.clear() juga menghapus quizProgress → aman
     localStorage.clear();
     location.reload(); 
   };
@@ -741,7 +863,14 @@
     p.classList.add('page-hidden');
   });
 
+  // ═══════════════════════════════════════════════════════════════
+  //  RESTORE PRIORITY:
+  //    1) quizCompleted === 'true' → tampilkan result
+  //    2) ada quizProgress → lanjutkan quiz dari soal terakhir
+  //    3) default → hero
+  // ═══════════════════════════════════════════════════════════════
   (function check() {
+    // 1) Result
     if (localStorage.getItem("quizCompleted") === "true") {
       const t = localStorage.getItem("quizResultType");
       if (t && resultData[t]) {
@@ -755,10 +884,18 @@
         resultPage.classList.add('page-visible');
         showLogos(true, true);
         displayResult(t);
+        return;
       }
     }
+
+    // 2) Progress quiz
+    if (restoreQuizProgress()) {
+      return;
+    }
+
+    // 3) Default → hero
   })();
 })();
-    </script>
+</script>
 </body>
 </html>

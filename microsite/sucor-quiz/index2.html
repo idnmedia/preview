@@ -2,14 +2,63 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover" name="viewport">
-    <title>Kuis Kepribadian – Temukan Dirimu</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
+
+    <!-- SEO -->
+    <title>Kuis Kepribadian – Temukan Dirimu | F.Y.I Type</title>
+    <meta name="description" content="Ikuti kuis kepribadian F.Y.I Type dari Sucorinvest dan temukan profil risiko investasimu. Kenali dirimu dalam 7 pertanyaan singkat.">
+    <link rel="canonical" href="https://findyourinvestingtype.com/">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+
+    <!-- Open Graph  -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://findyourinvestingtype.com/">
+    <meta property="og:title" content="Kuis Kepribadian – Temukan Dirimu | F.Y.I Type">
+    <meta property="og:description" content="Setiap investor punya strategi berbeda. Mainkan kuis F.Y.I Type dan kenali profil risiko investasimu.">
+    <meta property="og:image" content="assets/img/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="F.Y.I Type by Sucorinvest">
+    <meta property="og:locale" content="id_ID">
+
+    <!-- Twitter / X Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Kuis Kepribadian – Temukan Dirimu">
+    <meta name="twitter:description" content="Mainkan F.Y.I Type dan kenali profil risiko investasimu dalam 7 pertanyaan.">
+    <meta name="twitter:image" content="assets/img/og-image.jpg">
+    <meta name="twitter:image:alt" content="Kuis Kepribadian F.Y.I Type">
+
+    <!-- Browser / Mobile -->
+    <meta name="theme-color" content="#0F1A2C">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="F.Y.I Type">
+
+    <!-- Font & Library  -->
     <link href="https://fonts.googleapis.com" rel="preconnect">
     <link href="https://fonts.gstatic.com" rel="preconnect">
     <link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&display=swap" rel="stylesheet">
     <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
-    
+
     <link href="assets/css/style.css" rel="stylesheet">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "F.Y.I Type – Kuis Kepribadian Investasi",
+      "description": "Kuis kepribadian untuk mengenali profil risiko investasimu.",
+      "url": "https://findyourinvestingtype.com/",
+      "applicationCategory": "GameApplication",
+      "operatingSystem": "Web",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "IDR"
+      }
+    }
+    </script>
 </head>
 <body>
     
@@ -189,8 +238,6 @@
 (function() {
   // ═══════════════════════════════════════════════════════════════
   //  RESULT BACKGROUNDS
-  //  Key A/B/C/D/E dipetakan dari character.code API:
-  //  KING→A, PAWN→B, ROOK→C, KNIGHT→D, QUEEN→E
   // ═══════════════════════════════════════════════════════════════
   const resultBackgrounds = {
     A: {
@@ -255,7 +302,6 @@
   // ═══════════════════════════════════════════════════════════════
   const API_BASE = 'https://api.findyourinvestingtype.com';
 
-  // character.code dari API → key background (A/B/C/D/E)
   const CODE_TO_TYPE = {
     KING:   'A',
     PAWN:   'B',
@@ -265,6 +311,11 @@
   };
 
   // ═══════════════════════════════════════════════════════════════
+  //  NEW: STORAGE KEYS
+  // ═══════════════════════════════════════════════════════════════
+  const QUIZ_PROGRESS_KEY = 'quizProgress';   // { currentQuestion, answers, userName }
+
+  // ═══════════════════════════════════════════════════════════════
   //  STATE
   // ═══════════════════════════════════════════════════════════════
   let currentQuestion = 0,
@@ -272,7 +323,7 @@
     answers = new Array(7).fill(null),
     isTransitioning = false,
     userName = "",
-    currentResultType = null,   // A/B/C/D/E (untuk background)
+    currentResultType = null,
     currentResultSlide = 0;
 
   // ═══════════════════════════════════════════════════════════════
@@ -313,6 +364,74 @@
   function showLogos(showMain, showResultRight) {
     mainLogo.style.display = showMain ? 'flex' : 'none';
     resultLogoRight.style.display = showResultRight ? 'flex' : 'none';
+  }
+
+  // ═══════════════════════════════════════════════════════════════
+  //  NEW: QUIZ PROGRESS PERSISTENCE
+  // ═══════════════════════════════════════════════════════════════
+  function saveQuizProgress() {
+    try {
+      localStorage.setItem(QUIZ_PROGRESS_KEY, JSON.stringify({
+        currentQuestion: currentQuestion,
+        answers: answers,
+        userName: userName
+      }));
+    } catch (e) {
+      // localStorage penuh / disabled → diamkan saja
+    }
+  }
+
+  function clearQuizProgress() {
+    try { localStorage.removeItem(QUIZ_PROGRESS_KEY); } catch (e) {}
+  }
+
+  /**
+   * Dipanggil saat init. Mengembalikan true kalau berhasil restore,
+   * false kalau tidak ada progress / data tidak valid.
+   */
+  function restoreQuizProgress() {
+    try {
+      const raw = localStorage.getItem(QUIZ_PROGRESS_KEY);
+      if (!raw) return false;
+
+      const p = JSON.parse(raw);
+      if (!p || typeof p !== 'object') return false;
+      if (!p.userName || typeof p.userName !== 'string') return false;
+      if (!Array.isArray(p.answers)) return false;
+
+      // Rebuild answers array dengan panjang sesuai totalQuestions
+      const restored = new Array(totalQuestions).fill(null);
+      for (let i = 0; i < totalQuestions && i < p.answers.length; i++) {
+        if (typeof p.answers[i] === 'string') restored[i] = p.answers[i];
+      }
+
+      // Minimal harus ada 1 jawaban, kalau kosong semua berarti user
+      // belum benar-benar mulai — biarkan mulai dari awal.
+      if (restored.every(a => !a)) return false;
+
+      // Set state
+      userName = p.userName;
+      answers = restored;
+      const cq = Number(p.currentQuestion);
+      currentQuestion = Math.max(0, Math.min(isNaN(cq) ? 0 : cq, totalQuestions - 1));
+      isTransitioning = false;
+
+      // Pindah UI ke halaman quiz
+      [heroPage, introPage, namePage].forEach(pg => {
+        pg.classList.add('page-hidden');
+        pg.classList.remove('page-visible');
+      });
+      quizPage.classList.remove('page-hidden');
+      quizPage.classList.add('page-visible');
+      showLogos(true, false);
+
+      createDots();
+      showQuestion(currentQuestion);
+      return true;
+    } catch (e) {
+      console.warn('[Quiz] Restore progress gagal:', e);
+      return false;
+    }
   }
 
   // ═══════════════════════════════════════════════════════════════
@@ -361,6 +480,12 @@
   document.getElementById('btnStartQuiz').addEventListener('click', () => {
     transitionToPage(introPage, namePage);
     showLogos(true, false);
+    // NEW: prefill nama kalau sebelumnya sudah pernah input
+    const savedName = localStorage.getItem('quizUserName');
+    if (savedName) {
+      const nameInput = document.getElementById('userNameInput');
+      if (nameInput) nameInput.value = savedName;
+    }
   });
 
   // ═══════════════════════════════════════════════════════════════
@@ -380,6 +505,11 @@
     }
     document.getElementById('nameError').textContent = '';
     userName = n;
+
+    // NEW: simpan nama + progress supaya nama tetap ada kalau user balik
+    try { localStorage.setItem('quizUserName', n); } catch (e) {}
+    saveQuizProgress();
+
     transitionToPage(namePage, quizPage);
     showLogos(true, false);
     currentQuestion = 0;
@@ -387,6 +517,7 @@
     isTransitioning = false;
     createDots();
     showQuestion(0);
+    saveQuizProgress(); // NEW: simpan state awal (Q1)
   };
 
   // ═══════════════════════════════════════════════════════════════
@@ -414,10 +545,6 @@
 
   // ═══════════════════════════════════════════════════════════════
   //  ANSWER SELECTION
-  //  - Non-last question: maju ke soal berikutnya
-  //  - Last question: submit ke API
-  //  - Setelah error submit, user boleh klik ulang pilihan
-  //    (termasuk pilihan yang sudah terpilih) untuk retry.
   // ═══════════════════════════════════════════════════════════════
   window.selectAnswer = function(btn, type) {
     if (isTransitioning) return;
@@ -432,10 +559,9 @@
       if (currentQuestion < totalQuestions - 1) {
         currentQuestion++;
         showQuestion(currentQuestion);
+        saveQuizProgress(); // NEW: persist progress setiap pindah soal
         isTransitioning = false;
       } else {
-        // Soal terakhir → submit. isTransitioning tetap true selama
-        // request berlangsung. Reset hanya di error handler.
         showResult();
       }
     }, 350);
@@ -457,15 +583,14 @@
   //  API CALLS
   // ═══════════════════════════════════════════════════════════════
   async function submitQuizAnswers(answersArr) {
-    // Sanity check: semua soal harus terjawab
     if (answersArr.some(a => !a)) {
       throw new Error('Ada soal yang belum dijawab.');
     }
 
     const payload = {
       answers: answersArr.map((answer, i) => ({
-        questionId: i + 1,  // 1..7
-        answer: answer      // 'A'..'E'
+        questionId: i + 1,
+        answer: answer
       }))
     };
 
@@ -505,7 +630,7 @@
   }
 
   // ═══════════════════════════════════════════════════════════════
-  //  LOADING OVERLAY (sederhana, tanpa perlu ubah CSS)
+  //  LOADING OVERLAY
   // ═══════════════════════════════════════════════════════════════
   function showQuizLoading(text) {
     let el = document.getElementById('quizLoading');
@@ -529,17 +654,16 @@
   }
 
   // ═══════════════════════════════════════════════════════════════
-  //  SHOW RESULT — submit ke API lalu tampilkan
+  //  SHOW RESULT
   // ═══════════════════════════════════════════════════════════════
   async function showResult() {
+    saveQuizProgress(); // NEW: simpan state terakhir sebelum submit
     showQuizLoading('Mengirim jawaban...');
     document.querySelectorAll('.option-btn').forEach(b => b.disabled = true);
 
     try {
-      // 1) Submit → dapat resultId
       const resultId = await submitQuizAnswers(answers);
 
-      // 2) Simpan di URL + localStorage (untuk refresh)
       const url = new URL(window.location.href);
       url.searchParams.set('resultId', resultId);
       window.history.replaceState({}, '', url.toString());
@@ -547,24 +671,22 @@
       localStorage.setItem('quizResultId', resultId);
       localStorage.setItem('quizUserName', userName);
 
-      // 3) Ambil hasil lengkap dari API
       showQuizLoading('Menyiapkan hasil...');
       const apiData = await getQuizResult(resultId);
 
-      // 4) Tampilkan
+      // NEW: bersihkan progress quiz karena sudah sampai result
+      clearQuizProgress();
+
       transitionToPage(quizPage, resultPage, () => {
         displayResult(apiData);
       });
       showLogos(true, true);
       hideQuizLoading();
 
-      // Catatan: isTransitioning sengaja tidak di-reset
-      // karena kita sudah di halaman result.
-
     } catch (err) {
       hideQuizLoading();
       document.querySelectorAll('.option-btn').forEach(b => b.disabled = false);
-      isTransitioning = false;   // biarkan user retry
+      isTransitioning = false;
       console.error('[Quiz] Submit/Get result gagal:', err);
       alert(err.message || 'Terjadi kesalahan. Coba lagi ya.');
     }
@@ -584,7 +706,7 @@
   }
 
   // ═══════════════════════════════════════════════════════════════
-  //  LAYOUT (desktop: tombol di slide1, mobile: tombol di slide2)
+  //  LAYOUT
   // ═══════════════════════════════════════════════════════════════
   function adjustResultLayout() {
     const slide1 = document.getElementById('resultSlide1');
@@ -609,18 +731,16 @@
     }
   }
 
-
   // ═══════════════════════════════════════════════════════════════
-  //  DISPLAY RESULT — pakai data dari API
+  //  DISPLAY RESULT
   // ═══════════════════════════════════════════════════════════════
   function displayResult(apiData) {
     const character = apiData.character || {};
     const code = (character.code || '').toUpperCase();
-    const type = CODE_TO_TYPE[code] || 'D';   // fallback ke Knight
+    const type = CODE_TO_TYPE[code] || 'D';
     currentResultType = type;
     currentResultSlide = 0;
 
-    // ── Hidden scoring data untuk analytics / backend / GTM ──
     const timestamp = new Date().toISOString();
     const scoreEl = document.getElementById('resultScoreData');
     if (scoreEl) {
@@ -633,7 +753,6 @@
       scoreEl.dataset.quizTimestamp  = timestamp;
     }
 
-    // Expose ke window (untuk analytics/GTM)
     window.quizResultData = {
       userName: userName,
       resultId: apiData.resultId,
@@ -644,14 +763,12 @@
       timestamp: timestamp
     };
 
-    // ── Background + greeting ──
     applyResultBackgrounds(type);
     document.getElementById('shareUserName').textContent = userName;
     adjustResultLayout();
     goToResultSlide(0);
     document.getElementById('userGreetingText').textContent = userName;
 
-    // ── Tombol landing ──
     const btnLanding1 = document.getElementById('btnLanding1');
     btnLanding1.textContent = character.name
       ? `Investment Strategy ${character.name}`
@@ -659,7 +776,6 @@
     btnLanding1.href = '#';
     document.getElementById('btnLanding2').href = '#';
 
-    // ── Tombol share ──
     const shareBtn = document.getElementById('btnShareMain');
     shareBtn.className = 'btn-result';
 
@@ -669,7 +785,7 @@
 
     if (isMobileDevice()) {
       shareBtn.classList.add('btn-share-ig');
-      shareBtn.innerHTML = 'Share ke Sosial Media';
+      shareBtn.innerHTML = 'Share Result ke Sosial Media';
       shareBtn.onclick = async function () { await shareImageWithTemplate(); };
     } else {
       shareBtn.classList.add('btn-share-desktop');
@@ -827,13 +943,15 @@
   }
 
   // ═══════════════════════════════════════════════════════════════
-  //  RETAKE (dipakai untuk testing; tombolnya bisa di-hide di live)
+  //  RETAKE
   // ═══════════════════════════════════════════════════════════════
   window.retakeQuiz = () => {
     const url = new URL(window.location.href);
     url.searchParams.delete('resultId');
+    // NEW: hapus semua data quiz supaya benar-benar mulai dari 0
     localStorage.removeItem('quizResultId');
     localStorage.removeItem('quizUserName');
+    clearQuizProgress();
     window.location.replace(url.toString());
   };
 
@@ -846,9 +964,11 @@
   });
 
   // ═══════════════════════════════════════════════════════════════
-  //  RESTORE FROM URL (?resultId=xxx)
-  //  - Kalau ada resultId di URL / localStorage → GET dan tampilkan
-  //  - Kalau 404 / tidak valid → bersihkan URL, balik ke hero
+  //  RESTORE FROM URL (?resultId=xxx) / PROGRESS QUIZ
+  //  Priority:
+  //    1) ada resultId → tampilkan result
+  //    2) ada progress quiz → lanjutkan quiz
+  //    3) default → hero
   // ═══════════════════════════════════════════════════════════════
   (async function check() {
     const url = new URL(window.location.href);
@@ -856,32 +976,39 @@
     const storedResultId = localStorage.getItem('quizResultId');
     const resultId = urlResultId || storedResultId;
 
-    if (!resultId) return;
+    // 1) Restore result kalau ada resultId
+    if (resultId) {
+      try {
+        const apiData = await getQuizResult(resultId);
 
-    try {
-      const apiData = await getQuizResult(resultId);
+        userName = localStorage.getItem('quizUserName') || '';
 
-      // Name: prefer localStorage (hasil submit sebelumnya),
-      // kalau kosong pakai placeholder kosong (tidak error)
-      userName = localStorage.getItem('quizUserName') || '';
-
-      [heroPage, introPage, namePage, quizPage].forEach(p => {
-        p.classList.add('page-hidden');
-        p.classList.remove('page-visible');
-      });
-      resultPage.classList.remove('page-hidden');
-      resultPage.classList.add('page-visible');
-      showLogos(true, true);
-      displayResult(apiData);
-
-    } catch (err) {
-      console.warn('[Quiz] Restore result gagal:', err.message, 'status:', err.status);
-      // 404 / invalid → bersihkan URL supaya user bisa mulai lagi
-      url.searchParams.delete('resultId');
-      window.history.replaceState({}, '', url.toString());
-      localStorage.removeItem('quizResultId');
-      // heroPage tetap tampil (default)
+        [heroPage, introPage, namePage, quizPage].forEach(p => {
+          p.classList.add('page-hidden');
+          p.classList.remove('page-visible');
+        });
+        resultPage.classList.remove('page-hidden');
+        resultPage.classList.add('page-visible');
+        showLogos(true, true);
+        displayResult(apiData);
+        return; // sudah tampil result
+      } catch (err) {
+        console.warn('[Quiz] Restore result gagal:', err.message, 'status:', err.status);
+        url.searchParams.delete('resultId');
+        window.history.replaceState({}, '', url.toString());
+        localStorage.removeItem('quizResultId');
+        // jatuh ke langkah berikutnya (restore progress / hero)
+      }
     }
+
+    // 2) Kalau tidak ada result, coba restore progress quiz
+    const restored = restoreQuizProgress();
+    if (restored) {
+      // sudah pindah ke quiz page pada currentQuestion
+      return;
+    }
+
+    // 3) Kalau tidak ada progress, tetap di hero (default)
   })();
 })();
 </script>
